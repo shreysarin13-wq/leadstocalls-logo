@@ -4,13 +4,16 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Scale Your Garden-Room Business</title>
-  
-<!-- ───────────── FAVICONS ───────────── -->
-    <link rel="shortcut icon"             href="https://www.leadstocalls.com/favicon.ico" />
-<!-- ──────────────────────────────────── -->
 
+  <!-- ──────────────  FAVICONS  ────────────── -->
+  <link rel="icon" type="image/png"    href="https://www.leadstocalls.com/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="https://www.leadstocalls.com/favicon.svg" />
+  <link rel="shortcut icon"             href="https://www.leadstocalls.com/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="https://www.leadstocalls.com/apple-touch-icon.png" />
+  <link rel="manifest" href="https://www.leadstocalls.com/site.webmanifest" />
+  <!-- ──────────────────────────────────────── -->
 
-  <!-- Google Fonts -->
+  <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
   <style>
@@ -23,80 +26,57 @@
     body{
       font-family:'Poppins',sans-serif;
       color:var(--light);
-      background:linear-gradient(135deg,#072230 0%,#164A2F 50%,#5BBE42 100%);
+      background:linear-gradient(135deg,#072230 0%,#164A2F 50%,#5BBE42 100%) fixed;
       min-height:100vh;
       display:flex;
       flex-direction:column;
     }
-    /* HERO SECTION */
-    .hero{
-      text-align:center;
-      padding:7rem 1rem 5rem;
-      max-width:1100px;
-      margin:auto;
-    }
-    h1{
-      font-size:clamp(2rem,4.5vw,3.5rem);
-      font-weight:700;
-      line-height:1.15;
-      margin-bottom:1rem;
-    }
+
+    /* ---------- HERO ---------- */
+    .hero{text-align:center;padding:7rem 1rem 5rem;max-width:1100px;margin:auto;}
+    h1{font-size:clamp(2rem,4.5vw,3.5rem);font-weight:700;line-height:1.15;margin-bottom:1rem;}
     h1 span{color:var(--brand-green);}
-    .sub{
-      font-size:clamp(1.1rem,2.5vw,1.5rem);
-      font-weight:400;
-      opacity:.9;
-      margin-bottom:2.5rem;
-    }
-    .btn{
-      background:var(--brand-green);
-      color:var(--dark);
-      padding:1rem 2.5rem;
-      font-weight:600;
-      border:none;
-      border-radius:50px;
-      cursor:pointer;
-      transition:all .25s ease;
-      text-decoration:none;
-      display:inline-block;
-    }
-    .btn:hover{
-      transform:translateY(-3px);
-      box-shadow:0 10px 20px rgba(0,0,0,.25);
-    }
-    /* CALENDAR SECTION */
-    #booking{
-      background:#f7f7f7;
-      color:var(--dark);
-      padding:4rem 1rem;
-      flex:1 0 auto;
-    }
-    #booking h2{
-      text-align:center;
-      font-size:2rem;
-      margin-bottom:2rem;
-      font-weight:600;
-    }
-    #cal-wrapper{
+    .sub{font-size:clamp(1.1rem,2.5vw,1.5rem);font-weight:400;opacity:.9;margin-bottom:2.5rem;}
+    .btn{background:var(--brand-green);color:var(--dark);padding:1rem 2.5rem;font-weight:600;border:none;border-radius:50px;cursor:pointer;transition:.25s;text-decoration:none;display:inline-block;}
+    .btn:hover{transform:translateY(-3px);box-shadow:0 10px 20px rgba(0,0,0,.25);}
+
+    /* ---------- SLIDE SECTION ---------- */
+    #slides{padding:4rem 1rem;background:#f1f5f4;color:var(--dark);}
+    #slides h2{text-align:center;font-size:2rem;font-weight:600;margin-bottom:2rem;}
+    .slides-wrapper{
+      position:relative;
       width:100%;
       max-width:1000px;
-      height:650px;
       margin:auto;
-      background:#fff;
-      border-radius:12px;
+      /* 16:9 aspect ratio = 56.25% */
+      padding-bottom:56.25%;
+      height:0;
       overflow:hidden;
+      border-radius:12px;
       box-shadow:0 10px 25px rgba(0,0,0,.1);
+      background:#000;
     }
-    /* SMOOTH SCROLL */
-    html{
-      scroll-behavior:smooth;
+    .slides-wrapper iframe{
+      position:absolute;
+      top:0;left:0;
+      width:100%;height:100%;
+      border:0;
     }
 
-    /* small fade-up animation */
-    @keyframes fadeUp{
-      from{opacity:0;transform:translateY(25px)}
-      to{opacity:1;transform:translateY(0)}
+    /* ---------- CALENDAR SECTION ---------- */
+    #booking{background:#f7f7f7;color:var(--dark);padding:4rem 1rem;flex:1 0 auto;}
+    #booking h2{text-align:center;font-size:2rem;font-weight:600;margin-bottom:2rem;}
+    #cal-wrapper{
+      width:100%;max-width:1000px;height:650px;margin:auto;
+      background:#fff;border-radius:12px;overflow:hidden;
+      box-shadow:0 10px 25px rgba(0,0,0,.1);
     }
+
+    /* SMOOTH SCROLL */
+    html{scroll-behavior:smooth;}
+
+    /* Fade-up animation for hero */
+    @keyframes fadeUp{from{opacity:0;transform:translateY(25px)}to{opacity:1;transform:translateY(0)}}
     .hero>*{animation:fadeUp .8s ease forwards;opacity:0}
     .hero h1{animation-delay:.2s}
     .hero .sub{animation-delay:.4s}
@@ -118,6 +98,15 @@
     <a href="#booking" class="btn">Book My Free 15-Minute Call</a>
   </header>
 
+  <!-- GOOGLE SLIDES SECTION -->
+  <section id="slides">
+    <h2>See the 3-Step Profit Blueprint 👇</h2>
+    <div class="slides-wrapper">
+      <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vTaCABYqeyoJ8wd9c0vicY_qG0SWqEABeclQY6DENjfif_ld-O5tCsJC_Lfw8NtvyyvLUA-YKlNFvWJ/pubembed?start=false&loop=false&delayms=3000"
+              allowfullscreen mozallowfullscreen webkitallowfullscreen></iframe>
+    </div>
+  </section>
+
   <!-- CALENDAR SECTION -->
   <section id="booking">
     <h2>Reserve Your 15-Minute Profit-Map Call</h2>
@@ -126,51 +115,23 @@
     </div>
   </section>
 
-  <!-- Cal.com embed script -->
+  <!-- Cal.com embed -->
   <script>
-    (function (C, A, L) {
-      let p = function (a, ar) { a.q.push(ar); };
-      let d = C.document;
-      C.Cal = C.Cal || function () {
-        let cal = C.Cal, ar = arguments;
-        if (!cal.loaded) {
-          cal.ns = {}; cal.q = cal.q || [];
-          d.head.appendChild(d.createElement("script")).src = A;
-          cal.loaded = true;
-        }
-        if (ar[0] === L) {
-          const api = function () { p(api, arguments); };
-          const namespace = ar[1]; api.q = api.q || [];
-          if (typeof namespace === "string") {
-            cal.ns[namespace] = cal.ns[namespace] || api;
-            p(cal.ns[namespace], ar); p(cal, ["initNamespace", namespace]);
-          } else p(cal, ar);
-          return;
-        }
-        p(cal, ar);
-      };
-    })(window, "https://app.cal.com/embed/embed.js", "init");
+    (function (C,A,L){let p=(a,ar)=>a.q.push(ar);let d=C.document;C.Cal=C.Cal||function(){let cal=C.Cal,ar=arguments;if(!cal.loaded){cal.ns={};cal.q=cal.q||[];d.head.appendChild(d.createElement("script")).src=A;cal.loaded=true;}if(ar[0]===L){const api=function(){p(api,arguments);};const ns=ar[1];api.q=api.q||[];if(typeof ns==="string"){cal.ns[ns]=cal.ns[ns]||api;p(cal.ns[ns],ar);p(cal,["initNamespace",ns]);}else p(cal,ar);return;}p(cal,ar);};})(window,"https://app.cal.com/embed/embed.js","init");
 
-    Cal("init", "15-minute-profit-map-call", { origin: "https://app.cal.com" });
+    Cal("init","15-minute-profit-map-call",{origin:"https://app.cal.com"});
 
-    Cal.ns["15-minute-profit-map-call"]("inline", {
-      elementOrSelector: "#my-cal-inline-15-minute-profit-map-call",
-      config: { layout: "month_view" },
-      calLink: "leadstocalls/15-minute-profit-map-call"
+    Cal.ns["15-minute-profit-map-call"]("inline",{
+      elementOrSelector:"#my-cal-inline-15-minute-profit-map-call",
+      config:{layout:"month_view"},
+      calLink:"leadstocalls/15-minute-profit-map-call"
     });
 
-    Cal.ns["15-minute-profit-map-call"]("ui", {
-      hideEventTypeDetails: false,
-      layout: "month_view"
+    Cal.ns["15-minute-profit-map-call"]("ui",{
+      hideEventTypeDetails:false,
+      layout:"month_view"
     });
   </script>
 
 </body>
-
 </html>
-
-
-
-
-
-
