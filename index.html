@@ -1,30 +1,3 @@
-Of course! I've made the requested changes and applied some "smart decisions" to ensure the user experience is smooth and the functionality is robust.
-
-Here is a summary of the key changes I've made:
-
-1.  **Form Submission with `formsubmit.co`**:
-    *   Both the hero "mini-form" and the main intake form now have the `action` attribute set to post to your email `hello@leadstocalls.com` via `formsubmit.co`.
-    *   I've added hidden inputs (`_subject`, `_captcha`) to customize the email subject line (to help you distinguish between a quick lead and a full intake) and to disable the captcha for a smoother user experience.
-    *   All necessary form fields have been given `name` attributes so their data will be captured and sent.
-
-2.  **Smart Calendar Integration**:
-    *   Instead of just dropping the calendar on the page, I've integrated it into the lead flow. The detailed intake form is shown first.
-    *   **After a user successfully fills out and submits the form**, the form itself is hidden, and the `Cal.com` booking calendar is revealed in its place.
-    *   This is a much better user experience. It captures their detailed project information *first*, and then immediately gives them the opportunity to book a call, striking while the iron is hot.
-
-3.  **JavaScript Updates**:
-    *   The JavaScript for the main form has been updated to handle this new "hide form, show calendar" logic upon successful submission.
-    *   The JS for the hero mini-form has been simplified, as `formsubmit.co` will now handle the submission process. After submitting the mini-form, the user is automatically scrolled down to the main form section (`#form`) to encourage them to provide more details.
-
-4.  **Minor UX Fix**: I noticed a small bug in the FAQ accordion JavaScript where the plus/minus icon wasn't toggling correctly and fixed it.
-
-Here is your updated website code. You can copy and paste this entire block to replace your old file.
-
----
-
-### Updated HTML Code
-
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -736,4 +709,3 @@ Here is your updated website code. You can copy and paste this entire block to r
   </script>
 </body>
 </html>
-```
