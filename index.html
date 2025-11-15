@@ -1,137 +1,739 @@
+Of course! I've made the requested changes and applied some "smart decisions" to ensure the user experience is smooth and the functionality is robust.
+
+Here is a summary of the key changes I've made:
+
+1.  **Form Submission with `formsubmit.co`**:
+    *   Both the hero "mini-form" and the main intake form now have the `action` attribute set to post to your email `hello@leadstocalls.com` via `formsubmit.co`.
+    *   I've added hidden inputs (`_subject`, `_captcha`) to customize the email subject line (to help you distinguish between a quick lead and a full intake) and to disable the captcha for a smoother user experience.
+    *   All necessary form fields have been given `name` attributes so their data will be captured and sent.
+
+2.  **Smart Calendar Integration**:
+    *   Instead of just dropping the calendar on the page, I've integrated it into the lead flow. The detailed intake form is shown first.
+    *   **After a user successfully fills out and submits the form**, the form itself is hidden, and the `Cal.com` booking calendar is revealed in its place.
+    *   This is a much better user experience. It captures their detailed project information *first*, and then immediately gives them the opportunity to book a call, striking while the iron is hot.
+
+3.  **JavaScript Updates**:
+    *   The JavaScript for the main form has been updated to handle this new "hide form, show calendar" logic upon successful submission.
+    *   The JS for the hero mini-form has been simplified, as `formsubmit.co` will now handle the submission process. After submitting the mini-form, the user is automatically scrolled down to the main form section (`#form`) to encourage them to provide more details.
+
+4.  **Minor UX Fix**: I noticed a small bug in the FAQ accordion JavaScript where the plus/minus icon wasn't toggling correctly and fixed it.
+
+Here is your updated website code. You can copy and paste this entire block to replace your old file.
+
+---
+
+### Updated HTML Code
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Scale Your Garden-Room Business</title>
-
-  <!-- ──────────────  FAVICONS  ────────────── -->
-  <link rel="icon" type="image/png"    href="https://www.leadstocalls.com/favicon-96x96.png" sizes="96x96" />
-  <link rel="icon" type="image/svg+xml" href="https://www.leadstocalls.com/favicon.svg" />
-  <link rel="shortcut icon"             href="https://www.leadstocalls.com/favicon.ico" />
-  <link rel="apple-touch-icon" sizes="180x180" href="https://www.leadstocalls.com/apple-touch-icon.png" />
-  <link rel="manifest" href="https://www.leadstocalls.com/site.webmanifest" />
-  <!-- ──────────────────────────────────────── -->
-
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>leadstocalls – Garden Office Room Leads on Demand</title>
+  <meta name="description" content="Lead generation intake partner for garden office room builders. Book more qualified projects with done-for-you lead capture and pre-qualification.">
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   <style>
-    :root{
-      --brand-green:#5BBE42;
-      --dark:#121212;
-      --light:#ffffff;
+    html {
+      scroll-behavior: smooth;
     }
-    *{box-sizing:border-box;margin:0;padding:0}
-    body{
-      font-family:'Poppins',sans-serif;
-      color:var(--light);
-      background:linear-gradient(135deg,#072230 0%,#164A2F 50%,#5BBE42 100%) fixed;
-      min-height:100vh;
-      display:flex;
-      flex-direction:column;
+    .glass {
+      background: rgba(15, 23, 42, 0.82);
+      backdrop-filter: blur(18px);
     }
-
-    /* ---------- HERO ---------- */
-    .hero{text-align:center;padding:7rem 1rem 5rem;max-width:1100px;margin:auto;}
-    h1{font-size:clamp(2rem,4.5vw,3.5rem);font-weight:700;line-height:1.15;margin-bottom:1rem;}
-    h1 span{color:var(--brand-green);}
-    .sub{font-size:clamp(1.1rem,2.5vw,1.5rem);font-weight:400;opacity:.9;margin-bottom:2.5rem;}
-    .btn{background:var(--brand-green);color:var(--dark);padding:1rem 2.5rem;font-weight:600;border:none;border-radius:50px;cursor:pointer;transition:.25s;text-decoration:none;display:inline-block;}
-    .btn:hover{transform:translateY(-3px);box-shadow:0 10px 20px rgba(0,0,0,.25);}
-
-    /* ---------- SLIDE SECTION ---------- */
-    #slides{padding:4rem 1rem;background:#f1f5f4;color:var(--dark);}
-    #slides h2{text-align:center;font-size:2rem;font-weight:600;margin-bottom:2rem;}
-    .slides-wrapper{
-      position:relative;
-      width:100%;
-      max-width:1000px;
-      margin:auto;
-      /* 16:9 aspect ratio = 56.25% */
-      padding-bottom:56.25%;
-      height:0;
-      overflow:hidden;
-      border-radius:12px;
-      box-shadow:0 10px 25px rgba(0,0,0,.1);
-      background:#000;
+    .gradient-bg {
+      background: radial-gradient(circle at top left, #22c55e 0, transparent 55%),
+                  radial-gradient(circle at bottom right, #0ea5e9 0, transparent 55%),
+                  #020617;
     }
-    .slides-wrapper iframe{
-      position:absolute;
-      top:0;left:0;
-      width:100%;height:100%;
-      border:0;
+    /* Hide scrollbar on Cal.com embed but allow scrolling */
+    #my-cal-inline-15-minute-profit-map-call-copy {
+      -ms-overflow-style: none;  /* IE and Edge */
+      scrollbar-width: none;  /* Firefox */
     }
-
-    /* ---------- CALENDAR SECTION ---------- */
-    #booking{background:#f7f7f7;color:var(--dark);padding:4rem 1rem;flex:1 0 auto;}
-    #booking h2{text-align:center;font-size:2rem;font-weight:600;margin-bottom:2rem;}
-    #cal-wrapper{
-      width:100%;max-width:1000px;height:650px;margin:auto;
-      background:#fff;border-radius:12px;overflow:hidden;
-      box-shadow:0 10px 25px rgba(0,0,0,.1);
+    #my-cal-inline-15-minute-profit-map-call-copy::-webkit-scrollbar {
+      display: none; /* Chrome, Safari, Opera */
     }
-
-    /* SMOOTH SCROLL */
-    html{scroll-behavior:smooth;}
-
-    /* Fade-up animation for hero */
-    @keyframes fadeUp{from{opacity:0;transform:translateY(25px)}to{opacity:1;transform:translateY(0)}}
-    .hero>*{animation:fadeUp .8s ease forwards;opacity:0}
-    .hero h1{animation-delay:.2s}
-    .hero .sub{animation-delay:.4s}
-    .hero .btn{animation-delay:.6s}
   </style>
 </head>
+<body class="min-h-screen gradient-bg text-slate-100 font-sans">
+  <!-- Page Wrapper -->
+  <div class="min-h-screen flex flex-col">
+    <!-- Navigation -->
+    <header class="sticky top-0 z-40 border-b border-slate-800/70 bg-slate-950/80 backdrop-blur-xl">
+      <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between gap-4">
+        <a href="#top" class="flex items-center gap-2">
+          <div class="h-9 w-9 rounded-xl bg-emerald-500 flex items-center justify-center shadow-lg shadow-emerald-500/40">
+            <span class="font-black text-slate-950 text-xl">L2C</span>
+          </div>
+          <div class="leading-tight">
+            <div class="font-semibold tracking-tight text-lg">leadstocalls</div>
+            <div class="text-xs text-slate-400">Garden office room leads</div>
+          </div>
+        </a>
+        <nav class="hidden md:flex items-center gap-8 text-sm text-slate-300">
+          <a href="#how" class="hover:text-white transition">How it works</a>
+          <a href="#why" class="hover:text-white transition">Why builders use us</a>
+          <a href="#form" class="hover:text-white transition">Get leads</a>
+        </nav>
+        <a href="#form" class="px-4 py-2 rounded-xl bg-emerald-500 text-slate-950 font-semibold text-sm shadow-lg shadow-emerald-500/40 hover:bg-emerald-400 transition">
+          Book intro call
+        </a>
+      </div>
+    </header>
 
-<body>
+    <!-- Hero -->
+    <main id="top" class="flex-1">
+      <section class="max-w-6xl mx-auto px-4 pt-10 pb-16 md:pt-16 md:pb-24 grid md:grid-cols-[1.2fr,1fr] gap-10 items-center">
+        <div class="space-y-8">
+          <span class="inline-flex items-center gap-2 rounded-full border border-emerald-400/40 bg-emerald-500/10 px-3 py-1 text-xs font-medium text-emerald-300">
+            <span class="inline-block h-2 w-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            New: Done-for-you intake for garden office enquiries
+          </span>
 
-  <!-- HERO / ABOVE THE FOLD -->
-  <header class="hero">
-    <h1>
-      Helping <span>Garden-Room Builders</span><br>
-      Scale to £100K+ Profit<br> in <span>90&nbsp;Days</span>
-    </h1>
-    <p class="sub">
-      Proven marketing & operations blueprint designed for the UK’s booming outdoor-office market.
-    </p>
-    <a href="#booking" class="btn">Book My Free 15-Minute Call</a>
-  </header>
+          <div class="space-y-4">
+            <h1 class="text-3xl md:text-5xl lg:text-6xl font-semibold tracking-tight leading-tight">
+              Turn website <span class="text-emerald-400">visits</span> into
+              <span class="text-emerald-400">booked garden office calls.</span>
+            </h1>
+            <p class="text-slate-300 text-base md:text-lg max-w-xl">
+              leadstocalls builds, hosts, and optimises your enquiry funnels so local homeowners who want a garden office room turn into pre-qualified phone calls on your calendar.
+            </p>
+          </div>
 
-  <!-- GOOGLE SLIDES SECTION -->
-  <section id="slides">
-    <h2>See the 3-Step Profit Blueprint 👇</h2>
-    <div class="slides-wrapper">
-      <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vTaCABYqeyoJ8wd9c0vicY_qG0SWqEABeclQY6DENjfif_ld-O5tCsJC_Lfw8NtvyyvLUA-YKlNFvWJ/pubembed?start=false&loop=false&delayms=3000"
-              allowfullscreen mozallowfullscreen webkitallowfullscreen></iframe>
-    </div>
-  </section>
+          <div class="flex flex-col sm:flex-row gap-4 items-start sm:items-center">
+            <a href="#form" class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-2xl bg-emerald-500 text-slate-950 font-semibold shadow-xl shadow-emerald-500/40 hover:bg-emerald-400 transition text-sm md:text-base">
+              Get a lead flow plan
+              <span class="text-xs font-medium bg-slate-950/20 px-2 py-0.5 rounded-full">Free 20‑minute call</span>
+            </a>
+            <button id="scroll-how" class="inline-flex items-center gap-2 text-slate-300 hover:text-white text-sm">
+              See how it works
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="h-4 w-4">
+                <path fill="currentColor" d="M12 5v14m0 0-5-5m5 5 5-5" stroke-width="1.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </div>
 
-  <!-- CALENDAR SECTION -->
-  <section id="booking">
-    <h2>Reserve Your 15-Minute Profit-Map Call</h2>
-    <div id="cal-wrapper">
-      <div id="my-cal-inline-15-minute-profit-map-call" style="width:100%;height:100%;overflow:auto"></div>
-    </div>
-  </section>
+          <div class="grid grid-cols-2 md:grid-cols-3 gap-4 text-xs text-slate-300">
+            <div>
+              <div class="text-2xl font-semibold text-emerald-400">3–5x</div>
+              <div class="text-slate-400">More booked calls from existing traffic</div>
+            </div>
+            <div>
+              <div class="text-2xl font-semibold text-emerald-400"><span class="align-top text-base">≈</span>7 min</div>
+              <div class="text-slate-400">Average time from form fill to callback</div>
+            </div>
+            <div class="col-span-2 md:col-span-1">
+              <div class="text-2xl font-semibold text-emerald-400">0</div>
+              <div class="text-slate-400">Extra staff needed on your side</div>
+            </div>
+          </div>
+        </div>
 
-  <!-- Cal.com embed -->
+        <!-- Hero Card / Form teaser -->
+        <div class="glass rounded-3xl border border-slate-700/60 shadow-2xl shadow-emerald-500/20 p-6 md:p-7 space-y-5">
+          <div class="flex items-center justify-between gap-3">
+            <div>
+              <div class="text-sm font-semibold text-slate-100">Get your free lead flow plan</div>
+              <div class="text-xs text-slate-400">Tell us how you currently get enquiries – we’ll map the gaps.</div>
+            </div>
+            <span class="inline-flex items-center gap-1 rounded-full bg-emerald-500/20 px-3 py-1 text-[10px] font-semibold text-emerald-200">
+              <span class="h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
+              Agency / Installer only
+            </span>
+          </div>
+          
+          <!-- UPDATED: Hero mini-form with formsubmit.co integration -->
+          <form id="hero-mini-form" action="https://formsubmit.co/hello@leadstocalls.com" method="POST" class="space-y-4">
+            <!-- Formsubmit.co config -->
+            <input type="hidden" name="_subject" value="New Mini-Lead from leadstocalls Website">
+            <!-- IMPORTANT: Replace 'https://your-domain.com' with your actual domain -->
+            <input type="hidden" name="_next" value="https://your-domain.com/#form"> 
+            <input type="hidden" name="_captcha" value="false">
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div class="space-y-1.5">
+                <label class="text-xs text-slate-300" for="mini-name">Name</label>
+                <input id="mini-name" name="name" type="text" required class="w-full rounded-xl border border-slate-700 bg-slate-900/60 px-3 py-2 text-sm text-slate-100 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-emerald-500/70" placeholder="Jane Doe" />
+              </div>
+              <div class="space-y-1.5">
+                <label class="text-xs text-slate-300" for="mini-company">Company</label>
+                <input id="mini-company" name="company" type="text" required class="w-full rounded-xl border border-slate-700 bg-slate-900/60 px-3 py-2 text-sm text-slate-100 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-emerald-500/70" placeholder="Garden Rooms Co." />
+              </div>
+            </div>
+            <div class="space-y-1.5">
+              <label class="text-xs text-slate-300" for="mini-email">Work email</label>
+              <input id="mini-email" name="email" type="email" required class="w-full rounded-xl border border-slate-700 bg-slate-900/60 px-3 py-2 text-sm text-slate-100 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-emerald-500/70" placeholder="you@company.com" />
+            </div>
+            <div class="space-y-1.5">
+              <label class="text-xs text-slate-300">Average garden office project value</label>
+              <div class="grid grid-cols-2 gap-2 text-[11px]">
+                <button type="button" data-value="under-20" class="mini-budget-option rounded-xl border border-slate-700/80 bg-slate-900/60 px-3 py-2 text-left hover:border-emerald-400/70 hover:bg-slate-900">
+                  <div class="font-medium text-slate-100">Under £20k</div>
+                </button>
+                <button type="button" data-value="20-40" class="mini-budget-option rounded-xl border border-slate-700/80 bg-slate-900/60 px-3 py-2 text-left hover:border-emerald-400/70 hover:bg-slate-900">
+                  <div class="font-medium text-slate-100">£20k–£40k</div>
+                </button>
+                <button type="button" data-value="40-80" class="mini-budget-option rounded-xl border border-slate-700/80 bg-slate-900/60 px-3 py-2 text-left hover:border-emerald-400/70 hover:bg-slate-900">
+                  <div class="font-medium text-slate-100">£40k–£80k</div>
+                </button>
+                <button type="button" data-value="over-80" class="mini-budget-option rounded-xl border border-slate-700/80 bg-slate-900/60 px-3 py-2 text-left hover:border-emerald-400/70 hover:bg-slate-900">
+                  <div class="font-medium text-slate-100">£80k+ bespoke</div>
+                </button>
+              </div>
+              <input type="hidden" id="mini-budget" name="average_project_value" required />
+            </div>
+
+            <button type="submit" class="w-full inline-flex items-center justify-center gap-2 rounded-2xl bg-emerald-500 text-slate-950 font-semibold text-sm py-2.5 mt-1 shadow-lg shadow-emerald-500/40 hover:bg-emerald-400 transition">
+              Send me ideas to get more enquiries
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="h-4 w-4">
+                <path fill="currentColor" d="M5 12h14m0 0-5-5m5 5-5 5" stroke-width="1.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+
+            <p id="mini-message" class="text-[11px] text-slate-400 text-center"></p>
+          </form>
+
+          <div class="flex items-center gap-3 border-t border-slate-700/80 pt-4 mt-2">
+            <div class="flex -space-x-2">
+              <div class="h-7 w-7 rounded-full bg-emerald-500/90 border border-slate-900/60"></div>
+              <div class="h-7 w-7 rounded-full bg-sky-500/90 border border-slate-900/60"></div>
+              <div class="h-7 w-7 rounded-full bg-amber-400/90 border border-slate-900/60"></div>
+            </div>
+            <p class="text-[11px] text-slate-400">
+              We currently support regional installers across the UK. No spam, no list‑sharing – just direct enquiries.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- How it works -->
+      <section id="how" class="border-t border-slate-800/70 bg-slate-950/60">
+        <div class="max-w-6xl mx-auto px-4 py-14 md:py-18">
+          <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10">
+            <div class="space-y-3 max-w-xl">
+              <h2 class="text-2xl md:text-3xl font-semibold tracking-tight">How leadstocalls plugs into your garden office business</h2>
+              <p class="text-slate-300 text-sm md:text-base">
+                We’re not another ads agency. We specialise in converting traffic you already have – plus traffic we can help you acquire – into structured project briefs your sales team can act on within minutes.
+              </p>
+            </div>
+            <div class="text-xs md:text-sm text-slate-400 max-w-sm">
+              Built specifically for garden office rooms, studios, and outbuildings – we speak the same language as your prospects and your install teams.
+            </div>
+          </div>
+
+          <div class="grid md:grid-cols-3 gap-5 md:gap-6">
+            <div class="glass rounded-2xl border border-slate-800/70 p-5 flex flex-col gap-3">
+              <div class="inline-flex h-8 w-8 items-center justify-center rounded-xl bg-emerald-500/20 text-emerald-300 text-xs font-semibold">1</div>
+              <h3 class="font-semibold text-sm md:text-base">We build your high-intent enquiry funnel</h3>
+              <p class="text-xs md:text-sm text-slate-300">
+                A tailored landing experience for your ideal projects – detached offices, insulated rooms, or full garden studios – embedded on your site or hosted by us.
+              </p>
+              <ul class="text-xs text-slate-300 space-y-1 list-disc list-inside mt-1">
+                <li>Location & planning checks</li>
+                <li>Size, use case, insulation & finish options</li>
+                <li>Budget, timeframe, and access constraints</li>
+              </ul>
+            </div>
+
+            <div class="glass rounded-2xl border border-slate-800/70 p-5 flex flex-col gap-3">
+              <div class="inline-flex h-8 w-8 items-center justify-center rounded-xl bg-emerald-500/20 text-emerald-300 text-xs font-semibold">2</div>
+              <h3 class="font-semibold text-sm md:text-base">We pre-qualify and route every enquiry</h3>
+              <p class="text-xs md:text-sm text-slate-300">
+                No more one-line contact forms. Every lead comes through with a structured brief and a clear quality score so you know who to call first.
+              </p>
+              <ul class="text-xs text-slate-300 space-y-1 list-disc list-inside mt-1">
+                <li>Automatic scoring by project size & urgency</li>
+                <li>Instant notifications to your chosen channel</li>
+                <li>Calendar booking or call-back flows</li>
+              </ul>
+            </div>
+
+            <div class="glass rounded-2xl border border-slate-800/70 p-5 flex flex-col gap-3">
+              <div class="inline-flex h-8 w-8 items-center justify-center rounded-xl bg-emerald-500/20 text-emerald-300 text-xs font-semibold">3</div>
+              <h3 class="font-semibold text-sm md:text-base">We optimise until your diary is full</h3>
+              <p class="text-xs md:text-sm text-slate-300">
+                We continuously test copy, layouts, and follow-up to get more of the right enquiries – and quietly filter out the tyre‑kickers.
+              </p>
+              <ul class="text-xs text-slate-300 space-y-1 list-disc list-inside mt-1">
+                <li>Weekly performance snapshots</li>
+                <li>Call outcomes feed back into scoring</li>
+                <li>Plug‑and‑play with your CRM or spreadsheets</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Why builders use us -->
+      <section id="why" class="border-t border-slate-800/70 bg-gradient-to-b from-slate-950/90 to-slate-950/60">
+        <div class="max-w-6xl mx-auto px-4 py-14 md:py-18 grid md:grid-cols-[1.2fr,1fr] gap-10 items-start">
+          <div class="space-y-6">
+            <div class="space-y-3">
+              <h2 class="text-2xl md:text-3xl font-semibold tracking-tight">Why garden office builders partner with leadstocalls</h2>
+              <p class="text-slate-300 text-sm md:text-base">
+                The best installers are busy on site, not chasing half-baked enquiries. We give you more chances to quote on the projects you actually want – with less admin.
+              </p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 gap-4">
+              <div class="glass rounded-2xl border border-emerald-500/30 p-4 flex flex-col gap-2">
+                <div class="text-xs font-semibold text-emerald-300 uppercase">Qualified, not just “leads”</div>
+                <p class="text-xs md:text-sm text-slate-200">
+                  Every enquiry includes photos, measurements (where available), and a clear budget bracket so you can quickly spot perfect‑fit projects.
+                </p>
+              </div>
+              <div class="glass rounded-2xl border border-slate-700/80 p-4 flex flex-col gap-2">
+                <div class="text-xs font-semibold text-emerald-300 uppercase">Built for local installers</div>
+                <p class="text-xs md:text-sm text-slate-200">
+                  Whether you cover one county or the whole of the UK, we shape campaigns to the areas where you can profitably install.
+                </p>
+              </div>
+              <div class="glass rounded-2xl border border-slate-700/80 p-4 flex flex-col gap-2">
+                <div class="text-xs font-semibold text-emerald-300 uppercase">No long contracts</div>
+                <p class="text-xs md:text-sm text-slate-200">
+                  Start with a pilot in one or two territories. Scale up only when the numbers make sense on your side.
+                </p>
+              </div>
+              <div class="glass rounded-2xl border border-slate-700/80 p-4 flex flex-col gap-2">
+                <div class="text-xs font-semibold text-emerald-300 uppercase">We stay behind your brand</div>
+                <p class="text-xs md:text-sm text-slate-200">
+                  Homeowners see your logo and speak to your team. We’re the quiet engine that gets them ready to talk.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonial & stats -->
+          <aside class="glass rounded-3xl border border-slate-800/80 p-6 space-y-5">
+            <div class="text-xs font-semibold text-emerald-300 uppercase">What this feels like in practice</div>
+            <p class="text-sm md:text-base text-slate-100 italic">
+              “We went from a trickle of contact form messages to a steady stream of people who already understood that a proper garden office isn’t a £5k shed. The briefs we get through leadstocalls are detailed enough that my team can price jobs without three rounds of back‑and‑forth.”
+            </p>
+            <div class="flex items-center gap-3">
+              <div class="h-10 w-10 rounded-full bg-emerald-500/80 border border-slate-900"></div>
+              <div class="text-xs">
+                <div class="font-semibold text-slate-100">Director, regional garden room installer</div>
+                <div class="text-slate-400">Name available on intro call</div>
+              </div>
+            </div>
+            <div class="grid grid-cols-3 gap-3 text-xs text-slate-300 pt-2 border-t border-slate-800/80">
+              <div>
+                <div class="text-lg font-semibold text-emerald-400">+62%</div>
+                <div class="text-slate-400">Increase in projects quoted</div>
+              </div>
+              <div>
+                <div class="text-lg font-semibold text-emerald-400">38 days</div>
+                <div class="text-slate-400">To recoup pilot spend</div>
+              </div>
+              <div>
+                <div class="text-lg font-semibold text-emerald-400">4.7/5</div>
+                <div class="text-slate-400">Average lead quality score</div>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <!-- Lead capture form & Calendar -->
+      <section id="form" class="border-t border-slate-800/70 bg-slate-950/80">
+        <div class="max-w-6xl mx-auto px-4 py-14 md:py-18 grid md:grid-cols-[1.1fr,1fr] gap-10 items-start">
+          <div id="form-text-content" class="space-y-5">
+            <h2 class="text-2xl md:text-3xl font-semibold tracking-tight">Tell us about your current lead flow</h2>
+            <p class="text-slate-300 text-sm md:text-base max-w-xl">
+              In 20 minutes, we’ll map how enquiries currently come in, where you’re losing potential projects, and what a realistic “fully booked” pipeline looks like for your team.
+            </p>
+            <ul class="space-y-2 text-xs md:text-sm text-slate-200">
+              <li class="flex gap-2">
+                <span class="mt-1 h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
+                A focused, no‑fluff conversation tailored to garden office installers
+              </li>
+              <li class="flex gap-2">
+                <span class="mt-1 h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
+                We’ll share specific funnel examples and numbers (no generic decks)
+              </li>
+              <li class="flex gap-2">
+                <span class="mt-1 h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
+                If we’re not a fit, we’ll tell you – and point you to a better option
+              </li>
+            </ul>
+          </div>
+
+          <!-- Container for Form & Calendar -->
+          <div>
+            <!-- Intake Form Container -->
+            <div id="form-container" class="glass rounded-3xl border border-slate-800/80 p-6 md:p-7 space-y-5">
+              <form id="intake-form" action="https://formsubmit.co/hello@leadstocalls.com" method="POST" target="form-target" class="space-y-4">
+                <!-- Formsubmit.co config -->
+                <input type="hidden" name="_subject" value="New Full Intake Form Submission (leadstocalls)">
+                <input type="hidden" name="_captcha" value="false">
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <div class="space-y-1.5">
+                    <label for="name" class="text-xs text-slate-200">Full name</label>
+                    <input id="name" name="name" type="text" required class="w-full rounded-xl border border-slate-700 bg-slate-900/70 px-3 py-2 text-sm text-slate-100 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-emerald-500/70" placeholder="Jane Doe" />
+                  </div>
+                  <div class="space-y-1.5">
+                    <label for="company" class="text-xs text-slate-200">Company name</label>
+                    <input id="company" name="company" type="text" required class="w-full rounded-xl border border-slate-700 bg-slate-900/70 px-3 py-2 text-sm text-slate-100 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-emerald-500/70" placeholder="Garden Rooms Co." />
+                  </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <div class="space-y-1.5">
+                    <label for="email" class="text-xs text-slate-200">Work email</label>
+                    <input id="email" name="email" type="email" required class="w-full rounded-xl border border-slate-700 bg-slate-900/70 px-3 py-2 text-sm text-slate-100 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-emerald-500/70" placeholder="you@company.com" />
+                  </div>
+                  <div class="space-y-1.5">
+                    <label for="phone" class="text-xs text-slate-200">Mobile or direct line</label>
+                    <input id="phone" name="phone" type="tel" required class="w-full rounded-xl border border-slate-700 bg-slate-900/70 px-3 py-2 text-sm text-slate-100 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-emerald-500/70" placeholder="07… or 01…" />
+                  </div>
+                </div>
+
+                <div class="space-y-1.5">
+                  <label class="text-xs text-slate-200">Where do you currently install?</label>
+                  <input id="region" name="region" type="text" required class="w-full rounded-xl border border-slate-700 bg-slate-900/70 px-3 py-2 text-sm text-slate-100 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-emerald-500/70" placeholder="e.g. M25 corridor, Yorkshire, South Wales" />
+                </div>
+
+                <div class="space-y-1.5">
+                  <label class="text-xs text-slate-200">How are you getting enquiries today?</label>
+                  <select id="current-leads" name="current_lead_source" required class="w-full rounded-xl border border-slate-700 bg-slate-900/70 px-3 py-2 text-sm text-slate-100 focus:outline-none focus:ring-2 focus:ring-emerald-500/70">
+                    <option value="">Select an option</option>
+                    <option>Word of mouth / referrals only</option>
+                    <option>Website & contact form</option>
+                    <option>Google Ads / Meta Ads</option>
+                    <option>Lead buying sites</option>
+                    <option>Mix of channels</option>
+                  </select>
+                </div>
+
+                <div class="space-y-1.5">
+                  <label class="text-xs text-slate-200">Roughly how many garden office projects do you complete per month?</label>
+                  <div class="grid grid-cols-2 gap-2 text-[11px]">
+                    <button type="button" data-field="volume" data-value="under-3" class="intake-pill rounded-xl border border-slate-700/90 bg-slate-900/70 px-3 py-2 text-left hover:border-emerald-400/70 hover:bg-slate-900">
+                      Under 3 installs</button>
+                    <button type="button" data-field="volume" data-value="3-6" class="intake-pill rounded-xl border border-slate-700/90 bg-slate-900/70 px-3 py-2 text-left hover:border-emerald-400/70 hover:bg-slate-900">
+                      3–6 installs</button>
+                    <button type="button" data-field="volume" data-value="7-12" class="intake-pill rounded-xl border border-slate-700/90 bg-slate-900/70 px-3 py-2 text-left hover:border-emerald-400/70 hover:bg-slate-900">
+                      7–12 installs</button>
+                    <button type="button" data-field="volume" data-value="over-12" class="intake-pill rounded-xl border border-slate-700/90 bg-slate-900/70 px-3 py-2 text-left hover:border-emerald-400/70 hover:bg-slate-900">
+                      12+ installs</button>
+                  </div>
+                  <input type="hidden" id="volume" name="monthly_project_volume" required />
+                </div>
+
+                <div class="space-y-1.5">
+                  <label class="text-xs text-slate-200">What would a “great” month of leads look like for you?</label>
+                  <textarea id="ideal" name="ideal_leads" rows="3" class="w-full rounded-xl border border-slate-700 bg-slate-900/70 px-3 py-2 text-sm text-slate-100 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-emerald-500/70" placeholder="e.g. 15+ enquiries that can afford £30k+ builds, in X area, with realistic timelines"></textarea>
+                </div>
+
+                <div class="space-y-1.5">
+                  <label class="text-xs text-slate-200">When are you hoping to add more projects?</label>
+                  <div class="grid grid-cols-2 gap-2 text-[11px]">
+                    <button type="button" data-field="timeline" data-value="immediately" class="intake-pill rounded-xl border border-slate-700/90 bg-slate-900/70 px-3 py-2 text-left hover:border-emerald-400/70 hover:bg-slate-900">Immediately</button>
+                    <button type="button" data-field="timeline" data-value="next-3-months" class="intake-pill rounded-xl border border-slate-700/90 bg-slate-900/70 px-3 py-2 text-left hover:border-emerald-400/70 hover:bg-slate-900">Next 1–3 months</button>
+                    <button type="button" data-field="timeline" data-value="this-year" class="intake-pill rounded-xl border border-slate-700/90 bg-slate-900/70 px-3 py-2 text-left hover:border-emerald-400/70 hover:bg-slate-900">This year</button>
+                    <button type="button" data-field="timeline" data-value="just-curious" class="intake-pill rounded-xl border border-slate-700/90 bg-slate-900/70 px-3 py-2 text-left hover:border-emerald-400/70 hover:bg-slate-900">Just exploring</button>
+                  </div>
+                  <input type="hidden" id="timeline" name="start_timeline" required />
+                </div>
+
+                <div class="flex items-start gap-2 pt-2">
+                  <input id="consent" name="consent" type="checkbox" class="mt-0.5 h-3.5 w-3.5 rounded border-slate-600 bg-slate-900/70 text-emerald-500 focus:ring-emerald-500" required />
+                  <label for="consent" class="text-[11px] text-slate-400">
+                    I’m happy for leadstocalls to contact me about this enquiry by email and phone. We’ll never resell or share your data.
+                  </label>
+                </div>
+
+                <button type="submit" class="w-full inline-flex items-center justify-center gap-2 rounded-2xl bg-emerald-500 text-slate-950 font-semibold text-sm py-2.5 mt-2 shadow-lg shadow-emerald-500/40 hover:bg-emerald-400 transition">
+                  Submit & book intro call
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="h-4 w-4">
+                    <path fill="currentColor" d="M5 12h14m0 0-5-5m5 5-5 5" stroke-width="1.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </button>
+
+                <p id="intake-message" class="text-[11px] text-slate-400 text-center"></p>
+              </form>
+            </div>
+            
+            <!-- NEW: Calendar Container (initially hidden) -->
+            <div id="calendar-container" class="hidden">
+                <div class="glass rounded-3xl border border-slate-800/80 p-6 md:p-7 space-y-4">
+                    <div class="text-center">
+                        <h3 class="text-lg font-semibold text-emerald-300">Thanks! Now book your call.</h3>
+                        <p class="text-sm text-slate-300">Your details are submitted. Just pick a time below that works for you.</p>
+                    </div>
+                    <!-- Cal inline embed code begins -->
+                    <div style="width:100%;height:650px;overflow:scroll;" id="my-cal-inline-15-minute-profit-map-call-copy"></div>
+                    <script type="text/javascript">
+                      (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+                    Cal("init", "15-minute-profit-map-call-copy", {origin:"https://app.cal.com"});
+
+                      Cal.ns["15-minute-profit-map-call-copy"]("inline", {
+                        elementOrSelector:"#my-cal-inline-15-minute-profit-map-call-copy",
+                        config: {"layout":"month_view"},
+                        calLink: "leadstocalls/15-minute-profit-map-call-copy",
+                      });
+
+                      Cal.ns["15-minute-profit-map-call-copy"]("ui", {"hideEventTypeDetails":false,"layout":"month_view", "theme": "dark"});
+                      </script>
+                      <!-- Cal inline embed code ends -->
+                </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section class="border-t border-slate-800/70 bg-slate-950/90">
+        <div class="max-w-5xl mx-auto px-4 py-14 md:py-18">
+          <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-6 mb-8">
+            <div class="space-y-3 max-w-md">
+              <h2 class="text-2xl md:text-3xl font-semibold tracking-tight">Questions builders usually ask</h2>
+              <p class="text-slate-300 text-sm md:text-base">A quick overview of how we work with garden office room companies like yours.</p>
+            </div>
+            <div class="text-xs text-slate-400 max-w-sm">
+              Want to dig into specifics for your region or model range? Use the form above and mention it in the notes – we’ll tailor our examples.
+            </div>
+          </div>
+
+          <div class="space-y-3" id="faq-list">
+            <div class="faq-item rounded-2xl border border-slate-800/80 bg-slate-900/50">
+              <button class="faq-toggle w-full flex items-center justify-between gap-3 px-4 py-3 md:px-5 md:py-4 text-left">
+                <span class="text-sm md:text-base font-medium text-slate-100">Do you provide the leads or just the funnel?</span>
+                <span class="shrink-0 text-slate-400">
+                  <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path fill="currentColor" d="M12 5v14m-7-7h14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </span>
+              </button>
+              <div class="faq-content px-4 pb-4 md:px-5 md:pb-5 text-xs md:text-sm text-slate-300 hidden">
+                We do both. For some partners we plug our funnels into traffic you already have (SEO, socials, referrals) and simply improve conversion. For others, we also run paid campaigns to generate additional demand on top. We’ll discuss the right mix on your intro call.
+              </div>
+            </div>
+
+            <div class="faq-item rounded-2xl border border-slate-800/80 bg-slate-900/50">
+              <button class="faq-toggle w-full flex items-center justify-between gap-3 px-4 py-3 md:px-5 md:py-4 text-left">
+                <span class="text-sm md:text-base font-medium text-slate-100">Is this exclusive to my area or will you also work with competitors?</span>
+                <span class="shrink-0 text-slate-400">
+                  <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path fill="currentColor" d="M12 5v14m-7-7h14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </span>
+              </button>
+              <div class="faq-content px-4 pb-4 md:px-5 md:pb-5 text-xs md:text-sm text-slate-300 hidden">
+                We work with a small number of installers per territory and avoid direct overlap wherever possible. On the intro call we’ll map the areas you serve and confirm what level of exclusivity makes sense based on your capacity and budget.
+              </div>
+            </div>
+
+            <div class="faq-item rounded-2xl border border-slate-800/80 bg-slate-900/50">
+              <button class="faq-toggle w-full flex items-center justify-between gap-3 px-4 py-3 md:px-5 md:py-4 text-left">
+                <span class="text-sm md:text-base font-medium text-slate-100">What does pricing look like?</span>
+                <span class="shrink-0 text-slate-400">
+                  <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path fill="currentColor" d="M12 5v14m-7-7h14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </span>
+              </button>
+              <div class="faq-content px-4 pb-4 md:px-5 md:pb-5 text-xs md:text-sm text-slate-300 hidden">
+                We typically start with a fixed pilot package (covering funnel build, optimisation, and traffic) and then move into either a per‑lead or retainer + performance bonus model. Because average project values vary a lot between installers, we’ll run the maths with your numbers rather than giving generic pricing here.
+              </div>
+            </div>
+
+            <div class="faq-item rounded-2xl border border-slate-800/80 bg-slate-900/50">
+              <button class="faq-toggle w-full flex items-center justify-between gap-3 px-4 py-3 md:px-5 md:py-4 text-left">
+                <span class="text-sm md:text-base font-medium text-slate-100">How quickly could we go live?</span>
+                <span class="shrink-0 text-slate-400">
+                  <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path fill="currentColor" d="M12 5v14m-7-7h14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </span>
+              </button>
+              <div class="faq-content px-4 pb-4 md:px-5 md:pb-5 text-xs md:text-sm text-slate-300 hidden">
+                For most installers we can launch a first version of your funnel within 7–10 working days of a signed agreement, provided we get prompt access to your branding and any existing assets. Traffic can usually be switched on the same week.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-800/70 bg-slate-950/90">
+      <div class="max-w-6xl mx-auto px-4 py-6 flex flex-col md:flex-row items-center justify-between gap-4 text-[11px] text-slate-500">
+        <div class="flex items-center gap-2">
+          <span class="font-semibold text-slate-300">leadstocalls</span>
+          <span>· Lead intake for garden office room builders</span>
+        </div>
+        <div class="flex flex-wrap items-center gap-4">
+          <span>© <span id="year"></span> leadstocalls. All rights reserved.</span>
+          <span class="text-slate-600">This is not financial or legal advice.</span>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Hidden iframe for form submission -->
+  <iframe name="form-target" class="hidden"></iframe>
+
   <script>
-    (function (C,A,L){let p=(a,ar)=>a.q.push(ar);let d=C.document;C.Cal=C.Cal||function(){let cal=C.Cal,ar=arguments;if(!cal.loaded){cal.ns={};cal.q=cal.q||[];d.head.appendChild(d.createElement("script")).src=A;cal.loaded=true;}if(ar[0]===L){const api=function(){p(api,arguments);};const ns=ar[1];api.q=api.q||[];if(typeof ns==="string"){cal.ns[ns]=cal.ns[ns]||api;p(cal.ns[ns],ar);p(cal,["initNamespace",ns]);}else p(cal,ar);return;}p(cal,ar);};})(window,"https://app.cal.com/embed/embed.js","init");
+    // Utility: smooth scroll to element
+    function scrollToId(id) {
+      const el = document.getElementById(id);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
 
-    Cal("init","15-minute-profit-map-call",{origin:"https://app.cal.com"});
-
-    Cal.ns["15-minute-profit-map-call"]("inline",{
-      elementOrSelector:"#my-cal-inline-15-minute-profit-map-call",
-      config:{layout:"month_view"},
-      calLink:"leadstocalls/15-minute-profit-map-call"
+    // Hero "See how it works" button
+    document.getElementById('scroll-how')?.addEventListener('click', function () {
+      scrollToId('how');
     });
 
-    Cal.ns["15-minute-profit-map-call"]("ui",{
-      hideEventTypeDetails:false,
-      layout:"month_view"
+    // Mini form budget selection
+    const miniBudgetButtons = document.querySelectorAll('.mini-budget-option');
+    const miniBudgetInput = document.getElementById('mini-budget');
+
+    miniBudgetButtons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        miniBudgetButtons.forEach((b) => b.classList.remove('ring-2', 'ring-emerald-400/80', 'border-emerald-400/80'));
+        btn.classList.add('ring-2', 'ring-emerald-400/80', 'border-emerald-400/80');
+        if (miniBudgetInput) {
+          miniBudgetInput.value = btn.dataset.value || '';
+        }
+      });
     });
+
+    // Intake pill toggles (volume, timeline)
+    const intakePills = document.querySelectorAll('.intake-pill');
+
+    intakePills.forEach((pill) => {
+      pill.addEventListener('click', () => {
+        const field = pill.dataset.field;
+        if (!field) return;
+        const hiddenInput = document.getElementById(field);
+        if (!hiddenInput) return;
+
+        // clear selection for same field
+        intakePills.forEach((p) => {
+          if (p.dataset.field === field) {
+            p.classList.remove('ring-2', 'ring-emerald-400/80', 'border-emerald-400/80');
+          }
+        });
+
+        pill.classList.add('ring-2', 'ring-emerald-400/80', 'border-emerald-400/80');
+        hiddenInput.value = pill.dataset.value || '';
+      });
+    });
+
+    // UPDATED: Hero mini form submission - now handled by form action, this just provides feedback
+    const heroMiniForm = document.getElementById('hero-mini-form');
+    const miniMessage = document.getElementById('mini-message');
+
+    heroMiniForm?.addEventListener('submit', function (e) {
+      // Basic validation before allowing submission
+      if (!miniBudgetInput.value) {
+        e.preventDefault(); // Stop submission
+        miniMessage.textContent = 'Choose a rough project value so we can share relevant ideas.';
+        miniMessage.classList.remove('text-emerald-300');
+        miniMessage.classList.add('text-amber-300');
+        return;
+      }
+      // If validation passes, the form will submit normally.
+      miniMessage.textContent = 'Sending...';
+      miniMessage.classList.remove('text-amber-300');
+      miniMessage.classList.add('text-slate-300');
+    });
+
+    // UPDATED: Intake form validation and show calendar on submit
+    const intakeForm = document.getElementById('intake-form');
+    const intakeMessage = document.getElementById('intake-message');
+    const formContainer = document.getElementById('form-container');
+    const calendarContainer = document.getElementById('calendar-container');
+    const formTextContent = document.getElementById('form-text-content');
+
+    function validateIntakeForm() {
+      const requiredIds = ['name', 'company', 'email', 'phone', 'region', 'current-leads', 'volume', 'timeline'];
+      for (const id of requiredIds) {
+        const el = document.getElementById(id);
+        if (!el || !el.value || (el.tagName === 'SELECT' && el.value === '')) {
+          return false;
+        }
+      }
+      const consent = document.getElementById('consent');
+      if (consent && !consent.checked) return false;
+      return true;
+    }
+
+    intakeForm?.addEventListener('submit', function (e) {
+      // We don't prevent default here because we want the form to submit to the iframe.
+      // We just do validation and UI changes.
+      if (!validateIntakeForm()) {
+        e.preventDefault(); // STOP submission if invalid
+        intakeMessage.textContent = 'Please complete all required fields and confirm consent so we can contact you.';
+        intakeMessage.classList.remove('text-emerald-300');
+        intakeMessage.classList.add('text-amber-300');
+        return;
+      }
+
+      intakeMessage.textContent = 'Submitting your details… one moment.';
+      intakeMessage.classList.remove('text-amber-300');
+      intakeMessage.classList.add('text-slate-300');
+
+      // After a short delay to allow the form to begin submitting, hide form and show calendar
+      setTimeout(() => {
+        if(formContainer) formContainer.classList.add('hidden');
+        if(calendarContainer) calendarContainer.classList.remove('hidden');
+        if(formTextContent) {
+            formTextContent.querySelector('h2').textContent = "Step 1: Complete. Step 2: Book your call.";
+            formTextContent.querySelector('p').textContent = "Your project details have been sent. Now, please select a time on the calendar for your free 15-minute intro call. This is where we'll build your lead flow plan.";
+            formTextContent.querySelector('ul').classList.add('hidden');
+        }
+      }, 500); // 0.5s delay
+    });
+
+
+    // FAQ accordion
+    const faqItems = document.querySelectorAll('#faq-list .faq-item');
+
+    faqItems.forEach((item) => {
+      const toggle = item.querySelector('.faq-toggle');
+      const content = item.querySelector('.faq-content');
+      const icon = toggle?.querySelector('svg path');
+      const plusIconD = "M12 5v14m-7-7h14";
+      const minusIconD = "M5 12h14";
+
+      if (!toggle || !content) return;
+
+      toggle.addEventListener('click', () => {
+        const isCurrentlyOpen = !content.classList.contains('hidden');
+        
+        // Close all other items first
+        faqItems.forEach((otherItem) => {
+            if(otherItem !== item) {
+                otherItem.querySelector('.faq-content')?.classList.add('hidden');
+                otherItem.querySelector('.faq-toggle svg path')?.setAttribute('d', plusIconD);
+            }
+        });
+
+        // Toggle the current item
+        if (isCurrentlyOpen) {
+          content.classList.add('hidden');
+          if (icon) icon.setAttribute('d', plusIconD);
+        } else {
+          content.classList.remove('hidden');
+          if (icon) icon.setAttribute('d', minusIconD);
+        }
+      });
+    });
+
+    // Footer year
+    const yearEl = document.getElementById('year');
+    if (yearEl) {
+      yearEl.textContent = new Date().getFullYear();
+    }
   </script>
-
 </body>
 </html>
+```
