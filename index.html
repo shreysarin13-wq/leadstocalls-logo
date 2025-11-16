@@ -1,138 +1,203 @@
-
-            <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Scale Your Garden-Room Business</title>
-
-  <!-- ──────────────  FAVICONS  ────────────── -->
-  <link rel="icon" type="image/png"    href="https://www.leadstocalls.com/favicon-96x96.png" sizes="96x96" />
-  <link rel="icon" type="image/svg+xml" href="https://www.leadstocalls.com/favicon.svg" />
-  <link rel="shortcut icon"             href="https://www.leadstocalls.com/favicon.ico" />
-  <link rel="apple-touch-icon" sizes="180x180" href="https://www.leadstocalls.com/apple-touch-icon.png" />
-  <link rel="manifest" href="https://www.leadstocalls.com/site.webmanifest" />
-  <!-- ──────────────────────────────────────── -->
-
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LeadsToCalls | Influencer Marketing Agency</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   <style>
-    :root{
-      --brand-green:#5BBE42;
-      --dark:#121212;
-      --light:#ffffff;
+    .gradient-bg {
+      background: radial-gradient(circle at top, rgba(217, 249, 157, 0.7), rgba(59, 130, 246, 0.3)),
+        linear-gradient(120deg, rgba(255, 255, 255, 0.6), rgba(37, 99, 235, 0.2));
     }
-    *{box-sizing:border-box;margin:0;padding:0}
-    body{
-      font-family:'Poppins',sans-serif;
-      color:var(--light);
-      background:linear-gradient(135deg,#072230 0%,#164A2F 50%,#5BBE42 100%) fixed;
-      min-height:100vh;
-      display:flex;
-      flex-direction:column;
+    .glass-card {
+      backdrop-filter: blur(12px);
+      background-color: rgba(255, 255, 255, 0.75);
+      border: 1px solid rgba(255, 255, 255, 0.5);
     }
-
-    /* ---------- HERO ---------- */
-    .hero{text-align:center;padding:7rem 1rem 5rem;max-width:1100px;margin:auto;}
-    h1{font-size:clamp(2rem,4.5vw,3.5rem);font-weight:700;line-height:1.15;margin-bottom:1rem;}
-    h1 span{color:var(--brand-green);}
-    .sub{font-size:clamp(1.1rem,2.5vw,1.5rem);font-weight:400;opacity:.9;margin-bottom:2.5rem;}
-    .btn{background:var(--brand-green);color:var(--dark);padding:1rem 2.5rem;font-weight:600;border:none;border-radius:50px;cursor:pointer;transition:.25s;text-decoration:none;display:inline-block;}
-    .btn:hover{transform:translateY(-3px);box-shadow:0 10px 20px rgba(0,0,0,.25);}
-
-    /* ---------- SLIDE SECTION ---------- */
-    #slides{padding:4rem 1rem;background:#f1f5f4;color:var(--dark);}
-    #slides h2{text-align:center;font-size:2rem;font-weight:600;margin-bottom:2rem;}
-    .slides-wrapper{
-      position:relative;
-      width:100%;
-      max-width:1000px;
-      margin:auto;
-      /* 16:9 aspect ratio = 56.25% */
-      padding-bottom:56.25%;
-      height:0;
-      overflow:hidden;
-      border-radius:12px;
-      box-shadow:0 10px 25px rgba(0,0,0,.1);
-      background:#000;
-    }
-    .slides-wrapper iframe{
-      position:absolute;
-      top:0;left:0;
-      width:100%;height:100%;
-      border:0;
-    }
-
-    /* ---------- CALENDAR SECTION ---------- */
-    #booking{background:#f7f7f7;color:var(--dark);padding:4rem 1rem;flex:1 0 auto;}
-    #booking h2{text-align:center;font-size:2rem;font-weight:600;margin-bottom:2rem;}
-    #cal-wrapper{
-      width:100%;max-width:1000px;height:650px;margin:auto;
-      background:#fff;border-radius:12px;overflow:hidden;
-      box-shadow:0 10px 25px rgba(0,0,0,.1);
-    }
-
-    /* SMOOTH SCROLL */
-    html{scroll-behavior:smooth;}
-
-    /* Fade-up animation for hero */
-    @keyframes fadeUp{from{opacity:0;transform:translateY(25px)}to{opacity:1;transform:translateY(0)}}
-    .hero>*{animation:fadeUp .8s ease forwards;opacity:0}
-    .hero h1{animation-delay:.2s}
-    .hero .sub{animation-delay:.4s}
-    .hero .btn{animation-delay:.6s}
   </style>
 </head>
-
-<body>
-
-  <!-- HERO / ABOVE THE FOLD -->
-  <header class="hero">
-    <h1>
-      Helping <span>Garden-Room Builders</span><br>
-      Scale to £100K+ Profit<br> in <span>90&nbsp;Days</span>
-    </h1>
-    <p class="sub">
-      Proven marketing & operations blueprint designed for the UK’s booming outdoor-office market.
-    </p>
-    <a href="#booking" class="btn">Book My Free 15-Minute Call</a>
+<body class="min-h-screen text-slate-900 bg-slate-50">
+  <header class="gradient-bg text-slate-900">
+    <div class="max-w-6xl mx-auto px-6 py-6 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <span class="w-12 h-12 rounded-2xl bg-slate-900 text-white flex items-center justify-center text-2xl font-bold">LC</span>
+        <div>
+          <h1 class="text-2xl font-extrabold tracking-tight">LeadsToCalls</h1>
+          <p class="text-sm text-slate-700">Influencer Marketing Agency</p>
+        </div>
+      </div>
+      <nav class="hidden md:flex gap-8 text-sm font-semibold">
+        <a class="hover:text-blue-600" href="#services">Services</a>
+        <a class="hover:text-blue-600" href="#process">Process</a>
+        <a class="hover:text-blue-600" href="#calendar">Book</a>
+      </nav>
+      <a href="#calendar" class="px-4 py-2 rounded-full text-white bg-blue-600 hover:bg-blue-500 font-semibold">Book a Call</a>
+    </div>
+    <section class="max-w-6xl mx-auto px-6 pb-16 grid lg:grid-cols-2 gap-12 items-center">
+      <div>
+        <p class="uppercase tracking-[0.3em] text-xs font-semibold text-slate-700 mb-4">Influence that converts</p>
+        <h2 class="text-4xl md:text-5xl font-extrabold leading-tight mb-6">Turn your influencer traffic into predictable <span class="text-blue-600">sales calls</span>.</h2>
+        <p class="text-lg text-slate-800 mb-8">We partner with high-performing influencers to create bespoke acquisition systems that funnel warm leads straight to your calendar. From creative strategy to conversion tracking, LeadsToCalls handles every lever.</p>
+        <div class="flex flex-wrap gap-4">
+          <a href="#calendar" class="px-6 py-3 rounded-full bg-blue-600 text-white font-semibold shadow-lg hover:shadow-xl transition">Book the Profit Map Call</a>
+          <button id="learnMore" class="px-6 py-3 rounded-full border border-slate-900 text-slate-900 font-semibold hover:bg-slate-900 hover:text-white transition">Learn More</button>
+        </div>
+        <div class="mt-10 flex flex-wrap gap-8 text-sm text-slate-700">
+          <div>
+            <p class="text-3xl font-bold text-slate-900">+312%</p>
+            <p>Average lead velocity</p>
+          </div>
+          <div>
+            <p class="text-3xl font-bold text-slate-900">42</p>
+            <p>Influencer partners onboard</p>
+          </div>
+          <div>
+            <p class="text-3xl font-bold text-slate-900"><span class="text-blue-600">24h</span></p>
+            <p>Launch-ready strategy</p>
+          </div>
+        </div>
+      </div>
+      <div class="glass-card rounded-3xl p-8 shadow-2xl">
+        <p class="text-sm uppercase tracking-[0.3em] mb-4 text-slate-600">Why brands pick us</p>
+        <ul class="space-y-4 text-slate-800">
+          <li class="flex gap-3">
+            <span class="text-blue-600 text-xl">⏱️</span>
+            <div>
+              <h3 class="font-semibold">Full funnel build-out</h3>
+              <p>Landing pages, creative packs, and personalized nurture flows assembled in days, not months.</p>
+            </div>
+          </li>
+          <li class="flex gap-3">
+            <span class="text-blue-600 text-xl">📈</span>
+            <div>
+              <h3 class="font-semibold">Performance dashboards</h3>
+              <p>Live dashboards so your team sees which influencer generates every booked call.</p>
+            </div>
+          </li>
+          <li class="flex gap-3">
+            <span class="text-blue-600 text-xl">🤝</span>
+            <div>
+              <h3 class="font-semibold">Creative matchmaking</h3>
+              <p>We align your brand voice with niche creators that already speak to your future buyers.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
   </header>
 
-  <!-- GOOGLE SLIDES SECTION -->
-  <section id="slides">
-    <h2>See the 3-Step Profit Blueprint 👇</h2>
-    <div class="slides-wrapper">
-      <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vTaCABYqeyoJ8wd9c0vicY_qG0SWqEABeclQY6DENjfif_ld-O5tCsJC_Lfw8NtvyyvLUA-YKlNFvWJ/pubembed?start=false&loop=false&delayms=3000"
-              allowfullscreen mozallowfullscreen webkitallowfullscreen></iframe>
-    </div>
-  </section>
+  <main class="max-w-6xl mx-auto px-6 py-16 space-y-24">
+    <section id="services" class="grid md:grid-cols-3 gap-6">
+      <div class="glass-card rounded-2xl p-6 shadow-xl">
+        <p class="text-sm text-blue-600 font-semibold mb-2">01</p>
+        <h3 class="text-xl font-bold mb-3">Influencer Blueprint</h3>
+        <p class="text-slate-600">We architect a channel-specific content system, scripting each CTA to convert scrollers into callers.</p>
+      </div>
+      <div class="glass-card rounded-2xl p-6 shadow-xl">
+        <p class="text-sm text-blue-600 font-semibold mb-2">02</p>
+        <h3 class="text-xl font-bold mb-3">Conversion Ecosystem</h3>
+        <p class="text-slate-600">Custom landing experiences, remarketing journeys, and CRM automation keep leads nurtured until they book.</p>
+      </div>
+      <div class="glass-card rounded-2xl p-6 shadow-xl">
+        <p class="text-sm text-blue-600 font-semibold mb-2">03</p>
+        <h3 class="text-xl font-bold mb-3">Revenue Attribution</h3>
+        <p class="text-slate-600">Track every booked profit map call back to the creator, campaign, and story hook that drove it.</p>
+      </div>
+    </section>
 
-  <!-- CALENDAR SECTION -->
-  <section id="booking">
-    <h2>Reserve Your 15-Minute Profit-Map Call</h2>
-    <div id="cal-wrapper">
-      <div id="my-cal-inline-15-minute-profit-map-call" style="width:100%;height:100%;overflow:auto"></div>
-    </div>
-  </section>
+    <section id="process" class="bg-slate-900 text-white rounded-3xl p-10 space-y-10 shadow-2xl">
+      <div>
+        <p class="text-sm uppercase tracking-[0.3em] text-slate-300">Our Process</p>
+        <h3 class="text-3xl font-bold mt-2">Launch your influencer flywheel in three weeks.</h3>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="p-6 rounded-2xl bg-white/10 border border-white/20">
+          <h4 class="text-xl font-semibold mb-2">Week 1 · Calibration</h4>
+          <p class="text-slate-200 text-sm">Audit your offer, audience, and current creator roster. Map messaging angles and KPIs.</p>
+        </div>
+        <div class="p-6 rounded-2xl bg-white/10 border border-white/20">
+          <h4 class="text-xl font-semibold mb-2">Week 2 · Creation</h4>
+          <p class="text-slate-200 text-sm">Scripting, creative production, landing builds, and automation wiring go live.</p>
+        </div>
+        <div class="p-6 rounded-2xl bg-white/10 border border-white/20">
+          <h4 class="text-xl font-semibold mb-2">Week 3 · Scale</h4>
+          <p class="text-slate-200 text-sm">Paid boosts plus native collabs run in tandem while we optimize for booked calls.</p>
+        </div>
+      </div>
+    </section>
 
-  <!-- Cal.com embed -->
+    <section class="grid lg:grid-cols-2 gap-10 items-center">
+      <div class="space-y-6">
+        <p class="text-sm uppercase tracking-[0.3em] text-slate-500">Proof</p>
+        <h3 class="text-3xl font-bold">Trusted by revenue teams ready to scale beyond ads.</h3>
+        <div class="space-y-6">
+          <article class="glass-card p-6 rounded-2xl shadow-lg">
+            <p class="text-slate-600">“LeadsToCalls turned our influencer spend from a vanity metric into a call machine. 61% of calls now come from creator traffic.”</p>
+            <p class="mt-4 font-semibold">— Maya Bennett, CRO at ThriveFin</p>
+          </article>
+          <article class="glass-card p-6 rounded-2xl shadow-lg">
+            <p class="text-slate-600">“Within 18 days we had calibrated scripts, new landing pages, and daily reports. Never felt more in control.”</p>
+            <p class="mt-4 font-semibold">— Luis Romero, Founder of Forma Labs</p>
+          </article>
+        </div>
+      </div>
+      <div class="glass-card rounded-3xl p-8 shadow-2xl">
+        <h4 class="text-2xl font-bold mb-4">Creator Network Snapshot</h4>
+        <ul class="space-y-4 text-slate-700">
+          <li class="flex justify-between"><span>Vertical SaaS</span><span class="font-semibold">14 partners</span></li>
+          <li class="flex justify-between"><span>DTC Wellness</span><span class="font-semibold">11 partners</span></li>
+          <li class="flex justify-between"><span>Fintech & Crypto</span><span class="font-semibold">9 partners</span></li>
+          <li class="flex justify-between"><span>Education & Coaching</span><span class="font-semibold">8 partners</span></li>
+        </ul>
+        <p class="mt-6 text-sm text-slate-600">Add your segment to the roster and we will match you with creators who already own the conversation.</p>
+      </div>
+    </section>
+
+    <section id="calendar" class="rounded-3xl border border-slate-200 bg-white shadow-2xl">
+      <div class="p-8 border-b border-slate-100">
+        <p class="text-sm uppercase tracking-[0.3em] text-slate-500">Book a call</p>
+        <h3 class="text-3xl font-bold mt-2">Schedule your 15-minute Profit Map Call</h3>
+        <p class="mt-2 text-slate-600">Pick a time that works for you and we will bring the data, creators, and next steps.</p>
+      </div>
+      <div class="p-4">
+        <!-- Cal inline embed code begins -->
+        <div style="width:100%;height:100%;overflow:scroll" id="my-cal-inline-15-minute-profit-map-call-copy"></div>
+        <script type="text/javascript">
+          (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+          Cal("init", "15-minute-profit-map-call-copy", {origin:"https://app.cal.com"});
+
+          Cal.ns["15-minute-profit-map-call-copy"]("inline", {
+            elementOrSelector:"#my-cal-inline-15-minute-profit-map-call-copy",
+            config: {"layout":"month_view"},
+            calLink: "leadstocalls/15-minute-profit-map-call-copy",
+          });
+
+          Cal.ns["15-minute-profit-map-call-copy"]("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
+        </script>
+        <!-- Cal inline embed code ends -->
+      </div>
+    </section>
+  </main>
+
+  <footer class="max-w-6xl mx-auto px-6 py-12 text-sm text-slate-600 flex flex-col md:flex-row gap-4 md:items-center md:justify-between">
+    <p>© <span id="year"></span> LeadsToCalls. All rights reserved.</p>
+    <div class="flex gap-4">
+      <a href="mailto:hello@leadstocalls.com" class="hover:text-blue-600">Contact</a>
+      <a href="#" class="hover:text-blue-600">Privacy</a>
+      <a href="#" class="hover:text-blue-600">LinkedIn</a>
+    </div>
+  </footer>
+
   <script>
-    (function (C,A,L){let p=(a,ar)=>a.q.push(ar);let d=C.document;C.Cal=C.Cal||function(){let cal=C.Cal,ar=arguments;if(!cal.loaded){cal.ns={};cal.q=cal.q||[];d.head.appendChild(d.createElement("script")).src=A;cal.loaded=true;}if(ar[0]===L){const api=function(){p(api,arguments);};const ns=ar[1];api.q=api.q||[];if(typeof ns==="string"){cal.ns[ns]=cal.ns[ns]||api;p(cal.ns[ns],ar);p(cal,["initNamespace",ns]);}else p(cal,ar);return;}p(cal,ar);};})(window,"https://app.cal.com/embed/embed.js","init");
+    const yearEl = document.getElementById('year');
+    yearEl.textContent = new Date().getFullYear();
 
-    Cal("init","15-minute-profit-map-call",{origin:"https://app.cal.com"});
-
-    Cal.ns["15-minute-profit-map-call"]("inline",{
-      elementOrSelector:"#my-cal-inline-15-minute-profit-map-call",
-      config:{layout:"month_view"},
-      calLink:"leadstocalls/15-minute-profit-map-call"
-    });
-
-    Cal.ns["15-minute-profit-map-call"]("ui",{
-      hideEventTypeDetails:false,
-      layout:"month_view"
+    const learnMoreBtn = document.getElementById('learnMore');
+    learnMoreBtn.addEventListener('click', () => {
+      const servicesSection = document.getElementById('services');
+      servicesSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
   </script>
-
 </body>
 </html>
