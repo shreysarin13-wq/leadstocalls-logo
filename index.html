@@ -1,203 +1,321 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>LeadsToCalls | Influencer Marketing Agency</title>
-  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-  <style>
-    .gradient-bg {
-      background: radial-gradient(circle at top, rgba(217, 249, 157, 0.7), rgba(59, 130, 246, 0.3)),
-        linear-gradient(120deg, rgba(255, 255, 255, 0.6), rgba(37, 99, 235, 0.2));
-    }
-    .glass-card {
-      backdrop-filter: blur(12px);
-      background-color: rgba(255, 255, 255, 0.75);
-      border: 1px solid rgba(255, 255, 255, 0.5);
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leadstocalls | E-com & DTC Influencer Agency</title>
+    <meta name="description" content="We don't just get likes. We get orders. Influencer marketing engineered to move inventory and spike ROAS.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@400;700;800&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Space Grotesk', 'sans-serif'],
+                        display: ['Syne', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            dark: '#0a0a0a',
+                            accent: '#ccff00', /* Acid Green */
+                            purple: '#7000ff',
+                            gray: '#1f1f1f'
+                        }
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #050505;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0a0a0a; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #333; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #ccff00; 
+        }
+
+        /* Noise Texture Overlay */
+        .noise-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 50;
+            opacity: 0.03;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .text-glow {
+            text-shadow: 0 0 20px rgba(204, 255, 0, 0.3);
+        }
+        
+        .gradient-text {
+            background: linear-gradient(to right, #ffffff, #999999);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
 </head>
-<body class="min-h-screen text-slate-900 bg-slate-50">
-  <header class="gradient-bg text-slate-900">
-    <div class="max-w-6xl mx-auto px-6 py-6 flex items-center justify-between">
-      <div class="flex items-center gap-3">
-        <span class="w-12 h-12 rounded-2xl bg-slate-900 text-white flex items-center justify-center text-2xl font-bold">LC</span>
-        <div>
-          <h1 class="text-2xl font-extrabold tracking-tight">LeadsToCalls</h1>
-          <p class="text-sm text-slate-700">Influencer Marketing Agency</p>
+<body class="antialiased selection:bg-brand-accent selection:text-black">
+
+    <div class="noise-bg"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-40 top-0 left-0 border-b border-white/5 bg-black/80 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex-shrink-0">
+                    <a href="#" class="font-display font-bold text-2xl tracking-tighter text-white">
+                        leadsto<span class="text-brand-accent">calls</span>.
+                    </a>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#approach" class="hover:text-brand-accent transition-colors duration-300 text-sm font-medium">Methodology</a>
+                        <a href="#results" class="hover:text-brand-accent transition-colors duration-300 text-sm font-medium">Performance</a>
+                        <a href="#book" class="px-5 py-2 rounded-full bg-white text-black font-bold text-sm hover:bg-brand-accent transition-all duration-300 transform hover:scale-105">Start Scaling</a>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-      <nav class="hidden md:flex gap-8 text-sm font-semibold">
-        <a class="hover:text-blue-600" href="#services">Services</a>
-        <a class="hover:text-blue-600" href="#process">Process</a>
-        <a class="hover:text-blue-600" href="#calendar">Book</a>
-      </nav>
-      <a href="#calendar" class="px-4 py-2 rounded-full text-white bg-blue-600 hover:bg-blue-500 font-semibold">Book a Call</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+        <!-- Background Elements -->
+        <div class="absolute top-0 left-1/2 w-[500px] h-[500px] bg-brand-purple/20 rounded-full blur-[120px] -translate-x-1/2 -translate-y-1/2 pointer-events-none"></div>
+        <div class="absolute bottom-0 right-0 w-[400px] h-[400px] bg-brand-accent/10 rounded-full blur-[100px] pointer-events-none"></div>
+
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
+            <h1 class="font-display text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-8">
+                <span class="block gradient-text">Vanity Metrics</span>
+                <span class="block text-white">Don't Move Units.</span>
+            </h1>
+            <p class="mt-4 max-w-2xl mx-auto text-xl text-gray-400 font-light">
+                Most agencies sell you "brand awareness". We sell you <span class="text-brand-accent font-medium">sold-out drops</span>. 
+                Start turning influencer attention into high-velocity product orders.
+            </p>
+            <div class="mt-12 flex justify-center gap-6">
+                <a href="#book" class="group relative px-8 py-4 bg-brand-accent text-black font-bold rounded-none text-lg overflow-hidden transition-all hover:bg-white">
+                    <span class="relative z-10">Scale Your Brand</span>
+                    <div class="absolute inset-0 h-full w-full scale-0 rounded-none transition-all duration-300 group-hover:scale-100 group-hover:bg-white/20"></div>
+                </a>
+                <a href="#approach" class="px-8 py-4 border border-white/20 hover:border-white text-white font-medium transition-colors duration-300">
+                    Our Methodology
+                </a>
+            </div>
+        </div>
     </div>
-    <section class="max-w-6xl mx-auto px-6 pb-16 grid lg:grid-cols-2 gap-12 items-center">
-      <div>
-        <p class="uppercase tracking-[0.3em] text-xs font-semibold text-slate-700 mb-4">Influence that converts</p>
-        <h2 class="text-4xl md:text-5xl font-extrabold leading-tight mb-6">Turn your influencer traffic into predictable <span class="text-blue-600">sales calls</span>.</h2>
-        <p class="text-lg text-slate-800 mb-8">We partner with high-performing influencers to create bespoke acquisition systems that funnel warm leads straight to your calendar. From creative strategy to conversion tracking, LeadsToCalls handles every lever.</p>
-        <div class="flex flex-wrap gap-4">
-          <a href="#calendar" class="px-6 py-3 rounded-full bg-blue-600 text-white font-semibold shadow-lg hover:shadow-xl transition">Book the Profit Map Call</a>
-          <button id="learnMore" class="px-6 py-3 rounded-full border border-slate-900 text-slate-900 font-semibold hover:bg-slate-900 hover:text-white transition">Learn More</button>
-        </div>
-        <div class="mt-10 flex flex-wrap gap-8 text-sm text-slate-700">
-          <div>
-            <p class="text-3xl font-bold text-slate-900">+312%</p>
-            <p>Average lead velocity</p>
-          </div>
-          <div>
-            <p class="text-3xl font-bold text-slate-900">42</p>
-            <p>Influencer partners onboard</p>
-          </div>
-          <div>
-            <p class="text-3xl font-bold text-slate-900"><span class="text-blue-600">24h</span></p>
-            <p>Launch-ready strategy</p>
-          </div>
-        </div>
-      </div>
-      <div class="glass-card rounded-3xl p-8 shadow-2xl">
-        <p class="text-sm uppercase tracking-[0.3em] mb-4 text-slate-600">Why brands pick us</p>
-        <ul class="space-y-4 text-slate-800">
-          <li class="flex gap-3">
-            <span class="text-blue-600 text-xl">⏱️</span>
-            <div>
-              <h3 class="font-semibold">Full funnel build-out</h3>
-              <p>Landing pages, creative packs, and personalized nurture flows assembled in days, not months.</p>
+
+    <!-- Marquee Section -->
+    <div class="w-full border-y border-white/10 bg-white/5 overflow-hidden py-6">
+        <div class="relative flex overflow-x-hidden group">
+            <div class="py-2 animate-marquee whitespace-nowrap flex gap-16 min-w-full justify-around text-gray-500 font-display font-bold text-4xl uppercase opacity-50">
+                <span>DTC Growth</span>
+                <span>Product Seeding</span>
+                <span>High ROAS</span>
+                <span>Viral Creative</span>
+                <span>Scale</span>
+                <span>DTC Growth</span>
+                <span>Product Seeding</span>
+                <span>High ROAS</span>
+                <span>Viral Creative</span>
+                <span>Scale</span>
             </div>
-          </li>
-          <li class="flex gap-3">
-            <span class="text-blue-600 text-xl">📈</span>
-            <div>
-              <h3 class="font-semibold">Performance dashboards</h3>
-              <p>Live dashboards so your team sees which influencer generates every booked call.</p>
+            <div class="absolute top-0 py-2 animate-marquee2 whitespace-nowrap flex gap-16 min-w-full justify-around text-gray-500 font-display font-bold text-4xl uppercase opacity-50">
+                <span>DTC Growth</span>
+                <span>Product Seeding</span>
+                <span>High ROAS</span>
+                <span>Viral Creative</span>
+                <span>Scale</span>
+                <span>DTC Growth</span>
+                <span>Product Seeding</span>
+                <span>High ROAS</span>
+                <span>Viral Creative</span>
+                <span>Scale</span>
             </div>
-          </li>
-          <li class="flex gap-3">
-            <span class="text-blue-600 text-xl">🤝</span>
-            <div>
-              <h3 class="font-semibold">Creative matchmaking</h3>
-              <p>We align your brand voice with niche creators that already speak to your future buyers.</p>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </section>
-  </header>
-
-  <main class="max-w-6xl mx-auto px-6 py-16 space-y-24">
-    <section id="services" class="grid md:grid-cols-3 gap-6">
-      <div class="glass-card rounded-2xl p-6 shadow-xl">
-        <p class="text-sm text-blue-600 font-semibold mb-2">01</p>
-        <h3 class="text-xl font-bold mb-3">Influencer Blueprint</h3>
-        <p class="text-slate-600">We architect a channel-specific content system, scripting each CTA to convert scrollers into callers.</p>
-      </div>
-      <div class="glass-card rounded-2xl p-6 shadow-xl">
-        <p class="text-sm text-blue-600 font-semibold mb-2">02</p>
-        <h3 class="text-xl font-bold mb-3">Conversion Ecosystem</h3>
-        <p class="text-slate-600">Custom landing experiences, remarketing journeys, and CRM automation keep leads nurtured until they book.</p>
-      </div>
-      <div class="glass-card rounded-2xl p-6 shadow-xl">
-        <p class="text-sm text-blue-600 font-semibold mb-2">03</p>
-        <h3 class="text-xl font-bold mb-3">Revenue Attribution</h3>
-        <p class="text-slate-600">Track every booked profit map call back to the creator, campaign, and story hook that drove it.</p>
-      </div>
-    </section>
-
-    <section id="process" class="bg-slate-900 text-white rounded-3xl p-10 space-y-10 shadow-2xl">
-      <div>
-        <p class="text-sm uppercase tracking-[0.3em] text-slate-300">Our Process</p>
-        <h3 class="text-3xl font-bold mt-2">Launch your influencer flywheel in three weeks.</h3>
-      </div>
-      <div class="grid md:grid-cols-3 gap-6">
-        <div class="p-6 rounded-2xl bg-white/10 border border-white/20">
-          <h4 class="text-xl font-semibold mb-2">Week 1 · Calibration</h4>
-          <p class="text-slate-200 text-sm">Audit your offer, audience, and current creator roster. Map messaging angles and KPIs.</p>
         </div>
-        <div class="p-6 rounded-2xl bg-white/10 border border-white/20">
-          <h4 class="text-xl font-semibold mb-2">Week 2 · Creation</h4>
-          <p class="text-slate-200 text-sm">Scripting, creative production, landing builds, and automation wiring go live.</p>
-        </div>
-        <div class="p-6 rounded-2xl bg-white/10 border border-white/20">
-          <h4 class="text-xl font-semibold mb-2">Week 3 · Scale</h4>
-          <p class="text-slate-200 text-sm">Paid boosts plus native collabs run in tandem while we optimize for booked calls.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="grid lg:grid-cols-2 gap-10 items-center">
-      <div class="space-y-6">
-        <p class="text-sm uppercase tracking-[0.3em] text-slate-500">Proof</p>
-        <h3 class="text-3xl font-bold">Trusted by revenue teams ready to scale beyond ads.</h3>
-        <div class="space-y-6">
-          <article class="glass-card p-6 rounded-2xl shadow-lg">
-            <p class="text-slate-600">“LeadsToCalls turned our influencer spend from a vanity metric into a call machine. 61% of calls now come from creator traffic.”</p>
-            <p class="mt-4 font-semibold">— Maya Bennett, CRO at ThriveFin</p>
-          </article>
-          <article class="glass-card p-6 rounded-2xl shadow-lg">
-            <p class="text-slate-600">“Within 18 days we had calibrated scripts, new landing pages, and daily reports. Never felt more in control.”</p>
-            <p class="mt-4 font-semibold">— Luis Romero, Founder of Forma Labs</p>
-          </article>
-        </div>
-      </div>
-      <div class="glass-card rounded-3xl p-8 shadow-2xl">
-        <h4 class="text-2xl font-bold mb-4">Creator Network Snapshot</h4>
-        <ul class="space-y-4 text-slate-700">
-          <li class="flex justify-between"><span>Vertical SaaS</span><span class="font-semibold">14 partners</span></li>
-          <li class="flex justify-between"><span>DTC Wellness</span><span class="font-semibold">11 partners</span></li>
-          <li class="flex justify-between"><span>Fintech & Crypto</span><span class="font-semibold">9 partners</span></li>
-          <li class="flex justify-between"><span>Education & Coaching</span><span class="font-semibold">8 partners</span></li>
-        </ul>
-        <p class="mt-6 text-sm text-slate-600">Add your segment to the roster and we will match you with creators who already own the conversation.</p>
-      </div>
-    </section>
-
-    <section id="calendar" class="rounded-3xl border border-slate-200 bg-white shadow-2xl">
-      <div class="p-8 border-b border-slate-100">
-        <p class="text-sm uppercase tracking-[0.3em] text-slate-500">Book a call</p>
-        <h3 class="text-3xl font-bold mt-2">Schedule your 15-minute Profit Map Call</h3>
-        <p class="mt-2 text-slate-600">Pick a time that works for you and we will bring the data, creators, and next steps.</p>
-      </div>
-      <div class="p-4">
-        <!-- Cal inline embed code begins -->
-        <div style="width:100%;height:100%;overflow:scroll" id="my-cal-inline-15-minute-profit-map-call-copy"></div>
-        <script type="text/javascript">
-          (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
-          Cal("init", "15-minute-profit-map-call-copy", {origin:"https://app.cal.com"});
-
-          Cal.ns["15-minute-profit-map-call-copy"]("inline", {
-            elementOrSelector:"#my-cal-inline-15-minute-profit-map-call-copy",
-            config: {"layout":"month_view"},
-            calLink: "leadstocalls/15-minute-profit-map-call-copy",
-          });
-
-          Cal.ns["15-minute-profit-map-call-copy"]("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
-        </script>
-        <!-- Cal inline embed code ends -->
-      </div>
-    </section>
-  </main>
-
-  <footer class="max-w-6xl mx-auto px-6 py-12 text-sm text-slate-600 flex flex-col md:flex-row gap-4 md:items-center md:justify-between">
-    <p>© <span id="year"></span> LeadsToCalls. All rights reserved.</p>
-    <div class="flex gap-4">
-      <a href="mailto:hello@leadstocalls.com" class="hover:text-blue-600">Contact</a>
-      <a href="#" class="hover:text-blue-600">Privacy</a>
-      <a href="#" class="hover:text-blue-600">LinkedIn</a>
     </div>
-  </footer>
 
-  <script>
-    const yearEl = document.getElementById('year');
-    yearEl.textContent = new Date().getFullYear();
+    <style>
+        .animate-marquee { animation: marquee 25s linear infinite; }
+        .animate-marquee2 { animation: marquee2 25s linear infinite; }
+        @keyframes marquee {
+            0% { transform: translateX(0%); }
+            100% { transform: translateX(-100%); }
+        }
+        @keyframes marquee2 {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(0%); }
+        }
+    </style>
 
-    const learnMoreBtn = document.getElementById('learnMore');
-    learnMoreBtn.addEventListener('click', () => {
-      const servicesSection = document.getElementById('services');
-      servicesSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    });
-  </script>
+    <!-- Value/Philosophy Section -->
+    <div id="approach" class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="glass-panel p-8 rounded-2xl hover:border-brand-accent/50 transition-colors duration-300">
+                    <div class="text-brand-accent text-5xl mb-6 font-display">01.</div>
+                    <h3 class="text-2xl font-bold text-white mb-4">Curate</h3>
+                    <p class="text-gray-400 leading-relaxed">
+                        We don't just look for followers. We scout creators who match your aesthetic and actually drive purchasing decisions in your niche.
+                    </p>
+                </div>
+                <!-- Card 2 -->
+                <div class="glass-panel p-8 rounded-2xl hover:border-brand-accent/50 transition-colors duration-300 md:mt-12">
+                    <div class="text-brand-accent text-5xl mb-6 font-display">02.</div>
+                    <h3 class="text-2xl font-bold text-white mb-4">Seed</h3>
+                    <p class="text-gray-400 leading-relaxed">
+                        We get your physical product into the hands of creators who fit the brand. No forced scripts—just genuine usage that sparks consumer desire and FOMO.
+                    </p>
+                </div>
+                <!-- Card 3 -->
+                <div class="glass-panel p-8 rounded-2xl hover:border-brand-accent/50 transition-colors duration-300 md:mt-24">
+                    <div class="text-brand-accent text-5xl mb-6 font-display">03.</div>
+                    <h3 class="text-2xl font-bold text-white mb-4">Convert</h3>
+                    <p class="text-gray-400 leading-relaxed">
+                        Views mean nothing without checkout flow. We optimize the creative and offer to turn scrollers into high-LTV customers and repeat buyers.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Results/Stats Section -->
+    <div id="results" class="py-20 border-y border-white/5 bg-white/[0.02]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-12">
+                <div class="text-center md:text-left">
+                    <h2 class="text-3xl font-display font-bold mb-2">The Numbers</h2>
+                    <p class="text-gray-500">Average campaign performance (Q3 2023)</p>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-12 w-full md:w-auto">
+                    <div class="text-center">
+                        <div class="text-4xl font-display font-bold text-brand-accent mb-1">4.2x</div>
+                        <div class="text-xs uppercase tracking-wider text-gray-500">Avg ROAS</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-4xl font-display font-bold text-white mb-1">50k+</div>
+                        <div class="text-xs uppercase tracking-wider text-gray-500">Units Sold</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-4xl font-display font-bold text-brand-purple mb-1">-30%</div>
+                        <div class="text-xs uppercase tracking-wider text-gray-500">CPA Drop</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-4xl font-display font-bold text-white mb-1">$125</div>
+                        <div class="text-xs uppercase tracking-wider text-gray-500">Avg AOV</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Calendar Section -->
+    <div id="book" class="py-24 relative bg-gradient-to-b from-black to-brand-gray/30">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-16">
+            <h2 class="text-4xl md:text-5xl font-display font-bold text-white mb-6">
+                The <span class="text-brand-accent">15-Minute</span> Growth Map
+            </h2>
+            <p class="text-gray-400 text-lg">
+                No sales pitch. Just a breakdown of how we'd structure a seeding campaign to move your specific inventory.
+            </p>
+        </div>
+
+        <!-- Embed Container -->
+        <div class="max-w-6xl mx-auto px-2 sm:px-6 lg:px-8">
+            <div class="glass-panel rounded-xl overflow-hidden shadow-2xl shadow-brand-accent/5 border border-white/10 relative">
+                <!-- Loading State (Visual Only, hidden when iframe loads) -->
+                <div class="absolute inset-0 flex items-center justify-center bg-black/50 z-0">
+                    <div class="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-brand-accent"></div>
+                </div>
+
+                <!-- Cal.com Embed -->
+                <div class="relative z-10 w-full h-[700px] bg-black"> 
+                    <!-- Cal inline embed code begins -->
+                    <div style="width:100%;height:100%;overflow:scroll" id="my-cal-inline-15-minute-profit-map-call-copy"></div>
+                    <script type="text/javascript">
+                    (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+                    Cal("init", "15-minute-profit-map-call-copy", {origin:"https://app.cal.com"});
+
+                    Cal.ns["15-minute-profit-map-call-copy"]("inline", {
+                        elementOrSelector:"#my-cal-inline-15-minute-profit-map-call-copy",
+                        config: {"layout":"month_view", "theme": "dark"},
+                        calLink: "leadstocalls/15-minute-profit-map-call-copy",
+                    });
+
+                    Cal.ns["15-minute-profit-map-call-copy"]("ui", {"hideEventTypeDetails":false,"layout":"month_view", "theme":"dark", "styles":{"branding":{"brandColor":"#ccff00"}}});
+                    </script>
+                    <!-- Cal inline embed code ends -->
+                </div>
+            </div>
+            
+            <!-- Guarantee / Trust -->
+            <div class="mt-8 text-center">
+                <p class="text-sm text-gray-500 uppercase tracking-widest">Trusted by E-com founders who need measurable returns</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/10 bg-black py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center">
+            <div class="mb-4 md:mb-0">
+                <span class="font-display font-bold text-xl text-white">leadsto<span class="text-brand-accent">calls</span>.</span>
+            </div>
+            <div class="flex space-x-6">
+                <a href="#" class="text-gray-400 hover:text-white transition-colors">Twitter</a>
+                <a href="#" class="text-gray-400 hover:text-white transition-colors">LinkedIn</a>
+                <a href="#" class="text-gray-400 hover:text-white transition-colors">Email</a>
+            </div>
+            <div class="mt-4 md:mt-0 text-xs text-gray-600">
+                &copy; 2024 Leadstocalls Agency. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
 </body>
 </html>
