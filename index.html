@@ -5,21 +5,16 @@
   <title>Leads-to-Calls • AI Growth Engine for Garden-Room Builders</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Turn Facebook clicks into booked site-visits with an AI-powered appointment engine built for garden-office contractors.">
-  
-  <!-- Tailwind 3 CDN + custom config -->
+
+  <!-- Tailwind 3 CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       theme: {
         extend: {
           fontFamily: { heading: ['Poppins', 'sans-serif'] },
-          colors: {
-            brand: '#64ffda',      /* neon mint */
-            surface: 'rgba(255,255,255,0.08)'
-          },
-          animation: {
-            'bg-pan': 'bg-pan 12s infinite alternate',
-          },
+          colors: { brand: '#64ffda', surface: 'rgba(255,255,255,0.08)' },
+          animation: { 'bg-pan': 'bg-pan 12s infinite alternate' },
           keyframes: {
             'bg-pan': {
               '0%': { backgroundPosition: '0% 50%' },
@@ -30,26 +25,21 @@
       }
     }
   </script>
-  <!-- Google fonts -->
+  <!-- Google font -->
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap" rel="stylesheet">
-
   <!-- AOS scroll-reveal -->
   <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css"/>
   <style>
-    /* glassmorphism backdrop */
-    .glass { backdrop-filter: blur(14px) saturate(180%); background: var(--tw-bg-opacity) rgba(255,255,255,.06); }
-    /* scrollbar hide for hero BG video on mobile */
-    ::-webkit-scrollbar { width: 0; height: 0; }
+    .glass{backdrop-filter:blur(14px) saturate(180%);background:rgba(255,255,255,.06)}
+    ::-webkit-scrollbar{width:0;height:0}
   </style>
 </head>
 
 <body class="text-slate-200 bg-slate-950 selection:bg-brand selection:text-slate-900">
 
-<!-- ================= HERO ================= -->
+<!-- ========= HERO ========= -->
 <section class="relative flex flex-col justify-center items-center min-h-screen overflow-hidden">
-  
-  <!-- animated gradient background -->
   <div class="absolute inset-0 -z-10 animate-bg-pan bg-[length:400%_400%] bg-gradient-to-r from-teal-500 via-fuchsia-600 to-indigo-600 opacity-20"></div>
 
   <div class="max-w-6xl px-6 text-center" data-aos="fade-down">
@@ -58,34 +48,31 @@
       with <span class="text-brand">Ready-to-Buy</span> Garden-Room Clients
     </h1>
     <p class="max-w-2xl mx-auto text-lg sm:text-xl text-slate-300/80 mb-10">
-      Clicks ➡️ AI calls ➡️ booked site-visits—all handled for you.<br class="hidden sm:inline">Stop chasing leads, start installing studios.
+      Clicks ➡️ AI calls ➡️ booked site-visits—all handled for you. Stop chasing leads, start installing studios.
     </p>
     <a href="#book" class="inline-block bg-brand text-slate-900 font-semibold rounded-full px-8 py-3 hover:brightness-110 transition">
       Get My 15-Minute Profit Map
     </a>
   </div>
 
-  <!-- Hero illustration -->
-  <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&q=60&w=1200" alt="Garden office" class="w-[90%] max-w-4xl mt-16 rounded-3xl shadow-2xl ring-1 ring-white/10" data-aos="zoom-in-up"/>
-
+  <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&q=60&w=1200" alt="Garden office"
+       class="w-[90%] max-w-4xl mt-16 rounded-3xl shadow-2xl ring-1 ring-white/10" data-aos="zoom-in-up"/>
 </section>
 
-<!-- ================= FEATURE CARDS ================= -->
+<!-- ========= FEATURE CARDS ========= -->
 <section id="features" class="max-w-6xl mx-auto px-6 py-24">
   <h2 class="font-heading text-center text-3xl sm:text-4xl font-bold mb-16" data-aos="fade-right">
     What Makes It <span class="text-brand">Different</span>
   </h2>
 
   <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-    <!-- card -->
     <div class="glass rounded-2xl p-8 border border-white/10 hover:-translate-y-2 hover:shadow-lg transition" data-aos="fade-up">
       <svg class="w-10 h-10 text-brand mb-4" fill="none" stroke="currentColor" stroke-width="1.7" viewBox="0 0 24 24">
         <path d="M3 5h12M9 3v2m2 4h6m-6 4h8m-8 4h3" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
       <h3 class="font-semibold text-xl mb-2">120-Second AI Dial-Back</h3>
-      <p class="text-slate-400">Voice bot rings new leads instantly, qualifies budget &amp; timeline, then books the visit—before your competitors even reply.</p>
+      <p class="text-slate-400">Voice bot rings new leads instantly, qualifies budget & timeline, then books the visit—before your competitors even reply.</p>
     </div>
-    <!-- card -->
     <div class="glass rounded-2xl p-8 border border-white/10 hover:-translate-y-2 hover:shadow-lg transition" data-aos="fade-up" data-aos-delay="150">
       <svg class="w-10 h-10 text-brand mb-4" fill="none" stroke="currentColor" stroke-width="1.7" viewBox="0 0 24 24">
         <path d="M3 12h18M12 3v18" stroke-linecap="round" stroke-linejoin="round"/>
@@ -93,7 +80,6 @@
       <h3 class="font-semibold text-xl mb-2">Smart Meta + CAPI Loop</h3>
       <p class="text-slate-400">We feed closed-deal data back to Meta so the algorithm hunts buyers, not tyre-kickers—dropping ad costs 20-40 %.</p>
     </div>
-    <!-- card -->
     <div class="glass rounded-2xl p-8 border border-white/10 hover:-translate-y-2 hover:shadow-lg transition" data-aos="fade-up" data-aos-delay="300">
       <svg class="w-10 h-10 text-brand mb-4" fill="none" stroke="currentColor" stroke-width="1.7" viewBox="0 0 24 24">
         <path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/>
@@ -104,9 +90,8 @@
   </div>
 </section>
 
-<!-- ================= PROCESS TIMELINE ================= -->
+<!-- ========= PROCESS TIMELINE ========= -->
 <section class="relative">
-  <!-- gradient bar -->
   <div class="absolute inset-0 bg-gradient-to-r from-fuchsia-600/10 via-brand/10 to-sky-500/10 pointer-events-none"></div>
 
   <div class="max-w-6xl mx-auto px-6 py-24">
@@ -118,71 +103,71 @@
       <li data-aos="fade-left">
         <span class="absolute -left-[14px] top-1 w-7 h-7 rounded-full bg-brand blur-[2px]"></span>
         <h4 class="text-xl font-semibold mb-1">Launch laser-targeted ads</h4>
-        <p class="text-slate-400">We unlock hidden homeowner segments &amp; copy that converts at <span class="text-brand">30 %+</span> click-through rate.</p>
+        <p class="text-slate-400">We unlock hidden homeowner segments & copy that converts at <span class="text-brand">30 %+</span> CTR.</p>
       </li>
       <li data-aos="fade-left" data-aos-delay="120">
         <span class="absolute -left-[14px] top-1 w-7 h-7 rounded-full bg-brand blur-[2px]"></span>
         <h4 class="text-xl font-semibold mb-1">AI does the talking</h4>
-        <p class="text-slate-400">Voice + SMS bots qualify, nurture, and drop ready appointments on your calendar—even while you’re on site.</p>
+        <p class="text-slate-400">Voice + SMS bots qualify, nurture, and drop ready appointments on your calendar—even while you’re on-site.</p>
       </li>
       <li data-aos="fade-left" data-aos-delay="240">
         <span class="absolute -left-[14px] top-1 w-7 h-7 rounded-full bg-brand blur-[2px]"></span>
-        <h4 class="text-xl font-semibold mb-1">You build &amp; bank</h4>
+        <h4 class="text-xl font-semibold mb-1">You build & bank</h4>
         <p class="text-slate-400">Close 1 in 4 site-visits—then watch Meta optimise itself off your sales data for compounding ROI.</p>
       </li>
     </ol>
   </div>
 </section>
 
-<!-- ================= PRICING ================= -->
-<section id="pricing" class="max-w-6xl mx-auto px-6 py-24">
+<!-- ========= PROVEN RESULTS (confidence-builder) ========= -->
+<section id="proof" class="max-w-6xl mx-auto px-6 py-24">
   <h2 class="font-heading text-center text-3xl sm:text-4xl font-bold mb-16" data-aos="fade-right">
-    Transparent <span class="text-brand">Flat Fees</span>
+    Proof It <span class="text-brand">Works</span>
   </h2>
 
-  <div class="grid gap-10 md:grid-cols-3">
-    <!-- starter -->
-    <div class="glass rounded-3xl border border-brand/30 p-10 flex flex-col" data-aos="flip-left">
-      <h3 class="font-semibold text-xl mb-4">Starter</h3>
-      <p class="text-4xl font-bold text-brand mb-6">$1.5k<span class="text-slate-400 text-lg font-medium">/mo</span></p>
-      <ul class="space-y-3 mb-10 text-slate-400">
-        <li>1 Territory</li>
-        <li>Meta Ads &amp; AI Voice Dial</li>
-        <li>SMS Reminders</li>
-        <li>Weekly KPI Report</li>
-      </ul>
-      <a href="#book" class="mt-auto bg-brand text-slate-900 font-medium rounded-full py-3 text-center hover:brightness-110 transition">Start Trial</a>
+  <!-- Stats -->
+  <div class="grid gap-10 sm:grid-cols-3 mb-20">
+    <div class="text-center" data-aos="flip-left">
+      <p class="text-brand text-5xl font-bold mb-2">29×</p>
+      <p class="text-slate-400">Average first-month ROAS<br>(real client data)</p>
     </div>
-    <!-- pro -->
-    <div class="relative rounded-3xl p-[1px] bg-gradient-to-tr from-brand to-fuchsia-500" data-aos="flip-left" data-aos-delay="150">
-      <div class="glass rounded-[calc(1.5rem-1px)] h-full p-10 flex flex-col">
-        <h3 class="font-semibold text-xl mb-4">Pro</h3>
-        <p class="text-4xl font-bold text-brand mb-6">$2.5k<span class="text-slate-400 text-lg font-medium">/mo</span></p>
-        <ul class="space-y-3 mb-10 text-slate-400">
-          <li>3 Territories</li>
-          <li>AI Voice + SMS Bot</li>
-          <li>HeyGen Video Reminders</li>
-          <li>Review Capture Flow</li>
-        </ul>
-        <a href="#book" class="mt-auto bg-brand text-slate-900 font-medium rounded-full py-3 text-center hover:brightness-110 transition">Scale Up</a>
+    <div class="text-center" data-aos="flip-left" data-aos-delay="150">
+      <p class="text-brand text-5xl font-bold mb-2">75 %</p>
+      <p class="text-slate-400">Show-rate guarantee<br>or extra calls free</p>
+    </div>
+    <div class="text-center" data-aos="flip-left" data-aos-delay="300">
+      <p class="text-brand text-5xl font-bold mb-2">4.9★</p>
+      <p class="text-slate-400">Average client rating<br>across 3 platforms</p>
+    </div>
+  </div>
+
+  <!-- Testimonials -->
+  <div class="grid gap-10 sm:grid-cols-2">
+    <div class="glass rounded-2xl p-8 border border-white/10" data-aos="fade-up">
+      <p class="italic text-slate-300 mb-4">“We went from chasing dead Facebook leads to <span class="text-brand">16 booked visits</span> in 21 days. Closed 5 — biggest month ever.”</p>
+      <div class="flex items-center gap-3">
+        <img src="https://i.pravatar.cc/64?img=3" alt="client" class="w-12 h-12 rounded-full"/>
+        <div>
+          <p class="font-semibold">Jake M.</p>
+          <p class="text-xs text-slate-400">Owner, Urban Pods Ltd.</p>
+        </div>
       </div>
     </div>
-    <!-- elite -->
-    <div class="glass rounded-3xl border border-brand/30 p-10 flex flex-col" data-aos="flip-left" data-aos-delay="300">
-      <h3 class="font-semibold text-xl mb-4">Elite</h3>
-      <p class="text-4xl font-bold text-brand mb-6">Custom</p>
-      <ul class="space-y-3 mb-10 text-slate-400">
-        <li>Radius Exclusivity</li>
-        <li>Revenue-Share Option</li>
-        <li>Priority Slack Channel</li>
-        <li>Monthly Growth Workshop</li>
-      </ul>
-      <a href="#book" class="mt-auto bg-brand text-slate-900 font-medium rounded-full py-3 text-center hover:brightness-110 transition">Talk to Us</a>
+
+    <div class="glass rounded-2xl p-8 border border-white/10" data-aos="fade-up" data-aos-delay="150">
+      <p class="italic text-slate-300 mb-4">“The AI call-bot feels almost human. My crew hears ‘another booking!’ ping on Slack and we just show up.”</p>
+      <div class="flex items-center gap-3">
+        <img src="https://i.pravatar.cc/64?img=13" alt="client" class="w-12 h-12 rounded-full"/>
+        <div>
+          <p class="font-semibold">Sophie L.</p>
+          <p class="text-xs text-slate-400">Director, Garden Office Co.</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ================= CALENDAR / CTA ================= -->
+<!-- ========= CALENDAR / CTA ========= -->
 <section id="book" class="relative isolate overflow-hidden">
   <div class="absolute inset-0 -z-10 bg-gradient-to-tr from-indigo-700/30 via-fuchsia-600/30 to-brand/20 blur-3xl"></div>
 
@@ -231,15 +216,16 @@
   </div>
 </section>
 
-<!-- ================= FOOTER ================= -->
+<!-- ========= FOOTER ========= -->
 <footer class="border-t border-white/10 py-10 text-center text-sm text-slate-500">
-  © 2025 Leads-to-Calls™ • Built with caffeine &amp; GPT • <a href="#" class="underline hover:text-brand">Privacy</a> • <a href="#" class="underline hover:text-brand">Terms</a>
+  © 2025 Leads-to-Calls™ • Built with caffeine & GPT • <a href="#" class="underline hover:text-brand">Privacy</a> • <a href="#" class="underline hover:text-brand">Terms</a>
 </footer>
 
 <!-- Init AOS -->
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-<script>AOS.init({ once: true, duration: 800, offset: 60 });</script>
+<script>AOS.init({ once:true, duration:800, offset:60 });</script>
 
 </body>
 </html>
+
 
