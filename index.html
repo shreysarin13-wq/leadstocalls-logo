@@ -2,180 +2,202 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Book More Garden-Room Builds | Leads-to-Calls™ AI System</title>
+  <title>Leads-to-Calls • AI Growth Engine for Garden-Room Builders</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Done-for-you AI lead-to-appointment engine for garden-office builders. Get qualified site-visit bookings on autopilot.">
-  <style>
-    /* CORE RESET + TOKENS */
-    *,*:before,*:after{box-sizing:border-box;margin:0;padding:0}
-    :root{
-      --clr-bg:#101417;
-      --clr-bg-alt:#1A1F24;
-      --clr-primary:#70E000;
-      --clr-txt:#FAFAFA;
-      --clr-muted:#8A99A8;
-      --fs-h1:clamp(2.2rem,5vw,3.5rem);
-      --fs-h2:clamp(1.4rem,4vw,2rem);
-      --fs-body:1rem;
-      --radius:8px;
-      --shadow:0 8px 20px rgba(0,0,0,.25);
+  <meta name="description" content="Turn Facebook clicks into booked site-visits with an AI-powered appointment engine built for garden-office contractors.">
+  
+  <!-- Tailwind 3 CDN + custom config -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { heading: ['Poppins', 'sans-serif'] },
+          colors: {
+            brand: '#64ffda',      /* neon mint */
+            surface: 'rgba(255,255,255,0.08)'
+          },
+          animation: {
+            'bg-pan': 'bg-pan 12s infinite alternate',
+          },
+          keyframes: {
+            'bg-pan': {
+              '0%': { backgroundPosition: '0% 50%' },
+              '100%': { backgroundPosition: '100% 50%' },
+            }
+          }
+        }
+      }
     }
-    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;background:var(--clr-bg);color:var(--clr-txt);line-height:1.5;}
-    h1{font-size:var(--fs-h1);font-weight:700;margin-bottom:.5em;}
-    h2{font-size:var(--fs-h2);font-weight:600;margin-bottom:.4em;}
-    p{font-size:var(--fs-body);color:var(--clr-muted);margin-bottom:1.1em;}
-    img{max-width:100%;display:block;border-radius:var(--radius);}
-    a.btn{display:inline-block;padding:.85em 1.75em;border-radius:var(--radius);background:var(--clr-primary);color:#000;font-weight:600;text-decoration:none;transition:background .25s}
-    a.btn:hover{background:#9efb3b}
-    /* LAYOUT */
-    .wrapper{width:90%;max-width:1150px;margin-inline:auto;}
-    header{padding:2.5rem 0;display:flex;justify-content:space-between;align-items:center;}
-    nav a{color:var(--clr-muted);margin-left:1.5rem;text-decoration:none;font-weight:500}
-    header .logo{font-size:1.25rem;font-weight:700;color:var(--clr-primary);}
-    .hero{display:flex;flex-direction:column-reverse;gap:2rem;align-items:center;padding:4rem 0;}
-    @media(min-width:800px){.hero{flex-direction:row;}}
-    .hero-content{flex:1}
-    .hero-img{flex:1;position:relative;}
-    .hero-img:after{content:'';position:absolute;inset:0;border-radius:var(--radius);background:linear-gradient(135deg,transparent 50%,rgba(112,224,0,.15));backdrop-filter:blur(3px);}
-    /* FEATURES GRID */
-    .features{display:grid;gap:2rem;margin:4rem 0;}
-    @media(min-width:700px){.features{grid-template-columns:repeat(3,1fr);}}
-    .card{background:var(--clr-bg-alt);padding:2rem;border-radius:var(--radius);box-shadow:var(--shadow);transition:transform .25s}
-    .card:hover{transform:translateY(-6px);}
-    .card h3{font-size:1.25rem;font-weight:600;margin-bottom:.5em}
-    .process{display:grid;gap:1.5rem;}
-    .process-step{display:flex;align-items:flex-start;gap:1.2rem;}
-    .process-step span{font-size:1.5rem;font-weight:700;color:var(--clr-primary);}
-    /* PRICING */
-    .pricing{display:grid;gap:2rem;margin:4rem 0;}
-    @media(min-width:700px){.pricing{grid-template-columns:repeat(3,1fr);}}
-    .price-card{background:var(--clr-bg-alt);padding:2.5rem;border-radius:var(--radius);box-shadow:var(--shadow);text-align:center;display:flex;flex-direction:column;}
-    .price-card h3{margin-bottom:.2em}
-    .price{font-size:2rem;font-weight:700;margin:.6em 0;color:var(--clr-primary);}
-    .price-card ul{list-style:none;text-align:left;margin:1rem 0 2rem}
-    .price-card li{margin-bottom:.5rem;}
-    /* CALENDAR SECTION */
-    .cta{position:relative;margin:4rem 0;padding:4rem 2rem;background:linear-gradient(135deg,#182026,#0f1315 70%);border-radius:var(--radius);}
-    .cta h2{margin-bottom:1rem;}
-    #my-cal-inline-15-minute-profit-map-call-copy{height:650px;border:none;border-radius:var(--radius);margin-top:2rem;background:#fff;overflow:hidden;}
-    /* FOOTER */
-    footer{padding:3rem 0;text-align:center;font-size:.875rem;color:var(--clr-muted);}
+  </script>
+  <!-- Google fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+
+  <!-- AOS scroll-reveal -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css"/>
+  <style>
+    /* glassmorphism backdrop */
+    .glass { backdrop-filter: blur(14px) saturate(180%); background: var(--tw-bg-opacity) rgba(255,255,255,.06); }
+    /* scrollbar hide for hero BG video on mobile */
+    ::-webkit-scrollbar { width: 0; height: 0; }
   </style>
 </head>
 
-<body>
+<body class="text-slate-200 bg-slate-950 selection:bg-brand selection:text-slate-900">
 
-  <!-- ============ NAV / HERO ============ -->
-  <section class="wrapper">
-    <header>
-      <span class="logo">Leads-to-Calls<span style="color:#fff;">™</span></span>
-      <nav>
-        <a href="#features">How It Works</a>
-        <a href="#pricing">Pricing</a>
-        <a href="#book">Book Call</a>
-      </nav>
-    </header>
+<!-- ================= HERO ================= -->
+<section class="relative flex flex-col justify-center items-center min-h-screen overflow-hidden">
+  
+  <!-- animated gradient background -->
+  <div class="absolute inset-0 -z-10 animate-bg-pan bg-[length:400%_400%] bg-gradient-to-r from-teal-500 via-fuchsia-600 to-indigo-600 opacity-20"></div>
 
-    <div class="hero">
-      <div class="hero-content">
-        <h1>Flood Your Calendar<br>with Qualified <span style="color:var(--clr-primary);">Garden-Room</span> Site Visits</h1>
-        <p>No more chasing cold leads. Our AI-driven system captures, calls, qualifies and schedules ready-to-buy homeowners—while you’re on the tools.</p>
-        <a class="btn" href="#book">Get My Profit Map</a>
-      </div>
-      <div class="hero-img">
-        <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&q=60&w=800" alt="Modern garden office">
-      </div>
+  <div class="max-w-6xl px-6 text-center" data-aos="fade-down">
+    <h1 class="font-heading text-4xl sm:text-6xl md:text-7xl font-bold leading-tight mb-6">
+      Flood&nbsp;Your&nbsp;Diary<br>
+      with <span class="text-brand">Ready-to-Buy</span> Garden-Room Clients
+    </h1>
+    <p class="max-w-2xl mx-auto text-lg sm:text-xl text-slate-300/80 mb-10">
+      Clicks ➡️ AI calls ➡️ booked site-visits—all handled for you.<br class="hidden sm:inline">Stop chasing leads, start installing studios.
+    </p>
+    <a href="#book" class="inline-block bg-brand text-slate-900 font-semibold rounded-full px-8 py-3 hover:brightness-110 transition">
+      Get My 15-Minute Profit Map
+    </a>
+  </div>
+
+  <!-- Hero illustration -->
+  <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&q=60&w=1200" alt="Garden office" class="w-[90%] max-w-4xl mt-16 rounded-3xl shadow-2xl ring-1 ring-white/10" data-aos="zoom-in-up"/>
+
+</section>
+
+<!-- ================= FEATURE CARDS ================= -->
+<section id="features" class="max-w-6xl mx-auto px-6 py-24">
+  <h2 class="font-heading text-center text-3xl sm:text-4xl font-bold mb-16" data-aos="fade-right">
+    What Makes It <span class="text-brand">Different</span>
+  </h2>
+
+  <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+    <!-- card -->
+    <div class="glass rounded-2xl p-8 border border-white/10 hover:-translate-y-2 hover:shadow-lg transition" data-aos="fade-up">
+      <svg class="w-10 h-10 text-brand mb-4" fill="none" stroke="currentColor" stroke-width="1.7" viewBox="0 0 24 24">
+        <path d="M3 5h12M9 3v2m2 4h6m-6 4h8m-8 4h3" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <h3 class="font-semibold text-xl mb-2">120-Second AI Dial-Back</h3>
+      <p class="text-slate-400">Voice bot rings new leads instantly, qualifies budget &amp; timeline, then books the visit—before your competitors even reply.</p>
     </div>
-  </section>
-
-  <!-- ============ FEATURES ============ -->
-  <section id="features" class="wrapper">
-    <h2 style="text-align:center;margin-bottom:2rem;">Why Builders Love It</h2>
-    <div class="features">
-      <div class="card">
-        <h3>Instant AI Call-Back</h3>
-        <p>Our voice bot rings new leads within <b>120 seconds</b>, qualifies budget & timeline, and books the slot.</p>
-      </div>
-      <div class="card">
-        <h3>Meta + CAPI Super-Pixel</h3>
-        <p>Real sales outcomes flow back to Meta, slashing ad costs 15-30 % as the algorithm hunts more buyers.</p>
-      </div>
-      <div class="card">
-        <h3>Show-Rate Insurance</h3>
-        <p>SMS + HeyGen video reminders lift show-ups to <b>75 %</b>. No more empty drive-outs.</p>
-      </div>
+    <!-- card -->
+    <div class="glass rounded-2xl p-8 border border-white/10 hover:-translate-y-2 hover:shadow-lg transition" data-aos="fade-up" data-aos-delay="150">
+      <svg class="w-10 h-10 text-brand mb-4" fill="none" stroke="currentColor" stroke-width="1.7" viewBox="0 0 24 24">
+        <path d="M3 12h18M12 3v18" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <h3 class="font-semibold text-xl mb-2">Smart Meta + CAPI Loop</h3>
+      <p class="text-slate-400">We feed closed-deal data back to Meta so the algorithm hunts buyers, not tyre-kickers—dropping ad costs 20-40 %.</p>
     </div>
-  </section>
-
-  <!-- ============ PROCESS ============ -->
-  <section class="wrapper">
-    <h2 style="text-align:center;margin-bottom:2rem;">How It Works</h2>
-    <div class="process">
-      <div class="process-step">
-        <span>1</span>
-        <p>We launch proven Meta ads that magnetize work-from-home homeowners in your postcode radius.</p>
-      </div>
-      <div class="process-step">
-        <span>2</span>
-        <p>AI voice bot + SMS qualify each lead and drop booked visits straight into your calendar.</p>
-      </div>
-      <div class="process-step">
-        <span>3</span>
-        <p>You show up, quote, and build. We feed sale data back into the ads to compound your ROI.</p>
-      </div>
+    <!-- card -->
+    <div class="glass rounded-2xl p-8 border border-white/10 hover:-translate-y-2 hover:shadow-lg transition" data-aos="fade-up" data-aos-delay="300">
+      <svg class="w-10 h-10 text-brand mb-4" fill="none" stroke="currentColor" stroke-width="1.7" viewBox="0 0 24 24">
+        <path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <h3 class="font-semibold text-xl mb-2">75 % Show-Rate Guarantee</h3>
+      <p class="text-slate-400">Personalised HeyGen video + SMS reminders slash no-shows. We cover any empty driveway with bonus bookings.</p>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ============ PRICING ============ -->
-  <section id="pricing" class="wrapper">
-    <h2 style="text-align:center;margin-bottom:2rem;">Simple Plans, 4-8× ROI Typical</h2>
-    <div class="pricing">
-      <!-- STARTER -->
-      <div class="price-card">
-        <h3>Starter</h3>
-        <p class="price">$1&nbsp;500&nbsp;/&nbsp;mo</p>
-        <ul>
-          <li>1 Territory</li>
-          <li>Meta Ads + Instant Form</li>
-          <li>AI Voice Bot</li>
-          <li>SMS/Email Reminders</li>
-        </ul>
-        <a class="btn" href="#book">Start Trial</a>
-      </div>
-      <!-- PRO -->
-      <div class="price-card" style="background:var(--clr-primary);color:#000;">
-        <h3>Pro</h3>
-        <p class="price">$2&nbsp;500&nbsp;/&nbsp;mo</p>
-        <ul>
+<!-- ================= PROCESS TIMELINE ================= -->
+<section class="relative">
+  <!-- gradient bar -->
+  <div class="absolute inset-0 bg-gradient-to-r from-fuchsia-600/10 via-brand/10 to-sky-500/10 pointer-events-none"></div>
+
+  <div class="max-w-6xl mx-auto px-6 py-24">
+    <h2 class="font-heading text-center text-3xl sm:text-4xl font-bold mb-20" data-aos="zoom-in">
+      Three Steps, Zero Stress
+    </h2>
+
+    <ol class="relative border-l border-slate-700/80 pl-8 space-y-16">
+      <li data-aos="fade-left">
+        <span class="absolute -left-[14px] top-1 w-7 h-7 rounded-full bg-brand blur-[2px]"></span>
+        <h4 class="text-xl font-semibold mb-1">Launch laser-targeted ads</h4>
+        <p class="text-slate-400">We unlock hidden homeowner segments &amp; copy that converts at <span class="text-brand">30 %+</span> click-through rate.</p>
+      </li>
+      <li data-aos="fade-left" data-aos-delay="120">
+        <span class="absolute -left-[14px] top-1 w-7 h-7 rounded-full bg-brand blur-[2px]"></span>
+        <h4 class="text-xl font-semibold mb-1">AI does the talking</h4>
+        <p class="text-slate-400">Voice + SMS bots qualify, nurture, and drop ready appointments on your calendar—even while you’re on site.</p>
+      </li>
+      <li data-aos="fade-left" data-aos-delay="240">
+        <span class="absolute -left-[14px] top-1 w-7 h-7 rounded-full bg-brand blur-[2px]"></span>
+        <h4 class="text-xl font-semibold mb-1">You build &amp; bank</h4>
+        <p class="text-slate-400">Close 1 in 4 site-visits—then watch Meta optimise itself off your sales data for compounding ROI.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ================= PRICING ================= -->
+<section id="pricing" class="max-w-6xl mx-auto px-6 py-24">
+  <h2 class="font-heading text-center text-3xl sm:text-4xl font-bold mb-16" data-aos="fade-right">
+    Transparent <span class="text-brand">Flat Fees</span>
+  </h2>
+
+  <div class="grid gap-10 md:grid-cols-3">
+    <!-- starter -->
+    <div class="glass rounded-3xl border border-brand/30 p-10 flex flex-col" data-aos="flip-left">
+      <h3 class="font-semibold text-xl mb-4">Starter</h3>
+      <p class="text-4xl font-bold text-brand mb-6">$1.5k<span class="text-slate-400 text-lg font-medium">/mo</span></p>
+      <ul class="space-y-3 mb-10 text-slate-400">
+        <li>1 Territory</li>
+        <li>Meta Ads &amp; AI Voice Dial</li>
+        <li>SMS Reminders</li>
+        <li>Weekly KPI Report</li>
+      </ul>
+      <a href="#book" class="mt-auto bg-brand text-slate-900 font-medium rounded-full py-3 text-center hover:brightness-110 transition">Start Trial</a>
+    </div>
+    <!-- pro -->
+    <div class="relative rounded-3xl p-[1px] bg-gradient-to-tr from-brand to-fuchsia-500" data-aos="flip-left" data-aos-delay="150">
+      <div class="glass rounded-[calc(1.5rem-1px)] h-full p-10 flex flex-col">
+        <h3 class="font-semibold text-xl mb-4">Pro</h3>
+        <p class="text-4xl font-bold text-brand mb-6">$2.5k<span class="text-slate-400 text-lg font-medium">/mo</span></p>
+        <ul class="space-y-3 mb-10 text-slate-400">
           <li>3 Territories</li>
-          <li>AI Voice & SMS Bot</li>
-          <li>Personalized Video Reminders</li>
-          <li>Review-Capture Flow</li>
+          <li>AI Voice + SMS Bot</li>
+          <li>HeyGen Video Reminders</li>
+          <li>Review Capture Flow</li>
         </ul>
-        <a class="btn" style="background:#000;color:var(--clr-primary);" href="#book">Scale Up</a>
-      </div>
-      <!-- ELITE -->
-      <div class="price-card">
-        <h3>Elite</h3>
-        <p class="price">Custom</p>
-        <ul>
-          <li>Radius Exclusivity</li>
-          <li>Revenue Share Option</li>
-          <li>Priority Support</li>
-          <li>Monthly Growth Workshop</li>
-        </ul>
-        <a class="btn" href="#book">Talk to Us</a>
+        <a href="#book" class="mt-auto bg-brand text-slate-900 font-medium rounded-full py-3 text-center hover:brightness-110 transition">Scale Up</a>
       </div>
     </div>
-  </section>
+    <!-- elite -->
+    <div class="glass rounded-3xl border border-brand/30 p-10 flex flex-col" data-aos="flip-left" data-aos-delay="300">
+      <h3 class="font-semibold text-xl mb-4">Elite</h3>
+      <p class="text-4xl font-bold text-brand mb-6">Custom</p>
+      <ul class="space-y-3 mb-10 text-slate-400">
+        <li>Radius Exclusivity</li>
+        <li>Revenue-Share Option</li>
+        <li>Priority Slack Channel</li>
+        <li>Monthly Growth Workshop</li>
+      </ul>
+      <a href="#book" class="mt-auto bg-brand text-slate-900 font-medium rounded-full py-3 text-center hover:brightness-110 transition">Talk to Us</a>
+    </div>
+  </div>
+</section>
 
-  <!-- ============ CTA / CALENDAR ============ -->
-  <section id="book" class="wrapper cta">
-    <h2>Claim Your 15-Minute Profit Map Call</h2>
-    <p>We’ll map out projected ad spend, booking volume and revenue for your exact territory—free.</p>
+<!-- ================= CALENDAR / CTA ================= -->
+<section id="book" class="relative isolate overflow-hidden">
+  <div class="absolute inset-0 -z-10 bg-gradient-to-tr from-indigo-700/30 via-fuchsia-600/30 to-brand/20 blur-3xl"></div>
+
+  <div class="max-w-6xl mx-auto px-6 py-28">
+    <h2 class="font-heading text-center text-3xl sm:text-4xl font-bold mb-6" data-aos="fade-up">
+      Book Your <span class="text-brand">15-Minute</span> Profit-Map Call
+    </h2>
+    <p class="max-w-2xl mx-auto text-center text-slate-300/80 mb-12" data-aos="fade-up" data-aos-delay="150">
+      Zero pressure. We screen your territory, estimate ad spend → revenue, and you decide if it’s a fit.
+    </p>
 
     <!-- Cal inline embed code begins -->
-    <div id="my-cal-inline-15-minute-profit-map-call-copy"></div>
+    <div class="glass rounded-3xl p-4 border border-white/10" data-aos="zoom-in">
+      <div style="width:100%;height:650px;overflow:scroll" id="my-cal-inline-15-minute-profit-map-call-copy"></div>
+    </div>
     <script type="text/javascript">
       (function (C, A, L) {
         let p = function (a, ar) { a.q.push(ar); };
@@ -190,11 +212,10 @@
             const namespace = ar[1]; api.q = api.q || [];
             if (typeof namespace === "string") {
               cal.ns[namespace] = cal.ns[namespace] || api;
-              p(cal.ns[namespace], ar); p(cal, ["initNamespace", namespace]);
-            } else p(cal, ar);
-            return;
-          }
-          p(cal, ar);
+              p(cal.ns[namespace], ar);
+              p(cal, ["initNamespace", namespace]);
+            } else p(cal, ar); return;
+          } p(cal, ar);
         };
       })(window, "https://app.cal.com/embed/embed.js", "init");
 
@@ -205,17 +226,20 @@
         config: {"layout":"month_view"},
         calLink: "leadstocalls/15-minute-profit-map-call-copy",
       });
-
-      Cal.ns<!--citation:1-->;
     </script>
     <!-- Cal inline embed code ends -->
+  </div>
+</section>
 
-  </section>
+<!-- ================= FOOTER ================= -->
+<footer class="border-t border-white/10 py-10 text-center text-sm text-slate-500">
+  © 2025 Leads-to-Calls™ • Built with caffeine &amp; GPT • <a href="#" class="underline hover:text-brand">Privacy</a> • <a href="#" class="underline hover:text-brand">Terms</a>
+</footer>
 
-  <!-- ============ FOOTER ============ -->
-  <footer>
-    © 2025 Leads-to-Calls™ · All rights reserved · <a href="#" style="color:inherit;">Privacy</a> · <a href="#" style="color:inherit;">Terms</a>
-  </footer>
+<!-- Init AOS -->
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>AOS.init({ once: true, duration: 800, offset: 60 });</script>
 
 </body>
 </html>
+
