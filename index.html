@@ -1,229 +1,137 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Leads-to-Calls • AI Growth Engine for Garden-Room Builders</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Turn Facebook clicks into booked site-visits with an AI-powered appointment engine built for garden-office contractors.">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Scale Your Garden-Room Business</title>
 
-  <!-- Tailwind 3 CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: { heading: ['Poppins', 'sans-serif'] },
-          colors: { brand: '#64ffda', surface: 'rgba(255,255,255,0.08)' },
-          animation: { 'bg-pan': 'bg-pan 12s infinite alternate' },
-          keyframes: {
-            'bg-pan': {
-              '0%': { backgroundPosition: '0% 50%' },
-              '100%': { backgroundPosition: '100% 50%' },
-            }
-          }
-        }
-      }
-    }
-  </script>
-  <!-- Google font -->
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap" rel="stylesheet">
-  <!-- AOS scroll-reveal -->
-  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css"/>
+  <!-- ──────────────  FAVICONS  ────────────── -->
+  <link rel="icon" type="image/png"    href="https://www.leadstocalls.com/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="https://www.leadstocalls.com/favicon.svg" />
+  <link rel="shortcut icon"             href="https://www.leadstocalls.com/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="https://www.leadstocalls.com/apple-touch-icon.png" />
+  <link rel="manifest" href="https://www.leadstocalls.com/site.webmanifest" />
+  <!-- ──────────────────────────────────────── -->
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
   <style>
-    .glass{backdrop-filter:blur(14px) saturate(180%);background:rgba(255,255,255,.06)}
-    ::-webkit-scrollbar{width:0;height:0}
+    :root{
+      --brand-green:#5BBE42;
+      --dark:#121212;
+      --light:#ffffff;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      font-family:'Poppins',sans-serif;
+      color:var(--light);
+      background:linear-gradient(135deg,#072230 0%,#164A2F 50%,#5BBE42 100%) fixed;
+      min-height:100vh;
+      display:flex;
+      flex-direction:column;
+    }
+
+    /* ---------- HERO ---------- */
+    .hero{text-align:center;padding:7rem 1rem 5rem;max-width:1100px;margin:auto;}
+    h1{font-size:clamp(2rem,4.5vw,3.5rem);font-weight:700;line-height:1.15;margin-bottom:1rem;}
+    h1 span{color:var(--brand-green);}
+    .sub{font-size:clamp(1.1rem,2.5vw,1.5rem);font-weight:400;opacity:.9;margin-bottom:2.5rem;}
+    .btn{background:var(--brand-green);color:var(--dark);padding:1rem 2.5rem;font-weight:600;border:none;border-radius:50px;cursor:pointer;transition:.25s;text-decoration:none;display:inline-block;}
+    .btn:hover{transform:translateY(-3px);box-shadow:0 10px 20px rgba(0,0,0,.25);}
+
+    /* ---------- SLIDE SECTION ---------- */
+    #slides{padding:4rem 1rem;background:#f1f5f4;color:var(--dark);}
+    #slides h2{text-align:center;font-size:2rem;font-weight:600;margin-bottom:2rem;}
+    .slides-wrapper{
+      position:relative;
+      width:100%;
+      max-width:1000px;
+      margin:auto;
+      /* 16:9 aspect ratio = 56.25% */
+      padding-bottom:56.25%;
+      height:0;
+      overflow:hidden;
+      border-radius:12px;
+      box-shadow:0 10px 25px rgba(0,0,0,.1);
+      background:#000;
+    }
+    .slides-wrapper iframe{
+      position:absolute;
+      top:0;left:0;
+      width:100%;height:100%;
+      border:0;
+    }
+
+    /* ---------- CALENDAR SECTION ---------- */
+    #booking{background:#f7f7f7;color:var(--dark);padding:4rem 1rem;flex:1 0 auto;}
+    #booking h2{text-align:center;font-size:2rem;font-weight:600;margin-bottom:2rem;}
+    #cal-wrapper{
+      width:100%;max-width:1000px;height:650px;margin:auto;
+      background:#fff;border-radius:12px;overflow:hidden;
+      box-shadow:0 10px 25px rgba(0,0,0,.1);
+    }
+
+    /* SMOOTH SCROLL */
+    html{scroll-behavior:smooth;}
+
+    /* Fade-up animation for hero */
+    @keyframes fadeUp{from{opacity:0;transform:translateY(25px)}to{opacity:1;transform:translateY(0)}}
+    .hero>*{animation:fadeUp .8s ease forwards;opacity:0}
+    .hero h1{animation-delay:.2s}
+    .hero .sub{animation-delay:.4s}
+    .hero .btn{animation-delay:.6s}
   </style>
 </head>
 
-<body class="text-slate-200 bg-slate-950 selection:bg-brand selection:text-slate-900">
+<body>
 
-<!-- ========= HERO ========= -->
-<section class="relative flex flex-col justify-center items-center min-h-screen overflow-hidden">
-  <div class="absolute inset-0 -z-10 animate-bg-pan bg-[length:400%_400%] bg-gradient-to-r from-teal-500 via-fuchsia-600 to-indigo-600 opacity-20"></div>
-
-  <div class="max-w-6xl px-6 text-center" data-aos="fade-down">
-    <h1 class="font-heading text-4xl sm:text-6xl md:text-7xl font-bold leading-tight mb-6">
-      Flood&nbsp;Your&nbsp;Diary<br>
-      with <span class="text-brand">Ready-to-Buy</span> Garden-Room Clients
+  <!-- HERO / ABOVE THE FOLD -->
+  <header class="hero">
+    <h1>
+      Helping <span>Garden-Room Builders</span><br>
+      Scale to £100K+ Profit<br> in <span>90&nbsp;Days</span>
     </h1>
-    <p class="max-w-2xl mx-auto text-lg sm:text-xl text-slate-300/80 mb-10">
-      Clicks ➡️ AI calls ➡️ booked site-visits—all handled for you. Stop chasing leads, start installing studios.
+    <p class="sub">
+      Proven marketing & operations blueprint designed for the UK’s booming outdoor-office market.
     </p>
-    <a href="#book" class="inline-block bg-brand text-slate-900 font-semibold rounded-full px-8 py-3 hover:brightness-110 transition">
-      Get My 15-Minute Profit Map
-    </a>
-  </div>
+    <a href="#booking" class="btn">Book My Free 15-Minute Call</a>
+  </header>
 
-  <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&q=60&w=1200" alt="Garden office"
-       class="w-[90%] max-w-4xl mt-16 rounded-3xl shadow-2xl ring-1 ring-white/10" data-aos="zoom-in-up"/>
-</section>
-
-<!-- ========= FEATURE CARDS ========= -->
-<section id="features" class="max-w-6xl mx-auto px-6 py-24">
-  <h2 class="font-heading text-center text-3xl sm:text-4xl font-bold mb-16" data-aos="fade-right">
-    What Makes It <span class="text-brand">Different</span>
-  </h2>
-
-  <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-    <div class="glass rounded-2xl p-8 border border-white/10 hover:-translate-y-2 hover:shadow-lg transition" data-aos="fade-up">
-      <svg class="w-10 h-10 text-brand mb-4" fill="none" stroke="currentColor" stroke-width="1.7" viewBox="0 0 24 24">
-        <path d="M3 5h12M9 3v2m2 4h6m-6 4h8m-8 4h3" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-      <h3 class="font-semibold text-xl mb-2">120-Second AI Dial-Back</h3>
-      <p class="text-slate-400">Voice bot rings new leads instantly, qualifies budget & timeline, then books the visit—before your competitors even reply.</p>
+  <!-- GOOGLE SLIDES SECTION -->
+  <section id="slides">
+    <h2>See the 3-Step Profit Blueprint 👇</h2>
+    <div class="slides-wrapper">
+      <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vTaCABYqeyoJ8wd9c0vicY_qG0SWqEABeclQY6DENjfif_ld-O5tCsJC_Lfw8NtvyyvLUA-YKlNFvWJ/pubembed?start=false&loop=false&delayms=3000"
+              allowfullscreen mozallowfullscreen webkitallowfullscreen></iframe>
     </div>
-    <div class="glass rounded-2xl p-8 border border-white/10 hover:-translate-y-2 hover:shadow-lg transition" data-aos="fade-up" data-aos-delay="150">
-      <svg class="w-10 h-10 text-brand mb-4" fill="none" stroke="currentColor" stroke-width="1.7" viewBox="0 0 24 24">
-        <path d="M3 12h18M12 3v18" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-      <h3 class="font-semibold text-xl mb-2">Smart Meta + CAPI Loop</h3>
-      <p class="text-slate-400">We feed closed-deal data back to Meta so the algorithm hunts buyers, not tyre-kickers—dropping ad costs 20-40 %.</p>
+  </section>
+
+  <!-- CALENDAR SECTION -->
+  <section id="booking">
+    <h2>Reserve Your 15-Minute Profit-Map Call</h2>
+    <div id="cal-wrapper">
+      <div id="my-cal-inline-15-minute-profit-map-call" style="width:100%;height:100%;overflow:auto"></div>
     </div>
-    <div class="glass rounded-2xl p-8 border border-white/10 hover:-translate-y-2 hover:shadow-lg transition" data-aos="fade-up" data-aos-delay="300">
-      <svg class="w-10 h-10 text-brand mb-4" fill="none" stroke="currentColor" stroke-width="1.7" viewBox="0 0 24 24">
-        <path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-      <h3 class="font-semibold text-xl mb-2">75 % Show-Rate Guarantee</h3>
-      <p class="text-slate-400">Personalised HeyGen video + SMS reminders slash no-shows. We cover any empty driveway with bonus bookings.</p>
-    </div>
-  </div>
-</section>
+  </section>
 
-<!-- ========= PROCESS TIMELINE ========= -->
-<section class="relative">
-  <div class="absolute inset-0 bg-gradient-to-r from-fuchsia-600/10 via-brand/10 to-sky-500/10 pointer-events-none"></div>
+  <!-- Cal.com embed -->
+  <script>
+    (function (C,A,L){let p=(a,ar)=>a.q.push(ar);let d=C.document;C.Cal=C.Cal||function(){let cal=C.Cal,ar=arguments;if(!cal.loaded){cal.ns={};cal.q=cal.q||[];d.head.appendChild(d.createElement("script")).src=A;cal.loaded=true;}if(ar[0]===L){const api=function(){p(api,arguments);};const ns=ar[1];api.q=api.q||[];if(typeof ns==="string"){cal.ns[ns]=cal.ns[ns]||api;p(cal.ns[ns],ar);p(cal,["initNamespace",ns]);}else p(cal,ar);return;}p(cal,ar);};})(window,"https://app.cal.com/embed/embed.js","init");
 
-  <div class="max-w-6xl mx-auto px-6 py-24">
-    <h2 class="font-heading text-center text-3xl sm:text-4xl font-bold mb-20" data-aos="zoom-in">
-      Three Steps, Zero Stress
-    </h2>
+    Cal("init","15-minute-profit-map-call",{origin:"https://app.cal.com"});
 
-    <ol class="relative border-l border-slate-700/80 pl-8 space-y-16">
-      <li data-aos="fade-left">
-        <span class="absolute -left-[14px] top-1 w-7 h-7 rounded-full bg-brand blur-[2px]"></span>
-        <h4 class="text-xl font-semibold mb-1">Launch laser-targeted ads</h4>
-        <p class="text-slate-400">We unlock hidden homeowner segments & copy that converts at <span class="text-brand">30 %+</span> CTR.</p>
-      </li>
-      <li data-aos="fade-left" data-aos-delay="120">
-        <span class="absolute -left-[14px] top-1 w-7 h-7 rounded-full bg-brand blur-[2px]"></span>
-        <h4 class="text-xl font-semibold mb-1">AI does the talking</h4>
-        <p class="text-slate-400">Voice + SMS bots qualify, nurture, and drop ready appointments on your calendar—even while you’re on-site.</p>
-      </li>
-      <li data-aos="fade-left" data-aos-delay="240">
-        <span class="absolute -left-[14px] top-1 w-7 h-7 rounded-full bg-brand blur-[2px]"></span>
-        <h4 class="text-xl font-semibold mb-1">You build & bank</h4>
-        <p class="text-slate-400">Close 1 in 4 site-visits—then watch Meta optimise itself off your sales data for compounding ROI.</p>
-      </li>
-    </ol>
-  </div>
-</section>
+    Cal.ns["15-minute-profit-map-call"]("inline",{
+      elementOrSelector:"#my-cal-inline-15-minute-profit-map-call",
+      config:{layout:"month_view"},
+      calLink:"leadstocalls/15-minute-profit-map-call"
+    });
 
-<!-- ========= PROVEN RESULTS (confidence-builder) ========= -->
-<section id="proof" class="max-w-6xl mx-auto px-6 py-24">
-  <h2 class="font-heading text-center text-3xl sm:text-4xl font-bold mb-16" data-aos="fade-right">
-    Proof It <span class="text-brand">Works</span>
-  </h2>
-
-  <!-- Stats -->
-  <div class="grid gap-10 sm:grid-cols-3 mb-20">
-    <div class="text-center" data-aos="flip-left">
-      <p class="text-brand text-5xl font-bold mb-2">29×</p>
-      <p class="text-slate-400">Average first-month ROAS<br>(real client data)</p>
-    </div>
-    <div class="text-center" data-aos="flip-left" data-aos-delay="150">
-      <p class="text-brand text-5xl font-bold mb-2">75 %</p>
-      <p class="text-slate-400">Show-rate guarantee<br>or extra calls free</p>
-    </div>
-    <div class="text-center" data-aos="flip-left" data-aos-delay="300">
-      <p class="text-brand text-5xl font-bold mb-2">4.9★</p>
-      <p class="text-slate-400">Average client rating<br>across 3 platforms</p>
-    </div>
-  </div>
-
-  <!-- Testimonials -->
-  <div class="grid gap-10 sm:grid-cols-2">
-    <div class="glass rounded-2xl p-8 border border-white/10" data-aos="fade-up">
-      <p class="italic text-slate-300 mb-4">“We went from chasing dead Facebook leads to <span class="text-brand">16 booked visits</span> in 21 days. Closed 5 — biggest month ever.”</p>
-      <div class="flex items-center gap-3">
-        <img src="https://i.pravatar.cc/64?img=3" alt="client" class="w-12 h-12 rounded-full"/>
-        <div>
-          <p class="font-semibold">Jake M.</p>
-          <p class="text-xs text-slate-400">Owner, Urban Pods Ltd.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="glass rounded-2xl p-8 border border-white/10" data-aos="fade-up" data-aos-delay="150">
-      <p class="italic text-slate-300 mb-4">“The AI call-bot feels almost human. My crew hears ‘another booking!’ ping on Slack and we just show up.”</p>
-      <div class="flex items-center gap-3">
-        <img src="https://i.pravatar.cc/64?img=13" alt="client" class="w-12 h-12 rounded-full"/>
-        <div>
-          <p class="font-semibold">Sophie L.</p>
-          <p class="text-xs text-slate-400">Director, Garden Office Co.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ========= CALENDAR / CTA ========= -->
-<section id="book" class="relative isolate overflow-hidden">
-  <div class="absolute inset-0 -z-10 bg-gradient-to-tr from-indigo-700/30 via-fuchsia-600/30 to-brand/20 blur-3xl"></div>
-
-  <div class="max-w-6xl mx-auto px-6 py-28">
-    <h2 class="font-heading text-center text-3xl sm:text-4xl font-bold mb-6" data-aos="fade-up">
-      Book Your <span class="text-brand">15-Minute</span> Profit-Map Call
-    </h2>
-    <p class="max-w-2xl mx-auto text-center text-slate-300/80 mb-12" data-aos="fade-up" data-aos-delay="150">
-      Zero pressure. We screen your territory, estimate ad spend → revenue, and you decide if it’s a fit.
-    </p>
-
-    <!-- Cal inline embed code begins -->
-    <div class="glass rounded-3xl p-4 border border-white/10" data-aos="zoom-in">
-      <div style="width:100%;height:650px;overflow:scroll" id="my-cal-inline-15-minute-profit-map-call-copy"></div>
-    </div>
-    <script type="text/javascript">
-      (function (C, A, L) {
-        let p = function (a, ar) { a.q.push(ar); };
-        let d = C.document; C.Cal = C.Cal || function () {
-          let cal = C.Cal; let ar = arguments;
-          if (!cal.loaded) {
-            cal.ns = {}; cal.q = cal.q || [];
-            d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true;
-          }
-          if (ar[0] === L) {
-            const api = function () { p(api, arguments); };
-            const namespace = ar[1]; api.q = api.q || [];
-            if (typeof namespace === "string") {
-              cal.ns[namespace] = cal.ns[namespace] || api;
-              p(cal.ns[namespace], ar);
-              p(cal, ["initNamespace", namespace]);
-            } else p(cal, ar); return;
-          } p(cal, ar);
-        };
-      })(window, "https://app.cal.com/embed/embed.js", "init");
-
-      Cal("init", "15-minute-profit-map-call-copy", {origin:"https://app.cal.com"});
-
-      Cal.ns["15-minute-profit-map-call-copy"]("inline", {
-        elementOrSelector:"#my-cal-inline-15-minute-profit-map-call-copy",
-        config: {"layout":"month_view"},
-        calLink: "leadstocalls/15-minute-profit-map-call-copy",
-      });
-    </script>
-    <!-- Cal inline embed code ends -->
-  </div>
-</section>
-
-<!-- ========= FOOTER ========= -->
-<footer class="border-t border-white/10 py-10 text-center text-sm text-slate-500">
-  © 2025 Leads-to-Calls™ • Built with caffeine & GPT • <a href="#" class="underline hover:text-brand">Privacy</a> • <a href="#" class="underline hover:text-brand">Terms</a>
-</footer>
-
-<!-- Init AOS -->
-<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-<script>AOS.init({ once:true, duration:800, offset:60 });</script>
+    Cal.ns["15-minute-profit-map-call"]("ui",{
+      hideEventTypeDetails:false,
+      layout:"month_view"
+    });
+  </script>
 
 </body>
 </html>
