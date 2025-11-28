@@ -1,465 +1,1019 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LEADSTOCALLS | Landing Page Agency</title>
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Space+Grotesk:wght@300;500;700;900&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --cursor-size: 20px;
-            --cursor-hover-size: 80px;
-        }
-        
-        body {
-            font-family: 'Space Grotesk', sans-serif;
-            background-color: #09090b;
-            color: #fafafa;
-            cursor: none; /* Custom cursor */
-            overflow-x: hidden;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>leadstocalls | Meta Ads + AI Intake + Booked Appointments</title>
+  <meta name="description" content="Done-for-you Meta ads, AI qualification and booked appointments for garden room & garden office builders." />
 
-        .font-mono {
-            font-family: 'JetBrains Mono', monospace;
-        }
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
-        /* Noise Overlay */
-        .noise-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 9998;
-            opacity: 0.05;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-        }
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
 
-        /* Custom Cursor */
-        .custom-cursor {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: var(--cursor-size);
-            height: var(--cursor-size);
-            border: 1px solid #a3e635;
-            background-color: rgba(163, 230, 53, 0.2);
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 9999;
-            transform: translate(-50%, -50%);
-            transition: width 0.3s ease, height 0.3s ease, background-color 0.3s ease;
-            mix-blend-mode: difference;
-        }
+    .glass {
+      background: radial-gradient(circle at top left, rgba(45, 212, 191, 0.18), transparent 55%),
+                  radial-gradient(circle at bottom right, rgba(56, 189, 248, 0.16), transparent 55%),
+                  rgba(15, 23, 42, 0.92);
+      backdrop-filter: blur(18px);
+    }
 
-        .custom-cursor.hovered {
-            width: var(--cursor-hover-size);
-            height: var(--cursor-hover-size);
-            background-color: #a3e635;
-            border-color: transparent;
-            mix-blend-mode: difference;
-        }
+    .gradient-border {
+      position: relative;
+      border-radius: 1.25rem;
+      background: linear-gradient(120deg, rgba(45, 212, 191, 0.8), rgba(56, 189, 248, 0.7), rgba(129, 230, 217, 0.8));
+      padding: 1px;
+    }
 
-        /* Grid Background */
-        .grid-bg {
-            background-size: 40px 40px;
-            background-image: linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-                              linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
-        }
+    .gradient-border-inner {
+      border-radius: inherit;
+      background: radial-gradient(circle at top, rgba(15, 23, 42, 0.96), rgba(15, 23, 42, 0.98));
+    }
 
-        /* Glitch Animation */
-        @keyframes glitch {
-            0% { transform: translate(0) }
-            20% { transform: translate(-2px, 2px) }
-            40% { transform: translate(-2px, -2px) }
-            60% { transform: translate(2px, 2px) }
-            80% { transform: translate(2px, -2px) }
-            100% { transform: translate(0) }
-        }
-
-        .hover-glitch:hover {
-            animation: glitch 0.3s cubic-bezier(.25, .46, .45, .94) both infinite;
-            color: #a3e635;
-        }
-
-        /* Marquee */
-        .marquee-container {
-            overflow: hidden;
-            white-space: nowrap;
-        }
-        
-        .marquee-content {
-            display: inline-block;
-            animation: marquee 20s linear infinite;
-        }
-        
-        @keyframes marquee {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
-
-        .card-brutal {
-            border: 1px solid #27272a;
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        
-        .card-brutal:hover {
-            border-color: #a3e635;
-            box-shadow: 4px 4px 0px #a3e635;
-            transform: translate(-4px, -4px);
-        }
-
-        /* Utilities */
-        .text-stroke {
-            -webkit-text-stroke: 1px rgba(255,255,255,0.2);
-            color: transparent;
-        }
-        
-        .text-stroke:hover {
-            -webkit-text-stroke: 0px;
-            color: #a3e635;
-        }
-    </style>
+    .noise {
+      position: relative;
+      isolation: isolate;
+    }
+    .noise::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      opacity: 0.06;
+      mix-blend-mode: soft-light;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 160 160' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.2' numOctaves='3' stitchTiles='noStitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.8'/%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+  </style>
 </head>
-<body class="antialiased selection:bg-lime-400 selection:text-black">
+<body class="bg-slate-950 text-slate-50 antialiased">
+  <div class="min-h-screen flex flex-col noise">
+    <!-- Header -->
+    <header class="sticky top-0 z-40 border-b border-slate-800/80 bg-slate-950/90 backdrop-blur">
+      <nav class="max-w-6xl mx-auto flex items-center justify-between px-4 lg:px-0 py-3.5">
+        <a href="#top" class="flex items-center gap-2">
+          <div class="h-8 w-8 rounded-xl bg-gradient-to-tr from-emerald-400 to-sky-400 flex items-center justify-center text-slate-950 font-semibold text-lg shadow-lg shadow-emerald-500/40">
+            G
+          </div>
+          <div class="leading-tight">
+            <p class="font-semibold tracking-tight">leadstocalls</p>
+            <p class="text-[11px] uppercase tracking-[0.16em] text-slate-400">Meta ads · AI intake · GHL</p>
+          </div>
+        </a>
 
-    <div class="noise-overlay"></div>
-    <div class="custom-cursor" id="cursor"></div>
-
-    <!-- Navigation -->
-    <nav class="fixed w-full z-50 top-0 left-0 border-b border-zinc-800 bg-zinc-950/80 backdrop-blur-md">
-        <div class="container mx-auto px-6 h-20 flex items-center justify-between">
-            <a href="#" class="text-2xl font-black tracking-tighter cursor-scale">
-                LEADS<span class="text-lime-400">TO</span>CALLS
-            </a>
-            <div class="hidden md:flex space-x-8 font-mono text-sm">
-                <a href="#work" class="hover:text-lime-400 transition-colors cursor-scale">WORK</a>
-                <a href="#process" class="hover:text-lime-400 transition-colors cursor-scale">PROCESS</a>
-                <a href="#faq" class="hover:text-lime-400 transition-colors cursor-scale">FAQ</a>
-            </div>
-            <a href="#contact" class="hidden md:block px-6 py-2 border border-zinc-700 hover:bg-lime-400 hover:text-black hover:border-lime-400 transition-all font-mono text-sm cursor-scale font-bold">
-                START PROJECT
-            </a>
-            <button id="menu-btn" class="md:hidden text-2xl cursor-scale z-50 relative">☰</button>
-        </div>
-    </nav>
-
-    <!-- Mobile Menu Overlay -->
-    <div id="mobile-menu" class="fixed inset-0 bg-zinc-950 z-40 flex flex-col items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300">
-        <div class="flex flex-col space-y-8 font-black text-4xl text-center">
-            <a href="#work" class="mobile-link hover:text-lime-400 transition-colors">WORK</a>
-            <a href="#process" class="mobile-link hover:text-lime-400 transition-colors">PROCESS</a>
-            <a href="#faq" class="mobile-link hover:text-lime-400 transition-colors">FAQ</a>
-            <a href="#contact" class="mobile-link hover:text-lime-400 transition-colors">CONTACT</a>
-        </div>
-    </div>
-
-    <!-- Hero Section -->
-    <header class="relative min-h-screen flex items-center pt-20 overflow-hidden grid-bg">
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-lime-500/10 rounded-full blur-[120px] pointer-events-none"></div>
-        
-        <div class="container mx-auto px-6 relative z-10">
-            <div class="max-w-5xl">
-                <div class="inline-block px-3 py-1 mb-6 border border-lime-400/30 rounded-full bg-lime-400/5 font-mono text-xs text-lime-400 tracking-widest uppercase cursor-scale">
-                    High Conversion Agency v2.0
-                </div>
-                <h1 class="text-6xl md:text-8xl lg:text-9xl font-black leading-[0.9] tracking-tighter mb-8">
-                    WE MAKE <br>
-                    LANDING PAGES <br>
-                    THAT <span class="text-stroke transition-all duration-300 cursor-scale">PRINT MONEY</span>.
-                </h1>
-                <p class="text-xl md:text-2xl text-zinc-400 max-w-2xl mb-12 font-light">
-                    Stop building digital graveyards. We engineer high-octane, conversion-focused web experiences that explode revenue—whether you need booked calls or instant sales.
-                </p>
-                <div class="flex flex-col md:flex-row gap-6">
-                    <a href="#contact" class="px-8 py-4 bg-lime-400 text-black font-bold text-lg hover:bg-white hover:scale-105 transition-all cursor-scale flex items-center justify-center gap-2">
-                        GET MORE LEADS
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
-                        </svg>
-                    </a>
-                    <a href="#work" class="px-8 py-4 border border-zinc-700 text-white font-bold text-lg hover:border-white hover:bg-white/5 transition-all cursor-scale flex items-center justify-center">
-                        VIEW RESULTS
-                    </a>
-                </div>
-            </div>
+        <div class="hidden md:flex items-center gap-7 text-sm text-slate-300">
+          <button class="hover:text-emerald-300 transition" data-scroll="#how-it-works">How it works</button>
+          <button class="hover:text-emerald-300 transition" data-scroll="#demo-flow">Live flow</button>
+          <button class="hover:text-emerald-300 transition" data-scroll="#pricing">Pricing</button>
+          <button class="hover:text-emerald-300 transition" data-scroll="#faq">FAQ</button>
         </div>
 
-        <!-- Floating Elements decoration -->
-        <div class="absolute bottom-10 right-10 font-mono text-xs text-zinc-600 hidden md:block">
-            SCROLL_DOWN_FOR_REVENUE [↓]
+        <div class="flex items-center gap-3">
+          <button
+            class="hidden sm:inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-medium bg-emerald-400 text-slate-950 shadow-[0_0_30px_rgba(45,212,191,0.65)] hover:bg-emerald-300 transition"
+            data-scroll="#demo-call"
+          >
+            <span>Book a 15‑min demo</span>
+            <span class="inline-flex h-5 w-5 items-center justify-center rounded-full bg-slate-900/10">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="h-3.5 w-3.5" fill="currentColor">
+                <path fill-rule="evenodd" d="M5.22 4.47a.75.75 0 0 1 1.06 0L13 11.19V7a.75.75 0 0 1 1.5 0v6.75a.75.75 0 0 1-.75.75H7a.75.75 0 0 1 0-1.5h4.19L5.22 5.53a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
+              </svg>
+            </span>
+          </button>
+
+          <button
+            class="md:hidden inline-flex items-center justify-center h-9 w-9 rounded-full border border-slate-700/80 text-slate-200 text-xs"
+            data-scroll="#demo-call"
+          >
+            Demo
+          </button>
         </div>
+      </nav>
     </header>
 
-    <!-- Marquee Text -->
-    <div class="py-8 bg-lime-400 text-black overflow-hidden border-y border-black transform -rotate-1">
-        <div class="marquee-container">
-            <div class="marquee-content font-black text-4xl md:text-6xl tracking-tighter">
-                LEADS TO CALLS • SCALE ECOMMERCE • BOOK MORE DEMOS • RECORD SALES • PURE CHAOS ENERGY • LIGHTNING FAST • LEADS TO CALLS • SCALE ECOMMERCE • BOOK MORE DEMOS • RECORD SALES • PURE CHAOS ENERGY • LIGHTNING FAST • LEADS TO CALLS • SCALE ECOMMERCE • BOOK MORE DEMOS • RECORD SALES • PURE CHAOS ENERGY • LIGHTNING FAST •
-            </div>
+    <main id="top" class="flex-1">
+      <!-- Hero -->
+      <section class="relative overflow-hidden">
+        <div class="pointer-events-none absolute inset-0 opacity-70">
+          <div class="absolute -inset-[30%] bg-[radial-gradient(circle_at_top,_rgba(16,185,129,0.32),transparent_60%),_radial-gradient(circle_at_bottom,_rgba(56,189,248,0.18),transparent_55%)]"></div>
         </div>
-    </div>
 
-    <!-- Value Proposition / Grid -->
-    <section id="process" class="py-32 bg-zinc-950 relative">
-        <div class="container mx-auto px-6">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-20">
-                <h2 class="text-5xl md:text-7xl font-black tracking-tight">THE <br><span class="text-zinc-600">CONVERSION</span><br> PROTOCOL</h2>
-                <p class="text-zinc-400 max-w-md mt-6 md:mt-0 font-mono text-sm">
-                    // SYSTEM.LOG:<br>
-                    Most websites are forgotten in 3 seconds. We ensure yours burns a permanent image into the user's retina (and wallet).
-                </p>
+        <div class="relative max-w-6xl mx-auto px-4 lg:px-0 py-10 lg:py-20">
+          <div class="mb-6 flex flex-wrap items-center gap-3 text-xs text-slate-200/90">
+            <div class="inline-flex items-center gap-1.5 rounded-full border border-emerald-400/40 bg-emerald-400/10 px-2.5 py-1 backdrop-blur">
+              <span class="h-1.5 w-1.5 rounded-full bg-emerald-400 shadow-[0_0_0_4px_rgba(16,185,129,0.35)]"></span>
+              <span class="uppercase tracking-[0.18em] text-[10px] text-emerald-200">New for 2025</span>
+              <span class="text-[11px] text-emerald-50/90">Garden room & office builders only</span>
+            </div>
+            <div class="flex items-center gap-2 text-[11px] text-slate-300">
+              <span class="h-1 w-1 rounded-full bg-slate-500"></span>
+              <span>Done‑for‑you Meta ads · AI caller · GHL bookings</span>
+            </div>
+          </div>
+
+          <div class="grid lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.95fr)] gap-10 lg:gap-14 items-center">
+            <!-- Hero copy -->
+            <div>
+              <h1 class="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-slate-50">
+                Turn garden room enquiries into <span class="bg-gradient-to-r from-emerald-300 via-sky-300 to-emerald-200 bg-clip-text text-transparent">pre‑sold site visits</span>
+                in under 90 seconds.
+              </h1>
+
+              <p class="mt-4 text-sm sm:text-base text-slate-300 max-w-xl">
+                We build and run a complete lead engine for garden room & garden office builders:
+                scroll‑stopping Meta UGC ads, AI voice qualifier, and instant GoHighLevel calendar bookings.
+                You just show up to appointments from people who already want a quote.
+              </p>
+
+              <div class="mt-6 flex flex-wrap items-center gap-3 text-xs text-slate-300/90">
+                <div class="inline-flex items-center gap-2 rounded-full bg-slate-900/80 border border-slate-700/60 px-3 py-1.5">
+                  <span class="inline-flex h-4 w-4 items-center justify-center rounded-full bg-emerald-400/15 text-emerald-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="h-3 w-3" fill="currentColor">
+                      <path fill-rule="evenodd" d="M16.704 5.29a.75.75 0 0 1 .006 1.06l-7.25 7.5a.75.75 0 0 1-1.08.02L3.29 8.72a.75.75 0 1 1 1.08-1.04l4.02 4.18 6.71-6.94a.75.75 0 0 1 1.06-.006Z" clip-rule="evenodd" />
+                    </svg>
+                  </span>
+                  <span>Avg. 8–15 qualified enquiries / month per territory</span>
+                </div>
+                <div class="inline-flex items-center gap-2 rounded-full bg-slate-900/70 border border-slate-700/60 px-3 py-1.5">
+                  <span class="inline-flex h-4 w-4 items-center justify-center rounded-full bg-sky-400/15 text-sky-300">
+                    £
+                  </span>
+                  <span>Example: £3.7k jobs from ~£140 ad spend</span>
+                </div>
+              </div>
+
+              <div class="mt-8 flex flex-wrap items-center gap-4">
+                <button
+                  class="inline-flex items-center justify-center gap-2 rounded-full bg-emerald-400 px-6 py-3 text-sm font-semibold text-slate-950 shadow-[0_18px_50px_rgba(16,185,129,0.55)] hover:bg-emerald-300 transition"
+                  data-scroll="#demo-flow"
+                >
+                  <span>Watch the 3‑step flow</span>
+                  <span class="inline-flex h-5 w-5 items-center justify-center rounded-full bg-slate-900/10">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="h-3.5 w-3.5" fill="currentColor">
+                      <path d="M4.5 4.75A.75.75 0 0 1 5.618 4.2l9 5.25a.75.75 0 0 1 0 1.3l-9 5.25A.75.75 0 0 1 4.5 15.25v-10.5Z" />
+                    </svg>
+                  </span>
+                </button>
+
+                <button
+                  class="inline-flex items-center justify-center gap-2 rounded-full border border-slate-600/70 bg-slate-900/60 px-5 py-2.5 text-sm font-medium text-slate-100 hover:border-emerald-300/80 hover:text-emerald-100 transition"
+                  data-scroll="#demo-call"
+                >
+                  <span>Book a 1:1 strategy demo</span>
+                </button>
+              </div>
+
+              <div class="mt-5 flex flex-wrap items-center gap-4 text-[11px] text-slate-400">
+                <div class="flex items-center gap-2">
+                  <div class="flex -space-x-2">
+                    <span class="h-6 w-6 rounded-full bg-emerald-400/60 border border-slate-900"></span>
+                    <span class="h-6 w-6 rounded-full bg-sky-400/60 border border-slate-900"></span>
+                    <span class="h-6 w-6 rounded-full bg-amber-300/70 border border-slate-900"></span>
+                  </div>
+                  <p><span class="text-slate-200">Territory‑exclusive</span> — one partner per area.</p>
+                </div>
+                <p class="opacity-80">No long contracts. We win if your diary fills.</p>
+              </div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <!-- Card 1 -->
-                <div class="card-brutal bg-zinc-900/50 p-8 cursor-scale group">
-                    <div class="w-12 h-12 bg-zinc-800 rounded-full flex items-center justify-center mb-6 text-lime-400 group-hover:rotate-12 transition-transform">01</div>
-                    <h3 class="text-2xl font-bold mb-4 group-hover:text-lime-400 transition-colors">Visually Aggressive</h3>
-                    <p class="text-zinc-400 leading-relaxed">We don't do "clean and safe". We do memorable. Using brutalist layouts and glitch aesthetics to disrupt patterns.</p>
-                </div>
-                <!-- Card 2 -->
-                <div class="card-brutal bg-zinc-900/50 p-8 cursor-scale group md:mt-12">
-                    <div class="w-12 h-12 bg-zinc-800 rounded-full flex items-center justify-center mb-6 text-purple-400 group-hover:rotate-12 transition-transform">02</div>
-                    <h3 class="text-2xl font-bold mb-4 group-hover:text-purple-400 transition-colors">Speed Freak</h3>
-                    <p class="text-zinc-400 leading-relaxed">Looks cool, loads instant. Optimized code, next-gen formats, and zero bloatware. Google loves it, users love it.</p>
-                </div>
-                <!-- Card 3 -->
-                <div class="card-brutal bg-zinc-900/50 p-8 cursor-scale group md:mt-24">
-                    <div class="w-12 h-12 bg-zinc-800 rounded-full flex items-center justify-center mb-6 text-cyan-400 group-hover:rotate-12 transition-transform">03</div>
-                    <h3 class="text-2xl font-bold mb-4 group-hover:text-cyan-400 transition-colors">Conversion Core</h3>
-                    <p class="text-zinc-400 leading-relaxed">Pretty isn't enough. We structure every pixel to push the user towards that "Buy" button using psychological triggers.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+            <!-- Hero visual -->
+            <div class="relative">
+              <div class="absolute -top-6 -left-8 h-28 w-28 rounded-full bg-emerald-400/15 blur-3xl"></div>
+              <div class="absolute -bottom-10 -right-10 h-28 w-28 rounded-full bg-sky-400/15 blur-3xl"></div>
 
-    <!-- Featured Work -->
-    <section id="work" class="py-32 border-t border-zinc-800 bg-zinc-950">
-        <div class="container mx-auto px-6">
-            <h2 class="text-sm font-mono text-lime-400 mb-12 tracking-widest">/// SELECTED_WORKS_DATABASE</h2>
-            
-            <!-- Project 1 -->
-            <div class="group relative grid grid-cols-1 lg:grid-cols-2 gap-12 items-center cursor-scale">
-                <div class="order-2 lg:order-1">
-                    <h3 class="text-4xl md:text-6xl font-black mb-4 hover-glitch">CRYPTO_PAY</h3>
-                    <div class="flex gap-3 mb-6 font-mono text-xs text-zinc-500">
-                        <span class="border border-zinc-800 px-2 py-1 rounded">WEB3</span>
-                        <span class="border border-zinc-800 px-2 py-1 rounded">FINTECH</span>
+              <div class="gradient-border shadow-[0_25px_80px_rgba(15,23,42,0.85)]">
+                <div class="gradient-border-inner p-4 sm:p-5 lg:p-6">
+                  <div class="flex items-center justify-between gap-4 mb-4">
+                    <div class="flex items-center gap-2.5">
+                      <div class="h-9 w-9 rounded-xl bg-slate-900/80 flex items-center justify-center text-xs text-slate-300 border border-slate-700/80">
+                        <span class="leading-none text-[11px] text-center">Meta
+                          <br />AI</span>
+                      </div>
+                      <div>
+                        <p class="text-xs uppercase tracking-[0.18em] text-slate-400">Live flow</p>
+                        <p class="text-sm text-slate-100">From scroll to site visit</p>
+                      </div>
                     </div>
-                    <p class="text-zinc-400 text-lg mb-8 max-w-md">
-                        A revolutionary Web3 Crypto Payments Platform. We built a high-trust, high-velocity landing page that simplified complex DeFi concepts into pure conversion fuel.
-                    </p>
-                    <a href="https://youtu.be/GA9wUMwofcY" target="_blank" class="text-lime-400 font-bold border-b border-lime-400 pb-1 hover:text-white hover:border-white transition-all inline-flex items-center gap-2">
-                        WATCH VIDEO
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
-                          <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+                    <div class="inline-flex items-center gap-1.5 rounded-full bg-emerald-400/15 px-3 py-1 border border-emerald-400/40">
+                      <span class="h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
+                      <span class="text-[11px] text-emerald-100">Qualified lead online</span>
+                    </div>
+                  </div>
+
+                  <div class="space-y-3 text-[11px] text-slate-300/95">
+                    <div class="flex items-start gap-2.5">
+                      <span class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-slate-800/80 text-[10px] text-sky-300 border border-slate-600/70">1</span>
+                      <p><span class="text-slate-100">Meta UGC ad</span> stops the scroll and gets homeowners dreaming about a garden office.</p>
+                    </div>
+                    <div class="flex items-start gap-2.5">
+                      <span class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-slate-800/80 text-[10px] text-emerald-300 border border-slate-600/70">2</span>
+                      <p><span class="text-slate-100">AI voice agent</span> calls, qualifies budget, access, and timeline — in your brand voice.</p>
+                    </div>
+                    <div class="flex items-start gap-2.5">
+                      <span class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-slate-800/80 text-[10px] text-amber-300 border border-slate-600/70">3</span>
+                      <p><span class="text-slate-100">GoHighLevel calendar</span> auto‑books a site visit or design call into your diary.</p>
+                    </div>
+                  </div>
+
+                  <div class="mt-5 flex flex-col sm:flex-row gap-3 text-xs">
+                    <button
+                      class="flex-1 inline-flex items-center justify-center gap-2 rounded-xl bg-slate-100 text-slate-900 px-3 py-2 font-medium hover:bg-slate-50 transition"
+                      data-scroll="#demo-flow"
+                    >
+                      <span class="inline-flex h-5 w-5 items-center justify-center rounded-full bg-slate-900/5">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="h-3.5 w-3.5" fill="currentColor">
+                          <path d="M4.5 4.75A.75.75 0 0 1 5.618 4.2l9 5.25a.75.75 0 0 1 0 1.3l-9 5.25A.75.75 0 0 1 4.5 15.25v-10.5Z" />
                         </svg>
-                    </a>
+                      </span>
+                      <span>Play each step of the funnel</span>
+                    </button>
+
+                    <p class="flex-1 rounded-xl border border-dashed border-slate-700/80 bg-slate-900/70 px-3 py-2 text-[11px] text-slate-400">
+                      We customise scripts, questions and follow‑ups for your brand, area and ideal projects.
+                    </p>
+                  </div>
                 </div>
-                <div class="order-1 lg:order-2 relative">
-                    <div class="aspect-video bg-zinc-800 overflow-hidden border border-zinc-700 group-hover:border-lime-400 transition-colors shadow-[0_0_50px_rgba(0,0,0,0.5)]">
-                        <!-- YouTube Embed -->
-                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/GA9wUMwofcY?si=conversion" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                    </div>
-                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Live 3-step flow -->
+      <section id="demo-flow" class="relative border-y border-slate-800/80 bg-slate-950/70">
+        <div class="absolute inset-x-0 -top-24 h-32 bg-gradient-to-b from-emerald-400/10 to-transparent pointer-events-none"></div>
+        <div class="max-w-6xl mx-auto px-4 lg:px-0 py-12 lg:py-16 relative">
+          <div class="max-w-2xl">
+            <h2 class="text-2xl sm:text-3xl font-semibold tracking-tight text-slate-50">See the exact 3‑step experience your prospects go through.</h2>
+            <p class="mt-2 text-sm text-slate-300">
+              These are real demos of the flow we build for garden room & office builders — using Meta UGC, an AI voice agent and your GoHighLevel calendar.
+            </p>
+          </div>
+
+          <div class="mt-8 grid md:grid-cols-12 gap-8 lg:gap-10 items-start">
+            <!-- Step selector -->
+            <div class="md:col-span-4 space-y-4">
+              <div class="space-y-2">
+                <button
+                  class="w-full text-left flex items-start gap-3 rounded-2xl border border-slate-700/80 bg-slate-900/80 px-3.5 py-3.5 text-sm text-slate-200 hover:border-emerald-400/70 hover:bg-slate-900 transition data-[active=true]:border-emerald-400 data-[active=true]:bg-emerald-400/10"
+                  data-step="1"
+                >
+                  <span class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-slate-800 text-[11px] text-slate-200 border border-slate-600">1</span>
+                  <span>
+                    <span class="block font-medium">Meta UGC ad stops the scroll</span>
+                    <span class="mt-0.5 block text-xs text-slate-400">10‑second HeyGen style UGC creative designed to pull in homeowners thinking about a garden office or studio.</span>
+                  </span>
+                </button>
+
+                <button
+                  class="w-full text-left flex items-start gap-3 rounded-2xl border border-slate-800 bg-slate-950/60 px-3.5 py-3.5 text-sm text-slate-200 hover:border-sky-400/70 hover:bg-slate-900 transition data-[active=true]:border-sky-400 data-[active=true]:bg-sky-400/10"
+                  data-step="2"
+                >
+                  <span class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-slate-800 text-[11px] text-slate-200 border border-slate-600">2</span>
+                  <span>
+                    <span class="block font-medium">AI voice agent qualifies the lead</span>
+                    <span class="mt-0.5 block text-xs text-slate-400">Your AI caller asks the right questions: garden access, budget, timing and purpose (office, gym, studio, etc.).</span>
+                  </span>
+                </button>
+
+                <button
+                  class="w-full text-left flex items-start gap-3 rounded-2xl border border-slate-800 bg-slate-950/60 px-3.5 py-3.5 text-sm text-slate-200 hover:border-amber-300/70 hover:bg-slate-900 transition data-[active=true]:border-amber-300 data-[active=true]:bg-amber-300/10"
+                  data-step="3"
+                >
+                  <span class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-slate-800 text-[11px] text-slate-200 border border-slate-600">3</span>
+                  <span>
+                    <span class="block font-medium">GoHighLevel books the appointment</span>
+                    <span class="mt-0.5 block text-xs text-slate-400">Qualified leads are sent straight to your GHL calendar with reminders so they actually show.</span>
+                  </span>
+                </button>
+              </div>
+
+              <p class="mt-2 text-[11px] text-slate-400">
+                We clone this system into your brand, territory and pricing model — including scripts, follow‑ups and pipeline tracking.
+              </p>
             </div>
 
-            <!-- Project 2 -->
-            <div class="group relative grid grid-cols-1 lg:grid-cols-2 gap-12 items-center cursor-scale mt-32">
-                <div class="relative">
-                    <div class="aspect-video bg-zinc-800 overflow-hidden border border-zinc-700 group-hover:border-lime-400 transition-colors shadow-[0_0_50px_rgba(0,0,0,0.5)]">
-                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/UJWe_-3zezA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <!-- Step content -->
+            <div class="md:col-span-8">
+              <div class="relative rounded-2xl border border-slate-800/80 bg-slate-950/80 overflow-hidden">
+                <!-- Panels -->
+                <div class="step-panel" data-step-panel="1">
+                  <div class="aspect-video bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900 flex flex-col justify-between p-4 sm:p-6">
+                    <div class="flex items-center justify-between gap-3 mb-4">
+                      <div>
+                        <p class="text-xs uppercase tracking-[0.18em] text-slate-400">Step 1</p>
+                        <p class="text-sm sm:text-base text-slate-50 font-medium">Meta UGC ad (10 seconds)</p>
+                      </div>
+                      <span class="inline-flex items-center gap-1.5 rounded-full bg-emerald-400/10 px-3 py-1 border border-emerald-400/50 text-[11px] text-emerald-100">
+                        <span class="h-1.5 w-1.5 rounded-full bg-emerald-300"></span>
+                        <span>Cold scroll → warm enquiry</span>
+                      </span>
                     </div>
+
+                    <div class="grid sm:grid-cols-5 gap-4 items-start">
+                      <div class="sm:col-span-3 space-y-2 text-xs sm:text-sm text-slate-300">
+                        <p>
+                          A HeyGen style UGC character speaks directly to the homeowner: working from the kitchen table, noisy house, no space.
+                          The ad pitches a <span class="text-emerald-200">turn‑key garden office</span> with design, groundworks and electrics included.
+                        </p>
+                        <p>
+                          The call‑to‑action invites them to tap to see if their garden is suitable and what ball‑park prices look like for their area.
+                        </p>
+                        <ul class="mt-2 space-y-1 text-[11px] text-slate-400">
+                          <li class="flex gap-2">
+                            <span class="mt-1 h-1 w-3 rounded-full bg-emerald-400/70"></span>
+                            <span>Shot & scripted for <span class="text-slate-100">Meta + Instagram Reels</span>.</span>
+                          </li>
+                          <li class="flex gap-2">
+                            <span class="mt-1 h-1 w-3 rounded-full bg-emerald-400/50"></span>
+                            <span>Angles tailored around your typical project size (home office, studio, gym, etc.).</span>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="sm:col-span-2 flex flex-col gap-3">
+                        <a
+                          href="https://drive.google.com/file/d/1XCQtFg6MLlLQk4hTt5TyfWGiRvuVPBMy/view?usp=sharing"
+                          target="_blank"
+                          class="flex-1 flex items-center justify-center rounded-xl border border-slate-700 bg-slate-900/80 hover:border-emerald-300/80 hover:bg-slate-900/90 transition group"
+                        >
+                          <div class="flex flex-col items-center text-center px-4 py-5">
+                            <div class="inline-flex items-center justify-center h-11 w-11 rounded-full bg-emerald-400/20 border border-emerald-300/60 mb-2 group-hover:bg-emerald-400/30">
+                              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="h-5 w-5 text-emerald-200" fill="currentColor">
+                                <path d="M4.5 4.75A.75.75 0 0 1 5.618 4.2l9 5.25a.75.75 0 0 1 0 1.3l-9 5.25A.75.75 0 0 1 4.5 15.25v-10.5Z" />
+                              </svg>
+                            </div>
+                            <p class="text-xs font-medium text-slate-100">Open 10‑second UGC ad</p>
+                            <p class="mt-1 text-[11px] text-slate-400">Google Drive preview · opens in new tab</p>
+                          </div>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="step-panel hidden" data-step-panel="2">
+                  <div class="aspect-video bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900 flex flex-col justify-between p-4 sm:p-6">
+                    <div class="flex items-center justify-between gap-3 mb-4">
+                      <div>
+                        <p class="text-xs uppercase tracking-[0.18em] text-slate-400">Step 2</p>
+                        <p class="text-sm sm:text-base text-slate-50 font-medium">AI voice agent qualification</p>
+                      </div>
+                      <span class="inline-flex items-center gap-1.5 rounded-full bg-sky-400/10 px-3 py-1 border border-sky-400/60 text-[11px] text-sky-100">
+                        <span class="h-1.5 w-1.5 rounded-full bg-sky-300"></span>
+                        <span>24/7 instant response</span>
+                      </span>
+                    </div>
+
+                    <div class="grid sm:grid-cols-5 gap-4 items-start">
+                      <div class="sm:col-span-3 space-y-2 text-xs sm:text-sm text-slate-300">
+                        <p>
+                          As soon as they opt in, your AI caller <span class="text-sky-200">rings them within seconds</span>.
+                          It sounds human, introduces your company and runs through your qualifying questions.
+                        </p>
+                        <p>
+                          We tailor the script to weed out time‑wasters and collect details your surveyors need before a site visit.
+                        </p>
+                        <ul class="mt-2 space-y-1 text-[11px] text-slate-400">
+                          <li class="flex gap-2">
+                            <span class="mt-1 h-1 w-3 rounded-full bg-sky-400/70"></span>
+                            <span>Captures <span class="text-slate-100">garden access, base requirements, size, use case</span> and budget.</span>
+                          </li>
+                          <li class="flex gap-2">
+                            <span class="mt-1 h-1 w-3 rounded-full bg-sky-400/50"></span>
+                            <span>Sends summary straight into your GoHighLevel pipeline.</span>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="sm:col-span-2 flex flex-col gap-3">
+                        <a
+                          href="https://drive.google.com/file/d/1L3NT5lpInzf1dXwMccJmNApMfrzmJdRp/view?usp=sharing"
+                          target="_blank"
+                          class="flex-1 flex items-center justify-center rounded-xl border border-slate-700 bg-slate-900/80 hover:border-sky-300/80 hover:bg-slate-900/90 transition group"
+                        >
+                          <div class="flex flex-col items-center text-center px-4 py-5">
+                            <div class="inline-flex items-center justify-center h-11 w-11 rounded-full bg-sky-400/20 border border-sky-300/60 mb-2 group-hover:bg-sky-400/30">
+                              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="h-5 w-5 text-sky-200" fill="currentColor">
+                                <path d="M10 2a6 6 0 0 0-6 6v2.586l-.707.707A1 1 0 0 0 4 14h12a1 1 0 0 0 .707-1.707L16 10.586V8a6 6 0 0 0-6-6Zm0 16a3 3 0 0 0 2.995-2.824L13 15h-6a3 3 0 0 0 2.824 2.995L10 18Z" />
+                              </svg>
+                            </div>
+                            <p class="text-xs font-medium text-slate-100">Listen to AI voice qualification</p>
+                            <p class="mt-1 text-[11px] text-slate-400">Google Drive preview · opens in new tab</p>
+                          </div>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="step-panel hidden" data-step-panel="3">
+                  <div class="aspect-video bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900 flex flex-col justify-between p-4 sm:p-6">
+                    <div class="flex items-center justify-between gap-3 mb-4">
+                      <div>
+                        <p class="text-xs uppercase tracking-[0.18em] text-slate-400">Step 3</p>
+                        <p class="text-sm sm:text-base text-slate-50 font-medium">GoHighLevel auto‑books the appointment</p>
+                      </div>
+                      <span class="inline-flex items-center gap-1.5 rounded-full bg-amber-300/10 px-3 py-1 border border-amber-300/70 text-[11px] text-amber-100">
+                        <span class="h-1.5 w-1.5 rounded-full bg-amber-200"></span>
+                        <span>Show‑up rates ↑</span>
+                      </span>
+                    </div>
+
+                    <div class="grid sm:grid-cols-5 gap-4 items-start">
+                      <div class="sm:col-span-3 space-y-2 text-xs sm:text-sm text-slate-300">
+                        <p>
+                          When the AI marks a lead as qualified, it sends them straight to your
+                          <span class="text-amber-200">GoHighLevel booking link</span> to lock in a site visit, showroom appointment or Zoom design call.
+                        </p>
+                        <p>
+                          Confirmation, reminders and follow‑ups all run automatically so your team just focuses on quoting and closing.
+                        </p>
+                        <ul class="mt-2 space-y-1 text-[11px] text-slate-400">
+                          <li class="flex gap-2">
+                            <span class="mt-1 h-1 w-3 rounded-full bg-amber-300/70"></span>
+                            <span>Leads pick slots that work for you, based on your <span class="text-slate-100">real‑time availability</span>.</span>
+                          </li>
+                          <li class="flex gap-2">
+                            <span class="mt-1 h-1 w-3 rounded-full bg-amber-300/50"></span>
+                            <span>Branded emails and SMS so they remember who you are when you arrive on site.</span>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="sm:col-span-2 flex flex-col gap-3">
+                        <a
+                          href="https://drive.google.com/file/d/1L3NT5lpInzf1dXwMccJmNApMfrzmJdRp/view?usp=sharing"
+                          target="_blank"
+                          class="flex-1 flex items-center justify-center rounded-xl border border-slate-700 bg-slate-900/80 hover:border-amber-300/80 hover:bg-slate-900/90 transition group"
+                        >
+                          <div class="flex flex-col items-center text-center px-4 py-5">
+                            <div class="inline-flex items-center justify-center h-11 w-11 rounded-full bg-amber-300/20 border border-amber-200/70 mb-2 group-hover:bg-amber-300/30">
+                              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="h-5 w-5 text-amber-200" fill="currentColor">
+                                <path d="M6 2a1 1 0 0 0-1 1v1H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-1V3a1 1 0 1 0-2 0v1H8V3a1 1 0 0 0-1-1H6Zm0 6a1 1 0 0 1 1-1h6a1 1 0 0 1 0 2H7a1 1 0 0 1-1-1Z" />
+                              </svg>
+                            </div>
+                            <p class="text-xs font-medium text-slate-100">View booked‑in calendar demo</p>
+                            <p class="mt-1 text-[11px] text-slate-400">Google Drive preview · opens in new tab</p>
+                          </div>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <p class="mt-3 text-[11px] text-slate-500">
+                On our demo, we’ll plug in your average project value and territory and map out how many qualified enquiries this could generate per month.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- How it works -->
+      <section id="how-it-works" class="bg-slate-950 py-12 lg:py-16">
+        <div class="max-w-6xl mx-auto px-4 lg:px-0">
+          <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4">
+            <div class="max-w-xl">
+              <h2 class="text-2xl sm:text-3xl font-semibold tracking-tight text-slate-50">We build you a complete demand engine, not just 	"leads".</h2>
+              <p class="mt-2 text-sm text-slate-300">
+                Every stage from ad click to calendar event is engineered for garden roomsa0	a0	a0	— messaging, targeting, qualification and follow‑up.
+              </p>
+            </div>
+            <p class="max-w-md text-xs text-slate-400">
+              You don’t have to learn ads, automations or GoHighLevel. We set up the funnel, then run, test and optimise it month after month.
+            </p>
+          </div>
+
+          <div class="mt-8 grid md:grid-cols-3 gap-6 lg:gap-8">
+            <div class="glass rounded-2xl border border-slate-800 px-5 py-5 flex flex-col gap-3">
+              <div class="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-emerald-400/15 border border-emerald-300/60 text-emerald-200 text-sm">1</div>
+              <h3 class="text-sm font-semibold text-slate-50">Cloneable Meta funnel just for garden rooms</h3>
+              <p class="text-xs text-slate-300">
+                We handle creative, copy and audiences on Meta. Angles based on WFH pain, extra space, and adding value to the property — not generic "construction" ads.
+              </p>
+              <ul class="mt-1 space-y-1.5 text-[11px] text-slate-400">
+                <li class="flex gap-2">
+                  <span class="mt-1 h-1 w-3 rounded-full bg-emerald-300/70"></span>
+                  <span>UGC, static carousels and retargeting sequences.</span>
+                </li>
+                <li class="flex gap-2">
+                  <span class="mt-1 h-1 w-3 rounded-full bg-emerald-300/50"></span>
+                  <span>Local‑only targeting, radius or postcode lists.</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="glass rounded-2xl border border-slate-800 px-5 py-5 flex flex-col gap-3">
+              <div class="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-sky-400/15 border border-sky-300/60 text-sky-200 text-sm">2</div>
+              <h3 class="text-sm font-semibold text-slate-50">AI intake that thinks like a surveyor</h3>
+              <p class="text-xs text-slate-300">
+                Together we define your ideal projects, red flags and non‑starters. The AI caller turns that into friendly questions that feel human.
+              </p>
+              <ul class="mt-1 space-y-1.5 text-[11px] text-slate-400">
+                <li class="flex gap-2">
+                  <span class="mt-1 h-1 w-3 rounded-full bg-sky-300/70"></span>
+                  <span>Only appointments that match your minimum job size.</span>
+                </li>
+                <li class="flex gap-2">
+                  <span class="mt-1 h-1 w-3 rounded-full bg-sky-300/50"></span>
+                  <span>Transcripts and notes synced to each contact in GoHighLevel.</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="glass rounded-2xl border border-slate-800 px-5 py-5 flex flex-col gap-3">
+              <div class="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-amber-300/15 border border-amber-200/70 text-amber-100 text-sm">3</div>
+              <h3 class="text-sm font-semibold text-slate-50">Booked appointments & clear pipeline</h3>
+              <p class="text-xs text-slate-300">
+                We plug everything into GoHighLevel: calendars, reminders, pipelines and simple dashboards so you can see ROI at a glance.
+              </p>
+              <ul class="mt-1 space-y-1.5 text-[11px] text-slate-400">
+                <li class="flex gap-2">
+                  <span class="mt-1 h-1 w-3 rounded-full bg-amber-200/70"></span>
+                  <span>Stop chasing "info" leads. Start speaking to people ready to build.</span>
+                </li>
+                <li class="flex gap-2">
+                  <span class="mt-1 h-1 w-3 rounded-full bg-amber-200/50"></span>
+                  <span>Weekly numbers review and optimisations included.</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Fit / Not fit -->
+      <section class="bg-slate-950/90 border-y border-slate-800/80 py-12 lg:py-16">
+        <div class="max-w-6xl mx-auto px-4 lg:px-0 grid lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] gap-10 lg:gap-12 items-start">
+          <div>
+            <h2 class="text-2xl sm:text-3xl font-semibold tracking-tight text-slate-50">Built for serious garden room brands, not "have‑a‑go" builders.</h2>
+            <p class="mt-2 text-sm text-slate-300 max-w-lg">
+              We’re selective about who we partner with because our reputation is tied to your results. This works best for established teams who want
+              more <span class="text-emerald-200">predictable, profitable projects</span>, not just cheap leads.
+            </p>
+
+            <div class="mt-6 grid sm:grid-cols-2 gap-4">
+              <div class="rounded-2xl border border-emerald-400/40 bg-emerald-400/5 p-4">
+                <p class="text-xs uppercase tracking-[0.18em] text-emerald-200 mb-2">Perfect fit if...</p>
+                <ul class="space-y-1.5 text-xs text-slate-100">
+                  <li class="flex gap-2">
+                    <span class="mt-1 h-1 w-3 rounded-full bg-emerald-300"></span>
+                    <span>You already complete <span class="text-emerald-100">2+ garden room / office projects per month</span>.</span>
+                  </li>
+                  <li class="flex gap-2">
+                    <span class="mt-1 h-1 w-3 rounded-full bg-emerald-300"></span>
+                    <span>You have capacity (or want to add a crew) to take more installs.</span>
+                  </li>
+                  <li class="flex gap-2">
+                    <span class="mt-1 h-1 w-3 rounded-full bg-emerald-300"></span>
+                    <span>You’re happy to let us own the marketing so you can focus on operations & builds.</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="rounded-2xl border border-slate-800 bg-slate-900/70 p-4">
+                <p class="text-xs uppercase tracking-[0.18em] text-slate-400 mb-2">Probably not a fit if...</p>
+                <ul class="space-y-1.5 text-xs text-slate-300">
+                  <li class="flex gap-2">
+                    <span class="mt-1 h-1 w-3 rounded-full bg-slate-500"></span>
+                    <span>You’re just starting out and don’t have installs or photos yet.</span>
+                  </li>
+                  <li class="flex gap-2">
+                    <span class="mt-1 h-1 w-3 rounded-full bg-slate-500"></span>
+                    <span>You want "any leads" instead of <span class="text-slate-100">qualified projects</span>.</span>
+                  </li>
+                  <li class="flex gap-2">
+                    <span class="mt-1 h-1 w-3 rounded-full bg-slate-500"></span>
+                    <span>You’re not prepared to follow up on the calendar and pipeline we build.</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="space-y-4">
+            <div class="glass rounded-2xl border border-slate-800 p-4 sm:p-5 flex flex-col gap-3">
+              <p class="text-xs uppercase tracking-[0.18em] text-emerald-200">What you actually get</p>
+              <ul class="space-y-1.5 text-xs text-slate-100">
+                <li class="flex gap-2">
+                  <span class="mt-1 h-1 w-3 rounded-full bg-emerald-300"></span>
+                  <span>Meta campaign build & management (ad copy, creatives, audiences, testing).</span>
+                </li>
+                <li class="flex gap-2">
+                  <span class="mt-1 h-1 w-3 rounded-full bg-emerald-300"></span>
+                  <span>Custom AI voice agent script, voice tuning and qualification logic.</span>
+                </li>
+                <li class="flex gap-2">
+                  <span class="mt-1 h-1 w-3 rounded-full bg-emerald-300"></span>
+                  <span>GoHighLevel calendar, pipeline and automations configured for you.</span>
+                </li>
+                <li class="flex gap-2">
+                  <span class="mt-1 h-1 w-3 rounded-full bg-emerald-300"></span>
+                  <span>Weekly reporting with lead counts, cost per lead and cost per qualified appointment.</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="rounded-2xl border border-slate-800 bg-slate-950/80 p-4 sm:p-5 flex flex-col gap-3">
+              <p class="text-xs uppercase tracking-[0.18em] text-slate-400">Numbers, not fluff</p>
+              <p class="text-xs text-slate-300">
+                In your demo we’ll plug your <span class="text-slate-100">average project value</span>, close rate and margins into our model so you can see
+                what this could do in your area before you commit.
+              </p>
+              <button
+                class="inline-flex items-center justify-center gap-2 rounded-full bg-slate-100 px-4 py-2 text-xs font-medium text-slate-900 hover:bg-slate-50 transition self-start"
+                data-scroll="#demo-call"
+              >
+                <span>Run the numbers with us</span>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="h-3.5 w-3.5" fill="currentColor">
+                  <path fill-rule="evenodd" d="M5.22 4.47a.75.75 0 0 1 1.06 0L13 11.19V7a.75.75 0 0 1 1.5 0v6.75a.75.75 0 0 1-.75.75H7a.75.75 0 0 1 0-1.5h4.19L5.22 5.53a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Pricing / offer -->
+      <section id="pricing" class="bg-slate-950 py-12 lg:py-16">
+        <div class="max-w-6xl mx-auto px-4 lg:px-0">
+          <div class="max-w-2xl">
+            <h2 class="text-2xl sm:text-3xl font-semibold tracking-tight text-slate-50">One partner per territory. Simple, performance‑driven terms.</h2>
+            <p class="mt-2 text-sm text-slate-300">
+              We work with a handful of garden room & office builders and lock in territories so you’re not competing with your neighbours on the same system.
+            </p>
+          </div>
+
+          <div class="mt-8 grid lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] gap-8 lg:gap-10 items-start">
+            <div class="glass rounded-2xl border border-emerald-400/60 p-5 sm:p-6 flex flex-col gap-4">
+              <div class="flex items-center justify-between gap-4">
+                <div>
+                  <p class="text-xs uppercase tracking-[0.18em] text-emerald-200">Launch package</p>
+                  <p class="text-sm font-semibold text-slate-50 mt-1">leadstocalls™</p>
+                </div>
+                <div class="text-right text-xs text-slate-300">
+                  <p>Territory‑exclusive</p>
+                  <p class="text-[11px] text-emerald-200/90">Limited openings each quarter</p>
+                </div>
+              </div>
+
+              <div class="mt-1 grid sm:grid-cols-3 gap-4 text-xs text-slate-100">
+                <div>
+                  <p class="text-[10px] uppercase tracking-[0.16em] text-slate-400">Setup</p>
+                  <p class="mt-1">Funnel, AI, GHL & tracking all built for you in the first 21 days.</p>
                 </div>
                 <div>
-                    <h3 class="text-4xl md:text-6xl font-black mb-4 hover-glitch">HYPER_STORE</h3>
-                    <div class="flex gap-3 mb-6 font-mono text-xs text-zinc-500">
-                        <span class="border border-zinc-800 px-2 py-1 rounded">ECOMMERCE</span>
-                        <span class="border border-zinc-800 px-2 py-1 rounded">SCALING</span>
-                    </div>
-                    <p class="text-zinc-400 text-lg mb-8 max-w-md">
-                        We don't just build stores; we build cash registers that never sleep. High-speed checkout flows, aggressive up-sells, and a design that screams "BUY NOW".
-                    </p>
-                    <a href="https://youtu.be/UJWe_-3zezA" target="_blank" class="text-lime-400 font-bold border-b border-lime-400 pb-1 hover:text-white hover:border-white transition-all inline-flex items-center gap-2">
-                        WATCH VIDEO
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
-                          <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
-                        </svg>
-                    </a>
+                  <p class="text-[10px] uppercase tracking-[0.16em] text-slate-400">Ongoing</p>
+                  <p class="mt-1">We run ads + optimisation. You cover ad spend; we handle everything else.</p>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ / Extra Section -->
-    <section id="faq" class="py-32 bg-zinc-900 border-t border-zinc-800 relative overflow-hidden">
-        <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-lime-500/5 rounded-full blur-[100px] pointer-events-none"></div>
-
-        <div class="container mx-auto px-6 relative z-10">
-            <div class="max-w-4xl mx-auto">
-                <h2 class="text-4xl md:text-6xl font-black mb-16 text-center">FREQUENTLY ASKED <br> <span class="text-zinc-600">QUESTIONS</span></h2>
-                
-                <div class="space-y-4">
-                    <!-- FAQ Item 1 -->
-                    <div class="border border-zinc-800 bg-black/40 p-6 hover:border-lime-400/50 transition-colors cursor-scale">
-                        <h3 class="text-xl font-bold text-lime-400 mb-2">/// WHY "LEADSTOCALLS"?</h3>
-                        <p class="text-zinc-400 leading-relaxed">Because "Pretty Website Agency" doesn't pay the bills. We focus on the only metric that matters: getting qualified prospects on the phone with your sales team.</p>
-                    </div>
-
-                    <!-- FAQ Item 2 -->
-                    <div class="border border-zinc-800 bg-black/40 p-6 hover:border-lime-400/50 transition-colors cursor-scale">
-                        <h3 class="text-xl font-bold text-lime-400 mb-2">/// DO YOU USE WORDPRESS?</h3>
-                        <p class="text-zinc-400 leading-relaxed">Absolutely not. We build with raw code, React, and WebGL. WordPress is for blogs; we build high-performance conversion machines that load before you blink.</p>
-                    </div>
-
-                    <!-- FAQ Item 3 -->
-                    <div class="border border-zinc-800 bg-black/40 p-6 hover:border-lime-400/50 transition-colors cursor-scale">
-                        <h3 class="text-xl font-bold text-lime-400 mb-2">/// HOW LONG DOES IT TAKE?</h3>
-                        <p class="text-zinc-400 leading-relaxed">We work in sprints. Typically 2-3 weeks from concept to deployment. We value momentum over endless meetings.</p>
-                    </div>
-                    
-                    <!-- FAQ Item 4 -->
-                    <div class="border border-zinc-800 bg-black/40 p-6 hover:border-lime-400/50 transition-colors cursor-scale">
-                        <h3 class="text-xl font-bold text-lime-400 mb-2">/// WHAT IS THE COST?</h3>
-                        <p class="text-zinc-400 leading-relaxed">We are not the cheapest option. We are the investment that pays for itself. Projects start at $5k. If you want cheap, go to Fiverr.</p>
-                    </div>
+                <div>
+                  <p class="text-[10px] uppercase tracking-[0.16em] text-slate-400">Fees</p>
+                  <p class="mt-1">Flat management + performance incentives tied to booked appointments.</p>
                 </div>
-            </div>
-        </div>
-    </section>
+              </div>
 
-    <!-- CTA / Footer -->
-    <footer id="contact" class="bg-black pt-32 pb-12 border-t border-zinc-800">
-        <div class="container mx-auto px-6">
-            <div class="flex flex-col items-center text-center mb-24">
-                <h2 class="text-6xl md:text-8xl lg:text-9xl font-black leading-none mb-8 hover-glitch cursor-scale">
-                    READY TO <br> <span class="text-lime-400">SCALE?</span>
-                </h2>
-                <p class="text-zinc-400 text-xl max-w-xl mb-12">
-                    Don't let your competitors win because their website looks cooler. Fix it today.
+              <ul class="mt-3 space-y-1.5 text-xs text-slate-100">
+                <li class="flex gap-2">
+                  <span class="mt-1 h-1 w-3 rounded-full bg-emerald-300"></span>
+                  <span>Launch strategy call + lead volume projections for your patch.</span>
+                </li>
+                <li class="flex gap-2">
+                  <span class="mt-1 h-1 w-3 rounded-full bg-emerald-300"></span>
+                  <span>Ad creative, AI scripts and calendar logic custom to your brand & offers.</span>
+                </li>
+                <li class="flex gap-2">
+                  <span class="mt-1 h-1 w-3 rounded-full bg-emerald-300"></span>
+                  <span>Weekly numbers review and adjustments (audiences, bids, angles).</span>
+                </li>
+                <li class="flex gap-2">
+                  <span class="mt-1 h-1 w-3 rounded-full bg-emerald-300"></span>
+                  <span>No long‑term lock in — stay because it fills your diary, not because of a contract.</span>
+                </li>
+              </ul>
+
+              <div class="mt-4 flex flex-wrap items-center gap-3">
+                <button
+                  class="inline-flex items-center justify-center gap-2 rounded-full bg-emerald-400 px-5 py-2.5 text-xs sm:text-sm font-semibold text-slate-950 shadow-[0_18px_50px_rgba(16,185,129,0.55)] hover:bg-emerald-300 transition"
+                  data-scroll="#demo-call"
+                >
+                  <span>Check if your territory is open</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="h-3.5 w-3.5" fill="currentColor">
+                    <path fill-rule="evenodd" d="M5.22 4.47a.75.75 0 0 1 1.06 0L13 11.19V7a.75.75 0 0 1 1.5 0v6.75a.75.75 0 0 1-.75.75H7a.75.75 0 0 1 0-1.5h4.19L5.22 5.53a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
+                  </svg>
+                </button>
+
+                <p class="text-[11px] text-slate-400">
+                  On the call we’ll confirm availability, show the demo flow and share pricing options.
                 </p>
-                <a href="mailto:hello@leadstocalls.com" class="text-2xl md:text-4xl font-bold border-b-2 border-lime-400 pb-2 hover:text-lime-400 hover:border-white transition-all cursor-scale">
-                    hello@leadstocalls.com
-                </a>
+              </div>
             </div>
 
-            <div class="flex flex-col md:flex-row justify-between items-end border-t border-zinc-900 pt-12">
-                <div class="mb-6 md:mb-0">
-                    <div class="text-2xl font-black tracking-tighter mb-2">LEADSTOCALLS</div>
-                    <div class="text-zinc-600 text-sm">© 2023 Leadstocalls Agency. All rights reserved.</div>
-                </div>
-                <div class="flex space-x-6 text-zinc-500 font-mono text-sm">
-                    <a href="#" class="hover:text-white transition-colors">TWITTER</a>
-                    <a href="#" class="hover:text-white transition-colors">INSTAGRAM</a>
-                    <a href="#" class="hover:text-white transition-colors">LINKEDIN</a>
-                </div>
+            <div class="rounded-2xl border border-slate-800 bg-slate-950/80 p-5 sm:p-6 flex flex-col gap-4">
+              <p class="text-xs uppercase tracking-[0.18em] text-slate-400">What we’ll cover on your demo</p>
+              <ul class="space-y-1.5 text-xs text-slate-200">
+                <li class="flex gap-2">
+                  <span class="mt-1 h-1 w-3 rounded-full bg-slate-500"></span>
+                  <span>Your current enquiry sources and the projects you actually want more of.</span>
+                </li>
+                <li class="flex gap-2">
+                  <span class="mt-1 h-1 w-3 rounded-full bg-slate-500"></span>
+                  <span>Realistic monthly enquiry and appointment targets for your territory.</span>
+                </li>
+                <li class="flex gap-2">
+                  <span class="mt-1 h-1 w-3 rounded-full bg-slate-500"></span>
+                  <span>A walkthrough of the <span class="text-slate-100">Meta → AI call → GoHighLevel</span> flow using your numbers.</span>
+                </li>
+                <li class="flex gap-2">
+                  <span class="mt-1 h-1 w-3 rounded-full bg-slate-500"></span>
+                  <span>Live Q&A so you can see exactly how this would sit inside your business.</span>
+                </li>
+              </ul>
+
+              <p class="text-[11px] text-slate-500">
+                No pressure, no hard sell. If we’re not a fit, you’ll still leave with a clear plan to improve your current funnel.
+              </p>
             </div>
+          </div>
         </div>
+      </section>
+
+      <!-- Demo / calendar -->
+      <section id="demo-call" class="bg-slate-950/95 border-y border-slate-800/80 py-12 lg:py-16">
+        <div class="max-w-6xl mx-auto px-4 lg:px-0 grid lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] gap-8 lg:gap-12 items-start">
+          <div>
+            <p class="text-xs uppercase tracking-[0.18em] text-emerald-200 mb-2">Book your 15‑minute walkthrough</p>
+            <h2 class="text-2xl sm:text-3xl font-semibold tracking-tight text-slate-50">See your own leadstocalls on screen.</h2>
+            <p class="mt-2 text-sm text-slate-300 max-w-lg">
+              We’ll screen‑share the Meta ads, AI voice flow and GoHighLevel pipeline, then plug in your typical project values
+              so you can see if the numbers work for you.
+            </p>
+
+            <div class="mt-5 space-y-2.5 text-xs text-slate-200">
+              <div class="flex gap-2">
+                <span class="mt-1 h-1 w-3 rounded-full bg-emerald-300"></span>
+                <span>15 minutes. Zoom or phone — whatever works best for you.</span>
+              </div>
+              <div class="flex gap-2">
+                <span class="mt-1 h-1 w-3 rounded-full bg-emerald-300"></span>
+                <span>No obligation. If it’s not a fit, we’ll tell you straight.</span>
+              </div>
+              <div class="flex gap-2">
+                <span class="mt-1 h-1 w-3 rounded-full bg-emerald-300"></span>
+                <span>We’ll hold your territory for 48 hours after the call if you want to move forward.</span>
+              </div>
+            </div>
+
+            <div class="mt-6 rounded-2xl border border-slate-800 bg-slate-950/90 p-4 text-[11px] text-slate-400">
+              <p class="font-medium text-slate-100 mb-1">Before the call, think about:</p>
+              <ul class="space-y-1 list-disc list-inside">
+                <li>Your average profit per garden room / office project.</li>
+                <li>How many extra installs per month you’d comfortably deliver.</li>
+                <li>Any specific postcodes or areas you want us to avoid or dominate.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="rounded-2xl border border-slate-800 bg-slate-950/90 p-3 sm:p-4">
+            <div class="rounded-xl border border-slate-800 bg-slate-900/80 overflow-hidden">
+              <!-- Cal.com inline calendar embed -->
+              <div class="aspect-[4/5] min-h-[420px] bg-slate-900">
+                <!-- Cal inline embed code begins -->
+                <div id="my-cal-inline-15-minute-profit-map-call-copy" style="width:100%;height:100%;overflow:auto"></div>
+                <script type="text/javascript">
+                  (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+                  Cal("init", "15-minute-profit-map-call-copy", {origin:"https://app.cal.com"});
+
+                  Cal.ns["15-minute-profit-map-call-copy"]("inline", {
+                    elementOrSelector:"#my-cal-inline-15-minute-profit-map-call-copy",
+                    config: {"layout":"month_view"},
+                    calLink: "leadstocalls/15-minute-profit-map-call-copy",
+                  });
+
+                  Cal.ns["15-minute-profit-map-call-copy"]("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
+                </script>
+                <!-- Cal inline embed code ends -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section id="faq" class="bg-slate-950 py-12 lg:py-16">
+        <div class="max-w-5xl mx-auto px-4 lg:px-0">
+          <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-6 mb-6">
+            <div class="max-w-md">
+              <h2 class="text-2xl sm:text-3xl font-semibold tracking-tight text-slate-50">Questions builders usually ask.</h2>
+              <p class="mt-2 text-sm text-slate-300">
+                If you’re thinking it, someone else has probably asked us already. Here are the most common questions we get from garden room teams.
+              </p>
+            </div>
+            <div class="text-xs text-slate-400 max-w-sm">
+              <p>
+                Want to ask something specific about your territory, offer or pricing? Mention it in the
+                note when you book and we’ll prepare answers before the call.
+              </p>
+            </div>
+          </div>
+
+          <div class="space-y-2.5">
+            <!-- FAQ item -->
+            <div class="border border-slate-800/80 rounded-2xl bg-slate-950/80 overflow-hidden">
+              <button
+                class="w-full flex items-center justify-between gap-4 px-4 py-3.5 text-left text-sm text-slate-100"
+                data-faq-trigger
+                aria-expanded="false"
+              >
+                <span>How quickly could we start seeing enquiries and bookings?</span>
+                <span class="text-lg text-slate-500 leading-none" data-faq-icon>+</span>
+              </button>
+              <div class="px-4 pb-4 text-xs text-slate-300 hidden">
+                <p>
+                  The build phase is usually <span class="text-slate-100">2–3 weeks</span>: we set up Meta campaigns, AI scripts, GoHighLevel, tracking and testing.
+                  Once ads go live, most partners see first enquiries within a few days, and the first booked appointments within
+                  <span class="text-slate-100">7–14 days</span> depending on budget and area size.
+                </p>
+              </div>
+            </div>
+
+            <div class="border border-slate-800/80 rounded-2xl bg-slate-950/80 overflow-hidden">
+              <button
+                class="w-full flex items-center justify-between gap-4 px-4 py-3.5 text-left text-sm text-slate-100"
+                data-faq-trigger
+                aria-expanded="false"
+              >
+                <span>Do you work with multiple garden room companies in the same area?</span>
+                <span class="text-lg text-slate-500 leading-none" data-faq-icon>+</span>
+              </button>
+              <div class="px-4 pb-4 text-xs text-slate-300 hidden">
+                <p>
+                  No. We offer <span class="text-slate-100">territory exclusivity</span>. Once we partner with you in an agreed radius / region, we won’t run
+                  this system for a direct competitor in that same patch.
+                </p>
+              </div>
+            </div>
+
+            <div class="border border-slate-800/80 rounded-2xl bg-slate-950/80 overflow-hidden">
+              <button
+                class="w-full flex items-center justify-between gap-4 px-4 py-3.5 text-left text-sm text-slate-100"
+                data-faq-trigger
+                aria-expanded="false"
+              >
+                <span>What budget do we need on Meta ads?</span>
+                <span class="text-lg text-slate-500 leading-none" data-faq-icon>+</span>
+              </button>
+              <div class="px-4 pb-4 text-xs text-slate-300 hidden">
+                <p>
+                  It depends on your area size and project values, but most partners are comfortable starting around
+                  <span class="text-slate-100">£1k–£2k / month in ad spend</span>. We’ll map this out properly on the demo so you can see how it lines up with
+                  your margins and capacity.
+                </p>
+              </div>
+            </div>
+
+            <div class="border border-slate-800/80 rounded-2xl bg-slate-950/80 overflow-hidden">
+              <button
+                class="w-full flex items-center justify-between gap-4 px-4 py-3.5 text-left text-sm text-slate-100"
+                data-faq-trigger
+                aria-expanded="false"
+              >
+                <span>Is the AI voice going to sound robotic or weird to our clients?</span>
+                <span class="text-lg text-slate-500 leading-none" data-faq-icon>+</span>
+              </button>
+              <div class="px-4 pb-4 text-xs text-slate-300 hidden">
+                <p>
+                  The demo you heard is a good example of how natural it sounds. We can adjust tone, pacing and script so it fits your brand.
+                  Most homeowners assume they’re talking to a real receptionist — and they appreciate how fast they get a response.
+                </p>
+              </div>
+            </div>
+
+            <div class="border border-slate-800/80 rounded-2xl bg-slate-950/80 overflow-hidden">
+              <button
+                class="w-full flex items-center justify-between gap-4 px-4 py-3.5 text-left text-sm text-slate-100"
+                data-faq-trigger
+                aria-expanded="false"
+              >
+                <span>What happens if it doesn’t work for us?</span>
+                <span class="text-lg text-slate-500 leading-none" data-faq-icon>+</span>
+              </button>
+              <div class="px-4 pb-4 text-xs text-slate-300 hidden">
+                <p>
+                  We don’t lock you into a long contract. After the initial build phase we review results together.
+                  If we’re not seeing traction, we’ll either fix what’s broken or part as friends. Our aim is to become a
+                  <span class="text-slate-100">profit centre</span> in your business, not another expense line.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-6 flex flex-wrap items-center justify-between gap-4 text-xs text-slate-300 border-t border-slate-800 pt-4">
+            <p>
+              Still unsure? Book a call, tell us exactly what you’re trying to achieve, and we’ll be honest if there’s a better route for you.
+            </p>
+            <button
+              class="inline-flex items-center justify-center gap-2 rounded-full border border-slate-700 bg-slate-950 px-4 py-2 text-[11px] font-medium hover:border-emerald-300/80 hover:text-emerald-100 transition"
+              data-scroll="#demo-call"
+            >
+              <span>Book a straight‑talk demo</span>
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-800 bg-slate-950/95">
+      <div class="max-w-6xl mx-auto px-4 lg:px-0 py-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] text-slate-500">
+        <p>© <span id="year"></span> leadstocalls. Meta ads · AI intake · GoHighLevel automations.</p>
+        <p class="text-slate-600">Built for modern garden room & garden office builders.</p>
+      </div>
     </footer>
+  </div>
 
-    <script>
-        // Custom Cursor Logic
-        const cursor = document.getElementById('cursor');
-        const hoverElements = document.querySelectorAll('.cursor-scale');
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Set year in footer
+      var yearEl = document.getElementById('year');
+      if (yearEl) {
+        yearEl.textContent = new Date().getFullYear();
+      }
 
-        document.addEventListener('mousemove', (e) => {
-            cursor.style.left = e.clientX + 'px';
-            cursor.style.top = e.clientY + 'px';
+      // Smooth scroll for elements with data-scroll attribute
+      var scrollLinks = document.querySelectorAll('[data-scroll]');
+      scrollLinks.forEach(function (link) {
+        link.addEventListener('click', function (e) {
+          e.preventDefault();
+          var targetSelector = link.getAttribute('data-scroll');
+          if (!targetSelector) return;
+          var target = document.querySelector(targetSelector);
+          if (!target) return;
+
+          var offset = 80;
+          var rect = target.getBoundingClientRect();
+          var top = rect.top + window.pageYOffset - offset;
+
+          window.scrollTo({ top: top, behavior: 'smooth' });
+        });
+      });
+
+      // Step switcher
+      var stepButtons = document.querySelectorAll('[data-step]');
+      var stepPanels = document.querySelectorAll('[data-step-panel]');
+
+      function activateStep(step) {
+        stepButtons.forEach(function (btn) {
+          var isActive = btn.getAttribute('data-step') === step;
+          btn.setAttribute('data-active', isActive ? 'true' : 'false');
         });
 
-        hoverElements.forEach(el => {
-            el.addEventListener('mouseenter', () => {
-                cursor.classList.add('hovered');
-            });
-            el.addEventListener('mouseleave', () => {
-                cursor.classList.remove('hovered');
-            });
+        stepPanels.forEach(function (panel) {
+          var match = panel.getAttribute('data-step-panel') === step;
+          if (match) {
+            panel.classList.remove('hidden');
+          } else {
+            panel.classList.add('hidden');
+          }
         });
+      }
 
-        // Simple Scroll Reveal using Intersection Observer
-        const observerOptions = {
-            threshold: 0.1
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('opacity-100', 'translate-y-0');
-                    entry.target.classList.remove('opacity-0', 'translate-y-10');
-                }
-            });
-        }, observerOptions);
-
-        // Add animation classes to sections for reveal effect
-        document.querySelectorAll('section > div, header > div').forEach(el => {
-            el.classList.add('transition-all', 'duration-1000', 'opacity-0', 'translate-y-10');
-            observer.observe(el);
+      stepButtons.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var step = btn.getAttribute('data-step');
+          if (!step) return;
+          activateStep(step);
         });
+      });
 
-        // Text scrambling effect on hover for the main logo
-        const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        document.querySelector('.text-2xl.font-black').onmouseover = event => {
-            let iterations = 0;
-            const interval = setInterval(() => {
-                event.target.innerText = event.target.innerText.split("")
-                    .map((letter, index) => {
-                        if(index < iterations) {
-                            return event.target.dataset.value[index];
-                        }
-                        return letters[Math.floor(Math.random() * 26)]
-                    })
-                    .join("");
-                
-                if(iterations >= event.target.dataset.value.length){ 
-                    clearInterval(interval);
-                }
-                
-                iterations += 1 / 3;
-            }, 30);
-        }
-        // Store original text for the scrambler
-        const logo = document.querySelector('.text-2xl.font-black');
-        logo.dataset.value = "LEADSTOCALLS";
+      // Activate first step by default
+      if (stepButtons.length) {
+        var firstStep = stepButtons[0].getAttribute('data-step');
+        if (firstStep) activateStep(firstStep);
+      }
 
-        // Mobile Menu Logic
-        const menuBtn = document.getElementById('menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const mobileLinks = document.querySelectorAll('.mobile-link');
-        let isMenuOpen = false;
+      // FAQ accordion
+      var faqTriggers = document.querySelectorAll('[data-faq-trigger]');
+      faqTriggers.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var expanded = btn.getAttribute('aria-expanded') === 'true';
+          var content = btn.nextElementSibling;
+          var icon = btn.querySelector('[data-faq-icon]');
 
-        menuBtn.addEventListener('click', () => {
-            isMenuOpen = !isMenuOpen;
-            if (isMenuOpen) {
-                mobileMenu.classList.remove('opacity-0', 'pointer-events-none');
-                mobileMenu.classList.add('opacity-100', 'pointer-events-auto');
-                menuBtn.innerText = '✕';
-                document.body.style.overflow = 'hidden';
-            } else {
-                mobileMenu.classList.remove('opacity-100', 'pointer-events-auto');
-                mobileMenu.classList.add('opacity-0', 'pointer-events-none');
-                menuBtn.innerText = '☰';
-                document.body.style.overflow = '';
-            }
+          btn.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+          if (content) {
+            content.classList.toggle('hidden', expanded);
+          }
+          if (icon) {
+            icon.textContent = expanded ? '+' : '−';
+          }
         });
-
-        mobileLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                isMenuOpen = false;
-                mobileMenu.classList.remove('opacity-100', 'pointer-events-auto');
-                mobileMenu.classList.add('opacity-0', 'pointer-events-none');
-                menuBtn.innerText = '☰';
-                document.body.style.overflow = '';
-            });
-        });
-
-    </script>
+      });
+    });
+  </script>
 </body>
 </html>
+
 
 
 
