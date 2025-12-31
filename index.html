@@ -1,1502 +1,363 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>LeadsToCalls — Ads + AI Answering + Human Appointment Setting for UK Garden Saunas</title>
-  <meta name="description" content="LeadsToCalls helps UK garden sauna businesses turn Meta + Google ad clicks into booked calls. 24/7 AI answering after hours, human appointment setting during office hours, landing pages, forms, calendars, automations and more." />
-  <meta name="theme-color" content="#0b1220" />
-
-  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-
-  <style>
-    :root{
-      --bg0:#070b14;
-      --bg1:#0b1220;
-      --ink:#eaf1ff;
-      --muted:#a7b4cf;
-      --line:rgba(255,255,255,.10);
-      --accent:#7c3aed; /* violet */
-      --accent2:#06b6d4; /* cyan */
-      --accent3:#f59e0b; /* amber */
-    }
-
-    html{scroll-behavior:smooth;}
-
-    /* Soft steam backdrop */
-    .steam {
-      background:
-        radial-gradient(1200px 600px at 70% -10%, rgba(124,58,237,.28), transparent 60%),
-        radial-gradient(900px 500px at 10% 10%, rgba(6,182,212,.22), transparent 55%),
-        radial-gradient(800px 500px at 80% 70%, rgba(245,158,11,.16), transparent 55%),
-        radial-gradient(900px 520px at 20% 90%, rgba(124,58,237,.14), transparent 60%),
-        linear-gradient(180deg, var(--bg0), var(--bg1));
-    }
-
-    .glass {
-      background: rgba(255,255,255,.06);
-      border: 1px solid rgba(255,255,255,.10);
-      box-shadow: 0 20px 60px rgba(0,0,0,.35);
-      backdrop-filter: blur(10px);
-    }
-
-    .shadow-glow{
-      box-shadow:
-        0 18px 50px rgba(0,0,0,.45),
-        0 0 0 1px rgba(255,255,255,.06),
-        0 0 40px rgba(124,58,237,.20);
-    }
-
-    .ring-soft{box-shadow: 0 0 0 1px rgba(255,255,255,.10) inset;}
-
-    .text-balance{text-wrap:balance;}
-
-    @keyframes floaty {
-      0%{ transform: translateY(0px); }
-      50%{ transform: translateY(-10px); }
-      100%{ transform: translateY(0px); }
-    }
-
-    .floaty{ animation: floaty 6s ease-in-out infinite; }
-
-    @keyframes shimmer {
-      0%{ background-position: 0% 50%; }
-      50%{ background-position: 100% 50%; }
-      100%{ background-position: 0% 50%; }
-    }
-
-    .shimmer {
-      background: linear-gradient(90deg, rgba(124,58,237,.8), rgba(6,182,212,.85), rgba(245,158,11,.55), rgba(124,58,237,.8));
-      background-size: 260% 260%;
-      animation: shimmer 9s ease infinite;
-    }
-
-    .skip-link{
-      position:absolute;
-      left:-999px;
-      top:auto;
-      width:1px;
-      height:1px;
-      overflow:hidden;
-    }
-    .skip-link:focus{
-      left:1rem;
-      top:1rem;
-      width:auto;
-      height:auto;
-      z-index:1000;
-    }
-
-    /* Range input styling (basic, consistent enough) */
-    input[type="range"]{
-      accent-color: var(--accent2);
-    }
-
-    /* Reduce motion */
-    @media (prefers-reduced-motion: reduce){
-      html{scroll-behavior:auto;}
-      .floaty{animation:none;}
-      .shimmer{animation:none;}
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LeadstoCalls | Premium 3D Renders for Singapore Real Estate</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+        h1, h2, h3 { font-family: 'Playfair Display', serif; }
+        .glass { background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
+        .gradient-bg { background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); }
+        .render-card:hover img { transform: scale(1.05); }
+        .transition-all { transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+    </style>
 </head>
+<body class="bg-slate-50 text-slate-900">
 
-<body class="steam min-h-screen text-white selection:bg-cyan-300/30 selection:text-white">
-  <a class="skip-link glass rounded-lg px-4 py-2" href="#get-started">Skip to form</a>
-
-  <!-- Top bar -->
-  <header class="sticky top-0 z-50">
-    <div class="border-b border-white/10 bg-black/20 backdrop-blur">
-      <div class="mx-auto max-w-6xl px-4">
-        <div class="flex items-center justify-between py-3">
-          <a href="#top" class="group flex items-center gap-3">
-            <div class="h-9 w-9 rounded-xl shimmer shadow-glow grid place-items-center">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M6 14c0 2.761 2.686 5 6 5s6-2.239 6-5" stroke="rgba(255,255,255,.92)" stroke-width="2" stroke-linecap="round"/>
-                <path d="M8.5 9.5c0-2.5 1.8-4.5 3.5-6 1.7 1.5 3.5 3.5 3.5 6 0 2.2-1.6 4-3.5 4s-3.5-1.8-3.5-4Z" stroke="rgba(255,255,255,.92)" stroke-width="2"/>
-              </svg>
-            </div>
-            <div>
-              <div class="font-semibold tracking-tight leading-tight text-lg">LeadsToCalls</div>
-              <div class="text-xs text-white/60 leading-tight">Built for UK garden sauna businesses</div>
-            </div>
-          </a>
-
-          <nav class="hidden md:flex items-center gap-6 text-sm text-white/80">
-            <a class="hover:text-white transition" href="#services">Services</a>
-            <a class="hover:text-white transition" href="#how">How it works</a>
-            <a class="hover:text-white transition" href="#pricing">Pricing</a>
-            <a class="hover:text-white transition" href="#calculator">ROI</a>
-            <a class="hover:text-white transition" href="#faq">FAQ</a>
-          </nav>
-
-          <div class="flex items-center gap-3">
-            <button id="themeBtn" class="hidden sm:inline-flex glass rounded-xl px-3 py-2 text-sm text-white/90 hover:bg-white/10 transition ring-soft" type="button" aria-label="Toggle contrast mode">
-              <span id="themeBtnLabel">High contrast</span>
-            </button>
-            <a href="#get-started" class="inline-flex items-center justify-center rounded-xl px-4 py-2 text-sm font-semibold bg-cyan-400/90 hover:bg-cyan-300 text-black transition shadow-glow">
-              Get a free plan
-            </a>
-          </div>
+    <!-- Navigation -->
+    <nav id="main-nav" class="fixed w-full z-50 glass border-b border-white/10 py-4 px-6 md:px-12 flex justify-between items-center text-white transition-all duration-300">
+        <div class="text-2xl font-bold tracking-tighter">LEADSTOCALLS<span class="text-blue-500">.</span></div>
+        <div class="hidden md:flex space-x-8 text-sm font-medium uppercase tracking-widest items-center">
+            <a href="#services" class="hover:text-blue-400 transition-colors">Services</a>
+            <a href="#portfolio" class="hover:text-blue-400 transition-colors">Portfolio</a>
+            <a href="#about" class="hover:text-blue-400 transition-colors">About</a>
+            <a href="mailto:hello@leadstocalls.com" class="bg-blue-600 hover:bg-blue-700 px-5 py-2 rounded-full transition-all">Get a Quote</a>
         </div>
-      </div>
+        <button id="mobile-menu-btn" class="md:hidden text-2xl"><i class="fas fa-bars"></i></button>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed inset-0 bg-slate-900 z-[60] flex flex-col items-center justify-center space-y-8 text-2xl text-white transform translate-x-full transition-transform duration-300">
+        <button id="close-menu-btn" class="absolute top-6 right-6 text-3xl"><i class="fas fa-times"></i></button>
+        <a href="#services" class="mobile-link">Services</a>
+        <a href="#portfolio" class="mobile-link">Portfolio</a>
+        <a href="#about" class="mobile-link">About</a>
+        <a href="mailto:hello@leadstocalls.com" class="bg-blue-600 px-8 py-3 rounded-full">Contact Us</a>
     </div>
-  </header>
 
-  <main id="top">
-    <!-- Hero -->
-    <section class="relative overflow-hidden">
-      <div class="mx-auto max-w-6xl px-4 pt-10 pb-12 md:pt-16 md:pb-16">
-        <div class="grid md:grid-cols-12 gap-10 items-start">
-          <div class="md:col-span-7">
-            <div class="inline-flex items-center gap-2 rounded-full glass px-4 py-2 text-sm text-white/85 ring-soft">
-              <span class="inline-block h-2 w-2 rounded-full bg-emerald-400"></span>
-              <span class="font-medium">Meta + Google Ads → calls booked</span>
-              <span class="text-white/55">with 24/7 answering</span>
+    <!-- Hero Section -->
+    <header class="relative h-screen flex items-center justify-center overflow-hidden bg-slate-900 text-white">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1600607687940-4e524cb3513a?auto=format&fit=crop&q=80&w=2000" alt="Luxury Real Estate" class="w-full h-full object-cover opacity-40">
+            <div class="absolute inset-0 bg-gradient-to-b from-slate-900/50 via-slate-900/80 to-slate-900"></div>
+        </div>
+        
+        <div class="relative z-10 text-center px-4 max-w-5xl mx-auto">
+            <span class="inline-block px-4 py-1 border border-blue-500 rounded-full text-blue-400 text-sm mb-6 animate-pulse">Singapore's Premier 3D Visualization Studio</span>
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">We turn blueprints into <span class="italic text-blue-400">buyer's dreams.</span></h1>
+            <p class="text-lg md:text-xl text-slate-300 mb-10 max-w-2xl mx-auto font-light">LeadstoCalls creates hyper-realistic 3D renders that help Singapore property agents and developers close deals faster.</p>
+            <div class="flex flex-col md:flex-row gap-4 justify-center">
+                <a href="#portfolio" class="bg-white text-slate-900 px-8 py-4 rounded-md font-bold hover:bg-blue-500 hover:text-white transition-all">View Our Work</a>
+                <a href="mailto:hello@leadstocalls.com" class="border border-white/30 backdrop-blur-sm px-8 py-4 rounded-md font-bold hover:bg-white/10 transition-all">Book a Consultation</a>
             </div>
+        </div>
+    </header>
 
-            <h1 class="mt-5 text-4xl md:text-6xl font-semibold tracking-tight leading-[1.05] text-balance">
-              Turn UK garden sauna interest into <span class="text-transparent bg-clip-text bg-gradient-to-r from-violet-300 via-cyan-200 to-amber-200">booked calls</span>
-              — even when you’re offline.
-            </h1>
-
-            <p class="mt-5 text-base md:text-lg text-white/75 max-w-xl text-balance">
-              LeadsToCalls builds the full pipeline for garden sauna businesses in the UK: ad campaigns, conversion landing pages, setup forms,
-              calendars, Synthflow-powered answering after hours, and a human appointment setter during office hours.
-            </p>
-
-            <div class="mt-7 flex flex-col sm:flex-row gap-3">
-              <a href="#get-started" class="inline-flex items-center justify-center rounded-xl px-5 py-3 text-sm font-semibold bg-white text-black hover:bg-white/90 transition shadow-glow">
-                Get my free growth plan
-              </a>
-              <a href="#how" class="inline-flex items-center justify-center rounded-xl px-5 py-3 text-sm font-semibold glass hover:bg-white/10 transition ring-soft">
-                See the system
-              </a>
-            </div>
-
-            <div class="mt-7 grid grid-cols-2 sm:grid-cols-3 gap-3 max-w-xl">
-              <div class="glass rounded-xl p-4 ring-soft">
-                <div class="text-xs text-white/60">Response time</div>
-                <div class="mt-1 text-lg font-semibold">Instant</div>
-                <div class="text-xs text-white/60">SMS / voice / email</div>
-              </div>
-              <div class="glass rounded-xl p-4 ring-soft">
-                <div class="text-xs text-white/60">Coverage</div>
-                <div class="mt-1 text-lg font-semibold">24/7</div>
-                <div class="text-xs text-white/60">After-hours AI + daytime human</div>
-              </div>
-              <div class="glass rounded-xl p-4 ring-soft col-span-2 sm:col-span-1">
-                <div class="text-xs text-white/60">Built for</div>
-                <div class="mt-1 text-lg font-semibold">UK</div>
-                <div class="text-xs text-white/60">Garden sauna builders & retailers</div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Hero card -->
-          <div class="md:col-span-5">
-            <div class="glass rounded-2xl p-5 md:p-6 shadow-glow">
-              <div class="flex items-start justify-between gap-4">
+    <!-- Stats Section -->
+    <section class="py-12 bg-white border-b">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
                 <div>
-                  <div class="text-sm text-white/70">Pipeline preview</div>
-                  <div class="mt-1 text-xl font-semibold">From click to booked call</div>
+                    <div class="text-3xl font-bold text-blue-600">500+</div>
+                    <div class="text-sm text-slate-500 uppercase tracking-widest">Renders Delivered</div>
                 </div>
-                <div class="floaty rounded-xl bg-black/30 border border-white/10 px-3 py-2 text-xs text-white/70">
-                  Live demo UI
+                <div>
+                    <div class="text-3xl font-bold text-blue-600">40%</div>
+                    <div class="text-sm text-slate-500 uppercase tracking-widest">Faster Sales</div>
                 </div>
-              </div>
-
-              <div class="mt-5 space-y-3">
-                <div class="flex items-center gap-3">
-                  <div class="h-9 w-9 rounded-xl bg-violet-400/15 border border-violet-300/25 grid place-items-center">
-                    <span class="text-violet-200 font-semibold">1</span>
-                  </div>
-                  <div>
-                    <div class="font-medium">Meta & Google ads</div>
-                    <div class="text-sm text-white/60">Target UK intent + local areas</div>
-                  </div>
+                <div>
+                    <div class="text-3xl font-bold text-blue-600">100+</div>
+                    <div class="text-sm text-slate-500 uppercase tracking-widest">SG Agents Trust Us</div>
                 </div>
-                <div class="h-px bg-white/10"></div>
-                <div class="flex items-center gap-3">
-                  <div class="h-9 w-9 rounded-xl bg-cyan-400/15 border border-cyan-300/25 grid place-items-center">
-                    <span class="text-cyan-200 font-semibold">2</span>
-                  </div>
-                  <div>
-                    <div class="font-medium">Landing page + setup form</div>
-                    <div class="text-sm text-white/60">Qualify: budget, timeline, location</div>
-                  </div>
+                <div>
+                    <div class="text-3xl font-bold text-blue-600">24h</div>
+                    <div class="text-sm text-slate-500 uppercase tracking-widest">Initial Draft Turnaround</div>
                 </div>
-                <div class="h-px bg-white/10"></div>
-                <div class="flex items-center gap-3">
-                  <div class="h-9 w-9 rounded-xl bg-amber-400/15 border border-amber-300/25 grid place-items-center">
-                    <span class="text-amber-200 font-semibold">3</span>
-                  </div>
-                  <div>
-                    <div class="font-medium">Calendar booking</div>
-                    <div class="text-sm text-white/60">Calendly / Google / Outlook</div>
-                  </div>
-                </div>
-                <div class="h-px bg-white/10"></div>
-                <div class="flex items-center gap-3">
-                  <div class="h-9 w-9 rounded-xl bg-emerald-400/15 border border-emerald-300/25 grid place-items-center">
-                    <span class="text-emerald-200 font-semibold">4</span>
-                  </div>
-                  <div>
-                    <div class="font-medium">24/7 answering</div>
-                    <div class="text-sm text-white/60">AI after hours, human in office hours</div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="mt-6 grid grid-cols-2 gap-3">
-                <div class="rounded-xl bg-black/30 border border-white/10 p-4">
-                  <div class="text-xs text-white/60">Best for</div>
-                  <div class="mt-1 font-semibold">High-ticket installs</div>
-                  <div class="text-xs text-white/60">where speed wins</div>
-                </div>
-                <div class="rounded-xl bg-black/30 border border-white/10 p-4">
-                  <div class="text-xs text-white/60">Typical outcome</div>
-                  <div class="mt-1 font-semibold">More show-ups</div>
-                  <div class="text-xs text-white/60">and fewer missed leads</div>
-                </div>
-              </div>
-
-              <div class="mt-6 flex flex-col sm:flex-row gap-3">
-                <a href="#calculator" class="inline-flex justify-center rounded-xl px-4 py-2 text-sm font-semibold glass hover:bg-white/10 transition ring-soft">Estimate ROI</a>
-                <a href="#get-started" class="inline-flex justify-center rounded-xl px-4 py-2 text-sm font-semibold bg-cyan-400/90 hover:bg-cyan-300 text-black transition">Request setup</a>
-              </div>
-
-              <p class="mt-4 text-xs text-white/55">
-                Note: results vary by offer, area, seasonality, and follow-up speed. This page shows the system, not a guarantee.
-              </p>
             </div>
-          </div>
         </div>
-
-        <!-- Logos / proof -->
-        <div class="mt-10 md:mt-12 glass rounded-2xl p-5 ring-soft">
-          <div class="grid md:grid-cols-12 gap-6 items-center">
-            <div class="md:col-span-4">
-              <div class="text-sm font-semibold">Designed for garden sauna demand</div>
-              <div class="mt-1 text-sm text-white/65">Builders • Retailers • Installers • Showroom operators</div>
-            </div>
-            <div class="md:col-span-8">
-              <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
-                <div class="rounded-xl bg-black/30 border border-white/10 p-4">
-                  <div class="text-xs text-white/55">Channels</div>
-                  <div class="mt-1 font-semibold">Meta + Google</div>
-                </div>
-                <div class="rounded-xl bg-black/30 border border-white/10 p-4">
-                  <div class="text-xs text-white/55">Answering</div>
-                  <div class="mt-1 font-semibold">Synthflow + human</div>
-                </div>
-                <div class="rounded-xl bg-black/30 border border-white/10 p-4">
-                  <div class="text-xs text-white/55">Booking</div>
-                  <div class="mt-1 font-semibold">Calendars</div>
-                </div>
-                <div class="rounded-xl bg-black/30 border border-white/10 p-4">
-                  <div class="text-xs text-white/55">Automation</div>
-                  <div class="mt-1 font-semibold">CRM-ready</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
     </section>
 
-    <!-- Services -->
-    <section id="services" class="py-14 md:py-18">
-      <div class="mx-auto max-w-6xl px-4">
-        <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
-          <div>
-            <h2 class="text-3xl md:text-4xl font-semibold tracking-tight">Everything between “lead” and “call”</h2>
-            <p class="mt-2 text-white/70 max-w-2xl">
-              The goal isn’t clicks — it’s booked conversations with real buyers. LeadsToCalls builds the full funnel so you don’t waste spend on missed enquiries.
-            </p>
-          </div>
-          <div class="glass rounded-2xl p-4 ring-soft max-w-xl">
-            <div class="text-sm text-white/70">Quick fit check</div>
-            <div class="mt-1 text-sm">
-              Best if you sell/install <span class="font-semibold">high-value garden saunas</span> and can handle <span class="font-semibold">3–20 calls/week</span>.
+    <!-- Process Section -->
+    <section class="py-24 bg-white overflow-hidden">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-20">
+                <h2 class="text-4xl font-bold mb-4">Our 3-Step Process</h2>
+                <div class="w-20 h-1 bg-blue-600 mx-auto mb-6"></div>
+                <p class="text-slate-600">Simplicity from initial brief to final delivery.</p>
             </div>
-          </div>
+            
+            <div class="relative">
+                <!-- Line -->
+                <div class="hidden md:block absolute top-1/2 left-0 w-full h-0.5 bg-slate-100 -translate-y-1/2 z-0"></div>
+                
+                <div class="grid md:grid-cols-3 gap-12 relative z-10">
+                    <div class="bg-white p-8 text-center">
+                        <div class="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6 shadow-lg shadow-blue-200">1</div>
+                        <h4 class="text-xl font-bold mb-3">Upload Brief</h4>
+                        <p class="text-slate-500">Send us your floor plans, mood boards, or sketches via email.</p>
+                    </div>
+                    <div class="bg-white p-8 text-center">
+                        <div class="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6 shadow-lg shadow-blue-200">2</div>
+                        <h4 class="text-xl font-bold mb-3">Review Drafts</h4>
+                        <p class="text-slate-500">Receive low-res previews within 48 hours and request any adjustments.</p>
+                    </div>
+                    <div class="bg-white p-8 text-center">
+                        <div class="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6 shadow-lg shadow-blue-200">3</div>
+                        <h4 class="text-xl font-bold mb-3">Final Delivery</h4>
+                        <p class="text-slate-500">Download your 4K photorealistic renders ready for PropertyGuru or brochures.</p>
+                    </div>
+                </div>
+            </div>
         </div>
-
-        <div class="mt-8 grid md:grid-cols-3 gap-4">
-          <div class="glass rounded-2xl p-6 ring-soft">
-            <div class="flex items-center gap-3">
-              <div class="h-10 w-10 rounded-xl bg-violet-400/15 border border-violet-300/25 grid place-items-center" aria-hidden="true">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                  <path d="M4 19V5a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v14" stroke="rgba(255,255,255,.9)" stroke-width="2" stroke-linecap="round"/>
-                  <path d="M8 7h8M8 11h8M8 15h6" stroke="rgba(255,255,255,.7)" stroke-width="2" stroke-linecap="round"/>
-                </svg>
-              </div>
-              <div>
-                <div class="font-semibold">Meta + Google Ads</div>
-                <div class="text-sm text-white/65">Offers, creatives, keywords, retargeting</div>
-              </div>
-            </div>
-            <ul class="mt-4 text-sm text-white/70 space-y-2">
-              <li>• Local UK targeting and “near me” intent coverage</li>
-              <li>• Tracking-ready setup (Pixel/GTAG + offline conversions)</li>
-              <li>• Budget pacing + weekly optimisations</li>
-            </ul>
-          </div>
-
-          <div class="glass rounded-2xl p-6 ring-soft">
-            <div class="flex items-center gap-3">
-              <div class="h-10 w-10 rounded-xl bg-cyan-400/15 border border-cyan-300/25 grid place-items-center" aria-hidden="true">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                  <path d="M7 8h10M7 12h6M7 16h10" stroke="rgba(255,255,255,.8)" stroke-width="2" stroke-linecap="round"/>
-                  <path d="M6 4h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H8l-4 2V6a2 2 0 0 1 2-2Z" stroke="rgba(255,255,255,.9)" stroke-width="2" stroke-linejoin="round"/>
-                </svg>
-              </div>
-              <div>
-                <div class="font-semibold">Landing page + setup form</div>
-                <div class="text-sm text-white/65">Qualify before you call</div>
-              </div>
-            </div>
-            <ul class="mt-4 text-sm text-white/70 space-y-2">
-              <li>• Fast-loading, mobile-first landing pages</li>
-              <li>• Setup form (budget, timeline, postcode, site access)</li>
-              <li>• Auto follow-ups: SMS/email sequences</li>
-            </ul>
-          </div>
-
-          <div class="glass rounded-2xl p-6 ring-soft">
-            <div class="flex items-center gap-3">
-              <div class="h-10 w-10 rounded-xl bg-amber-400/15 border border-amber-300/25 grid place-items-center" aria-hidden="true">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                  <path d="M7 3v3M17 3v3M4 9h16" stroke="rgba(255,255,255,.85)" stroke-width="2" stroke-linecap="round"/>
-                  <path d="M6 6h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2Z" stroke="rgba(255,255,255,.9)" stroke-width="2"/>
-                  <path d="M8 12h4M8 16h8" stroke="rgba(255,255,255,.75)" stroke-width="2" stroke-linecap="round"/>
-                </svg>
-              </div>
-              <div>
-                <div class="font-semibold">Calendars + automations</div>
-                <div class="text-sm text-white/65">Less admin, more installs</div>
-              </div>
-            </div>
-            <ul class="mt-4 text-sm text-white/70 space-y-2">
-              <li>• Calendar routing: sales vs site visit vs showroom</li>
-              <li>• CRM handoff (HubSpot, Pipedrive, Sheets, etc.)</li>
-              <li>• Reminders to reduce no-shows</li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- 24/7 answering toggle -->
-        <div class="mt-8 grid lg:grid-cols-12 gap-4 items-start">
-          <div class="lg:col-span-7 glass rounded-2xl p-6 ring-soft">
-            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-              <div>
-                <h3 class="text-xl font-semibold">Always answered: AI after hours, human during office hours</h3>
-                <p class="mt-1 text-sm text-white/70">Toggle to preview the two modes your leads experience.</p>
-              </div>
-
-              <div class="inline-flex items-center gap-2 rounded-xl bg-black/30 border border-white/10 p-2">
-                <button id="modeAfter" type="button" class="px-3 py-2 text-sm rounded-lg font-semibold bg-white text-black">After hours</button>
-                <button id="modeOffice" type="button" class="px-3 py-2 text-sm rounded-lg font-semibold text-white/80 hover:text-white">Office hours</button>
-              </div>
-            </div>
-
-            <div class="mt-5 grid sm:grid-cols-2 gap-4">
-              <div class="rounded-2xl bg-black/30 border border-white/10 p-5">
-                <div class="text-sm text-white/60">Lead experience</div>
-                <div id="modeTitle" class="mt-1 text-lg font-semibold">Instant AI answering + qualification</div>
-                <ul id="modeBullets" class="mt-3 text-sm text-white/70 space-y-2">
-                  <li>• Synthflow bot answers calls/messages quickly</li>
-                  <li>• Captures postcode, budget range, timeline</li>
-                  <li>• Books a slot or flags for a priority callback</li>
-                </ul>
-              </div>
-
-              <div class="rounded-2xl bg-black/30 border border-white/10 p-5">
-                <div class="text-sm text-white/60">Your side</div>
-                <div id="modeOpsTitle" class="mt-1 text-lg font-semibold">No more missed enquiries</div>
-                <ul id="modeOpsBullets" class="mt-3 text-sm text-white/70 space-y-2">
-                  <li>• Every lead logged with transcript + tags</li>
-                  <li>• Auto-notifications: SMS/email/slack (optional)</li>
-                  <li>• Follow-ups triggered if no booking</li>
-                </ul>
-              </div>
-            </div>
-
-            <div class="mt-5 text-xs text-white/55">
-              Office hours can be configured to your schedule (e.g., Mon–Fri 9am–6pm). AI handles evenings/weekends/bank holidays.
-            </div>
-          </div>
-
-          <div class="lg:col-span-5 glass rounded-2xl p-6 ring-soft">
-            <h3 class="text-xl font-semibold">What you actually get</h3>
-            <p class="mt-2 text-sm text-white/70">A complete appointment engine — not just ads.</p>
-            <div class="mt-4 grid gap-3">
-              <div class="rounded-xl bg-black/30 border border-white/10 p-4">
-                <div class="font-semibold">Setup + tracking</div>
-                <div class="text-sm text-white/65">Pixels, events, call tracking, analytics dashboards</div>
-              </div>
-              <div class="rounded-xl bg-black/30 border border-white/10 p-4">
-                <div class="font-semibold">Offer & messaging</div>
-                <div class="text-sm text-white/65">Positioning for “garden sauna in the UK” buyers</div>
-              </div>
-              <div class="rounded-xl bg-black/30 border border-white/10 p-4">
-                <div class="font-semibold">Automations</div>
-                <div class="text-sm text-white/65">Reminders, pipelines, nurture sequences, reactivation</div>
-              </div>
-            </div>
-            <div class="mt-5">
-              <a href="#get-started" class="inline-flex w-full justify-center rounded-xl px-4 py-3 text-sm font-semibold bg-cyan-400/90 hover:bg-cyan-300 text-black transition">
-                Start with a free growth plan
-              </a>
-            </div>
-          </div>
-        </div>
-
-      </div>
     </section>
 
-    <!-- How it works -->
-    <section id="how" class="py-14 md:py-18">
-      <div class="mx-auto max-w-6xl px-4">
-        <div class="grid lg:grid-cols-12 gap-8 items-start">
-          <div class="lg:col-span-5">
-            <h2 class="text-3xl md:text-4xl font-semibold tracking-tight">How the system gets you booked calls</h2>
-            <p class="mt-3 text-white/70">
-              The key difference: we engineer response speed + qualification + booking, so you spend less time chasing and more time selling/installing.
-            </p>
-            <div class="mt-6 glass rounded-2xl p-5 ring-soft">
-              <div class="text-sm text-white/65">Typical pipeline</div>
-              <div class="mt-2 text-sm">
-                Ad → landing page → setup form → instant follow-up → booked calendar slot → show-up reminders → call notes in CRM.
-              </div>
+    <!-- Services Section -->
+    <section id="services" class="py-24 bg-slate-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">Our Expertise</h2>
+                <div class="w-20 h-1 bg-blue-600 mx-auto"></div>
+                <p class="mt-6 text-slate-600 max-w-xl mx-auto">Tailored visualization services for the Singapore real estate ecosystem.</p>
             </div>
-          </div>
 
-          <div class="lg:col-span-7">
-            <div class="grid sm:grid-cols-2 gap-4">
-              <div class="glass rounded-2xl p-6 ring-soft">
-                <div class="text-sm text-white/60">Step 1</div>
-                <div class="mt-1 text-xl font-semibold">Launch the offer</div>
-                <p class="mt-2 text-sm text-white/70">We align messaging with what UK buyers want: price clarity, installation timeline, planning constraints, and aftercare.</p>
-              </div>
-              <div class="glass rounded-2xl p-6 ring-soft">
-                <div class="text-sm text-white/60">Step 2</div>
-                <div class="mt-1 text-xl font-semibold">Capture & qualify</div>
-                <p class="mt-2 text-sm text-white/70">A short setup form qualifies leads without killing conversion rate. You see only the prospects worth calling.</p>
-              </div>
-              <div class="glass rounded-2xl p-6 ring-soft">
-                <div class="text-sm text-white/60">Step 3</div>
-                <div class="mt-1 text-xl font-semibold">Book instantly</div>
-                <p class="mt-2 text-sm text-white/70">Calendar routing, reminders and rescheduling. The experience feels premium and fast — like a showroom concierge.</p>
-              </div>
-              <div class="glass rounded-2xl p-6 ring-soft">
-                <div class="text-sm text-white/60">Step 4</div>
-                <div class="mt-1 text-xl font-semibold">Follow-up that closes</div>
-                <p class="mt-2 text-sm text-white/70">Synthflow bot handles after-hours response. In office hours, a human setter confirms details and gets the call to show.</p>
-              </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Interior Rendering -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-xl transition-all group">
+                    <div class="w-14 h-14 bg-blue-50 rounded-lg flex items-center justify-center text-blue-600 mb-6 group-hover:bg-blue-600 group-hover:text-white transition-all">
+                        <i class="fas fa-couch text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Interior Rendering</h3>
+                    <p class="text-slate-600 leading-relaxed">Photorealistic visuals for HDB BTOs, Condominiums, and Commercial spaces that capture every detail of luxury living.</p>
+                </div>
+
+                <!-- Exterior Visualization -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-xl transition-all group">
+                    <div class="w-14 h-14 bg-blue-50 rounded-lg flex items-center justify-center text-blue-600 mb-6 group-hover:bg-blue-600 group-hover:text-white transition-all">
+                        <i class="fas fa-building text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Exterior & Facade</h3>
+                    <p class="text-slate-600 leading-relaxed">Breathtaking exterior shots for landed properties and new developments that showcase architecture in its best light.</p>
+                </div>
+
+                <!-- 360 Virtual Tours -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-xl transition-all group">
+                    <div class="w-14 h-14 bg-blue-50 rounded-lg flex items-center justify-center text-blue-600 mb-6 group-hover:bg-blue-600 group-hover:text-white transition-all">
+                        <i class="fas fa-vr-cardboard text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Virtual Tours</h3>
+                    <p class="text-slate-600 leading-relaxed">Immersive 360-degree walkthroughs that allow prospective buyers to explore property layouts from anywhere in the world.</p>
+                </div>
             </div>
-          </div>
         </div>
-
-        <div class="mt-10 glass rounded-2xl p-6 ring-soft">
-          <div class="grid md:grid-cols-3 gap-4">
-            <div class="rounded-xl bg-black/30 border border-white/10 p-5">
-              <div class="text-sm text-white/60">What we optimise for</div>
-              <div class="mt-1 font-semibold">Speed-to-lead</div>
-              <div class="mt-2 text-sm text-white/70">Buyers enquire while they’re comparing — answering fast wins the call.</div>
-            </div>
-            <div class="rounded-xl bg-black/30 border border-white/10 p-5">
-              <div class="text-sm text-white/60">What you stop doing</div>
-              <div class="mt-1 font-semibold">Manual chasing</div>
-              <div class="mt-2 text-sm text-white/70">Fewer “missed call → forgotten callback” moments.</div>
-            </div>
-            <div class="rounded-xl bg-black/30 border border-white/10 p-5">
-              <div class="text-sm text-white/60">What improves</div>
-              <div class="mt-1 font-semibold">Show-up rate</div>
-              <div class="mt-2 text-sm text-white/70">Confirmation + reminders + qualified prospects = better conversations.</div>
-            </div>
-          </div>
-        </div>
-
-      </div>
     </section>
 
-    <!-- Pricing -->
-    <section id="pricing" class="py-14 md:py-18">
-      <div class="mx-auto max-w-6xl px-4">
-        <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
-          <div>
-            <h2 class="text-3xl md:text-4xl font-semibold tracking-tight">Simple pricing that matches the work</h2>
-            <p class="mt-2 text-white/70 max-w-2xl">Choose the level of execution you want. You can start lean and upgrade as volume grows.</p>
-          </div>
-          <div class="glass rounded-2xl p-4 ring-soft">
-            <div class="text-xs text-white/60">For garden sauna businesses in the UK</div>
-            <div class="mt-1 text-sm text-white/75">Most clients choose a monthly service + ad spend paid to Meta/Google directly.</div>
-          </div>
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-24 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12">
+                <div>
+                    <h2 class="text-4xl font-bold mb-4">Featured Work</h2>
+                    <p class="text-slate-600">A showcase of recent luxury projects across Singapore.</p>
+                </div>
+                <div class="mt-6 md:mt-0">
+                    <button class="px-6 py-2 bg-slate-900 text-white rounded hover:bg-blue-600 transition-all">All Projects</button>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Project 1 -->
+                <div class="render-card overflow-hidden rounded-xl relative group cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=800" alt="Luxury Condo" class="w-full h-80 object-cover transition-all duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all flex flex-col justify-end p-6">
+                        <h4 class="text-white font-bold text-xl">Nassim Hill Residence</h4>
+                        <p class="text-blue-300 text-sm">Interior Rendering</p>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="render-card overflow-hidden rounded-xl relative group cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&q=80&w=800" alt="Modern Kitchen" class="w-full h-80 object-cover transition-all duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all flex flex-col justify-end p-6">
+                        <h4 class="text-white font-bold text-xl">Sentosa Cove Villa</h4>
+                        <p class="text-blue-300 text-sm">360 Virtual Tour</p>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="render-card overflow-hidden rounded-xl relative group cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&q=80&w=800" alt="Penthouse" class="w-full h-80 object-cover transition-all duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all flex flex-col justify-end p-6">
+                        <h4 class="text-white font-bold text-xl">Marina Bay Penthouse</h4>
+                        <p class="text-blue-300 text-sm">Exterior Visualization</p>
+                    </div>
+                </div>
+            </div>
         </div>
-
-        <div class="mt-8 grid lg:grid-cols-3 gap-4">
-          <div class="glass rounded-2xl p-6 ring-soft">
-            <div class="text-sm text-white/70">Starter</div>
-            <div class="mt-1 text-2xl font-semibold">Launch</div>
-            <div class="mt-3 text-white/70 text-sm">For businesses that need the basics done properly.</div>
-            <div class="mt-5 rounded-xl bg-black/30 border border-white/10 p-4">
-              <div class="text-sm font-semibold">Includes</div>
-              <ul class="mt-2 text-sm text-white/70 space-y-2">
-                <li>• Meta or Google campaign launch</li>
-                <li>• Landing page + setup form</li>
-                <li>• Basic calendar booking</li>
-                <li>• Tracking + weekly report</li>
-              </ul>
-            </div>
-            <div class="mt-5 flex items-end justify-between">
-              <div>
-                <div class="text-xs text-white/55">From</div>
-                <div class="text-2xl font-semibold">£997<span class="text-sm font-medium text-white/60">/mo</span></div>
-              </div>
-              <a href="#get-started" class="inline-flex rounded-xl px-4 py-2 text-sm font-semibold bg-white text-black hover:bg-white/90 transition">Enquire</a>
-            </div>
-            <div class="mt-3 text-xs text-white/55">Setup fee may apply depending on assets + tracking.</div>
-          </div>
-
-          <div class="glass rounded-2xl p-6 ring-soft shadow-glow">
-            <div class="flex items-center justify-between">
-              <div class="text-sm text-white/70">Most popular</div>
-              <div class="rounded-full bg-cyan-400/20 border border-cyan-300/30 px-3 py-1 text-xs text-cyan-100">Best value</div>
-            </div>
-            <div class="mt-1 text-2xl font-semibold">Scale</div>
-            <div class="mt-3 text-white/70 text-sm">For consistent weekly calls and tighter follow-up.</div>
-            <div class="mt-5 rounded-xl bg-black/30 border border-white/10 p-4">
-              <div class="text-sm font-semibold">Includes</div>
-              <ul class="mt-2 text-sm text-white/70 space-y-2">
-                <li>• Meta + Google (or both) management</li>
-                <li>• Retargeting + creative iterations</li>
-                <li>• Synthflow after-hours bot answering</li>
-                <li>• Nurture + reminders automations</li>
-              </ul>
-            </div>
-            <div class="mt-5 flex items-end justify-between">
-              <div>
-                <div class="text-xs text-white/55">From</div>
-                <div class="text-2xl font-semibold">£1,997<span class="text-sm font-medium text-white/60">/mo</span></div>
-              </div>
-              <a href="#get-started" class="inline-flex rounded-xl px-4 py-2 text-sm font-semibold bg-cyan-400/90 hover:bg-cyan-300 text-black transition">Get plan</a>
-            </div>
-            <div class="mt-3 text-xs text-white/55">Ideal once you’ve got capacity to sell/install more.</div>
-          </div>
-
-          <div class="glass rounded-2xl p-6 ring-soft">
-            <div class="text-sm text-white/70">Premium</div>
-            <div class="mt-1 text-2xl font-semibold">Concierge</div>
-            <div class="mt-3 text-white/70 text-sm">For teams that want calls confirmed and calendars kept full.</div>
-            <div class="mt-5 rounded-xl bg-black/30 border border-white/10 p-4">
-              <div class="text-sm font-semibold">Includes</div>
-              <ul class="mt-2 text-sm text-white/70 space-y-2">
-                <li>• Everything in Scale</li>
-                <li>• Human appointment setter in office hours</li>
-                <li>• Lead recycling + reactivation</li>
-                <li>• Monthly offer + funnel strategy session</li>
-              </ul>
-            </div>
-            <div class="mt-5 flex items-end justify-between">
-              <div>
-                <div class="text-xs text-white/55">From</div>
-                <div class="text-2xl font-semibold">£3,497<span class="text-sm font-medium text-white/60">/mo</span></div>
-              </div>
-              <a href="#get-started" class="inline-flex rounded-xl px-4 py-2 text-sm font-semibold bg-white text-black hover:bg-white/90 transition">Apply</a>
-            </div>
-            <div class="mt-3 text-xs text-white/55">We’ll confirm fit before taking you on.</div>
-          </div>
-        </div>
-      </div>
     </section>
 
-    <!-- ROI Calculator -->
-    <section id="calculator" class="py-14 md:py-18">
-      <div class="mx-auto max-w-6xl px-4">
-        <div class="grid lg:grid-cols-12 gap-6 items-start">
-          <div class="lg:col-span-5">
-            <h2 class="text-3xl md:text-4xl font-semibold tracking-tight">Fast ROI estimate (sanity check)</h2>
-            <p class="mt-3 text-white/70">
-              Adjust the sliders. This is not a promise — it’s a quick model to help you think in calls, show-ups and gross profit.
-            </p>
-            <div class="mt-6 glass rounded-2xl p-5 ring-soft">
-              <div class="text-sm font-semibold">Assumptions you can tweak</div>
-              <ul class="mt-2 text-sm text-white/70 space-y-2">
-                <li>• Cost per lead (CPL) depends on area and seasonality</li>
-                <li>• Show-up rate improves with reminders + confirmation</li>
-                <li>• Close rate depends on pricing, finance options, and sales process</li>
-              </ul>
+    <!-- Why Us Section -->
+    <section id="about" class="py-24 bg-slate-900 text-white overflow-hidden">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col lg:flex-row items-center gap-16">
+                <div class="lg:w-1/2">
+                    <h2 class="text-4xl font-bold mb-8">Why Singapore Agents Choose <span class="text-blue-500">LeadstoCalls</span></h2>
+                    
+                    <div class="space-y-8">
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center font-bold">1</div>
+                            <div>
+                                <h4 class="text-xl font-bold mb-2">Market Expertise</h4>
+                                <p class="text-slate-400">We understand the SG real estate nuances—from HDB regulations to luxury GCB aesthetic standards.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center font-bold">2</div>
+                            <div>
+                                <h4 class="text-xl font-bold mb-2">Unmatched Realism</h4>
+                                <p class="text-slate-400">Our renders are powered by the latest path-tracing technology, ensuring materials, lighting, and shadows look 100% real.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center font-bold">3</div>
+                            <div>
+                                <h4 class="text-xl font-bold mb-2">Competitive Pricing</h4>
+                                <p class="text-slate-400">Premium quality visualization at local rates, with packages designed for individual agents and property developers.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:w-1/2 relative">
+                    <div class="relative z-10 rounded-2xl overflow-hidden border-8 border-slate-800 shadow-2xl">
+                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=800" alt="Singapore Skyline">
+                    </div>
+                    <div class="absolute -top-10 -right-10 w-64 h-64 bg-blue-600 rounded-full filter blur-[100px] opacity-20"></div>
+                </div>
             </div>
-          </div>
-
-          <div class="lg:col-span-7 glass rounded-2xl p-6 ring-soft">
-            <div class="grid md:grid-cols-2 gap-4">
-              <div class="rounded-2xl bg-black/30 border border-white/10 p-5">
-                <div class="text-sm text-white/60">Monthly ad spend</div>
-                <div class="mt-2 flex items-baseline gap-2">
-                  <div class="text-3xl font-semibold">£<span id="adSpendVal">3000</span></div>
-                  <div class="text-sm text-white/60">/mo</div>
-                </div>
-                <input id="adSpend" type="range" min="500" max="12000" step="250" value="3000" class="mt-4 w-full" />
-                <div class="mt-2 flex justify-between text-xs text-white/50"><span>£500</span><span>£12,000</span></div>
-              </div>
-
-              <div class="rounded-2xl bg-black/30 border border-white/10 p-5">
-                <div class="text-sm text-white/60">Cost per lead (CPL)</div>
-                <div class="mt-2 flex items-baseline gap-2">
-                  <div class="text-3xl font-semibold">£<span id="cplVal">45</span></div>
-                  <div class="text-sm text-white/60">/lead</div>
-                </div>
-                <input id="cpl" type="range" min="15" max="120" step="1" value="45" class="mt-4 w-full" />
-                <div class="mt-2 flex justify-between text-xs text-white/50"><span>£15</span><span>£120</span></div>
-              </div>
-
-              <div class="rounded-2xl bg-black/30 border border-white/10 p-5">
-                <div class="text-sm text-white/60">Show-up rate</div>
-                <div class="mt-2 flex items-baseline gap-2">
-                  <div class="text-3xl font-semibold"><span id="showVal">70</span>%</div>
-                </div>
-                <input id="show" type="range" min="30" max="95" step="1" value="70" class="mt-4 w-full" />
-                <div class="mt-2 flex justify-between text-xs text-white/50"><span>30%</span><span>95%</span></div>
-              </div>
-
-              <div class="rounded-2xl bg-black/30 border border-white/10 p-5">
-                <div class="text-sm text-white/60">Close rate (from showed calls)</div>
-                <div class="mt-2 flex items-baseline gap-2">
-                  <div class="text-3xl font-semibold"><span id="closeVal">20</span>%</div>
-                </div>
-                <input id="close" type="range" min="5" max="45" step="1" value="20" class="mt-4 w-full" />
-                <div class="mt-2 flex justify-between text-xs text-white/50"><span>5%</span><span>45%</span></div>
-              </div>
-            </div>
-
-            <div class="mt-4 rounded-2xl bg-gradient-to-r from-violet-500/15 via-cyan-500/12 to-amber-500/12 border border-white/10 p-5">
-              <div class="grid sm:grid-cols-4 gap-3">
-                <div>
-                  <div class="text-xs text-white/60">Leads / mo</div>
-                  <div id="kpiLeads" class="mt-1 text-xl font-semibold">—</div>
-                </div>
-                <div>
-                  <div class="text-xs text-white/60">Shows / mo</div>
-                  <div id="kpiShows" class="mt-1 text-xl font-semibold">—</div>
-                </div>
-                <div>
-                  <div class="text-xs text-white/60">Sales / mo</div>
-                  <div id="kpiSales" class="mt-1 text-xl font-semibold">—</div>
-                </div>
-                <div>
-                  <div class="text-xs text-white/60">Break-even gross profit per sale</div>
-                  <div id="kpiBreakeven" class="mt-1 text-xl font-semibold">—</div>
-                </div>
-              </div>
-              <div class="mt-3 text-xs text-white/55">
-                Break-even = (ad spend + typical service fee) ÷ estimated sales. Adjust in your head based on your actual package margins.
-              </div>
-            </div>
-
-            <div class="mt-4 flex flex-col sm:flex-row gap-3">
-              <a href="#get-started" class="inline-flex justify-center rounded-xl px-4 py-3 text-sm font-semibold bg-cyan-400/90 hover:bg-cyan-300 text-black transition">Build this for my business</a>
-              <button id="copyCalc" type="button" class="inline-flex justify-center rounded-xl px-4 py-3 text-sm font-semibold glass hover:bg-white/10 transition ring-soft">Copy estimate</button>
-            </div>
-
-            <div id="calcCopied" class="mt-3 hidden text-sm text-emerald-200">Estimate copied to clipboard.</div>
-          </div>
         </div>
-      </div>
     </section>
 
-    <!-- Testimonials / proof -->
-    <section class="py-14 md:py-18">
-      <div class="mx-auto max-w-6xl px-4">
-        <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
-          <div>
-            <h2 class="text-3xl md:text-4xl font-semibold tracking-tight">Make enquiries feel premium</h2>
-            <p class="mt-2 text-white/70 max-w-2xl">People buying a garden sauna want confidence, clarity and speed. This system gives them that.</p>
-          </div>
-          <div class="text-sm text-white/60">Example testimonials (replace with your real ones)</div>
+    <!-- Testimonials -->
+    <section class="py-24 bg-slate-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">Trusted by the Best</h2>
+                <div class="w-20 h-1 bg-blue-600 mx-auto"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 italic">
+                    <div class="text-blue-500 text-3xl mb-4">“</div>
+                    <p class="text-slate-600 mb-6 leading-relaxed">LeadstoCalls completely transformed my marketing for a GCB listing. The renders were indistinguishable from photos, and the property sold within a week of listing.</p>
+                    <div class="font-bold">— Marcus Tan, Senior Associate Director</div>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 italic">
+                    <div class="text-blue-500 text-3xl mb-4">“</div>
+                    <p class="text-slate-600 mb-6 leading-relaxed">The 360-degree virtual tour saved so much time with overseas buyers. They could experience the layout without being in Singapore. Truly a game changer.</p>
+                    <div class="font-bold">— Sarah Lim, PropNex Realty</div>
+                </div>
+            </div>
         </div>
-
-        <div class="mt-8 grid md:grid-cols-3 gap-4">
-          <figure class="glass rounded-2xl p-6 ring-soft">
-            <blockquote class="text-sm text-white/75 leading-relaxed">
-              “We stopped missing evening enquiries. By the next morning, calls were already booked with the right info captured.”
-            </blockquote>
-            <figcaption class="mt-4 text-sm">
-              <div class="font-semibold">Ops Manager</div>
-              <div class="text-white/60">Garden sauna installer • South East</div>
-            </figcaption>
-          </figure>
-          <figure class="glass rounded-2xl p-6 ring-soft">
-            <blockquote class="text-sm text-white/75 leading-relaxed">
-              “The form filters out tyre-kickers. Now our sales calls are mostly serious buyers with budgets.”
-            </blockquote>
-            <figcaption class="mt-4 text-sm">
-              <div class="font-semibold">Owner</div>
-              <div class="text-white/60">Sauna retailer • Midlands</div>
-            </figcaption>
-          </figure>
-          <figure class="glass rounded-2xl p-6 ring-soft">
-            <blockquote class="text-sm text-white/75 leading-relaxed">
-              “Reminders reduced no-shows. The calendar flow feels like a proper concierge experience.”
-            </blockquote>
-            <figcaption class="mt-4 text-sm">
-              <div class="font-semibold">Sales Lead</div>
-              <div class="text-white/60">Showroom team • North West</div>
-            </figcaption>
-          </figure>
-        </div>
-      </div>
     </section>
 
-    <!-- FAQ -->
-    <section id="faq" class="py-14 md:py-18">
-      <div class="mx-auto max-w-6xl px-4">
-        <div class="grid lg:grid-cols-12 gap-8 items-start">
-          <div class="lg:col-span-5">
-            <h2 class="text-3xl md:text-4xl font-semibold tracking-tight">FAQ</h2>
-            <p class="mt-3 text-white/70">The common questions UK sauna businesses ask before launching ads + automation.</p>
-            <div class="mt-6 glass rounded-2xl p-5 ring-soft">
-              <div class="text-sm font-semibold">GDPR note</div>
-              <p class="mt-2 text-sm text-white/70">We implement consent language and data handling best practices. You remain the data controller; tooling can be configured to your compliance requirements.</p>
+    <!-- Contact CTA -->
+    <section class="py-24 bg-blue-600 text-white">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-4xl font-bold mb-8">Ready to bring your property to life?</h2>
+            <p class="text-xl mb-10 opacity-90">Join 100+ top-performing agents in Singapore who use LeadstoCalls to win more listings.</p>
+            <div class="inline-block glass px-8 py-10 rounded-3xl max-w-2xl w-full">
+                <p class="text-2xl font-bold mb-4">Direct Email Inquiry</p>
+                <a href="mailto:hello@leadstocalls.com" class="text-3xl md:text-4xl font-light hover:underline block break-all mb-8">hello@leadstocalls.com</a>
+                <p class="text-sm opacity-70 mb-8 uppercase tracking-widest">Average response time: &lt; 2 hours</p>
+                <form class="text-left space-y-4 max-w-md mx-auto">
+                    <div class="grid grid-cols-2 gap-4">
+                        <input type="text" placeholder="Name" class="w-full bg-white/10 border border-white/20 rounded-lg p-3 outline-none focus:bg-white/20">
+                        <input type="text" placeholder="Contact No." class="w-full bg-white/10 border border-white/20 rounded-lg p-3 outline-none focus:bg-white/20">
+                    </div>
+                    <textarea placeholder="Tell us about your project..." rows="4" class="w-full bg-white/10 border border-white/20 rounded-lg p-3 outline-none focus:bg-white/20"></textarea>
+                    <button class="w-full bg-white text-blue-600 font-bold py-4 rounded-lg hover:bg-slate-100 transition-all uppercase tracking-widest">Send Inquiry</button>
+                </form>
             </div>
-          </div>
-
-          <div class="lg:col-span-7">
-            <div class="space-y-3">
-              <details class="glass rounded-2xl p-5 ring-soft">
-                <summary class="cursor-pointer font-semibold">Do you only work with garden saunas?</summary>
-                <div class="mt-2 text-sm text-white/70">This offer is designed for garden saunas (builders/retailers/installers) in the UK. If you’re adjacent (hot tubs, outdoor living), the system still works — but the copy/offer changes.</div>
-              </details>
-              <details class="glass rounded-2xl p-5 ring-soft">
-                <summary class="cursor-pointer font-semibold">What does “Synthflow bot” do?</summary>
-                <div class="mt-2 text-sm text-white/70">It can answer after-hours calls/messages, ask qualifying questions, send links, and help with booking. It logs transcripts and tags so you can follow up properly.</div>
-              </details>
-              <details class="glass rounded-2xl p-5 ring-soft">
-                <summary class="cursor-pointer font-semibold">What does the human setter do?</summary>
-                <div class="mt-2 text-sm text-white/70">During office hours, a human confirms details, handles objections, and gets qualified prospects to book (and show up). Your sales team gets cleaner calendars.</div>
-              </details>
-              <details class="glass rounded-2xl p-5 ring-soft">
-                <summary class="cursor-pointer font-semibold">Do I need a CRM?</summary>
-                <div class="mt-2 text-sm text-white/70">Not required. We can start with email + Google Sheets, then upgrade to a CRM when volume makes it worth it.</div>
-              </details>
-              <details class="glass rounded-2xl p-5 ring-soft">
-                <summary class="cursor-pointer font-semibold">How fast can this go live?</summary>
-                <div class="mt-2 text-sm text-white/70">If you have basic assets (logo, photos, offers), a first version can typically go live in days — then we iterate weekly.</div>
-              </details>
-            </div>
-          </div>
         </div>
-      </div>
-    </section>
-
-    <!-- Form -->
-    <section id="get-started" class="py-14 md:py-20">
-      <div class="mx-auto max-w-6xl px-4">
-        <div class="grid lg:grid-cols-12 gap-8 items-start">
-          <div class="lg:col-span-5">
-            <div class="inline-flex items-center gap-2 rounded-full glass px-4 py-2 text-sm text-white/85 ring-soft">
-              <span class="inline-block h-2 w-2 rounded-full bg-cyan-300"></span>
-              <span class="font-medium">Free growth plan</span>
-              <span class="text-white/55">(no hard pitch)</span>
-            </div>
-            <h2 class="mt-4 text-3xl md:text-4xl font-semibold tracking-tight">Tell me about your sauna business</h2>
-            <p class="mt-3 text-white/70">
-              Fill this in and you’ll get a simple plan: channel mix, offer angles, landing page structure, and an automation checklist.
-            </p>
-
-            <div class="mt-6 glass rounded-2xl p-5 ring-soft">
-              <div class="text-sm font-semibold">What happens next</div>
-              <ol class="mt-2 text-sm text-white/70 space-y-2">
-                <li>1) We review your answers.</li>
-                <li>2) We send a short plan and the next-step options.</li>
-                <li>3) If it’s a fit, we book a call and map the rollout.</li>
-              </ol>
-            </div>
-
-            <div class="mt-6 text-xs text-white/55">
-              By submitting, you agree we can contact you about your enquiry. You can ask for deletion anytime.
-            </div>
-          </div>
-
-          <div class="lg:col-span-7">
-            <form id="leadForm" class="glass rounded-2xl p-6 md:p-7 ring-soft" novalidate>
-              <div class="grid md:grid-cols-2 gap-4">
-                <div>
-                  <label class="text-sm text-white/75" for="name">Full name *</label>
-                  <input id="name" name="name" required class="mt-2 w-full rounded-xl bg-black/30 border border-white/10 px-4 py-3 text-sm outline-none focus:border-cyan-300/50" placeholder="Your name" />
-                  <p class="mt-1 text-xs text-rose-200 hidden" data-err="name">Please enter your name.</p>
-                </div>
-                <div>
-                  <label class="text-sm text-white/75" for="company">Company *</label>
-                  <input id="company" name="company" required class="mt-2 w-full rounded-xl bg-black/30 border border-white/10 px-4 py-3 text-sm outline-none focus:border-cyan-300/50" placeholder="Business name" />
-                  <p class="mt-1 text-xs text-rose-200 hidden" data-err="company">Please enter your company.</p>
-                </div>
-                <div>
-                  <label class="text-sm text-white/75" for="email">Email *</label>
-                  <input id="email" name="email" type="email" required class="mt-2 w-full rounded-xl bg-black/30 border border-white/10 px-4 py-3 text-sm outline-none focus:border-cyan-300/50" placeholder="name@company.co.uk" />
-                  <p class="mt-1 text-xs text-rose-200 hidden" data-err="email">Please enter a valid email.</p>
-                </div>
-                <div>
-                  <label class="text-sm text-white/75" for="phone">Phone (UK)</label>
-                  <input id="phone" name="phone" class="mt-2 w-full rounded-xl bg-black/30 border border-white/10 px-4 py-3 text-sm outline-none focus:border-cyan-300/50" placeholder="07… or +44…" />
-                </div>
-                <div>
-                  <label class="text-sm text-white/75" for="website">Website</label>
-                  <input id="website" name="website" class="mt-2 w-full rounded-xl bg-black/30 border border-white/10 px-4 py-3 text-sm outline-none focus:border-cyan-300/50" placeholder="https://" />
-                </div>
-                <div>
-                  <label class="text-sm text-white/75" for="serviceArea">Service area *</label>
-                  <input id="serviceArea" name="serviceArea" required class="mt-2 w-full rounded-xl bg-black/30 border border-white/10 px-4 py-3 text-sm outline-none focus:border-cyan-300/50" placeholder="e.g., Nationwide, Surrey + London, etc." />
-                  <p class="mt-1 text-xs text-rose-200 hidden" data-err="serviceArea">Please add your service area.</p>
-                </div>
-              </div>
-
-              <div class="mt-5 grid md:grid-cols-2 gap-4">
-                <div>
-                  <label class="text-sm text-white/75" for="currentAds">Are you running ads right now?</label>
-                  <select id="currentAds" name="currentAds" class="mt-2 w-full rounded-xl bg-black/30 border border-white/10 px-4 py-3 text-sm outline-none focus:border-cyan-300/50">
-                    <option value="No">No</option>
-                    <option value="Yes - Meta">Yes — Meta</option>
-                    <option value="Yes - Google">Yes — Google</option>
-                    <option value="Yes - Both">Yes — both</option>
-                  </select>
-                </div>
-                <div>
-                  <label class="text-sm text-white/75" for="adBudget">Monthly ad budget range (estimate)</label>
-                  <select id="adBudget" name="adBudget" class="mt-2 w-full rounded-xl bg-black/30 border border-white/10 px-4 py-3 text-sm outline-none focus:border-cyan-300/50">
-                    <option value="<£1k">Under £1k</option>
-                    <option value="£1k-£3k" selected>£1k–£3k</option>
-                    <option value="£3k-£6k">£3k–£6k</option>
-                    <option value="£6k-£10k">£6k–£10k</option>
-                    <option value=">£10k">£10k+</option>
-                  </select>
-                </div>
-              </div>
-
-              <div class="mt-5">
-                <label class="text-sm text-white/75" for="goal">Main goal *</label>
-                <select id="goal" name="goal" required class="mt-2 w-full rounded-xl bg-black/30 border border-white/10 px-4 py-3 text-sm outline-none focus:border-cyan-300/50">
-                  <option value="" selected disabled>Choose one…</option>
-                  <option value="More booked sales calls">More booked sales calls</option>
-                  <option value="More showroom visits">More showroom visits</option>
-                  <option value="More site surveys">More site surveys</option>
-                  <option value="Higher quality enquiries">Higher quality enquiries</option>
-                  <option value="Improve follow-up + reduce missed leads">Improve follow-up + reduce missed leads</option>
-                </select>
-                <p class="mt-1 text-xs text-rose-200 hidden" data-err="goal">Please choose a goal.</p>
-              </div>
-
-              <div class="mt-5">
-                <label class="text-sm text-white/75" for="notes">Anything we should know? (offers, pricing, constraints)</label>
-                <textarea id="notes" name="notes" rows="4" class="mt-2 w-full rounded-xl bg-black/30 border border-white/10 px-4 py-3 text-sm outline-none focus:border-cyan-300/50" placeholder="e.g., average order value, finance options, lead times, planning rules, showrooms, etc."></textarea>
-              </div>
-
-              <div class="mt-6 grid md:grid-cols-2 gap-4">
-                <div class="rounded-2xl bg-black/30 border border-white/10 p-5">
-                  <div class="text-sm font-semibold">Preferred booking tool</div>
-                  <div class="mt-3 grid grid-cols-3 gap-2">
-                    <label class="cursor-pointer">
-                      <input type="radio" name="calendarTool" value="Calendly" class="sr-only peer" checked>
-                      <span class="block text-center text-xs rounded-xl border border-white/10 bg-black/30 px-3 py-2 peer-checked:border-cyan-300/60 peer-checked:bg-cyan-400/10">Calendly</span>
-                    </label>
-                    <label class="cursor-pointer">
-                      <input type="radio" name="calendarTool" value="Google" class="sr-only peer">
-                      <span class="block text-center text-xs rounded-xl border border-white/10 bg-black/30 px-3 py-2 peer-checked:border-cyan-300/60 peer-checked:bg-cyan-400/10">Google</span>
-                    </label>
-                    <label class="cursor-pointer">
-                      <input type="radio" name="calendarTool" value="Outlook" class="sr-only peer">
-                      <span class="block text-center text-xs rounded-xl border border-white/10 bg-black/30 px-3 py-2 peer-checked:border-cyan-300/60 peer-checked:bg-cyan-400/10">Outlook</span>
-                    </label>
-                  </div>
-                </div>
-
-                <div class="rounded-2xl bg-black/30 border border-white/10 p-5">
-                  <div class="text-sm font-semibold">Office hours (for human setter)</div>
-                  <div class="mt-2 text-xs text-white/60">We’ll mirror your availability.</div>
-                  <div class="mt-3 grid grid-cols-2 gap-2">
-                    <input id="officeFrom" name="officeFrom" class="rounded-xl bg-black/30 border border-white/10 px-3 py-2 text-sm outline-none focus:border-cyan-300/50" placeholder="From (e.g., 9am)" />
-                    <input id="officeTo" name="officeTo" class="rounded-xl bg-black/30 border border-white/10 px-3 py-2 text-sm outline-none focus:border-cyan-300/50" placeholder="To (e.g., 6pm)" />
-                  </div>
-                </div>
-              </div>
-
-              <div class="mt-6 flex flex-col sm:flex-row gap-3 sm:items-center sm:justify-between">
-                <button class="inline-flex justify-center rounded-xl px-5 py-3 text-sm font-semibold bg-cyan-400/90 hover:bg-cyan-300 text-black transition" type="submit">
-                  Send my info
-                </button>
-                <button id="viewLeads" type="button" class="inline-flex justify-center rounded-xl px-5 py-3 text-sm font-semibold glass hover:bg-white/10 transition ring-soft">
-                  View saved leads (local)
-                </button>
-              </div>
-
-              <div id="formMsg" class="mt-4 hidden rounded-xl border border-emerald-300/25 bg-emerald-500/10 p-4 text-sm text-emerald-100"></div>
-              <div id="formErr" class="mt-4 hidden rounded-xl border border-rose-300/25 bg-rose-500/10 p-4 text-sm text-rose-100"></div>
-            </form>
-          </div>
-        </div>
-      </div>
     </section>
 
     <!-- Footer -->
-    <footer class="border-t border-white/10 bg-black/10">
-      <div class="mx-auto max-w-6xl px-4 py-10">
-        <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-6">
-          <div>
-            <div class="font-semibold">LeadsToCalls</div>
-            <div class="mt-2 text-sm text-white/65 max-w-md">Ads + landing pages + calendars + automations + answering. Purpose-built for UK garden sauna businesses.</div>
-          </div>
-          <div class="grid grid-cols-2 gap-4 text-sm">
-            <a class="text-white/70 hover:text-white" href="#services">Services</a>
-            <a class="text-white/70 hover:text-white" href="#get-started">Get started</a>
-            <a class="text-white/70 hover:text-white" href="#pricing">Pricing</a>
-            <a class="text-white/70 hover:text-white" href="#faq">FAQ</a>
-          </div>
+    <footer class="bg-slate-900 text-slate-400 py-12 border-t border-slate-800">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-8 md:mb-0">
+                    <div class="text-2xl font-bold text-white mb-2 tracking-tighter">LEADSTOCALLS<span class="text-blue-500">.</span></div>
+                    <p class="text-sm">High-End 3D Visualization Studio</p>
+                    <p class="text-sm">Singapore</p>
+                </div>
+                <div class="flex space-x-6 text-xl">
+                    <a href="#" class="hover:text-blue-500 transition-colors"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="hover:text-blue-500 transition-colors"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="hover:text-blue-500 transition-colors"><i class="fab fa-linkedin"></i></a>
+                    <a href="mailto:hello@leadstocalls.com" class="hover:text-blue-500 transition-colors"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+            <hr class="my-8 border-slate-800">
+            <div class="text-center text-xs tracking-widest uppercase">
+                &copy; 2024 LeadstoCalls. All Rights Reserved. Transforming Singapore's Skyline, One Render at a Time.
+            </div>
         </div>
-        <div class="mt-8 flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-xs text-white/55">
-          <div>© <span id="year"></span> LeadsToCalls. All rights reserved.</div>
-          <div>Local demo stores form submissions in your browser only (localStorage).</div>
-        </div>
-      </div>
     </footer>
 
-    <!-- Modal -->
-    <div id="modal" class="fixed inset-0 hidden items-center justify-center bg-black/70 p-4" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-      <div class="w-full max-w-2xl rounded-2xl glass ring-soft shadow-glow">
-        <div class="flex items-start justify-between gap-4 p-6 border-b border-white/10">
-          <div>
-            <div id="modalTitle" class="text-xl font-semibold">Submission saved</div>
-            <div class="mt-1 text-sm text-white/70">Copy this summary into your CRM, or keep it local.</div>
-          </div>
-          <button id="closeModal" type="button" class="rounded-xl px-3 py-2 text-sm glass hover:bg-white/10 transition ring-soft">Close</button>
-        </div>
-        <div class="p-6">
-          <div class="grid md:grid-cols-2 gap-4">
-            <div class="rounded-2xl bg-black/30 border border-white/10 p-5">
-              <div class="text-sm font-semibold">Summary</div>
-              <pre id="modalSummary" class="mt-3 whitespace-pre-wrap text-xs text-white/70 leading-relaxed"></pre>
-            </div>
-            <div class="rounded-2xl bg-black/30 border border-white/10 p-5">
-              <div class="text-sm font-semibold">Next step</div>
-              <p class="mt-2 text-sm text-white/70">If you want, you can now book a short call to map the funnel for your service area.</p>
-              <div class="mt-4 grid gap-3">
-                <a href="#" id="bookLink" class="inline-flex justify-center rounded-xl px-4 py-3 text-sm font-semibold bg-white text-black hover:bg-white/90 transition">Open booking link</a>
-                <button id="copySummary" type="button" class="inline-flex justify-center rounded-xl px-4 py-3 text-sm font-semibold glass hover:bg-white/10 transition ring-soft">Copy summary</button>
-                <button id="downloadJson" type="button" class="inline-flex justify-center rounded-xl px-4 py-3 text-sm font-semibold glass hover:bg-white/10 transition ring-soft">Download JSON</button>
-              </div>
-              <div id="copyOk" class="mt-3 hidden text-sm text-emerald-200">Copied.</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <script>
+        // Mobile Menu Logic
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const closeMenuBtn = document.getElementById('close-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
 
-    <!-- Leads Drawer -->
-    <div id="drawer" class="fixed inset-y-0 right-0 w-full sm:w-[520px] translate-x-full transition-transform duration-300 bg-[#0b1220] border-l border-white/10 shadow-2xl z-50">
-      <div class="p-5 border-b border-white/10 flex items-start justify-between gap-4">
-        <div>
-          <div class="font-semibold text-lg">Saved leads (local)</div>
-          <div class="text-sm text-white/60">Stored in this browser only. Use export if needed.</div>
-        </div>
-        <button id="closeDrawer" class="rounded-xl px-3 py-2 text-sm glass hover:bg-white/10 transition ring-soft" type="button">Close</button>
-      </div>
-      <div class="p-5">
-        <div class="glass rounded-2xl p-4 ring-soft">
-          <div class="text-sm font-semibold">Export</div>
-          <div class="mt-3 flex flex-col sm:flex-row gap-3">
-            <button id="exportCsv" type="button" class="inline-flex justify-center rounded-xl px-4 py-3 text-sm font-semibold bg-cyan-400/90 hover:bg-cyan-300 text-black transition">Download CSV</button>
-            <button id="clearLeads" type="button" class="inline-flex justify-center rounded-xl px-4 py-3 text-sm font-semibold glass hover:bg-white/10 transition ring-soft">Clear local leads</button>
-          </div>
-          <div class="mt-3 text-xs text-white/55">If you embed this on a real site, wire the form to your CRM instead of local storage.</div>
-        </div>
+        const toggleMenu = (show) => {
+            mobileMenu.style.transform = show ? 'translateX(0)' : 'translateX(100%)';
+        };
 
-        <div class="mt-4 space-y-3" id="leadsList"></div>
-        <div id="noLeads" class="mt-4 text-sm text-white/60 hidden">No leads saved yet.</div>
-      </div>
-    </div>
+        mobileMenuBtn.addEventListener('click', () => toggleMenu(true));
+        closeMenuBtn.addEventListener('click', () => toggleMenu(false));
+        mobileLinks.forEach(link => link.addEventListener('click', () => toggleMenu(false)));
 
-    <div id="drawerBackdrop" class="fixed inset-0 bg-black/60 hidden z-40"></div>
-  </main>
-
-  <script>
-    // -------- Helpers --------
-    const $ = (sel, root=document) => root.querySelector(sel);
-    const $$ = (sel, root=document) => Array.from(root.querySelectorAll(sel));
-
-    function clamp(n, min, max){ return Math.max(min, Math.min(max, n)); }
-    function round(n, dp=0){
-      const p = Math.pow(10, dp);
-      return Math.round(n*p)/p;
-    }
-
-    function toCSV(rows){
-      if(!rows.length) return "";
-      const keys = Object.keys(rows[0]);
-      const esc = (v) => {
-        const s = String(v ?? "");
-        if(/[\n\r\",]/.test(s)) return '"' + s.replaceAll('"', '""') + '"';
-        return s;
-      };
-      const header = keys.map(esc).join(",");
-      const lines = rows.map(r => keys.map(k => esc(r[k])).join(","));
-      return [header, ...lines].join("\n");
-    }
-
-    function downloadText(filename, text, mime="text/plain"){
-      const blob = new Blob([text], {type: mime});
-      const a = document.createElement('a');
-      a.href = URL.createObjectURL(blob);
-      a.download = filename;
-      document.body.appendChild(a);
-      a.click();
-      a.remove();
-      setTimeout(() => URL.revokeObjectURL(a.href), 1500);
-    }
-
-    function safeParseJSON(s, fallback){
-      try { return JSON.parse(s); } catch { return fallback; }
-    }
-
-    // -------- Year --------
-    $('#year').textContent = new Date().getFullYear();
-
-    // -------- Contrast toggle (simple) --------
-    const themeBtn = $('#themeBtn');
-    const themeBtnLabel = $('#themeBtnLabel');
-    const THEME_KEY = 'ltc_theme';
-
-    function applyTheme(theme){
-      // "default" = current design; "contrast" = more readable, less transparency
-      if(theme === 'contrast'){
-        document.documentElement.style.setProperty('--bg0', '#050812');
-        document.documentElement.style.setProperty('--bg1', '#0a1224');
-        document.body.classList.add('contrast');
-        // reduce transparency by bumping borders and card background using inline style only where needed
-        themeBtnLabel.textContent = 'Default';
-      } else {
-        document.documentElement.style.setProperty('--bg0', '#070b14');
-        document.documentElement.style.setProperty('--bg1', '#0b1220');
-        document.body.classList.remove('contrast');
-        themeBtnLabel.textContent = 'High contrast';
-      }
-    }
-
-    const savedTheme = localStorage.getItem(THEME_KEY) || 'default';
-    applyTheme(savedTheme);
-
-    themeBtn?.addEventListener('click', () => {
-      const cur = localStorage.getItem(THEME_KEY) || 'default';
-      const next = cur === 'default' ? 'contrast' : 'default';
-      localStorage.setItem(THEME_KEY, next);
-      applyTheme(next);
-    });
-
-    // -------- Answering mode toggle --------
-    const modeAfter = $('#modeAfter');
-    const modeOffice = $('#modeOffice');
-    const modeTitle = $('#modeTitle');
-    const modeBullets = $('#modeBullets');
-    const modeOpsTitle = $('#modeOpsTitle');
-    const modeOpsBullets = $('#modeOpsBullets');
-
-    const MODES = {
-      after: {
-        title: 'Instant AI answering + qualification',
-        bullets: [
-          'Synthflow bot answers calls/messages quickly',
-          'Captures postcode, budget range, timeline',
-          'Books a slot or flags for a priority callback'
-        ],
-        opsTitle: 'No more missed enquiries',
-        opsBullets: [
-          'Every lead logged with transcript + tags',
-          'Auto-notifications: SMS/email/slack (optional)',
-          'Follow-ups triggered if no booking'
-        ]
-      },
-      office: {
-        title: 'Human appointment setter confirms & books',
-        bullets: [
-          'A real person calls quickly during office hours',
-          'Confirms details and handles basic objections',
-          'Gets qualified prospects onto your calendar'
-        ],
-        opsTitle: 'Cleaner calendars for your sales team',
-        opsBullets: [
-          'Less admin back-and-forth',
-          'Fewer low-quality calls',
-          'Better show-up rates with confirmation + reminders'
-        ]
-      }
-    };
-
-    function setMode(which){
-      const m = MODES[which];
-      if(!m) return;
-
-      modeTitle.textContent = m.title;
-      modeOpsTitle.textContent = m.opsTitle;
-
-      modeBullets.innerHTML = m.bullets.map(t => `<li>• ${t}</li>`).join('');
-      modeOpsBullets.innerHTML = m.opsBullets.map(t => `<li>• ${t}</li>`).join('');
-
-      const active = 'bg-white text-black';
-      const inactive = 'text-white/80 hover:text-white';
-
-      if(which === 'after'){
-        modeAfter.className = `px-3 py-2 text-sm rounded-lg font-semibold ${active}`;
-        modeOffice.className = `px-3 py-2 text-sm rounded-lg font-semibold ${inactive}`;
-      } else {
-        modeOffice.className = `px-3 py-2 text-sm rounded-lg font-semibold ${active}`;
-        modeAfter.className = `px-3 py-2 text-sm rounded-lg font-semibold ${inactive}`;
-      }
-    }
-
-    modeAfter?.addEventListener('click', () => setMode('after'));
-    modeOffice?.addEventListener('click', () => setMode('office'));
-
-    // -------- ROI Calculator --------
-    const adSpend = $('#adSpend');
-    const cpl = $('#cpl');
-    const show = $('#show');
-    const close = $('#close');
-
-    const adSpendVal = $('#adSpendVal');
-    const cplVal = $('#cplVal');
-    const showVal = $('#showVal');
-    const closeVal = $('#closeVal');
-
-    const kpiLeads = $('#kpiLeads');
-    const kpiShows = $('#kpiShows');
-    const kpiSales = $('#kpiSales');
-    const kpiBreakeven = $('#kpiBreakeven');
-
-    // A rough "typical service fee" used for break-even estimate.
-    // This is intentionally conservative and adjustable by you mentally.
-    const assumedServiceFee = 1997;
-
-    function calc(){
-      const spend = Number(adSpend.value);
-      const c = Math.max(1, Number(cpl.value));
-      const showRate = clamp(Number(show.value), 0, 100) / 100;
-      const closeRate = clamp(Number(close.value), 0, 100) / 100;
-
-      adSpendVal.textContent = String(spend);
-      cplVal.textContent = String(c);
-      showVal.textContent = String(show.value);
-      closeVal.textContent = String(close.value);
-
-      const leads = spend / c;
-      const showsN = leads * showRate;
-      const sales = showsN * closeRate;
-      const breakeven = sales > 0 ? (spend + assumedServiceFee) / sales : Infinity;
-
-      kpiLeads.textContent = String(Math.floor(leads));
-      kpiShows.textContent = String(Math.floor(showsN));
-      kpiSales.textContent = String(round(sales, 1));
-      kpiBreakeven.textContent = (breakeven === Infinity)
-        ? '—'
-        : `£${Math.round(breakeven).toLocaleString('en-GB')}`;
-
-      return {spend, cpl: c, showRate: Math.round(showRate*100), closeRate: Math.round(closeRate*100), leads: Math.floor(leads), shows: Math.floor(showsN), sales: round(sales, 1), breakeven: breakeven === Infinity ? null : Math.round(breakeven)};
-    }
-
-    [adSpend, cpl, show, close].forEach(el => el?.addEventListener('input', calc));
-    const initialEstimate = calc();
-
-    // Copy estimate
-    $('#copyCalc')?.addEventListener('click', async () => {
-      const e = calc();
-      const text = [
-        'LeadsToCalls ROI estimate',
-        `Ad spend: £${e.spend}/mo`,
-        `CPL: £${e.cpl}`,
-        `Leads: ${e.leads}/mo`,
-        `Show-up: ${e.showRate}% → ${e.shows} shows/mo`,
-        `Close: ${e.closeRate}% → ${e.sales} sales/mo`,
-        `Break-even gross profit per sale (rough): ${e.breakeven ? '£'+e.breakeven : 'n/a'}`
-      ].join('\n');
-      try{
-        await navigator.clipboard.writeText(text);
-        $('#calcCopied').classList.remove('hidden');
-        setTimeout(() => $('#calcCopied').classList.add('hidden'), 1600);
-      }catch{
-        downloadText('leadstocalls-estimate.txt', text);
-      }
-    });
-
-    // -------- Form handling + localStorage --------
-    const LEADS_KEY = 'ltc_leads_v1';
-
-    function getLeads(){
-      return safeParseJSON(localStorage.getItem(LEADS_KEY) || '[]', []);
-    }
-
-    function saveLead(lead){
-      const leads = getLeads();
-      leads.unshift(lead);
-      localStorage.setItem(LEADS_KEY, JSON.stringify(leads));
-      return leads;
-    }
-
-    function validateEmail(v){
-      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(v || '').trim());
-    }
-
-    function setErr(field, on){
-      const el = document.querySelector(`[data-err="${field}"]`);
-      if(el) el.classList.toggle('hidden', !on);
-    }
-
-    function formToObj(form){
-      const fd = new FormData(form);
-      const obj = Object.fromEntries(fd.entries());
-      // Add radio fallback if needed
-      if(!obj.calendarTool){
-        const checked = form.querySelector('input[name="calendarTool"]:checked');
-        obj.calendarTool = checked ? checked.value : 'Calendly';
-      }
-      return obj;
-    }
-
-    function buildSummary(lead){
-      const lines = [
-        `Name: ${lead.name}`,
-        `Company: ${lead.company}`,
-        `Email: ${lead.email}`,
-        `Phone: ${lead.phone || '-'}`,
-        `Website: ${lead.website || '-'}`,
-        `Service area: ${lead.serviceArea}`,
-        `Running ads: ${lead.currentAds}`,
-        `Ad budget: ${lead.adBudget}`,
-        `Goal: ${lead.goal}`,
-        `Calendar tool: ${lead.calendarTool}`,
-        `Office hours: ${lead.officeFrom || '-'} to ${lead.officeTo || '-'}`,
-        `Notes: ${lead.notes || '-'}`,
-        `Submitted: ${new Date(lead.submittedAt).toLocaleString('en-GB')}`
-      ];
-      return lines.join('\n');
-    }
-
-    const modal = $('#modal');
-    const modalSummary = $('#modalSummary');
-    const closeModal = $('#closeModal');
-
-    function openModal(summary, lead){
-      modalSummary.textContent = summary;
-      modal.classList.remove('hidden');
-      modal.classList.add('flex');
-      document.body.style.overflow = 'hidden';
-
-      // Put a placeholder booking link (user can change)
-      const bookLink = $('#bookLink');
-      bookLink.href = '#get-started';
-      bookLink.addEventListener('click', (e) => {
-        // In a real deployment, replace with Calendly link.
-        e.preventDefault();
-        closeModalFn();
-        document.querySelector('#get-started')?.scrollIntoView({behavior:'smooth'});
-      }, {once:true});
-
-      $('#copySummary').onclick = async () => {
-        try{
-          await navigator.clipboard.writeText(summary);
-          $('#copyOk').classList.remove('hidden');
-          setTimeout(() => $('#copyOk').classList.add('hidden'), 1200);
-        }catch{
-          downloadText('lead-summary.txt', summary);
-        }
-      };
-
-      $('#downloadJson').onclick = () => {
-        downloadText(`lead-${lead.company.replace(/[^a-z0-9]+/gi,'-').toLowerCase()}-${Date.now()}.json`, JSON.stringify(lead, null, 2), 'application/json');
-      };
-
-      // Escape to close
-      window.addEventListener('keydown', escClose, {once:true});
-      function escClose(ev){ if(ev.key === 'Escape') closeModalFn(); }
-    }
-
-    function closeModalFn(){
-      modal.classList.add('hidden');
-      modal.classList.remove('flex');
-      document.body.style.overflow = '';
-    }
-
-    closeModal?.addEventListener('click', closeModalFn);
-    modal?.addEventListener('click', (e) => {
-      if(e.target === modal) closeModalFn();
-    });
-
-    $('#leadForm')?.addEventListener('submit', (e) => {
-      e.preventDefault();
-
-      const form = e.currentTarget;
-      const msg = $('#formMsg');
-      const err = $('#formErr');
-      msg.classList.add('hidden');
-      err.classList.add('hidden');
-
-      const data = formToObj(form);
-      const requiredFields = ['name','company','email','serviceArea','goal'];
-
-      let ok = true;
-      for(const f of requiredFields){
-        const v = String(data[f] || '').trim();
-        const valid = f === 'email' ? validateEmail(v) : v.length > 0;
-        setErr(f, !valid);
-        ok = ok && valid;
-      }
-
-      if(!ok){
-        err.textContent = 'Please check the highlighted fields and try again.';
-        err.classList.remove('hidden');
-        return;
-      }
-
-      const lead = {
-        ...data,
-        submittedAt: new Date().toISOString(),
-        source: 'Landing page (local demo)'
-      };
-
-      saveLead(lead);
-      const summary = buildSummary(lead);
-
-      msg.textContent = 'Saved locally. A real deployment would send this to your CRM/email.';
-      msg.classList.remove('hidden');
-
-      form.reset();
-      // reset default checked option
-      const cal = form.querySelector('input[name="calendarTool"][value="Calendly"]');
-      if(cal) cal.checked = true;
-
-      openModal(summary, lead);
-    });
-
-    // -------- Leads Drawer --------
-    const drawer = $('#drawer');
-    const drawerBackdrop = $('#drawerBackdrop');
-
-    function openDrawer(){
-      drawer.classList.remove('translate-x-full');
-      drawerBackdrop.classList.remove('hidden');
-      document.body.style.overflow = 'hidden';
-      renderLeads();
-      window.addEventListener('keydown', escDrawer, {once:true});
-      function escDrawer(ev){ if(ev.key === 'Escape') closeDrawer(); }
-    }
-
-    function closeDrawer(){
-      drawer.classList.add('translate-x-full');
-      drawerBackdrop.classList.add('hidden');
-      document.body.style.overflow = '';
-    }
-
-    function renderLeads(){
-      const list = $('#leadsList');
-      const noLeads = $('#noLeads');
-      const leads = getLeads();
-      list.innerHTML = '';
-      noLeads.classList.toggle('hidden', leads.length !== 0);
-
-      for(const lead of leads){
-        const summary = buildSummary(lead);
-        const card = document.createElement('div');
-        card.className = 'glass rounded-2xl p-4 ring-soft';
-        card.innerHTML = `
-          <div class="flex items-start justify-between gap-4">
-            <div>
-              <div class="font-semibold">${(lead.company || 'Unknown').replaceAll('<','&lt;')}</div>
-              <div class="text-sm text-white/65">${(lead.name || '').replaceAll('<','&lt;')} • ${new Date(lead.submittedAt).toLocaleString('en-GB')}</div>
-            </div>
-            <button type="button" class="copyLead rounded-xl px-3 py-2 text-sm glass hover:bg-white/10 transition ring-soft">Copy</button>
-          </div>
-          <pre class="mt-3 whitespace-pre-wrap text-xs text-white/70 leading-relaxed">${summary.replaceAll('<','&lt;')}</pre>
-        `;
-        card.querySelector('.copyLead').addEventListener('click', async () => {
-          try{ await navigator.clipboard.writeText(summary); }
-          catch{ downloadText('lead-summary.txt', summary); }
+        // Smooth scroll for anchors
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const targetId = this.getAttribute('href');
+                if (targetId.startsWith('#')) {
+                    e.preventDefault();
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
         });
-        list.appendChild(card);
-      }
-    }
 
-    $('#viewLeads')?.addEventListener('click', () => {
-      // Light deterrent so users don't accidentally open it
-      const pass = prompt('Enter passcode to view local leads (demo):');
-      if(pass !== null && pass.trim() === 'admin') openDrawer();
-    });
+        // Simple form handling (placeholder)
+        const form = document.querySelector('form');
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Thank you! Your inquiry has been sent to hello@leadstocalls.com. We will get back to you shortly.');
+            form.reset();
+        });
 
-    $('#closeDrawer')?.addEventListener('click', closeDrawer);
-    drawerBackdrop?.addEventListener('click', closeDrawer);
-
-    $('#exportCsv')?.addEventListener('click', () => {
-      const leads = getLeads();
-      if(!leads.length){
-        alert('No leads to export yet.');
-        return;
-      }
-      // Flatten keys slightly
-      const rows = leads.map(l => ({
-        submittedAt: l.submittedAt,
-        name: l.name,
-        company: l.company,
-        email: l.email,
-        phone: l.phone || '',
-        website: l.website || '',
-        serviceArea: l.serviceArea,
-        currentAds: l.currentAds,
-        adBudget: l.adBudget,
-        goal: l.goal,
-        calendarTool: l.calendarTool,
-        officeFrom: l.officeFrom || '',
-        officeTo: l.officeTo || '',
-        notes: (l.notes || '').replace(/\s+/g,' ').trim()
-      }));
-      const csv = toCSV(rows);
-      downloadText(`leadstocalls-leads-${Date.now()}.csv`, csv, 'text/csv');
-    });
-
-    $('#clearLeads')?.addEventListener('click', () => {
-      const ok = confirm('Clear all saved leads from this browser?');
-      if(!ok) return;
-      localStorage.removeItem(LEADS_KEY);
-      renderLeads();
-    });
-
-    // -------- Optional: nav highlight (IntersectionObserver) --------
-    const navLinks = $$('header nav a');
-    const sections = ['services','how','pricing','calculator','faq','get-started']
-      .map(id => document.getElementById(id))
-      .filter(Boolean);
-
-    const linkByHash = new Map(navLinks.map(a => [a.getAttribute('href'), a]));
-
-    function setActive(hash){
-      navLinks.forEach(a => a.classList.remove('text-white'));
-      navLinks.forEach(a => a.classList.add('text-white/80'));
-      const link = linkByHash.get(hash);
-      if(link){
-        link.classList.add('text-white');
-        link.classList.remove('text-white/80');
-      }
-    }
-
-    if('IntersectionObserver' in window){
-      const io = new IntersectionObserver((entries) => {
-        const visible = entries.filter(e => e.isIntersecting)
-          .sort((a,b) => b.intersectionRatio - a.intersectionRatio)[0];
-        if(!visible) return;
-        setActive('#' + visible.target.id);
-      }, {rootMargin: '-30% 0px -60% 0px', threshold: [0.1, 0.2, 0.35, 0.5]});
-
-      sections.forEach(s => io.observe(s));
-    }
-
-  </script>
+        // Navbar visibility on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('main-nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('bg-slate-900/95', 'py-3');
+                nav.classList.remove('py-4');
+            } else {
+                nav.classList.remove('bg-slate-900/95', 'py-3');
+                nav.classList.add('py-4');
+            }
+        });
+    </script>
 </body>
 </html>
 
