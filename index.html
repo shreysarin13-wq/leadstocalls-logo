@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>LeadsToCalls — Websites + Meta & Google Ads That Turn Clicks Into Calls</title>
-  <meta name="description" content="LeadsToCalls builds conversion-ready websites and runs Meta & Google Ads that drive qualified leads, calls, and booked jobs. Email: hello@leadstocall.com" />
+  <meta name="description" content="LeadsToCalls builds conversion-ready websites and runs Meta & Google Ads that drive qualified leads, calls, and booked jobs. Email: hello@leadstocalls.com" />
   <meta name="theme-color" content="#0b1220" />
 
   <meta property="og:title" content="LeadsToCalls — Websites + Meta & Google Ads" />
@@ -47,9 +47,7 @@
       background-clip: text;
       color: transparent;
     }
-    .btn-glow{
-      position: relative;
-    }
+    .btn-glow{ position: relative; }
     .btn-glow::after{
       content:"";
       position:absolute;
@@ -160,7 +158,7 @@
             </div>
 
             <div class="mt-6 text-sm text-white/60">
-              Email us: <a class="text-white underline decoration-white/30 hover:decoration-white" href="mailto:hello@leadstocall.com">hello@leadstocall.com</a>
+              Email us: <a class="text-white underline decoration-white/30 hover:decoration-white" href="mailto:hello@leadstocalls.com">hello@leadstocalls.com</a>
             </div>
           </div>
 
@@ -394,7 +392,7 @@
               <div class="text-sm font-semibold">Want the checklist applied to your business?</div>
               <div class="mt-1 text-sm text-white/70">Send your website + location + service and we’ll reply with quick wins.</div>
               <div class="mt-4 flex flex-col gap-2 sm:flex-row">
-                <button id="copyEmailCard" class="rounded-xl px-4 py-2 text-sm ring-soft hover:bg-white/5">Copy hello@leadstocall.com</button>
+                <button id="copyEmailCard" class="rounded-xl px-4 py-2 text-sm ring-soft hover:bg-white/5">Copy hello@leadstocalls.com</button>
                 <a class="rounded-xl bg-white px-4 py-2 text-center text-sm font-semibold text-black hover:bg-white/90" href="#contact">Request audit</a>
               </div>
             </div>
@@ -430,7 +428,7 @@
             <h2 class="text-2xl font-semibold tracking-tight md:text-3xl">FAQ</h2>
             <p class="mt-2 max-w-2xl text-white/70">Quick answers. If you don’t see your question, email us.</p>
           </div>
-          <a class="text-sm text-white/70 underline decoration-white/30 hover:text-white hover:decoration-white" href="mailto:hello@leadstocall.com">hello@leadstocall.com</a>
+          <a class="text-sm text-white/70 underline decoration-white/30 hover:text-white hover:decoration-white" href="mailto:hello@leadstocalls.com">hello@leadstocalls.com</a>
         </div>
 
         <div class="mt-8 grid gap-3">
@@ -463,10 +461,10 @@
             <div class="mt-6 grid gap-4">
               <div class="glass rounded-3xl p-6">
                 <div class="text-sm text-white/60">Direct email</div>
-                <div class="mt-1 text-lg font-semibold">hello@leadstocall.com</div>
+                <div class="mt-1 text-lg font-semibold">hello@leadstocalls.com</div>
                 <div class="mt-4 flex flex-col gap-2 sm:flex-row">
                   <button id="copyEmail" class="rounded-xl px-4 py-2 text-sm ring-soft hover:bg-white/5">Copy email</button>
-                  <a class="rounded-xl bg-white px-4 py-2 text-center text-sm font-semibold text-black hover:bg-white/90" href="mailto:hello@leadstocall.com?subject=Free%20audit%20request%20%E2%80%94%20LeadsToCalls">Email now</a>
+                  <a class="rounded-xl bg-white px-4 py-2 text-center text-sm font-semibold text-black hover:bg-white/90" href="mailto:hello@leadstocalls.com?subject=Free%20audit%20request%20%E2%80%94%20LeadsToCalls">Email now</a>
                 </div>
               </div>
 
@@ -486,42 +484,49 @@
             <div class="flex items-center justify-between">
               <div>
                 <div class="text-sm text-white/60">Contact form</div>
-                <div class="mt-1 text-lg font-semibold">We’ll reply via email</div>
+                <div class="mt-1 text-lg font-semibold">We’ll email you back</div>
               </div>
               <span class="rounded-full bg-white/5 px-3 py-1 text-xs ring-soft">2 min</span>
             </div>
 
-            <form id="leadForm" class="mt-6 grid gap-4" novalidate>
+            <form id="leadForm" class="mt-6 grid gap-4" action="https://formsubmit.co/ajax/hello@leadstocalls.com" method="POST" novalidate>
+              <!-- FormSubmit config -->
+              <input type="text" name="_honey" class="hidden" tabindex="-1" autocomplete="off" />
+              <input type="hidden" name="_captcha" value="false" />
+              <input type="hidden" id="subjectField" name="_subject" value="New LeadsToCalls enquiry" />
+              <input type="hidden" id="replytoField" name="_replyto" value="" />
+              <input type="hidden" name="_template" value="table" />
+
               <div class="grid gap-4 sm:grid-cols-2">
                 <div>
                   <label class="text-sm text-white/70" for="name">Name</label>
-                  <input id="name" class="focus-ring mt-1 w-full rounded-2xl bg-white/5 px-4 py-3 text-sm ring-soft placeholder:text-white/35" placeholder="Your name" autocomplete="name" required />
+                  <input id="name" name="name" class="focus-ring mt-1 w-full rounded-2xl bg-white/5 px-4 py-3 text-sm ring-soft placeholder:text-white/35" placeholder="Your name" autocomplete="name" required />
                 </div>
                 <div>
                   <label class="text-sm text-white/70" for="company">Business</label>
-                  <input id="company" class="focus-ring mt-1 w-full rounded-2xl bg-white/5 px-4 py-3 text-sm ring-soft placeholder:text-white/35" placeholder="Company name" autocomplete="organization" />
+                  <input id="company" name="company" class="focus-ring mt-1 w-full rounded-2xl bg-white/5 px-4 py-3 text-sm ring-soft placeholder:text-white/35" placeholder="Company name" autocomplete="organization" />
                 </div>
               </div>
 
               <div class="grid gap-4 sm:grid-cols-2">
                 <div>
                   <label class="text-sm text-white/70" for="email">Email</label>
-                  <input id="email" type="email" class="focus-ring mt-1 w-full rounded-2xl bg-white/5 px-4 py-3 text-sm ring-soft placeholder:text-white/35" placeholder="name@company.com" autocomplete="email" required />
+                  <input id="email" name="email" type="email" class="focus-ring mt-1 w-full rounded-2xl bg-white/5 px-4 py-3 text-sm ring-soft placeholder:text-white/35" placeholder="name@company.com" autocomplete="email" required />
                 </div>
                 <div>
                   <label class="text-sm text-white/70" for="service">Service</label>
-                  <input id="service" class="focus-ring mt-1 w-full rounded-2xl bg-white/5 px-4 py-3 text-sm ring-soft placeholder:text-white/35" placeholder="e.g., roofing, med spa, cleaning" required />
+                  <input id="service" name="service" class="focus-ring mt-1 w-full rounded-2xl bg-white/5 px-4 py-3 text-sm ring-soft placeholder:text-white/35" placeholder="e.g., roofing, med spa, cleaning" required />
                 </div>
               </div>
 
               <div class="grid gap-4 sm:grid-cols-2">
                 <div>
                   <label class="text-sm text-white/70" for="location">Location</label>
-                  <input id="location" class="focus-ring mt-1 w-full rounded-2xl bg-white/5 px-4 py-3 text-sm ring-soft placeholder:text-white/35" placeholder="City / service area" required />
+                  <input id="location" name="location" class="focus-ring mt-1 w-full rounded-2xl bg-white/5 px-4 py-3 text-sm ring-soft placeholder:text-white/35" placeholder="City / service area" required />
                 </div>
                 <div>
                   <label class="text-sm text-white/70" for="budget">Ad spend (optional)</label>
-                  <select id="budget" class="focus-ring mt-1 w-full rounded-2xl bg-white/5 px-4 py-3 text-sm ring-soft">
+                  <select id="budget" name="budget" class="focus-ring mt-1 w-full rounded-2xl bg-white/5 px-4 py-3 text-sm ring-soft">
                     <option value="">Select</option>
                     <option value="$0 (starting)">$0 (starting)</option>
                     <option value="$500–$1,500/mo">$500–$1,500/mo</option>
@@ -533,25 +538,29 @@
 
               <div>
                 <label class="text-sm text-white/70" for="website">Website (optional)</label>
-                <input id="website" class="focus-ring mt-1 w-full rounded-2xl bg-white/5 px-4 py-3 text-sm ring-soft placeholder:text-white/35" placeholder="https://" inputmode="url" />
+                <input id="website" name="website" class="focus-ring mt-1 w-full rounded-2xl bg-white/5 px-4 py-3 text-sm ring-soft placeholder:text-white/35" placeholder="https://" inputmode="url" />
               </div>
 
               <div>
                 <label class="text-sm text-white/70" for="message">What are you trying to achieve?</label>
-                <textarea id="message" rows="4" class="focus-ring mt-1 w-full rounded-2xl bg-white/5 px-4 py-3 text-sm ring-soft placeholder:text-white/35" placeholder="More calls, more quote requests, better cost per lead…" required></textarea>
+                <textarea id="message" name="message" rows="4" class="focus-ring mt-1 w-full rounded-2xl bg-white/5 px-4 py-3 text-sm ring-soft placeholder:text-white/35" placeholder="More calls, more quote requests, better cost per lead…" required></textarea>
               </div>
 
               <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-                <button type="submit" class="btn-glow inline-flex items-center justify-center rounded-2xl bg-white px-5 py-3 text-sm font-semibold text-black hover:bg-white/90">
+                <button id="submitBtn" type="submit" class="btn-glow inline-flex items-center justify-center rounded-2xl bg-white px-5 py-3 text-sm font-semibold text-black hover:bg-white/90">
                   Send audit request
                 </button>
                 <div class="text-xs text-white/60">
-                  By sending, you’ll open your email app with a pre-filled message.
+                  This will send your enquiry directly to our inbox.
                 </div>
               </div>
 
               <div id="formError" class="hidden rounded-2xl bg-red-500/10 p-4 text-sm text-red-200 ring-1 ring-red-400/20"></div>
             </form>
+
+            <div class="mt-4 text-xs text-white/55">
+              Tip: If the form fails on your device/network, it will fall back to opening a pre-filled email.
+            </div>
           </div>
         </div>
       </section>
@@ -564,7 +573,7 @@
             <div class="flex flex-wrap items-center gap-4 text-sm">
               <a class="text-white/70 hover:text-white" href="#services">Services</a>
               <a class="text-white/70 hover:text-white" href="#contact">Contact</a>
-              <a class="text-white/70 hover:text-white" href="mailto:hello@leadstocall.com">hello@leadstocall.com</a>
+              <a class="text-white/70 hover:text-white" href="mailto:hello@leadstocalls.com">hello@leadstocalls.com</a>
             </div>
           </div>
         </div>
@@ -580,7 +589,7 @@
   </div>
 
   <script>
-    const EMAIL = 'hello@leadstocall.com';
+    const EMAIL = 'hello@leadstocalls.com';
 
     // Year
     document.getElementById('year').textContent = new Date().getFullYear();
@@ -607,7 +616,7 @@
       text.textContent = msg;
       el.classList.remove('hidden');
       clearTimeout(toastTimer);
-      toastTimer = setTimeout(() => el.classList.add('hidden'), 2000);
+      toastTimer = setTimeout(() => el.classList.add('hidden'), 2200);
     }
 
     async function copyEmail(){
@@ -673,42 +682,18 @@
     }
     animateCounters();
 
-    // Form -> mailto
+    // Form submit -> email (via FormSubmit) with fallback to mailto
     const form = document.getElementById('leadForm');
     const formError = document.getElementById('formError');
+    const submitBtn = document.getElementById('submitBtn');
+    const subjectField = document.getElementById('subjectField');
+    const replytoField = document.getElementById('replytoField');
 
     function validateEmail(v){
       return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(v).trim());
     }
 
-    form?.addEventListener('submit', (ev) => {
-      ev.preventDefault();
-      formError.classList.add('hidden');
-      formError.textContent = '';
-
-      const name = document.getElementById('name').value.trim();
-      const company = document.getElementById('company').value.trim();
-      const email = document.getElementById('email').value.trim();
-      const service = document.getElementById('service').value.trim();
-      const location = document.getElementById('location').value.trim();
-      const budget = document.getElementById('budget').value.trim();
-      const website = document.getElementById('website').value.trim();
-      const message = document.getElementById('message').value.trim();
-
-      const missing = [];
-      if (!name) missing.push('Name');
-      if (!email) missing.push('Email');
-      if (email && !validateEmail(email)) missing.push('Valid email');
-      if (!service) missing.push('Service');
-      if (!location) missing.push('Location');
-      if (!message) missing.push('Message');
-
-      if (missing.length){
-        formError.textContent = 'Please provide: ' + missing.join(', ') + '.';
-        formError.classList.remove('hidden');
-        return;
-      }
-
+    function buildMailtoFallback({ name, company, email, service, location, budget, website, message }){
       const subject = `Free audit request — ${service} in ${location}`;
       const lines = [
         `Name: ${name}`,
@@ -724,9 +709,79 @@
       ].filter(Boolean);
 
       const body = lines.join('\n');
-      const url = `mailto:${encodeURIComponent(EMAIL)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-      window.location.href = url;
-      toast('Opening your email app…');
+      return `mailto:${encodeURIComponent(EMAIL)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    }
+
+    form?.addEventListener('submit', async (ev) => {
+      ev.preventDefault();
+      formError.classList.add('hidden');
+      formError.textContent = '';
+
+      const payload = {
+        name: document.getElementById('name').value.trim(),
+        company: document.getElementById('company').value.trim(),
+        email: document.getElementById('email').value.trim(),
+        service: document.getElementById('service').value.trim(),
+        location: document.getElementById('location').value.trim(),
+        budget: document.getElementById('budget').value.trim(),
+        website: document.getElementById('website').value.trim(),
+        message: document.getElementById('message').value.trim(),
+      };
+
+      const missing = [];
+      if (!payload.name) missing.push('Name');
+      if (!payload.email) missing.push('Email');
+      if (payload.email && !validateEmail(payload.email)) missing.push('Valid email');
+      if (!payload.service) missing.push('Service');
+      if (!payload.location) missing.push('Location');
+      if (!payload.message) missing.push('Message');
+
+      if (missing.length){
+        formError.textContent = 'Please provide: ' + missing.join(', ') + '.';
+        formError.classList.remove('hidden');
+        return;
+      }
+
+      // Configure hidden fields for email delivery
+      subjectField.value = `Free audit request — ${payload.service} in ${payload.location}`;
+      replytoField.value = payload.email;
+
+      const fallbackUrl = buildMailtoFallback(payload);
+
+      // Send via FormSubmit (AJAX)
+      const fd = new FormData(form);
+
+      try{
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending…';
+        toast('Sending your enquiry…');
+
+        const res = await fetch(form.action, {
+          method: 'POST',
+          body: fd,
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (!res.ok){
+          let extra = '';
+          try{
+            const data = await res.json();
+            if (data && data.message) extra = ` (${data.message})`;
+          } catch (e){}
+          throw new Error('Send failed' + extra);
+        }
+
+        toast('Sent! We’ll reply shortly.');
+        form.reset();
+      } catch (err){
+        // Fallback to mailto
+        formError.textContent = 'We could not send your enquiry automatically. Opening a pre-filled email instead…';
+        formError.classList.remove('hidden');
+        window.location.href = fallbackUrl;
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Send audit request';
+      }
     });
 
     // Improve details UX: only one open at a time (FAQ)
@@ -752,6 +807,7 @@
   </script>
 </body>
 </html>
+
 
 
 
