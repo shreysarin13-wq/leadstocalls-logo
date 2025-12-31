@@ -1,458 +1,758 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LeadsToCalls - Convert Clicks Into Customers</title>
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <style>
-        * { font-family: 'Inter', sans-serif; }
-        .gradient-bg {
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
-        }
-        .gradient-text {
-            background: linear-gradient(135deg, #3b82f6, #8b5cf6, #ec4899);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        .glow-box {
-            box-shadow: 0 0 60px rgba(139, 92, 246, 0.3);
-        }
-        .card-hover {
-            transition: all 0.3s ease;
-        }
-        .card-hover:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 25px 50px rgba(139, 92, 246, 0.2);
-        }
-        .float-animation {
-            animation: float 6s ease-in-out infinite;
-        }
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-        }
-        .pulse-glow {
-            animation: pulse-glow 2s ease-in-out infinite;
-        }
-        @keyframes pulse-glow {
-            0%, 100% { box-shadow: 0 0 20px rgba(59, 130, 246, 0.5); }
-            50% { box-shadow: 0 0 40px rgba(139, 92, 246, 0.8); }
-        }
-        .bg-grid {
-            background-image: radial-gradient(rgba(255,255,255,0.1) 1px, transparent 1px);
-            background-size: 40px 40px;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LeadsToCalls — Websites + Meta & Google Ads That Turn Clicks Into Calls</title>
+  <meta name="description" content="LeadsToCalls builds conversion-ready websites and runs Meta & Google Ads that drive qualified leads, calls, and booked jobs. Email: hello@leadstocall.com" />
+  <meta name="theme-color" content="#0b1220" />
+
+  <meta property="og:title" content="LeadsToCalls — Websites + Meta & Google Ads" />
+  <meta property="og:description" content="Conversion-first websites and ad campaigns that turn clicks into calls." />
+  <meta property="og:type" content="website" />
+
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <style>
+    :root{ color-scheme: dark; }
+    html{ scroll-behavior: smooth; }
+    /* Subtle animated gradient */
+    .bg-aurora{
+      background:
+        radial-gradient(1200px 500px at 10% 10%, rgba(59,130,246,.35), transparent 60%),
+        radial-gradient(900px 450px at 85% 25%, rgba(168,85,247,.28), transparent 60%),
+        radial-gradient(800px 400px at 55% 90%, rgba(34,197,94,.18), transparent 60%),
+        linear-gradient(180deg, #070A12 0%, #0b1220 35%, #070A12 100%);
+    }
+    .glass{
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.10);
+      box-shadow: 0 20px 40px rgba(0,0,0,.35);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    .ring-soft{ box-shadow: 0 0 0 1px rgba(255,255,255,0.10) inset; }
+    .shadow-soft{ box-shadow: 0 20px 60px rgba(0,0,0,.55); }
+    .noise::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      pointer-events:none;
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.7' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='.22'/%3E%3C/svg%3E");
+      mix-blend-mode: overlay;
+      opacity:.10;
+    }
+    .gradient-text{
+      background: linear-gradient(90deg, #60a5fa 0%, #a78bfa 45%, #34d399 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .btn-glow{
+      position: relative;
+    }
+    .btn-glow::after{
+      content:"";
+      position:absolute;
+      inset:-2px;
+      border-radius: 9999px;
+      background: linear-gradient(90deg, rgba(96,165,250,.7), rgba(167,139,250,.7), rgba(52,211,153,.6));
+      filter: blur(14px);
+      opacity: .55;
+      z-index: -1;
+    }
+    .focus-ring:focus{ outline:none; box-shadow: 0 0 0 3px rgba(96,165,250,.35); }
+  </style>
 </head>
-<body class="gradient-bg text-white overflow-x-hidden">
-    <!-- Navigation -->
-    <nav class="fixed w-full z-50 bg-slate-900/80 backdrop-blur-xl border-b border-slate-800">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="flex items-center gap-2">
-                <div class="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center font-bold text-lg">L</div>
-                <span class="text-xl font-bold">Leads<span class="text-purple-400">To</span>Calls</span>
+<body class="bg-aurora text-white selection:bg-blue-500/30">
+  <div class="relative min-h-screen noise">
+    <!-- Top Nav -->
+    <header class="sticky top-0 z-50 border-b border-white/10 bg-[#070A12]/70 backdrop-blur">
+      <div class="mx-auto max-w-6xl px-4">
+        <div class="flex items-center justify-between py-3">
+          <a href="#top" class="flex items-center gap-2">
+            <span class="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-white/5 ring-soft">
+              <span class="text-lg font-bold">LC</span>
+            </span>
+            <div class="leading-tight">
+              <div class="font-semibold tracking-tight">LeadsToCalls</div>
+              <div class="text-xs text-white/60">websites + ads that convert</div>
             </div>
-            <div class="hidden md:flex items-center gap-8">
-                <a href="#services" class="hover:text-purple-400 transition">Services</a>
-                <a href="#why-us" class="hover:text-purple-400 transition">Why Us</a>
-                <a href="#contact" class="hover:text-purple-400 transition">Contact</a>
-            </div>
-            <a href="#contact" class="bg-gradient-to-r from-blue-500 to-purple-600 px-6 py-2.5 rounded-full font-semibold hover:opacity-90 transition">
-                Get Started
-            </a>
+          </a>
+
+          <nav class="hidden items-center gap-6 md:flex">
+            <a class="text-sm text-white/80 hover:text-white" href="#services">Services</a>
+            <a class="text-sm text-white/80 hover:text-white" href="#process">Process</a>
+            <a class="text-sm text-white/80 hover:text-white" href="#faq">FAQ</a>
+            <a class="text-sm text-white/80 hover:text-white" href="#contact">Contact</a>
+          </nav>
+
+          <div class="hidden items-center gap-3 md:flex">
+            <button id="copyEmailTop" class="rounded-full px-4 py-2 text-sm ring-soft hover:bg-white/5">Copy email</button>
+            <a href="#contact" class="btn-glow rounded-full bg-white px-4 py-2 text-sm font-semibold text-black hover:bg-white/90">Get a free audit</a>
+          </div>
+
+          <button id="menuBtn" class="md:hidden rounded-xl px-3 py-2 ring-soft hover:bg-white/5" aria-label="Open menu" aria-expanded="false">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
         </div>
-    </nav>
-    <!-- Hero Section -->
-    <section class="min-h-screen flex items-center relative bg-grid">
-        <div class="absolute top-20 left-10 w-72 h-72 bg-blue-500/20 rounded-full blur-3xl"></div>
-        <div class="absolute bottom-20 right-10 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl"></div>
-        
-        <div class="max-w-7xl mx-auto px-6 py-32 grid lg:grid-cols-2 gap-12 items-center">
-            <div class="space-y-8">
-                <div class="inline-flex items-center gap-2 bg-slate-800/50 border border-slate-700 px-4 py-2 rounded-full text-sm">
-                    <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
-                    Trusted by 100+ Businesses
-                </div>
-                <h1 class="text-5xl lg:text-7xl font-black leading-tight">
-                    Turn Clicks Into 
-                    <span class="gradient-text">Real Customers</span>
-                </h1>
-                <p class="text-xl text-slate-400 leading-relaxed">
-                    We build stunning websites and run high-converting Meta & Google Ads that generate leads and drive sales. Stop wasting money on ads that don't work.
-                </p>
-                <div class="flex flex-wrap gap-4">
-                    <a href="#contact" class="bg-gradient-to-r from-blue-500 to-purple-600 px-8 py-4 rounded-full font-bold text-lg hover:scale-105 transition pulse-glow">
-                        <i class="fas fa-rocket mr-2"></i> Book Free Strategy Call
-                    </a>
-                    <a href="#services" class="border border-slate-600 px-8 py-4 rounded-full font-semibold text-lg hover:bg-slate-800 transition">
-                        Learn More
-                    </a>
-                </div>
-                <div class="flex items-center gap-8 pt-4">
-                    <div class="flex -space-x-3">
-                        <div class="w-12 h-12 bg-gradient-to-br from-pink-400 to-red-500 rounded-full border-2 border-slate-900"></div>
-                        <div class="w-12 h-12 bg-gradient-to-br from-blue-400 to-cyan-500 rounded-full border-2 border-slate-900"></div>
-                        <div class="w-12 h-12 bg-gradient-to-br from-green-400 to-emerald-500 rounded-full border-2 border-slate-900"></div>
-                        <div class="w-12 h-12 bg-gradient-to-br from-purple-400 to-violet-500 rounded-full border-2 border-slate-900"></div>
-                    </div>
-                    <div>
-                        <div class="flex text-yellow-400 text-sm">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <p class="text-slate-400 text-sm">5-star rated agency</p>
-                    </div>
-                </div>
+
+        <!-- Mobile menu -->
+        <div id="mobileMenu" class="hidden pb-4 md:hidden">
+          <div class="glass rounded-2xl p-3">
+            <div class="grid gap-2">
+              <a class="rounded-xl px-3 py-2 text-sm text-white/80 hover:bg-white/5 hover:text-white" href="#services">Services</a>
+              <a class="rounded-xl px-3 py-2 text-sm text-white/80 hover:bg-white/5 hover:text-white" href="#process">Process</a>
+              <a class="rounded-xl px-3 py-2 text-sm text-white/80 hover:bg-white/5 hover:text-white" href="#faq">FAQ</a>
+              <a class="rounded-xl px-3 py-2 text-sm text-white/80 hover:bg-white/5 hover:text-white" href="#contact">Contact</a>
+              <div class="mt-2 grid grid-cols-2 gap-2">
+                <button id="copyEmailMobile" class="rounded-xl px-3 py-2 text-sm ring-soft hover:bg-white/5">Copy email</button>
+                <a href="#contact" class="rounded-xl bg-white px-3 py-2 text-center text-sm font-semibold text-black hover:bg-white/90">Free audit</a>
+              </div>
             </div>
-            <div class="relative float-animation hidden lg:block">
-                <div class="w-full h-96 bg-gradient-to-br from-slate-800 to-slate-900 rounded-3xl border border-slate-700 glow-box p-6 relative overflow-hidden">
-                    <div class="flex gap-2 mb-4">
-                        <div class="w-3 h-3 bg-red-500 rounded-full"></div>
-                        <div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
-                        <div class="w-3 h-3 bg-green-500 rounded-full"></div>
-                    </div>
-                    <div class="space-y-4">
-                        <div class="h-8 bg-gradient-to-r from-blue-500/30 to-purple-500/30 rounded-lg w-3/4"></div>
-                        <div class="h-4 bg-slate-700 rounded w-full"></div>
-                        <div class="h-4 bg-slate-700 rounded w-5/6"></div>
-                        <div class="grid grid-cols-3 gap-3 mt-6">
-                            <div class="h-20 bg-gradient-to-br from-blue-500/20 to-blue-600/20 rounded-xl border border-blue-500/30"></div>
-                            <div class="h-20 bg-gradient-to-br from-purple-500/20 to-purple-600/20 rounded-xl border border-purple-500/30"></div>
-                            <div class="h-20 bg-gradient-to-br from-pink-500/20 to-pink-600/20 rounded-xl border border-pink-500/30"></div>
-                        </div>
-                        <div class="absolute bottom-6 left-6 right-6">
-                            <div class="h-12 bg-gradient-to-r from-blue-500 to-purple-600 rounded-xl"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="absolute -top-4 -right-4 bg-green-500 text-white px-4 py-2 rounded-full text-sm font-bold animate-bounce">
-                    +250% ROI
-                </div>
-            </div>
+          </div>
         </div>
-    </section>
-    <!-- Stats Section -->
-    <section class="py-16 border-y border-slate-800 bg-slate-900/50">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+      </div>
+    </header>
+
+    <!-- Hero -->
+    <main id="top" class="mx-auto max-w-6xl px-4">
+      <section class="relative py-14 md:py-20">
+        <div class="grid items-center gap-10 md:grid-cols-2">
+          <div>
+            <div class="inline-flex items-center gap-2 rounded-full bg-white/5 px-3 py-1 text-xs text-white/70 ring-soft">
+              <span class="h-1.5 w-1.5 rounded-full bg-green-400"></span>
+              Websites + Meta/Google Ads for lead generation
+            </div>
+            <h1 class="mt-5 text-4xl font-semibold tracking-tight md:text-6xl">
+              Turn clicks into <span class="gradient-text">calls</span> with a conversion-ready website + ads that actually perform.
+            </h1>
+            <p class="mt-5 max-w-xl text-base leading-relaxed text-white/75 md:text-lg">
+              LeadsToCalls helps service businesses get more booked jobs using fast, modern landing pages and performance marketing across Meta and Google.
+            </p>
+
+            <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+              <a href="#contact" class="btn-glow inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-semibold text-black hover:bg-white/90">
+                Get a free traffic + website audit
+                <svg class="ml-2 h-4 w-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                  <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                </svg>
+              </a>
+              <a href="#services" class="inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold ring-soft hover:bg-white/5">
+                See what we do
+              </a>
+            </div>
+
+            <div class="mt-7 grid grid-cols-3 gap-3">
+              <div class="glass rounded-2xl p-4">
+                <div class="text-2xl font-semibold" data-count="7" data-suffix="d">0</div>
+                <div class="mt-1 text-xs text-white/60">typical launch timeline</div>
+              </div>
+              <div class="glass rounded-2xl p-4">
+                <div class="text-2xl font-semibold" data-count="2" data-suffix="x">0</div>
+                <div class="mt-1 text-xs text-white/60">faster lead capture</div>
+              </div>
+              <div class="glass rounded-2xl p-4">
+                <div class="text-2xl font-semibold" data-count="24" data-suffix="/7">0</div>
+                <div class="mt-1 text-xs text-white/60">lead intake systems</div>
+              </div>
+            </div>
+
+            <div class="mt-6 text-sm text-white/60">
+              Email us: <a class="text-white underline decoration-white/30 hover:decoration-white" href="mailto:hello@leadstocall.com">hello@leadstocall.com</a>
+            </div>
+          </div>
+
+          <div class="relative">
+            <div class="glass shadow-soft rounded-3xl p-5 md:p-6">
+              <div class="flex items-center justify-between">
                 <div>
-                    <div class="text-4xl md:text-5xl font-black gradient-text">500+</div>
-                    <p class="text-slate-400 mt-2">Leads Generated</p>
+                  <div class="text-sm text-white/60">Live funnel preview</div>
+                  <div class="mt-1 text-lg font-semibold">Lead → Call → Booked</div>
                 </div>
-                <div>
-                    <div class="text-4xl md:text-5xl font-black gradient-text">50+</div>
-                    <p class="text-slate-400 mt-2">Websites Built</p>
-                </div>
-                <div>
-                    <div class="text-4xl md:text-5xl font-black gradient-text">$2M+</div>
-                    <p class="text-slate-400 mt-2">Ad Spend Managed</p>
-                </div>
-                <div>
-                    <div class="text-4xl md:text-5xl font-black gradient-text">98%</div>
-                    <p class="text-slate-400 mt-2">Client Satisfaction</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Services Section -->
-    <section id="services" class="py-24 relative">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-16">
-                <span class="text-purple-400 font-semibold">WHAT WE DO</span>
-                <h2 class="text-4xl md:text-5xl font-black mt-4">Services That <span class="gradient-text">Deliver Results</span></h2>
-                <p class="text-slate-400 mt-4 max-w-2xl mx-auto text-lg">We combine beautiful design with data-driven advertising to help your business grow faster than ever.</p>
-            </div>
-            
-            <div class="grid md:grid-cols-3 gap-8">
-                <!-- Website Design -->
-                <div class="bg-gradient-to-br from-slate-800/50 to-slate-900/50 border border-slate-700 rounded-3xl p-8 card-hover">
-                    <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center mb-6">
-                        <i class="fas fa-laptop-code text-2xl"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4">Cool Websites</h3>
-                    <p class="text-slate-400 mb-6">Stunning, fast, mobile-first websites that convert visitors into customers. Built with modern tech and optimized for SEO.</p>
-                    <ul class="space-y-3 text-slate-300">
-                        <li><i class="fas fa-check text-green-400 mr-2"></i> Custom Design</li>
-                        <li><i class="fas fa-check text-green-400 mr-2"></i> Mobile Responsive</li>
-                        <li><i class="fas fa-check text-green-400 mr-2"></i> SEO Optimized</li>
-                        <li><i class="fas fa-check text-green-400 mr-2"></i> Fast Loading</li>
-                    </ul>
-                </div>
-                <!-- Meta Ads -->
-                <div class="bg-gradient-to-br from-slate-800/50 to-slate-900/50 border border-purple-500/50 rounded-3xl p-8 card-hover relative">
-                    <div class="absolute -top-3 right-6 bg-gradient-to-r from-purple-500 to-pink-500 px-4 py-1 rounded-full text-sm font-bold">Popular</div>
-                    <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mb-6">
-                        <i class="fab fa-meta text-2xl"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4">Meta Ads</h3>
-                    <p class="text-slate-400 mb-6">Targeted Facebook & Instagram campaigns that reach your ideal customers and drive real conversions.</p>
-                    <ul class="space-y-3 text-slate-300">
-                        <li><i class="fas fa-check text-green-400 mr-2"></i> Audience Targeting</li>
-                        <li><i class="fas fa-check text-green-400 mr-2"></i> Creative Design</li>
-                        <li><i class="fas fa-check text-green-400 mr-2"></i> A/B Testing</li>
-                        <li><i class="fas fa-check text-green-400 mr-2"></i> Monthly Reports</li>
-                    </ul>
-                </div>
-                <!-- Google Ads -->
-                <div class="bg-gradient-to-br from-slate-800/50 to-slate-900/50 border border-slate-700 rounded-3xl p-8 card-hover">
-                    <div class="w-16 h-16 bg-gradient-to-br from-yellow-500 to-orange-500 rounded-2xl flex items-center justify-center mb-6">
-                        <i class="fab fa-google text-2xl"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4">Google Ads</h3>
-                    <p class="text-slate-400 mb-6">Capture high-intent customers actively searching for your services. Maximum ROI guaranteed.</p>
-                    <ul class="space-y-3 text-slate-300">
-                        <li><i class="fas fa-check text-green-400 mr-2"></i> Search Campaigns</li>
-                        <li><i class="fas fa-check text-green-400 mr-2"></i> Display Ads</li>
-                        <li><i class="fas fa-check text-green-400 mr-2"></i> Remarketing</li>
-                        <li><i class="fas fa-check text-green-400 mr-2"></i> Conversion Tracking</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Why Choose Us -->
-    <section id="why-us" class="py-24 bg-slate-900/50 border-y border-slate-800">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="grid lg:grid-cols-2 gap-16 items-center">
-                <div>
-                    <span class="text-purple-400 font-semibold">WHY CHOOSE US</span>
-                    <h2 class="text-4xl md:text-5xl font-black mt-4 mb-8">We're Not Just Another <span class="gradient-text">Agency</span></h2>
-                    <div class="space-y-6">
-                        <div class="flex gap-4">
-                            <div class="w-12 h-12 bg-blue-500/20 rounded-xl flex items-center justify-center flex-shrink-0">
-                                <i class="fas fa-bolt text-blue-400"></i>
-                            </div>
-                            <div>
-                                <h4 class="text-xl font-bold mb-2">Lightning Fast Delivery</h4>
-                                <p class="text-slate-400">Get your website live in days, not months. We move fast without compromising quality.</p>
-                            </div>
-                        </div>
-                        <div class="flex gap-4">
-                            <div class="w-12 h-12 bg-purple-500/20 rounded-xl flex items-center justify-center flex-shrink-0">
-                                <i class="fas fa-chart-line text-purple-400"></i>
-                            </div>
-                            <div>
-                                <h4 class="text-xl font-bold mb-2">Data-Driven Results</h4>
-                                <p class="text-slate-400">Every decision is backed by data. We track, test, and optimize for maximum ROI.</p>
-                            </div>
-                        </div>
-                        <div class="flex gap-4">
-                            <div class="w-12 h-12 bg-pink-500/20 rounded-xl flex items-center justify-center flex-shrink-0">
-                                <i class="fas fa-headset text-pink-400"></i>
-                            </div>
-                            <div>
-                                <h4 class="text-xl font-bold mb-2">24/7 Support</h4>
-                                <p class="text-slate-400">We're always here when you need us. Quick responses, real solutions.</p>
-                            </div>
-                        </div>
-                        <div class="flex gap-4">
-                            <div class="w-12 h-12 bg-green-500/20 rounded-xl flex items-center justify-center flex-shrink-0">
-                                <i class="fas fa-dollar-sign text-green-400"></i>
-                            </div>
-                            <div>
-                                <h4 class="text-xl font-bold mb-2">Transparent Pricing</h4>
-                                <p class="text-slate-400">No hidden fees, no surprises. You know exactly what you're paying for.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="relative">
-                    <div class="bg-gradient-to-br from-slate-800 to-slate-900 border border-slate-700 rounded-3xl p-8 glow-box">
-                        <div class="text-center mb-8">
-                            <div class="text-6xl font-black gradient-text">3X</div>
-                            <p class="text-slate-400 mt-2">Average ROI Increase</p>
-                        </div>
-                        <div class="space-y-4">
-                            <div class="flex justify-between items-center">
-                                <span class="text-slate-400">Lead Generation</span>
-                                <div class="w-32 h-2 bg-slate-700 rounded-full overflow-hidden">
-                                    <div class="w-11/12 h-full bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"></div>
-                                </div>
-                            </div>
-                            <div class="flex justify-between items-center">
-                                <span class="text-slate-400">Conversion Rate</span>
-                                <div class="w-32 h-2 bg-slate-700 rounded-full overflow-hidden">
-                                    <div class="w-10/12 h-full bg-gradient-to-r from-purple-500 to-pink-500 rounded-full"></div>
-                                </div>
-                            </div>
-                            <div class="flex justify-between items-center">
-                                <span class="text-slate-400">Customer Retention</span>
-                                <div class="w-32 h-2 bg-slate-700 rounded-full overflow-hidden">
-                                    <div class="w-full h-full bg-gradient-to-r from-pink-500 to-red-500 rounded-full"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- CTA Section -->
-    <section class="py-24 relative overflow-hidden">
-        <div class="absolute inset-0 bg-gradient-to-r from-blue-600/20 via-purple-600/20 to-pink-600/20"></div>
-        <div class="max-w-4xl mx-auto px-6 text-center relative">
-            <h2 class="text-4xl md:text-6xl font-black mb-6">Ready to Grow Your <span class="gradient-text">Business?</span></h2>
-            <p class="text-xl text-slate-400 mb-10">Let's create something amazing together. Book a free strategy call and see how we can help you dominate your market.</p>
-            <a href="#contact" class="inline-block bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 px-10 py-5 rounded-full font-bold text-xl hover:scale-105 transition shadow-2xl">
-                <i class="fas fa-phone-alt mr-2"></i> Book Your Free Call
-            </a>
-        </div>
-    </section>
-    <!-- Contact Section -->
-    <section id="contact" class="py-24 bg-slate-900/50 border-t border-slate-800">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="grid lg:grid-cols-2 gap-16">
-                <div>
-                    <span class="text-purple-400 font-semibold">GET IN TOUCH</span>
-                    <h2 class="text-4xl md:text-5xl font-black mt-4 mb-6">Let's Start Your <span class="gradient-text">Journey</span></h2>
-                    <p class="text-slate-400 text-lg mb-8">Drop us a message and we'll get back to you within 24 hours. No pressure, just a friendly chat about your goals.</p>
-                    
-                    <div class="space-y-6">
-                        <div class="flex items-center gap-4">
-                            <div class="w-14 h-14 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center">
-                                <i class="fas fa-envelope text-xl"></i>
-                            </div>
-                            <div>
-                                <p class="text-slate-400 text-sm">Email us at</p>
-                                <a href="mailto:hello@leadstocall.com" class="text-xl font-semibold hover:text-purple-400 transition">hello@leadstocall.com</a>
-                            </div>
-                        </div>
-                        <div class="flex items-center gap-4">
-                            <div class="w-14 h-14 bg-gradient-to-br from-purple-500 to-pink-600 rounded-2xl flex items-center justify-center">
-                                <i class="fas fa-clock text-xl"></i>
-                            </div>
-                            <div>
-                                <p class="text-slate-400 text-sm">Response time</p>
-                                <p class="text-xl font-semibold">Within 24 hours</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="bg-gradient-to-br from-slate-800/50 to-slate-900/50 border border-slate-700 rounded-3xl p-8">
-                    <form id="contactForm" class="space-y-6">
-                        <div>
-                            <label class="block text-sm font-semibold mb-2">Your Name</label>
-                            <input type="text" required class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 focus:outline-none focus:border-purple-500 transition" placeholder="John Doe">
-                        </div>
-                        <div>
-                            <label class="block text-sm font-semibold mb-2">Email Address</label>
-                            <input type="email" required class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 focus:outline-none focus:border-purple-500 transition" placeholder="john@example.com">
-                        </div>
-                        <div>
-                            <label class="block text-sm font-semibold mb-2">What do you need?</label>
-                            <select class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 focus:outline-none focus:border-purple-500 transition">
-                                <option>Website Design</option>
-                                <option>Meta Ads</option>
-                                <option>Google Ads</option>
-                                <option>Full Package</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label class="block text-sm font-semibold mb-2">Tell us about your project</label>
-                            <textarea rows="4" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 focus:outline-none focus:border-purple-500 transition resize-none" placeholder="I need help with..."></textarea>
-                        </div>
-                        <button type="submit" class="w-full bg-gradient-to-r from-blue-500 to-purple-600 py-4 rounded-xl font-bold text-lg hover:opacity-90 transition">
-                            <i class="fas fa-paper-plane mr-2"></i> Send Message
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Footer -->
-    <footer class="py-12 border-t border-slate-800">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
                 <div class="flex items-center gap-2">
-                    <div class="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center font-bold text-lg">L</div>
-                    <span class="text-xl font-bold">Leads<span class="text-purple-400">To</span>Calls</span>
+                  <span class="inline-flex items-center rounded-full bg-green-500/15 px-2 py-1 text-xs text-green-300 ring-1 ring-green-400/20">Tracking on</span>
                 </div>
-                <div class="flex gap-6">
-                    <a href="#" class="w-10 h-10 bg-slate-800 hover:bg-purple-600 rounded-full flex items-center justify-center transition">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
-                    <a href="#" class="w-10 h-10 bg-slate-800 hover:bg-purple-600 rounded-full flex items-center justify-center transition">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                    <a href="#" class="w-10 h-10 bg-slate-800 hover:bg-purple-600 rounded-full flex items-center justify-center transition">
-                        <i class="fab fa-linkedin-in"></i>
-                    </a>
-                    <a href="#" class="w-10 h-10 bg-slate-800 hover:bg-purple-600 rounded-full flex items-center justify-center transition">
-                        <i class="fab fa-twitter"></i>
-                    </a>
+              </div>
+
+              <div class="mt-5 grid gap-3">
+                <div class="rounded-2xl bg-white/5 p-4 ring-soft">
+                  <div class="flex items-start justify-between gap-4">
+                    <div>
+                      <div class="text-sm font-semibold">Landing page</div>
+                      <div class="mt-1 text-xs text-white/60">Fast load, clear offer, strong CTA</div>
+                    </div>
+                    <div class="text-xs text-white/60">Core Web Vitals</div>
+                  </div>
+                  <div class="mt-3 h-2 overflow-hidden rounded-full bg-white/10">
+                    <div class="h-full w-[86%] rounded-full bg-gradient-to-r from-blue-400 via-purple-400 to-green-300"></div>
+                  </div>
                 </div>
-                <p class="text-slate-400 text-sm">© 2024 LeadsToCalls. All rights reserved.</p>
+
+                <div class="rounded-2xl bg-white/5 p-4 ring-soft">
+                  <div class="flex items-start justify-between gap-4">
+                    <div>
+                      <div class="text-sm font-semibold">Meta + Google Ads</div>
+                      <div class="mt-1 text-xs text-white/60">Creative + targeting + intent keywords</div>
+                    </div>
+                    <div class="text-xs text-white/60">Optimization</div>
+                  </div>
+                  <div class="mt-3 grid grid-cols-3 gap-2 text-xs">
+                    <div class="rounded-xl bg-white/5 p-3 ring-soft">
+                      <div class="text-white/60">CPC</div>
+                      <div class="mt-1 font-semibold">↓</div>
+                    </div>
+                    <div class="rounded-xl bg-white/5 p-3 ring-soft">
+                      <div class="text-white/60">CVR</div>
+                      <div class="mt-1 font-semibold">↑</div>
+                    </div>
+                    <div class="rounded-xl bg-white/5 p-3 ring-soft">
+                      <div class="text-white/60">ROAS</div>
+                      <div class="mt-1 font-semibold">↑</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="rounded-2xl bg-white/5 p-4 ring-soft">
+                  <div class="flex items-start justify-between gap-4">
+                    <div>
+                      <div class="text-sm font-semibold">Lead capture</div>
+                      <div class="mt-1 text-xs text-white/60">Forms, call buttons, tracking & follow-up</div>
+                    </div>
+                    <div class="text-xs text-white/60">Automation</div>
+                  </div>
+                  <div class="mt-3 flex flex-wrap gap-2">
+                    <span class="rounded-full bg-white/5 px-3 py-1 text-xs ring-soft">Call CTA</span>
+                    <span class="rounded-full bg-white/5 px-3 py-1 text-xs ring-soft">CRM-ready</span>
+                    <span class="rounded-full bg-white/5 px-3 py-1 text-xs ring-soft">Pixel + GA4</span>
+                    <span class="rounded-full bg-white/5 px-3 py-1 text-xs ring-soft">UTMs</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mt-5 rounded-2xl bg-gradient-to-r from-blue-500/15 via-purple-500/15 to-green-500/10 p-4 ring-1 ring-white/10">
+                <div class="text-sm font-semibold">What you get</div>
+                <div class="mt-1 text-sm text-white/70">A clean offer + measurable results: calls, forms, and booked appointments.</div>
+              </div>
             </div>
+          </div>
         </div>
-    </footer>
-    <script>
-        // Smooth scroll for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            });
-        });
-        // Form submission handler
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Show success message
-            const btn = this.querySelector('button[type="submit"]');
-            const originalText = btn.innerHTML;
-            btn.innerHTML = '<i class="fas fa-check mr-2"></i> Message Sent!';
-            btn.classList.add('bg-green-500');
-            btn.classList.remove('from-blue-500', 'to-purple-600');
-            
-            setTimeout(() => {
-                btn.innerHTML = originalText;
-                btn.classList.remove('bg-green-500');
-                btn.classList.add('from-blue-500', 'to-purple-600');
-                this.reset();
-            }, 3000);
-        });
-        // Navbar background on scroll
-        window.addEventListener('scroll', function() {
-            const nav = document.querySelector('nav');
-            if (window.scrollY > 50) {
-                nav.classList.add('bg-slate-900/95');
-            } else {
-                nav.classList.remove('bg-slate-900/95');
-            }
-        });
-        // Animate elements on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-        document.querySelectorAll('.card-hover').forEach(card => {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(30px)';
-            card.style.transition = 'all 0.6s ease-out';
-            observer.observe(card);
-        });
-    </script>
+      </section>
+
+      <!-- Services -->
+      <section id="services" class="py-14 md:py-18">
+        <div class="flex items-end justify-between gap-6">
+          <div>
+            <h2 class="text-2xl font-semibold tracking-tight md:text-3xl">Everything you need to generate leads</h2>
+            <p class="mt-2 max-w-2xl text-white/70">Pick one service or combine them into a complete “click-to-call” system.</p>
+          </div>
+        </div>
+
+        <div class="mt-8 grid gap-4 md:grid-cols-2">
+          <div class="glass rounded-3xl p-6">
+            <div class="flex items-start gap-4">
+              <div class="flex h-11 w-11 items-center justify-center rounded-2xl bg-blue-500/15 ring-1 ring-blue-400/20">⚡</div>
+              <div>
+                <h3 class="text-lg font-semibold">Cool, fast websites</h3>
+                <p class="mt-1 text-sm text-white/70">Modern design, lightning load times, and a single goal: get the visitor to take action.</p>
+                <ul class="mt-4 space-y-2 text-sm text-white/75">
+                  <li class="flex gap-2"><span class="text-green-300">•</span> Landing pages & multi-page sites</li>
+                  <li class="flex gap-2"><span class="text-green-300">•</span> Mobile-first UI + strong CTAs</li>
+                  <li class="flex gap-2"><span class="text-green-300">•</span> SEO basics + schema-ready structure</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="glass rounded-3xl p-6">
+            <div class="flex items-start gap-4">
+              <div class="flex h-11 w-11 items-center justify-center rounded-2xl bg-purple-500/15 ring-1 ring-purple-400/20">🎯</div>
+              <div>
+                <h3 class="text-lg font-semibold">Meta Ads (Facebook/Instagram)</h3>
+                <p class="mt-1 text-sm text-white/70">Creative + targeting + conversion tracking to find ready-to-buy customers and capture demand.</p>
+                <ul class="mt-4 space-y-2 text-sm text-white/75">
+                  <li class="flex gap-2"><span class="text-green-300">•</span> Lead forms or landing page funnels</li>
+                  <li class="flex gap-2"><span class="text-green-300">•</span> Creative testing + scaling</li>
+                  <li class="flex gap-2"><span class="text-green-300">•</span> Pixel setup + event tracking</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="glass rounded-3xl p-6">
+            <div class="flex items-start gap-4">
+              <div class="flex h-11 w-11 items-center justify-center rounded-2xl bg-green-500/15 ring-1 ring-green-400/20">🔎</div>
+              <div>
+                <h3 class="text-lg font-semibold">Google Ads (Search & Local intent)</h3>
+                <p class="mt-1 text-sm text-white/70">Capture high-intent searches with smart keyword strategy, tight landing pages, and measurable calls.</p>
+                <ul class="mt-4 space-y-2 text-sm text-white/75">
+                  <li class="flex gap-2"><span class="text-green-300">•</span> Keyword & competitor research</li>
+                  <li class="flex gap-2"><span class="text-green-300">•</span> Conversion tracking (GA4/UTMs)</li>
+                  <li class="flex gap-2"><span class="text-green-300">•</span> Landing page alignment for Quality Score</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="glass rounded-3xl p-6">
+            <div class="flex items-start gap-4">
+              <div class="flex h-11 w-11 items-center justify-center rounded-2xl bg-white/10 ring-1 ring-white/20">📈</div>
+              <div>
+                <h3 class="text-lg font-semibold">Tracking + lead follow-up</h3>
+                <p class="mt-1 text-sm text-white/70">Know what’s working, respond faster, and stop losing leads to slow follow-up.</p>
+                <ul class="mt-4 space-y-2 text-sm text-white/75">
+                  <li class="flex gap-2"><span class="text-green-300">•</span> Event tracking + dashboards</li>
+                  <li class="flex gap-2"><span class="text-green-300">•</span> Form routing to email/CRM</li>
+                  <li class="flex gap-2"><span class="text-green-300">•</span> Call-first CTAs and click-to-call buttons</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Process -->
+      <section id="process" class="py-14 md:py-18">
+        <div class="grid gap-8 md:grid-cols-2 md:items-center">
+          <div>
+            <h2 class="text-2xl font-semibold tracking-tight md:text-3xl">A simple process that stays focused on ROI</h2>
+            <p class="mt-2 max-w-xl text-white/70">We keep it lean: clarify the offer, build the page, launch campaigns, optimize weekly.</p>
+
+            <div class="mt-6 grid gap-3">
+              <div class="glass rounded-2xl p-5">
+                <div class="flex items-start gap-4">
+                  <div class="mt-0.5 flex h-8 w-8 items-center justify-center rounded-xl bg-white/5 ring-soft">1</div>
+                  <div>
+                    <div class="font-semibold">Audit & offer</div>
+                    <div class="mt-1 text-sm text-white/70">We review your current website/ads and sharpen your message for conversions.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="glass rounded-2xl p-5">
+                <div class="flex items-start gap-4">
+                  <div class="mt-0.5 flex h-8 w-8 items-center justify-center rounded-xl bg-white/5 ring-soft">2</div>
+                  <div>
+                    <div class="font-semibold">Build & track</div>
+                    <div class="mt-1 text-sm text-white/70">Landing page, lead form, pixels, GA4/UTMs — set up to measure calls and leads.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="glass rounded-2xl p-5">
+                <div class="flex items-start gap-4">
+                  <div class="mt-0.5 flex h-8 w-8 items-center justify-center rounded-xl bg-white/5 ring-soft">3</div>
+                  <div>
+                    <div class="font-semibold">Launch & optimize</div>
+                    <div class="mt-1 text-sm text-white/70">Creative/keyword testing, budget shifts, and weekly improvements based on data.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="glass rounded-3xl p-6 md:p-7">
+            <div class="flex items-center justify-between">
+              <div>
+                <div class="text-sm text-white/60">Optimization checklist</div>
+                <div class="mt-1 text-lg font-semibold">Built for real-world lead gen</div>
+              </div>
+              <span class="rounded-full bg-white/5 px-3 py-1 text-xs ring-soft">weekly</span>
+            </div>
+
+            <div class="mt-5 grid gap-3">
+              <label class="flex cursor-pointer items-start gap-3 rounded-2xl bg-white/5 p-4 ring-soft">
+                <input class="mt-1" type="checkbox" checked />
+                <div>
+                  <div class="text-sm font-semibold">Tight landing page → ad message match</div>
+                  <div class="text-xs text-white/60">Improve Quality Score and conversion rate.</div>
+                </div>
+              </label>
+              <label class="flex cursor-pointer items-start gap-3 rounded-2xl bg-white/5 p-4 ring-soft">
+                <input class="mt-1" type="checkbox" checked />
+                <div>
+                  <div class="text-sm font-semibold">Conversion tracking for calls + forms</div>
+                  <div class="text-xs text-white/60">Know exactly where leads come from.</div>
+                </div>
+              </label>
+              <label class="flex cursor-pointer items-start gap-3 rounded-2xl bg-white/5 p-4 ring-soft">
+                <input class="mt-1" type="checkbox" checked />
+                <div>
+                  <div class="text-sm font-semibold">Creative/keyword testing & pruning</div>
+                  <div class="text-xs text-white/60">Scale winners; cut waste.</div>
+                </div>
+              </label>
+              <label class="flex cursor-pointer items-start gap-3 rounded-2xl bg-white/5 p-4 ring-soft">
+                <input class="mt-1" type="checkbox" />
+                <div>
+                  <div class="text-sm font-semibold">Speed improvements (Core Web Vitals)</div>
+                  <div class="text-xs text-white/60">Faster pages usually convert better.</div>
+                </div>
+              </label>
+            </div>
+
+            <div class="mt-6 rounded-2xl bg-white/5 p-4 ring-soft">
+              <div class="text-sm font-semibold">Want the checklist applied to your business?</div>
+              <div class="mt-1 text-sm text-white/70">Send your website + location + service and we’ll reply with quick wins.</div>
+              <div class="mt-4 flex flex-col gap-2 sm:flex-row">
+                <button id="copyEmailCard" class="rounded-xl px-4 py-2 text-sm ring-soft hover:bg-white/5">Copy hello@leadstocall.com</button>
+                <a class="rounded-xl bg-white px-4 py-2 text-center text-sm font-semibold text-black hover:bg-white/90" href="#contact">Request audit</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Social proof -->
+      <section class="py-14 md:py-18">
+        <div class="grid gap-4 lg:grid-cols-3">
+          <div class="glass rounded-3xl p-6">
+            <div class="text-sm text-white/60">What clients want</div>
+            <div class="mt-2 text-lg font-semibold">“More calls… not more dashboards.”</div>
+            <p class="mt-3 text-sm text-white/70">We design for actions: calls, quote requests, bookings — and track them end-to-end.</p>
+          </div>
+          <div class="glass rounded-3xl p-6">
+            <div class="text-sm text-white/60">What we measure</div>
+            <div class="mt-2 text-lg font-semibold">Cost per lead + lead quality</div>
+            <p class="mt-3 text-sm text-white/70">Optimization focuses on reducing wasted spend and increasing qualified inquiries.</p>
+          </div>
+          <div class="glass rounded-3xl p-6">
+            <div class="text-sm text-white/60">What you keep</div>
+            <div class="mt-2 text-lg font-semibold">Your data & your assets</div>
+            <p class="mt-3 text-sm text-white/70">You own your brand, your landing page content, and your tracking access.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section id="faq" class="py-14 md:py-18">
+        <div class="flex flex-col items-start justify-between gap-4 md:flex-row md:items-end">
+          <div>
+            <h2 class="text-2xl font-semibold tracking-tight md:text-3xl">FAQ</h2>
+            <p class="mt-2 max-w-2xl text-white/70">Quick answers. If you don’t see your question, email us.</p>
+          </div>
+          <a class="text-sm text-white/70 underline decoration-white/30 hover:text-white hover:decoration-white" href="mailto:hello@leadstocall.com">hello@leadstocall.com</a>
+        </div>
+
+        <div class="mt-8 grid gap-3">
+          <details class="glass rounded-2xl p-5">
+            <summary class="cursor-pointer list-none font-semibold">How fast can we launch?</summary>
+            <p class="mt-3 text-sm text-white/70">A landing page can often go live within about a week, depending on how quickly we get your logo, photos, and offer details.</p>
+          </details>
+          <details class="glass rounded-2xl p-5">
+            <summary class="cursor-pointer list-none font-semibold">Do you handle both Meta and Google Ads?</summary>
+            <p class="mt-3 text-sm text-white/70">Yes. We can run either channel or both, depending on your niche and intent. We’ll recommend a plan after a quick audit.</p>
+          </details>
+          <details class="glass rounded-2xl p-5">
+            <summary class="cursor-pointer list-none font-semibold">What do you need from me?</summary>
+            <p class="mt-3 text-sm text-white/70">Your service list, locations, target customers, access to ad accounts (or we can help set them up), and any existing assets (photos, reviews, offers).</p>
+          </details>
+          <details class="glass rounded-2xl p-5">
+            <summary class="cursor-pointer list-none font-semibold">Do you work with local service businesses?</summary>
+            <p class="mt-3 text-sm text-white/70">That’s our sweet spot: contractors, home services, clinics, and any business that benefits from calls and quote requests.</p>
+          </details>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section id="contact" class="py-14 md:py-20">
+        <div class="grid gap-8 lg:grid-cols-2">
+          <div>
+            <h2 class="text-2xl font-semibold tracking-tight md:text-3xl">Get a free audit</h2>
+            <p class="mt-2 max-w-xl text-white/70">Tell us what you sell and where. We’ll reply with clear, practical improvements for your website and ads.</p>
+
+            <div class="mt-6 grid gap-4">
+              <div class="glass rounded-3xl p-6">
+                <div class="text-sm text-white/60">Direct email</div>
+                <div class="mt-1 text-lg font-semibold">hello@leadstocall.com</div>
+                <div class="mt-4 flex flex-col gap-2 sm:flex-row">
+                  <button id="copyEmail" class="rounded-xl px-4 py-2 text-sm ring-soft hover:bg-white/5">Copy email</button>
+                  <a class="rounded-xl bg-white px-4 py-2 text-center text-sm font-semibold text-black hover:bg-white/90" href="mailto:hello@leadstocall.com?subject=Free%20audit%20request%20%E2%80%94%20LeadsToCalls">Email now</a>
+                </div>
+              </div>
+
+              <div class="glass rounded-3xl p-6">
+                <div class="text-sm text-white/60">What to include</div>
+                <ul class="mt-3 space-y-2 text-sm text-white/75">
+                  <li class="flex gap-2"><span class="text-green-300">•</span> Your website (or current page)</li>
+                  <li class="flex gap-2"><span class="text-green-300">•</span> Services + city/area</li>
+                  <li class="flex gap-2"><span class="text-green-300">•</span> Current ad spend (if any)</li>
+                  <li class="flex gap-2"><span class="text-green-300">•</span> Best contact number/time</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="glass shadow-soft rounded-3xl p-6 md:p-7">
+            <div class="flex items-center justify-between">
+              <div>
+                <div class="text-sm text-white/60">Contact form</div>
+                <div class="mt-1 text-lg font-semibold">We’ll reply via email</div>
+              </div>
+              <span class="rounded-full bg-white/5 px-3 py-1 text-xs ring-soft">2 min</span>
+            </div>
+
+            <form id="leadForm" class="mt-6 grid gap-4" novalidate>
+              <div class="grid gap-4 sm:grid-cols-2">
+                <div>
+                  <label class="text-sm text-white/70" for="name">Name</label>
+                  <input id="name" class="focus-ring mt-1 w-full rounded-2xl bg-white/5 px-4 py-3 text-sm ring-soft placeholder:text-white/35" placeholder="Your name" autocomplete="name" required />
+                </div>
+                <div>
+                  <label class="text-sm text-white/70" for="company">Business</label>
+                  <input id="company" class="focus-ring mt-1 w-full rounded-2xl bg-white/5 px-4 py-3 text-sm ring-soft placeholder:text-white/35" placeholder="Company name" autocomplete="organization" />
+                </div>
+              </div>
+
+              <div class="grid gap-4 sm:grid-cols-2">
+                <div>
+                  <label class="text-sm text-white/70" for="email">Email</label>
+                  <input id="email" type="email" class="focus-ring mt-1 w-full rounded-2xl bg-white/5 px-4 py-3 text-sm ring-soft placeholder:text-white/35" placeholder="name@company.com" autocomplete="email" required />
+                </div>
+                <div>
+                  <label class="text-sm text-white/70" for="service">Service</label>
+                  <input id="service" class="focus-ring mt-1 w-full rounded-2xl bg-white/5 px-4 py-3 text-sm ring-soft placeholder:text-white/35" placeholder="e.g., roofing, med spa, cleaning" required />
+                </div>
+              </div>
+
+              <div class="grid gap-4 sm:grid-cols-2">
+                <div>
+                  <label class="text-sm text-white/70" for="location">Location</label>
+                  <input id="location" class="focus-ring mt-1 w-full rounded-2xl bg-white/5 px-4 py-3 text-sm ring-soft placeholder:text-white/35" placeholder="City / service area" required />
+                </div>
+                <div>
+                  <label class="text-sm text-white/70" for="budget">Ad spend (optional)</label>
+                  <select id="budget" class="focus-ring mt-1 w-full rounded-2xl bg-white/5 px-4 py-3 text-sm ring-soft">
+                    <option value="">Select</option>
+                    <option value="$0 (starting)">$0 (starting)</option>
+                    <option value="$500–$1,500/mo">$500–$1,500/mo</option>
+                    <option value="$1,500–$5,000/mo">$1,500–$5,000/mo</option>
+                    <option value="$5,000+/mo">$5,000+/mo</option>
+                  </select>
+                </div>
+              </div>
+
+              <div>
+                <label class="text-sm text-white/70" for="website">Website (optional)</label>
+                <input id="website" class="focus-ring mt-1 w-full rounded-2xl bg-white/5 px-4 py-3 text-sm ring-soft placeholder:text-white/35" placeholder="https://" inputmode="url" />
+              </div>
+
+              <div>
+                <label class="text-sm text-white/70" for="message">What are you trying to achieve?</label>
+                <textarea id="message" rows="4" class="focus-ring mt-1 w-full rounded-2xl bg-white/5 px-4 py-3 text-sm ring-soft placeholder:text-white/35" placeholder="More calls, more quote requests, better cost per lead…" required></textarea>
+              </div>
+
+              <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                <button type="submit" class="btn-glow inline-flex items-center justify-center rounded-2xl bg-white px-5 py-3 text-sm font-semibold text-black hover:bg-white/90">
+                  Send audit request
+                </button>
+                <div class="text-xs text-white/60">
+                  By sending, you’ll open your email app with a pre-filled message.
+                </div>
+              </div>
+
+              <div id="formError" class="hidden rounded-2xl bg-red-500/10 p-4 text-sm text-red-200 ring-1 ring-red-400/20"></div>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="pb-10">
+        <div class="border-t border-white/10 pt-7">
+          <div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+            <div class="text-sm text-white/60">© <span id="year"></span> LeadsToCalls. All rights reserved.</div>
+            <div class="flex flex-wrap items-center gap-4 text-sm">
+              <a class="text-white/70 hover:text-white" href="#services">Services</a>
+              <a class="text-white/70 hover:text-white" href="#contact">Contact</a>
+              <a class="text-white/70 hover:text-white" href="mailto:hello@leadstocall.com">hello@leadstocall.com</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </main>
+
+    <!-- Toast -->
+    <div id="toast" class="pointer-events-none fixed bottom-5 left-1/2 z-[60] hidden -translate-x-1/2">
+      <div class="glass rounded-2xl px-4 py-3 text-sm text-white shadow-soft">
+        <span id="toastText">Copied.</span>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const EMAIL = 'hello@leadstocall.com';
+
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Mobile menu
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    menuBtn?.addEventListener('click', () => {
+      const open = mobileMenu.classList.toggle('hidden') === false;
+      menuBtn.setAttribute('aria-expanded', String(open));
+    });
+
+    // Close mobile menu when clicking a link
+    mobileMenu?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      mobileMenu.classList.add('hidden');
+      menuBtn.setAttribute('aria-expanded', 'false');
+    }));
+
+    // Toast helper
+    let toastTimer;
+    function toast(msg){
+      const el = document.getElementById('toast');
+      const text = document.getElementById('toastText');
+      text.textContent = msg;
+      el.classList.remove('hidden');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => el.classList.add('hidden'), 2000);
+    }
+
+    async function copyEmail(){
+      try{
+        await navigator.clipboard.writeText(EMAIL);
+        toast('Email copied: ' + EMAIL);
+      } catch (e){
+        // Fallback
+        const ta = document.createElement('textarea');
+        ta.value = EMAIL;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        ta.remove();
+        toast('Email copied: ' + EMAIL);
+      }
+    }
+
+    ['copyEmailTop','copyEmailMobile','copyEmail','copyEmailCard'].forEach(id => {
+      const btn = document.getElementById(id);
+      btn?.addEventListener('click', copyEmail);
+    });
+
+    // Count-up animation
+    function animateCounters(){
+      const counters = document.querySelectorAll('[data-count]');
+      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      const run = (el) => {
+        const target = Number(el.getAttribute('data-count'));
+        const suffix = el.getAttribute('data-suffix') || '';
+        if (!Number.isFinite(target)) return;
+
+        if (prefersReduced){
+          el.textContent = target + suffix;
+          return;
+        }
+
+        const duration = 850;
+        const start = performance.now();
+        const startVal = 0;
+
+        function step(now){
+          const t = Math.min(1, (now - start) / duration);
+          const eased = 1 - Math.pow(1 - t, 3);
+          const val = Math.round(startVal + (target - startVal) * eased);
+          el.textContent = val + suffix;
+          if (t < 1) requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+      };
+
+      const io = new IntersectionObserver(entries => {
+        for (const e of entries){
+          if (e.isIntersecting){
+            run(e.target);
+            io.unobserve(e.target);
+          }
+        }
+      }, { threshold: 0.4 });
+
+      counters.forEach(c => io.observe(c));
+    }
+    animateCounters();
+
+    // Form -> mailto
+    const form = document.getElementById('leadForm');
+    const formError = document.getElementById('formError');
+
+    function validateEmail(v){
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(v).trim());
+    }
+
+    form?.addEventListener('submit', (ev) => {
+      ev.preventDefault();
+      formError.classList.add('hidden');
+      formError.textContent = '';
+
+      const name = document.getElementById('name').value.trim();
+      const company = document.getElementById('company').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const service = document.getElementById('service').value.trim();
+      const location = document.getElementById('location').value.trim();
+      const budget = document.getElementById('budget').value.trim();
+      const website = document.getElementById('website').value.trim();
+      const message = document.getElementById('message').value.trim();
+
+      const missing = [];
+      if (!name) missing.push('Name');
+      if (!email) missing.push('Email');
+      if (email && !validateEmail(email)) missing.push('Valid email');
+      if (!service) missing.push('Service');
+      if (!location) missing.push('Location');
+      if (!message) missing.push('Message');
+
+      if (missing.length){
+        formError.textContent = 'Please provide: ' + missing.join(', ') + '.';
+        formError.classList.remove('hidden');
+        return;
+      }
+
+      const subject = `Free audit request — ${service} in ${location}`;
+      const lines = [
+        `Name: ${name}`,
+        company ? `Business: ${company}` : null,
+        `Email: ${email}`,
+        `Service: ${service}`,
+        `Location: ${location}`,
+        budget ? `Ad spend: ${budget}` : null,
+        website ? `Website: ${website}` : null,
+        '',
+        'Goals / notes:',
+        message
+      ].filter(Boolean);
+
+      const body = lines.join('\n');
+      const url = `mailto:${encodeURIComponent(EMAIL)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      window.location.href = url;
+      toast('Opening your email app…');
+    });
+
+    // Improve details UX: only one open at a time (FAQ)
+    const faqDetails = Array.from(document.querySelectorAll('#faq details'));
+    faqDetails.forEach(d => d.addEventListener('toggle', () => {
+      if (d.open){
+        faqDetails.forEach(other => { if (other !== d) other.open = false; });
+      }
+    }));
+
+    // Lightweight smooth scroll for Safari older behaviors
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', (e) => {
+        const id = a.getAttribute('href');
+        if (!id || id === '#') return;
+        const el = document.querySelector(id);
+        if (!el) return;
+        e.preventDefault();
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        history.pushState(null, '', id);
+      });
+    });
+  </script>
 </body>
 </html>
+
 
 
 
