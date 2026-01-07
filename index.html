@@ -1,812 +1,443 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>LeadsToCalls — Websites + Meta & Google Ads That Turn Clicks Into Calls</title>
-  <meta name="description" content="LeadsToCalls builds conversion-ready websites and runs Meta & Google Ads that drive qualified leads, calls, and booked jobs. Email: hello@leadstocalls.com" />
-  <meta name="theme-color" content="#0b1220" />
-
-  <meta property="og:title" content="LeadsToCalls — Websites + Meta & Google Ads" />
-  <meta property="og:description" content="Conversion-first websites and ad campaigns that turn clicks into calls." />
-  <meta property="og:type" content="website" />
-
-  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-  <style>
-    :root{ color-scheme: dark; }
-    html{ scroll-behavior: smooth; }
-    /* Subtle animated gradient */
-    .bg-aurora{
-      background:
-        radial-gradient(1200px 500px at 10% 10%, rgba(59,130,246,.35), transparent 60%),
-        radial-gradient(900px 450px at 85% 25%, rgba(168,85,247,.28), transparent 60%),
-        radial-gradient(800px 400px at 55% 90%, rgba(34,197,94,.18), transparent 60%),
-        linear-gradient(180deg, #070A12 0%, #0b1220 35%, #070A12 100%);
-    }
-    .glass{
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.10);
-      box-shadow: 0 20px 40px rgba(0,0,0,.35);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-    }
-    .ring-soft{ box-shadow: 0 0 0 1px rgba(255,255,255,0.10) inset; }
-    .shadow-soft{ box-shadow: 0 20px 60px rgba(0,0,0,.55); }
-    .noise::before{
-      content:"";
-      position:absolute;
-      inset:0;
-      pointer-events:none;
-      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.7' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='.22'/%3E%3C/svg%3E");
-      mix-blend-mode: overlay;
-      opacity:.10;
-    }
-    .gradient-text{
-      background: linear-gradient(90deg, #60a5fa 0%, #a78bfa 45%, #34d399 100%);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
-    .btn-glow{ position: relative; }
-    .btn-glow::after{
-      content:"";
-      position:absolute;
-      inset:-2px;
-      border-radius: 9999px;
-      background: linear-gradient(90deg, rgba(96,165,250,.7), rgba(167,139,250,.7), rgba(52,211,153,.6));
-      filter: blur(14px);
-      opacity: .55;
-      z-index: -1;
-    }
-    .focus-ring:focus{ outline:none; box-shadow: 0 0 0 3px rgba(96,165,250,.35); }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LeadsToCalls | AI Avatar Clones</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        h1, h2, h3, .brand-font {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        .gradient-text {
+            background: linear-gradient(to right, #a78bfa, #2dd4bf);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero-glow {
+            box-shadow: 0 0 100px 20px rgba(139, 92, 246, 0.3);
+        }
+        .grid-bg {
+            background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+        /* Custom animation for the "scanning" effect */
+        @keyframes scan {
+            0% { top: 0%; opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { top: 100%; opacity: 0; }
+        }
+        .scanner-line {
+            animation: scan 3s ease-in-out infinite;
+        }
+    </style>
 </head>
-<body class="bg-aurora text-white selection:bg-blue-500/30">
-  <div class="relative min-h-screen noise">
-    <!-- Top Nav -->
-    <header class="sticky top-0 z-50 border-b border-white/10 bg-[#070A12]/70 backdrop-blur">
-      <div class="mx-auto max-w-6xl px-4">
-        <div class="flex items-center justify-between py-3">
-          <a href="#top" class="flex items-center gap-2">
-            <span class="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-white/5 ring-soft">
-              <span class="text-lg font-bold">LC</span>
-            </span>
-            <div class="leading-tight">
-              <div class="font-semibold tracking-tight">LeadsToCalls</div>
-              <div class="text-xs text-white/60">websites + ads that convert</div>
+<body class="bg-slate-950 text-white overflow-x-hidden selection:bg-teal-500 selection:text-white">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-slate-950/80 backdrop-blur-md border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 cursor-pointer" onclick="window.scrollTo(0,0)">
+                        <span class="brand-font text-2xl font-bold tracking-tighter text-white">LeadsTo<span class="text-teal-400">Calls</span></span>
+                    </div>
+                    <div class="hidden md:block">
+                        <div class="ml-10 flex items-baseline space-x-4">
+                            <a href="#features" class="hover:text-teal-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">Features</a>
+                            <a href="#how-it-works" class="hover:text-teal-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">How it Works</a>
+                            <a href="#showcase" class="hover:text-teal-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">Showcase</a>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <a href="#get-started" class="bg-teal-500 hover:bg-teal-400 text-slate-900 px-5 py-2.5 rounded-full font-bold text-sm transition-all transform hover:scale-105 shadow-[0_0_15px_rgba(45,212,191,0.5)]">
+                        Clone Yourself
+                    </a>
+                </div>
             </div>
-          </a>
+        </div>
+    </nav>
 
-          <nav class="hidden items-center gap-6 md:flex">
-            <a class="text-sm text-white/80 hover:text-white" href="#services">Services</a>
-            <a class="text-sm text-white/80 hover:text-white" href="#process">Process</a>
-            <a class="text-sm text-white/80 hover:text-white" href="#faq">FAQ</a>
-            <a class="text-sm text-white/80 hover:text-white" href="#contact">Contact</a>
-          </nav>
-
-          <div class="hidden items-center gap-3 md:flex">
-            <button id="copyEmailTop" class="rounded-full px-4 py-2 text-sm ring-soft hover:bg-white/5">Copy email</button>
-            <a href="#contact" class="btn-glow rounded-full bg-white px-4 py-2 text-sm font-semibold text-black hover:bg-white/90">Get a free audit</a>
-          </div>
-
-          <button id="menuBtn" class="md:hidden rounded-xl px-3 py-2 ring-soft hover:bg-white/5" aria-label="Open menu" aria-expanded="false">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-          </button>
+    <!-- Hero Section -->
+    <div class="relative pt-32 pb-20 sm:pt-40 sm:pb-24 grid-bg">
+        <div class="absolute inset-0 overflow-hidden pointer-events-none">
+            <div class="absolute -top-[20%] left-[20%] w-[500px] h-[500px] bg-purple-600/20 rounded-full blur-3xl"></div>
+            <div class="absolute top-[10%] right-[10%] w-[400px] h-[400px] bg-teal-500/20 rounded-full blur-3xl"></div>
         </div>
 
-        <!-- Mobile menu -->
-        <div id="mobileMenu" class="hidden pb-4 md:hidden">
-          <div class="glass rounded-2xl p-3">
-            <div class="grid gap-2">
-              <a class="rounded-xl px-3 py-2 text-sm text-white/80 hover:bg-white/5 hover:text-white" href="#services">Services</a>
-              <a class="rounded-xl px-3 py-2 text-sm text-white/80 hover:bg-white/5 hover:text-white" href="#process">Process</a>
-              <a class="rounded-xl px-3 py-2 text-sm text-white/80 hover:bg-white/5 hover:text-white" href="#faq">FAQ</a>
-              <a class="rounded-xl px-3 py-2 text-sm text-white/80 hover:bg-white/5 hover:text-white" href="#contact">Contact</a>
-              <div class="mt-2 grid grid-cols-2 gap-2">
-                <button id="copyEmailMobile" class="rounded-xl px-3 py-2 text-sm ring-soft hover:bg-white/5">Copy email</button>
-                <a href="#contact" class="rounded-xl bg-white px-3 py-2 text-center text-sm font-semibold text-black hover:bg-white/90">Free audit</a>
-              </div>
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="inline-flex items-center px-3 py-1 rounded-full border border-slate-700 bg-slate-900/50 backdrop-blur-sm mb-6">
+                <span class="flex h-2 w-2 rounded-full bg-teal-400 mr-2 animate-pulse"></span>
+                <span class="text-xs font-medium text-slate-300">New: Voice Cloning V2.0 Available</span>
             </div>
-          </div>
-        </div>
-      </div>
-    </header>
-
-    <!-- Hero -->
-    <main id="top" class="mx-auto max-w-6xl px-4">
-      <section class="relative py-14 md:py-20">
-        <div class="grid items-center gap-10 md:grid-cols-2">
-          <div>
-            <div class="inline-flex items-center gap-2 rounded-full bg-white/5 px-3 py-1 text-xs text-white/70 ring-soft">
-              <span class="h-1.5 w-1.5 rounded-full bg-green-400"></span>
-              Websites + Meta/Google Ads for lead generation
-            </div>
-            <h1 class="mt-5 text-4xl font-semibold tracking-tight md:text-6xl">
-              Turn clicks into <span class="gradient-text">calls</span> with a conversion-ready website + ads that actually perform.
+            
+            <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight mb-6">
+                Scale Your Presence with <br />
+                <span class="gradient-text">AI Digital Twins</span>
             </h1>
-            <p class="mt-5 max-w-xl text-base leading-relaxed text-white/75 md:text-lg">
-              LeadsToCalls helps service businesses get more booked jobs using fast, modern landing pages and performance marketing across Meta and Google.
+            
+            <p class="mt-4 max-w-2xl mx-auto text-xl text-slate-400">
+                Create a photorealistic AI avatar that looks and sounds exactly like you. Generate thousands of personalized sales videos in minutes, not months.
             </p>
 
-            <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
-              <a href="#contact" class="btn-glow inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-semibold text-black hover:bg-white/90">
-                Get a free traffic + website audit
-                <svg class="ml-2 h-4 w-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                  <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
-                </svg>
-              </a>
-              <a href="#services" class="inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold ring-soft hover:bg-white/5">
-                See what we do
-              </a>
+            <div class="mt-10 flex justify-center gap-4">
+                <a href="#get-started" class="px-8 py-4 bg-white text-slate-900 rounded-lg font-bold hover:bg-slate-200 transition-colors">
+                    Start Creating Free
+                </a>
+                <a href="#how-it-works" class="px-8 py-4 border border-slate-700 bg-slate-900/50 text-white rounded-lg font-medium hover:border-slate-500 transition-colors backdrop-blur-sm">
+                    View Demo
+                </a>
             </div>
 
-            <div class="mt-7 grid grid-cols-3 gap-3">
-              <div class="glass rounded-2xl p-4">
-                <div class="text-2xl font-semibold" data-count="7" data-suffix="d">0</div>
-                <div class="mt-1 text-xs text-white/60">typical launch timeline</div>
-              </div>
-              <div class="glass rounded-2xl p-4">
-                <div class="text-2xl font-semibold" data-count="2" data-suffix="x">0</div>
-                <div class="mt-1 text-xs text-white/60">faster lead capture</div>
-              </div>
-              <div class="glass rounded-2xl p-4">
-                <div class="text-2xl font-semibold" data-count="24" data-suffix="/7">0</div>
-                <div class="mt-1 text-xs text-white/60">lead intake systems</div>
-              </div>
-            </div>
-
-            <div class="mt-6 text-sm text-white/60">
-              Email us: <a class="text-white underline decoration-white/30 hover:decoration-white" href="mailto:hello@leadstocalls.com">hello@leadstocalls.com</a>
-            </div>
-          </div>
-
-          <div class="relative">
-            <div class="glass shadow-soft rounded-3xl p-5 md:p-6">
-              <div class="flex items-center justify-between">
-                <div>
-                  <div class="text-sm text-white/60">Live funnel preview</div>
-                  <div class="mt-1 text-lg font-semibold">Lead → Call → Booked</div>
-                </div>
-                <div class="flex items-center gap-2">
-                  <span class="inline-flex items-center rounded-full bg-green-500/15 px-2 py-1 text-xs text-green-300 ring-1 ring-green-400/20">Tracking on</span>
-                </div>
-              </div>
-
-              <div class="mt-5 grid gap-3">
-                <div class="rounded-2xl bg-white/5 p-4 ring-soft">
-                  <div class="flex items-start justify-between gap-4">
-                    <div>
-                      <div class="text-sm font-semibold">Landing page</div>
-                      <div class="mt-1 text-xs text-white/60">Fast load, clear offer, strong CTA</div>
+            <!-- Fake Video Player Interface -->
+            <div class="mt-16 relative mx-auto max-w-4xl rounded-xl border border-slate-800 bg-slate-900/80 shadow-2xl hero-glow overflow-hidden group">
+                <div class="aspect-video relative bg-slate-800 flex items-center justify-center overflow-hidden">
+                    <!-- Placeholder "Video" Content -->
+                    <div class="absolute inset-0 bg-gradient-to-br from-slate-900 to-slate-800">
+                        <!-- Abstract Avatar Representation -->
+                        <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-64 h-80 bg-slate-700 rounded-t-full opacity-50 blur-sm"></div>
+                        <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-60 h-72 bg-gradient-to-b from-slate-600 to-slate-800 rounded-t-full flex flex-col items-center pt-10">
+                            <!-- Face -->
+                            <div class="w-32 h-40 bg-[#d1a893] rounded-3xl relative overflow-hidden shadow-lg">
+                                <!-- Eyes -->
+                                <div class="absolute top-14 left-6 w-6 h-2 bg-slate-800/20 rounded-full"></div>
+                                <div class="absolute top-14 right-6 w-6 h-2 bg-slate-800/20 rounded-full"></div>
+                                <!-- Mouth -->
+                                <div class="absolute bottom-8 left-1/2 -translate-x-1/2 w-10 h-1 bg-red-400/50 rounded-full transition-all duration-100" id="avatar-mouth"></div>
+                                
+                                <!-- Scanning Effect Overlay -->
+                                <div class="absolute inset-0 w-full h-[2px] bg-teal-400/80 shadow-[0_0_10px_#2dd4bf] scanner-line"></div>
+                            </div>
+                            <!-- Shoulders -->
+                            <div class="mt-2 w-52 h-20 bg-slate-900 rounded-t-3xl"></div>
+                        </div>
                     </div>
-                    <div class="text-xs text-white/60">Core Web Vitals</div>
-                  </div>
-                  <div class="mt-3 h-2 overflow-hidden rounded-full bg-white/10">
-                    <div class="h-full w-[86%] rounded-full bg-gradient-to-r from-blue-400 via-purple-400 to-green-300"></div>
-                  </div>
-                </div>
 
-                <div class="rounded-2xl bg-white/5 p-4 ring-soft">
-                  <div class="flex items-start justify-between gap-4">
-                    <div>
-                      <div class="text-sm font-semibold">Meta + Google Ads</div>
-                      <div class="mt-1 text-xs text-white/60">Creative + targeting + intent keywords</div>
+                    <!-- Overlay UI -->
+                    <div class="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/10 transition-all cursor-pointer" id="play-button-overlay">
+                        <div class="w-20 h-20 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center border border-white/20 hover:scale-110 transition-transform">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8 text-white ml-1">
+                                <path fill-rule="evenodd" d="M4.5 5.653c0-1.426 1.529-2.33 2.779-1.643l11.54 6.348c1.295.712 1.295 2.573 0 3.285L7.28 19.991c-1.25.687-2.779-.217-2.779-1.643V5.653z" clip-rule="evenodd" />
+                            </svg>
+                        </div>
                     </div>
-                    <div class="text-xs text-white/60">Optimization</div>
-                  </div>
-                  <div class="mt-3 grid grid-cols-3 gap-2 text-xs">
-                    <div class="rounded-xl bg-white/5 p-3 ring-soft">
-                      <div class="text-white/60">CPC</div>
-                      <div class="mt-1 font-semibold">↓</div>
+
+                    <!-- Floating Elements -->
+                    <div class="absolute top-6 right-6 bg-black/60 backdrop-blur-md px-3 py-1 rounded-md border border-white/10 text-xs text-teal-400 font-mono">
+                        AI CONFIDENCE: 99.8%
                     </div>
-                    <div class="rounded-xl bg-white/5 p-3 ring-soft">
-                      <div class="text-white/60">CVR</div>
-                      <div class="mt-1 font-semibold">↑</div>
+                    <div class="absolute bottom-6 left-6 bg-black/60 backdrop-blur-md px-4 py-2 rounded-lg border border-white/10 flex items-center gap-3">
+                        <div class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></div>
+                        <div class="text-sm font-medium">Processing Audio Input...</div>
                     </div>
-                    <div class="rounded-xl bg-white/5 p-3 ring-soft">
-                      <div class="text-white/60">ROAS</div>
-                      <div class="mt-1 font-semibold">↑</div>
-                    </div>
-                  </div>
                 </div>
-
-                <div class="rounded-2xl bg-white/5 p-4 ring-soft">
-                  <div class="flex items-start justify-between gap-4">
-                    <div>
-                      <div class="text-sm font-semibold">Lead capture</div>
-                      <div class="mt-1 text-xs text-white/60">Forms, call buttons, tracking & follow-up</div>
-                    </div>
-                    <div class="text-xs text-white/60">Automation</div>
-                  </div>
-                  <div class="mt-3 flex flex-wrap gap-2">
-                    <span class="rounded-full bg-white/5 px-3 py-1 text-xs ring-soft">Call CTA</span>
-                    <span class="rounded-full bg-white/5 px-3 py-1 text-xs ring-soft">CRM-ready</span>
-                    <span class="rounded-full bg-white/5 px-3 py-1 text-xs ring-soft">Pixel + GA4</span>
-                    <span class="rounded-full bg-white/5 px-3 py-1 text-xs ring-soft">UTMs</span>
-                  </div>
-                </div>
-              </div>
-
-              <div class="mt-5 rounded-2xl bg-gradient-to-r from-blue-500/15 via-purple-500/15 to-green-500/10 p-4 ring-1 ring-white/10">
-                <div class="text-sm font-semibold">What you get</div>
-                <div class="mt-1 text-sm text-white/70">A clean offer + measurable results: calls, forms, and booked appointments.</div>
-              </div>
             </div>
-          </div>
         </div>
-      </section>
-
-      <!-- Services -->
-      <section id="services" class="py-14 md:py-18">
-        <div class="flex items-end justify-between gap-6">
-          <div>
-            <h2 class="text-2xl font-semibold tracking-tight md:text-3xl">Everything you need to generate leads</h2>
-            <p class="mt-2 max-w-2xl text-white/70">Pick one service or combine them into a complete “click-to-call” system.</p>
-          </div>
-        </div>
-
-        <div class="mt-8 grid gap-4 md:grid-cols-2">
-          <div class="glass rounded-3xl p-6">
-            <div class="flex items-start gap-4">
-              <div class="flex h-11 w-11 items-center justify-center rounded-2xl bg-blue-500/15 ring-1 ring-blue-400/20">⚡</div>
-              <div>
-                <h3 class="text-lg font-semibold">Cool, fast websites</h3>
-                <p class="mt-1 text-sm text-white/70">Modern design, lightning load times, and a single goal: get the visitor to take action.</p>
-                <ul class="mt-4 space-y-2 text-sm text-white/75">
-                  <li class="flex gap-2"><span class="text-green-300">•</span> Landing pages & multi-page sites</li>
-                  <li class="flex gap-2"><span class="text-green-300">•</span> Mobile-first UI + strong CTAs</li>
-                  <li class="flex gap-2"><span class="text-green-300">•</span> SEO basics + schema-ready structure</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <div class="glass rounded-3xl p-6">
-            <div class="flex items-start gap-4">
-              <div class="flex h-11 w-11 items-center justify-center rounded-2xl bg-purple-500/15 ring-1 ring-purple-400/20">🎯</div>
-              <div>
-                <h3 class="text-lg font-semibold">Meta Ads (Facebook/Instagram)</h3>
-                <p class="mt-1 text-sm text-white/70">Creative + targeting + conversion tracking to find ready-to-buy customers and capture demand.</p>
-                <ul class="mt-4 space-y-2 text-sm text-white/75">
-                  <li class="flex gap-2"><span class="text-green-300">•</span> Lead forms or landing page funnels</li>
-                  <li class="flex gap-2"><span class="text-green-300">•</span> Creative testing + scaling</li>
-                  <li class="flex gap-2"><span class="text-green-300">•</span> Pixel setup + event tracking</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <div class="glass rounded-3xl p-6">
-            <div class="flex items-start gap-4">
-              <div class="flex h-11 w-11 items-center justify-center rounded-2xl bg-green-500/15 ring-1 ring-green-400/20">🔎</div>
-              <div>
-                <h3 class="text-lg font-semibold">Google Ads (Search & Local intent)</h3>
-                <p class="mt-1 text-sm text-white/70">Capture high-intent searches with smart keyword strategy, tight landing pages, and measurable calls.</p>
-                <ul class="mt-4 space-y-2 text-sm text-white/75">
-                  <li class="flex gap-2"><span class="text-green-300">•</span> Keyword & competitor research</li>
-                  <li class="flex gap-2"><span class="text-green-300">•</span> Conversion tracking (GA4/UTMs)</li>
-                  <li class="flex gap-2"><span class="text-green-300">•</span> Landing page alignment for Quality Score</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <div class="glass rounded-3xl p-6">
-            <div class="flex items-start gap-4">
-              <div class="flex h-11 w-11 items-center justify-center rounded-2xl bg-white/10 ring-1 ring-white/20">📈</div>
-              <div>
-                <h3 class="text-lg font-semibold">Tracking + lead follow-up</h3>
-                <p class="mt-1 text-sm text-white/70">Know what’s working, respond faster, and stop losing leads to slow follow-up.</p>
-                <ul class="mt-4 space-y-2 text-sm text-white/75">
-                  <li class="flex gap-2"><span class="text-green-300">•</span> Event tracking + dashboards</li>
-                  <li class="flex gap-2"><span class="text-green-300">•</span> Form routing to email/CRM</li>
-                  <li class="flex gap-2"><span class="text-green-300">•</span> Call-first CTAs and click-to-call buttons</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Process -->
-      <section id="process" class="py-14 md:py-18">
-        <div class="grid gap-8 md:grid-cols-2 md:items-center">
-          <div>
-            <h2 class="text-2xl font-semibold tracking-tight md:text-3xl">A simple process that stays focused on ROI</h2>
-            <p class="mt-2 max-w-xl text-white/70">We keep it lean: clarify the offer, build the page, launch campaigns, optimize weekly.</p>
-
-            <div class="mt-6 grid gap-3">
-              <div class="glass rounded-2xl p-5">
-                <div class="flex items-start gap-4">
-                  <div class="mt-0.5 flex h-8 w-8 items-center justify-center rounded-xl bg-white/5 ring-soft">1</div>
-                  <div>
-                    <div class="font-semibold">Audit & offer</div>
-                    <div class="mt-1 text-sm text-white/70">We review your current website/ads and sharpen your message for conversions.</div>
-                  </div>
-                </div>
-              </div>
-              <div class="glass rounded-2xl p-5">
-                <div class="flex items-start gap-4">
-                  <div class="mt-0.5 flex h-8 w-8 items-center justify-center rounded-xl bg-white/5 ring-soft">2</div>
-                  <div>
-                    <div class="font-semibold">Build & track</div>
-                    <div class="mt-1 text-sm text-white/70">Landing page, lead form, pixels, GA4/UTMs — set up to measure calls and leads.</div>
-                  </div>
-                </div>
-              </div>
-              <div class="glass rounded-2xl p-5">
-                <div class="flex items-start gap-4">
-                  <div class="mt-0.5 flex h-8 w-8 items-center justify-center rounded-xl bg-white/5 ring-soft">3</div>
-                  <div>
-                    <div class="font-semibold">Launch & optimize</div>
-                    <div class="mt-1 text-sm text-white/70">Creative/keyword testing, budget shifts, and weekly improvements based on data.</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="glass rounded-3xl p-6 md:p-7">
-            <div class="flex items-center justify-between">
-              <div>
-                <div class="text-sm text-white/60">Optimization checklist</div>
-                <div class="mt-1 text-lg font-semibold">Built for real-world lead gen</div>
-              </div>
-              <span class="rounded-full bg-white/5 px-3 py-1 text-xs ring-soft">weekly</span>
-            </div>
-
-            <div class="mt-5 grid gap-3">
-              <label class="flex cursor-pointer items-start gap-3 rounded-2xl bg-white/5 p-4 ring-soft">
-                <input class="mt-1" type="checkbox" checked />
-                <div>
-                  <div class="text-sm font-semibold">Tight landing page → ad message match</div>
-                  <div class="text-xs text-white/60">Improve Quality Score and conversion rate.</div>
-                </div>
-              </label>
-              <label class="flex cursor-pointer items-start gap-3 rounded-2xl bg-white/5 p-4 ring-soft">
-                <input class="mt-1" type="checkbox" checked />
-                <div>
-                  <div class="text-sm font-semibold">Conversion tracking for calls + forms</div>
-                  <div class="text-xs text-white/60">Know exactly where leads come from.</div>
-                </div>
-              </label>
-              <label class="flex cursor-pointer items-start gap-3 rounded-2xl bg-white/5 p-4 ring-soft">
-                <input class="mt-1" type="checkbox" checked />
-                <div>
-                  <div class="text-sm font-semibold">Creative/keyword testing & pruning</div>
-                  <div class="text-xs text-white/60">Scale winners; cut waste.</div>
-                </div>
-              </label>
-              <label class="flex cursor-pointer items-start gap-3 rounded-2xl bg-white/5 p-4 ring-soft">
-                <input class="mt-1" type="checkbox" />
-                <div>
-                  <div class="text-sm font-semibold">Speed improvements (Core Web Vitals)</div>
-                  <div class="text-xs text-white/60">Faster pages usually convert better.</div>
-                </div>
-              </label>
-            </div>
-
-            <div class="mt-6 rounded-2xl bg-white/5 p-4 ring-soft">
-              <div class="text-sm font-semibold">Want the checklist applied to your business?</div>
-              <div class="mt-1 text-sm text-white/70">Send your website + location + service and we’ll reply with quick wins.</div>
-              <div class="mt-4 flex flex-col gap-2 sm:flex-row">
-                <button id="copyEmailCard" class="rounded-xl px-4 py-2 text-sm ring-soft hover:bg-white/5">Copy hello@leadstocalls.com</button>
-                <a class="rounded-xl bg-white px-4 py-2 text-center text-sm font-semibold text-black hover:bg-white/90" href="#contact">Request audit</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Social proof -->
-      <section class="py-14 md:py-18">
-        <div class="grid gap-4 lg:grid-cols-3">
-          <div class="glass rounded-3xl p-6">
-            <div class="text-sm text-white/60">What clients want</div>
-            <div class="mt-2 text-lg font-semibold">“More calls… not more dashboards.”</div>
-            <p class="mt-3 text-sm text-white/70">We design for actions: calls, quote requests, bookings — and track them end-to-end.</p>
-          </div>
-          <div class="glass rounded-3xl p-6">
-            <div class="text-sm text-white/60">What we measure</div>
-            <div class="mt-2 text-lg font-semibold">Cost per lead + lead quality</div>
-            <p class="mt-3 text-sm text-white/70">Optimization focuses on reducing wasted spend and increasing qualified inquiries.</p>
-          </div>
-          <div class="glass rounded-3xl p-6">
-            <div class="text-sm text-white/60">What you keep</div>
-            <div class="mt-2 text-lg font-semibold">Your data & your assets</div>
-            <p class="mt-3 text-sm text-white/70">You own your brand, your landing page content, and your tracking access.</p>
-          </div>
-        </div>
-      </section>
-
-      <!-- FAQ -->
-      <section id="faq" class="py-14 md:py-18">
-        <div class="flex flex-col items-start justify-between gap-4 md:flex-row md:items-end">
-          <div>
-            <h2 class="text-2xl font-semibold tracking-tight md:text-3xl">FAQ</h2>
-            <p class="mt-2 max-w-2xl text-white/70">Quick answers. If you don’t see your question, email us.</p>
-          </div>
-          <a class="text-sm text-white/70 underline decoration-white/30 hover:text-white hover:decoration-white" href="mailto:hello@leadstocalls.com">hello@leadstocalls.com</a>
-        </div>
-
-        <div class="mt-8 grid gap-3">
-          <details class="glass rounded-2xl p-5">
-            <summary class="cursor-pointer list-none font-semibold">How fast can we launch?</summary>
-            <p class="mt-3 text-sm text-white/70">A landing page can often go live within about a week, depending on how quickly we get your logo, photos, and offer details.</p>
-          </details>
-          <details class="glass rounded-2xl p-5">
-            <summary class="cursor-pointer list-none font-semibold">Do you handle both Meta and Google Ads?</summary>
-            <p class="mt-3 text-sm text-white/70">Yes. We can run either channel or both, depending on your niche and intent. We’ll recommend a plan after a quick audit.</p>
-          </details>
-          <details class="glass rounded-2xl p-5">
-            <summary class="cursor-pointer list-none font-semibold">What do you need from me?</summary>
-            <p class="mt-3 text-sm text-white/70">Your service list, locations, target customers, access to ad accounts (or we can help set them up), and any existing assets (photos, reviews, offers).</p>
-          </details>
-          <details class="glass rounded-2xl p-5">
-            <summary class="cursor-pointer list-none font-semibold">Do you work with local service businesses?</summary>
-            <p class="mt-3 text-sm text-white/70">That’s our sweet spot: contractors, home services, clinics, and any business that benefits from calls and quote requests.</p>
-          </details>
-        </div>
-      </section>
-
-      <!-- Contact -->
-      <section id="contact" class="py-14 md:py-20">
-        <div class="grid gap-8 lg:grid-cols-2">
-          <div>
-            <h2 class="text-2xl font-semibold tracking-tight md:text-3xl">Get a free audit</h2>
-            <p class="mt-2 max-w-xl text-white/70">Tell us what you sell and where. We’ll reply with clear, practical improvements for your website and ads.</p>
-
-            <div class="mt-6 grid gap-4">
-              <div class="glass rounded-3xl p-6">
-                <div class="text-sm text-white/60">Direct email</div>
-                <div class="mt-1 text-lg font-semibold">hello@leadstocalls.com</div>
-                <div class="mt-4 flex flex-col gap-2 sm:flex-row">
-                  <button id="copyEmail" class="rounded-xl px-4 py-2 text-sm ring-soft hover:bg-white/5">Copy email</button>
-                  <a class="rounded-xl bg-white px-4 py-2 text-center text-sm font-semibold text-black hover:bg-white/90" href="mailto:hello@leadstocalls.com?subject=Free%20audit%20request%20%E2%80%94%20LeadsToCalls">Email now</a>
-                </div>
-              </div>
-
-              <div class="glass rounded-3xl p-6">
-                <div class="text-sm text-white/60">What to include</div>
-                <ul class="mt-3 space-y-2 text-sm text-white/75">
-                  <li class="flex gap-2"><span class="text-green-300">•</span> Your website (or current page)</li>
-                  <li class="flex gap-2"><span class="text-green-300">•</span> Services + city/area</li>
-                  <li class="flex gap-2"><span class="text-green-300">•</span> Current ad spend (if any)</li>
-                  <li class="flex gap-2"><span class="text-green-300">•</span> Best contact number/time</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <div class="glass shadow-soft rounded-3xl p-6 md:p-7">
-            <div class="flex items-center justify-between">
-              <div>
-                <div class="text-sm text-white/60">Contact form</div>
-                <div class="mt-1 text-lg font-semibold">We’ll email you back</div>
-              </div>
-              <span class="rounded-full bg-white/5 px-3 py-1 text-xs ring-soft">2 min</span>
-            </div>
-
-            <form id="leadForm" class="mt-6 grid gap-4" action="https://formsubmit.co/ajax/hello@leadstocalls.com" method="POST" novalidate>
-              <!-- FormSubmit config -->
-              <input type="text" name="_honey" class="hidden" tabindex="-1" autocomplete="off" />
-              <input type="hidden" name="_captcha" value="false" />
-              <input type="hidden" id="subjectField" name="_subject" value="New LeadsToCalls enquiry" />
-              <input type="hidden" id="replytoField" name="_replyto" value="" />
-              <input type="hidden" name="_template" value="table" />
-
-              <div class="grid gap-4 sm:grid-cols-2">
-                <div>
-                  <label class="text-sm text-white/70" for="name">Name</label>
-                  <input id="name" name="name" class="focus-ring mt-1 w-full rounded-2xl bg-white/5 px-4 py-3 text-sm ring-soft placeholder:text-white/35" placeholder="Your name" autocomplete="name" required />
-                </div>
-                <div>
-                  <label class="text-sm text-white/70" for="company">Business</label>
-                  <input id="company" name="company" class="focus-ring mt-1 w-full rounded-2xl bg-white/5 px-4 py-3 text-sm ring-soft placeholder:text-white/35" placeholder="Company name" autocomplete="organization" />
-                </div>
-              </div>
-
-              <div class="grid gap-4 sm:grid-cols-2">
-                <div>
-                  <label class="text-sm text-white/70" for="email">Email</label>
-                  <input id="email" name="email" type="email" class="focus-ring mt-1 w-full rounded-2xl bg-white/5 px-4 py-3 text-sm ring-soft placeholder:text-white/35" placeholder="name@company.com" autocomplete="email" required />
-                </div>
-                <div>
-                  <label class="text-sm text-white/70" for="service">Service</label>
-                  <input id="service" name="service" class="focus-ring mt-1 w-full rounded-2xl bg-white/5 px-4 py-3 text-sm ring-soft placeholder:text-white/35" placeholder="e.g., roofing, med spa, cleaning" required />
-                </div>
-              </div>
-
-              <div class="grid gap-4 sm:grid-cols-2">
-                <div>
-                  <label class="text-sm text-white/70" for="location">Location</label>
-                  <input id="location" name="location" class="focus-ring mt-1 w-full rounded-2xl bg-white/5 px-4 py-3 text-sm ring-soft placeholder:text-white/35" placeholder="City / service area" required />
-                </div>
-                <div>
-                  <label class="text-sm text-white/70" for="budget">Ad spend (optional)</label>
-                  <select id="budget" name="budget" class="focus-ring mt-1 w-full rounded-2xl bg-white/5 px-4 py-3 text-sm ring-soft">
-                    <option value="">Select</option>
-                    <option value="$0 (starting)">$0 (starting)</option>
-                    <option value="$500–$1,500/mo">$500–$1,500/mo</option>
-                    <option value="$1,500–$5,000/mo">$1,500–$5,000/mo</option>
-                    <option value="$5,000+/mo">$5,000+/mo</option>
-                  </select>
-                </div>
-              </div>
-
-              <div>
-                <label class="text-sm text-white/70" for="website">Website (optional)</label>
-                <input id="website" name="website" class="focus-ring mt-1 w-full rounded-2xl bg-white/5 px-4 py-3 text-sm ring-soft placeholder:text-white/35" placeholder="https://" inputmode="url" />
-              </div>
-
-              <div>
-                <label class="text-sm text-white/70" for="message">What are you trying to achieve?</label>
-                <textarea id="message" name="message" rows="4" class="focus-ring mt-1 w-full rounded-2xl bg-white/5 px-4 py-3 text-sm ring-soft placeholder:text-white/35" placeholder="More calls, more quote requests, better cost per lead…" required></textarea>
-              </div>
-
-              <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-                <button id="submitBtn" type="submit" class="btn-glow inline-flex items-center justify-center rounded-2xl bg-white px-5 py-3 text-sm font-semibold text-black hover:bg-white/90">
-                  Send audit request
-                </button>
-                <div class="text-xs text-white/60">
-                  This will send your enquiry directly to our inbox.
-                </div>
-              </div>
-
-              <div id="formError" class="hidden rounded-2xl bg-red-500/10 p-4 text-sm text-red-200 ring-1 ring-red-400/20"></div>
-            </form>
-
-            <div class="mt-4 text-xs text-white/55">
-              Tip: If the form fails on your device/network, it will fall back to opening a pre-filled email.
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Footer -->
-      <footer class="pb-10">
-        <div class="border-t border-white/10 pt-7">
-          <div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-            <div class="text-sm text-white/60">© <span id="year"></span> LeadsToCalls. All rights reserved.</div>
-            <div class="flex flex-wrap items-center gap-4 text-sm">
-              <a class="text-white/70 hover:text-white" href="#services">Services</a>
-              <a class="text-white/70 hover:text-white" href="#contact">Contact</a>
-              <a class="text-white/70 hover:text-white" href="mailto:hello@leadstocalls.com">hello@leadstocalls.com</a>
-            </div>
-          </div>
-        </div>
-      </footer>
-    </main>
-
-    <!-- Toast -->
-    <div id="toast" class="pointer-events-none fixed bottom-5 left-1/2 z-[60] hidden -translate-x-1/2">
-      <div class="glass rounded-2xl px-4 py-3 text-sm text-white shadow-soft">
-        <span id="toastText">Copied.</span>
-      </div>
     </div>
-  </div>
 
-  <script>
-    const EMAIL = 'hello@leadstocalls.com';
+    <!-- Logos Section -->
+    <div class="py-10 border-y border-slate-800 bg-slate-900/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <p class="text-center text-sm font-medium text-slate-500 uppercase tracking-widest mb-6">Trusted by innovative teams</p>
+            <div class="flex flex-wrap justify-center gap-8 md:gap-16 opacity-50 grayscale hover:grayscale-0 transition-all duration-500">
+                <!-- Simple Text Placeholders for Logos -->
+                <h3 class="text-xl font-bold text-white">TECHFLOW</h3>
+                <h3 class="text-xl font-bold text-white">NEXUS</h3>
+                <h3 class="text-xl font-bold text-white">GLOBEX</h3>
+                <h3 class="text-xl font-bold text-white">UMBRELLA</h3>
+                <h3 class="text-xl font-bold text-white">CYBERDYNE</h3>
+            </div>
+        </div>
+    </div>
 
-    // Year
-    document.getElementById('year').textContent = new Date().getFullYear();
+    <!-- Features Section -->
+    <section id="features" class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-bold mb-4">Why choose LeadsToCalls?</h2>
+                <p class="text-slate-400 max-w-2xl mx-auto">Our proprietary engine renders frames 10x faster than competitors with indistinguishable human likeness.</p>
+            </div>
 
-    // Mobile menu
-    const menuBtn = document.getElementById('menuBtn');
-    const mobileMenu = document.getElementById('mobileMenu');
-    menuBtn?.addEventListener('click', () => {
-      const open = mobileMenu.classList.toggle('hidden') === false;
-      menuBtn.setAttribute('aria-expanded', String(open));
-    });
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="bg-slate-900 border border-slate-800 p-8 rounded-2xl hover:border-teal-500/50 transition-colors group">
+                    <div class="w-12 h-12 bg-slate-800 rounded-lg flex items-center justify-center mb-6 group-hover:bg-teal-500/20 group-hover:text-teal-400 transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Hyper-Realism</h3>
+                    <p class="text-slate-400">Our avatars capture micro-expressions, blinks, and subtle movements that make them pass the Turing test visually.</p>
+                </div>
 
-    // Close mobile menu when clicking a link
-    mobileMenu?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-      mobileMenu.classList.add('hidden');
-      menuBtn.setAttribute('aria-expanded', 'false');
-    }));
+                <!-- Feature 2 -->
+                <div class="bg-slate-900 border border-slate-800 p-8 rounded-2xl hover:border-purple-500/50 transition-colors group">
+                    <div class="w-12 h-12 bg-slate-800 rounded-lg flex items-center justify-center mb-6 group-hover:bg-purple-500/20 group-hover:text-purple-400 transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 21l5.25-11.25L21 21m-9-3h7.5M3 5.621a48.474 48.474 0 016-.371m0 0c1.12 0 2.233.038 3.334.114M9 5.25V3m3.334 2.364C11.176 10.658 7.69 15.08 3 17.502m9.334-12.138c.896.061 1.785.147 2.666.257m-4.589 8.495a18.023 18.023 0 01-3.827-5.802" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">120+ Languages</h3>
+                    <p class="text-slate-400">Speak to your global audience in their native tongue. Our AI automatically dubs and lip-syncs your avatar perfectly.</p>
+                </div>
 
-    // Toast helper
-    let toastTimer;
-    function toast(msg){
-      const el = document.getElementById('toast');
-      const text = document.getElementById('toastText');
-      text.textContent = msg;
-      el.classList.remove('hidden');
-      clearTimeout(toastTimer);
-      toastTimer = setTimeout(() => el.classList.add('hidden'), 2200);
-    }
+                <!-- Feature 3 -->
+                <div class="bg-slate-900 border border-slate-800 p-8 rounded-2xl hover:border-blue-500/50 transition-colors group">
+                    <div class="w-12 h-12 bg-slate-800 rounded-lg flex items-center justify-center mb-6 group-hover:bg-blue-500/20 group-hover:text-blue-400 transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Instant Rendering</h3>
+                    <p class="text-slate-400">Generate a 5-minute video in under 30 seconds. Scale your content production without scaling your team.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    async function copyEmail(){
-      try{
-        await navigator.clipboard.writeText(EMAIL);
-        toast('Email copied: ' + EMAIL);
-      } catch (e){
-        // Fallback
-        const ta = document.createElement('textarea');
-        ta.value = EMAIL;
-        document.body.appendChild(ta);
-        ta.select();
-        document.execCommand('copy');
-        ta.remove();
-        toast('Email copied: ' + EMAIL);
-      }
-    }
+    <!-- How It Works -->
+    <section id="how-it-works" class="py-24 bg-slate-900 border-y border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h2 class="text-3xl md:text-5xl font-bold mb-6">Clone yourself in <br /><span class="text-teal-400">3 simple steps</span></h2>
+                    <p class="text-slate-400 text-lg mb-8">No studio, no green screen, no expensive equipment required. Just you and your webcam.</p>
+                    
+                    <div class="space-y-8">
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 w-8 h-8 rounded-full bg-teal-500/10 text-teal-400 flex items-center justify-center font-bold border border-teal-500/20">1</div>
+                            <div>
+                                <h4 class="text-xl font-bold text-white mb-2">Record 2 minutes of video</h4>
+                                <p class="text-slate-400 text-sm">Read our calibration script so our AI can learn your voice and facial movements.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 w-8 h-8 rounded-full bg-purple-500/10 text-purple-400 flex items-center justify-center font-bold border border-purple-500/20">2</div>
+                            <div>
+                                <h4 class="text-xl font-bold text-white mb-2">AI Training</h4>
+                                <p class="text-slate-400 text-sm">Our engines process your data securely. In 24 hours, your digital twin is ready.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 w-8 h-8 rounded-full bg-blue-500/10 text-blue-400 flex items-center justify-center font-bold border border-blue-500/20">3</div>
+                            <div>
+                                <h4 class="text-xl font-bold text-white mb-2">Type text, get video</h4>
+                                <p class="text-slate-400 text-sm">Simply type your script, choose your avatar, and click generate. It's magic.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="relative">
+                    <div class="absolute inset-0 bg-gradient-to-r from-teal-500 to-purple-600 rounded-2xl blur-lg opacity-30 transform rotate-3"></div>
+                    <div class="relative bg-slate-950 border border-slate-800 rounded-2xl p-6 shadow-xl">
+                        <!-- Interface Mockup -->
+                        <div class="flex items-center gap-2 mb-4 border-b border-slate-800 pb-4">
+                            <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                            <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                            <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                            <div class="ml-auto text-xs text-slate-500">LeadsToCalls Studio</div>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="h-40 bg-slate-900 rounded-lg border border-slate-800 flex items-center justify-center relative overflow-hidden">
+                                <span class="text-slate-600 text-sm">Avatar Preview Area</span>
+                                <div class="absolute bottom-4 right-4 w-24 h-32 bg-slate-800 rounded-lg opacity-50"></div>
+                            </div>
+                            <div class="space-y-2">
+                                <label class="text-xs font-bold text-slate-400 uppercase">Script Input</label>
+                                <textarea class="w-full bg-slate-900 border border-slate-800 rounded-lg p-3 text-sm text-slate-300 h-24 focus:outline-none focus:border-teal-500 transition-colors" placeholder="Hello everyone, I'm excited to announce..."></textarea>
+                            </div>
+                            <button class="w-full bg-teal-600 hover:bg-teal-500 text-white font-bold py-3 rounded-lg transition-colors flex items-center justify-center gap-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z" />
+                                </svg>
+                                Generate Video
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    ['copyEmailTop','copyEmailMobile','copyEmail','copyEmailCard'].forEach(id => {
-      const btn = document.getElementById(id);
-      btn?.addEventListener('click', copyEmail);
-    });
+    <!-- Showcase/Use Cases -->
+    <section id="showcase" class="py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl md:text-5xl font-bold mb-12 text-center">Infinite Possibilities</h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Card 1 -->
+                <div class="group relative overflow-hidden rounded-2xl h-80 cursor-pointer">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-slate-900/50 to-transparent z-10"></div>
+                    <div class="absolute inset-0 bg-slate-800 group-hover:scale-110 transition-transform duration-700">
+                        <!-- Abstract placeholder -->
+                        <div class="w-full h-full bg-[url('https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')] bg-cover bg-center opacity-60"></div>
+                    </div>
+                    <div class="absolute bottom-0 left-0 p-6 z-20">
+                        <span class="text-teal-400 text-xs font-bold uppercase tracking-wider mb-2 block">Sales</span>
+                        <h3 class="text-xl font-bold text-white">Cold Outreach</h3>
+                        <p class="text-slate-300 text-sm mt-2 opacity-0 group-hover:opacity-100 transition-opacity transform translate-y-4 group-hover:translate-y-0">Personalize thousands of videos for every prospect.</p>
+                    </div>
+                </div>
 
-    // Count-up animation
-    function animateCounters(){
-      const counters = document.querySelectorAll('[data-count]');
-      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+                <!-- Card 2 -->
+                <div class="group relative overflow-hidden rounded-2xl h-80 cursor-pointer">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-slate-900/50 to-transparent z-10"></div>
+                    <div class="absolute inset-0 bg-slate-800 group-hover:scale-110 transition-transform duration-700">
+                         <div class="w-full h-full bg-[url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')] bg-cover bg-center opacity-60"></div>
+                    </div>
+                    <div class="absolute bottom-0 left-0 p-6 z-20">
+                        <span class="text-purple-400 text-xs font-bold uppercase tracking-wider mb-2 block">L&D</span>
+                        <h3 class="text-xl font-bold text-white">Training Modules</h3>
+                        <p class="text-slate-300 text-sm mt-2 opacity-0 group-hover:opacity-100 transition-opacity transform translate-y-4 group-hover:translate-y-0">Update course content just by editing the text.</p>
+                    </div>
+                </div>
 
-      const run = (el) => {
-        const target = Number(el.getAttribute('data-count'));
-        const suffix = el.getAttribute('data-suffix') || '';
-        if (!Number.isFinite(target)) return;
+                <!-- Card 3 -->
+                <div class="group relative overflow-hidden rounded-2xl h-80 cursor-pointer">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-slate-900/50 to-transparent z-10"></div>
+                    <div class="absolute inset-0 bg-slate-800 group-hover:scale-110 transition-transform duration-700">
+                         <div class="w-full h-full bg-[url('https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')] bg-cover bg-center opacity-60"></div>
+                    </div>
+                    <div class="absolute bottom-0 left-0 p-6 z-20">
+                        <span class="text-blue-400 text-xs font-bold uppercase tracking-wider mb-2 block">Marketing</span>
+                        <h3 class="text-xl font-bold text-white">Social Content</h3>
+                        <p class="text-slate-300 text-sm mt-2 opacity-0 group-hover:opacity-100 transition-opacity transform translate-y-4 group-hover:translate-y-0">Be everywhere at once on TikTok, Shorts, and Reels.</p>
+                    </div>
+                </div>
 
-        if (prefersReduced){
-          el.textContent = target + suffix;
-          return;
-        }
+                 <!-- Card 4 -->
+                 <div class="group relative overflow-hidden rounded-2xl h-80 cursor-pointer">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-slate-900/50 to-transparent z-10"></div>
+                    <div class="absolute inset-0 bg-slate-800 group-hover:scale-110 transition-transform duration-700">
+                         <div class="w-full h-full bg-[url('https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')] bg-cover bg-center opacity-60"></div>
+                    </div>
+                    <div class="absolute bottom-0 left-0 p-6 z-20">
+                        <span class="text-teal-400 text-xs font-bold uppercase tracking-wider mb-2 block">Support</span>
+                        <h3 class="text-xl font-bold text-white">Help Articles</h3>
+                        <p class="text-slate-300 text-sm mt-2 opacity-0 group-hover:opacity-100 transition-opacity transform translate-y-4 group-hover:translate-y-0">Turn boring FAQs into engaging video answers.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        const duration = 850;
-        const start = performance.now();
-        const startVal = 0;
+    <!-- CTA Section -->
+    <section id="get-started" class="relative py-24 overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-r from-teal-900/50 to-purple-900/50"></div>
+        <div class="relative max-w-4xl mx-auto px-4 text-center">
+            <h2 class="text-4xl md:text-6xl font-bold mb-6">Ready to scale yourself?</h2>
+            <p class="text-xl text-slate-300 mb-10">Join 10,000+ creators and businesses revolutionizing their video strategy with LeadsToCalls.</p>
+            
+            <form class="max-w-md mx-auto space-y-4" onsubmit="event.preventDefault(); alert('Thanks for joining the waitlist!');">
+                <div class="flex flex-col sm:flex-row gap-3">
+                    <input type="email" placeholder="Enter your work email" class="flex-1 px-5 py-4 bg-white/10 border border-white/20 rounded-lg text-white placeholder:text-slate-400 focus:outline-none focus:bg-white/20 transition-colors" required>
+                    <button type="submit" class="px-8 py-4 bg-white text-slate-900 font-bold rounded-lg hover:bg-teal-50 transition-colors shadow-lg">
+                        Get Early Access
+                    </button>
+                </div>
+                <p class="text-sm text-slate-500">No credit card required. Free trial included.</p>
+            </form>
+        </div>
+    </section>
 
-        function step(now){
-          const t = Math.min(1, (now - start) / duration);
-          const eased = 1 - Math.pow(1 - t, 3);
-          const val = Math.round(startVal + (target - startVal) * eased);
-          el.textContent = val + suffix;
-          if (t < 1) requestAnimationFrame(step);
-        }
-        requestAnimationFrame(step);
-      };
+    <!-- Footer -->
+    <footer class="bg-slate-950 border-t border-slate-800 pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
+                <div class="col-span-1 md:col-span-1">
+                    <span class="brand-font text-2xl font-bold tracking-tighter text-white">LeadsTo<span class="text-teal-400">Calls</span></span>
+                    <p class="mt-4 text-slate-400 text-sm">The world's most advanced AI avatar platform for enterprise and creators.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-white mb-4">Product</h4>
+                    <ul class="space-y-2 text-sm text-slate-400">
+                        <li><a href="#" class="hover:text-teal-400">Avatar Studio</a></li>
+                        <li><a href="#" class="hover:text-teal-400">Voice Cloning</a></li>
+                        <li><a href="#" class="hover:text-teal-400">API Access</a></li>
+                        <li><a href="#" class="hover:text-teal-400">Pricing</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-white mb-4">Resources</h4>
+                    <ul class="space-y-2 text-sm text-slate-400">
+                        <li><a href="#" class="hover:text-teal-400">Blog</a></li>
+                        <li><a href="#" class="hover:text-teal-400">Case Studies</a></li>
+                        <li><a href="#" class="hover:text-teal-400">Help Center</a></li>
+                        <li><a href="#" class="hover:text-teal-400">Community</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-white mb-4">Legal</h4>
+                    <ul class="space-y-2 text-sm text-slate-400">
+                        <li><a href="#" class="hover:text-teal-400">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-teal-400">Terms of Service</a></li>
+                        <li><a href="#" class="hover:text-teal-400">Ethics Guidelines</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-slate-500 text-sm">© 2023 LeadsToCalls Inc. All rights reserved.</p>
+                <div class="flex space-x-6">
+                    <!-- Social icons placeholder -->
+                    <a href="#" class="text-slate-500 hover:text-white">Twitter</a>
+                    <a href="#" class="text-slate-500 hover:text-white">LinkedIn</a>
+                    <a href="#" class="text-slate-500 hover:text-white">GitHub</a>
+                </div>
+            </div>
+        </div>
+    </footer>
 
-      const io = new IntersectionObserver(entries => {
-        for (const e of entries){
-          if (e.isIntersecting){
-            run(e.target);
-            io.unobserve(e.target);
-          }
-        }
-      }, { threshold: 0.4 });
+    <script>
+        // Simple script for the demo playback simulation
+        const playBtn = document.getElementById('play-button-overlay');
+        const mouth = document.getElementById('avatar-mouth');
+        let isPlaying = false;
+        let animationInterval;
 
-      counters.forEach(c => io.observe(c));
-    }
-    animateCounters();
+        playBtn.addEventListener('click', () => {
+            if(isPlaying) return;
+            isPlaying = true;
+            
+            // Hide play button
+            playBtn.style.opacity = '0';
+            
+            // Simulate speaking
+            animationInterval = setInterval(() => {
+                const height = Math.random() * 15 + 2; // Random mouth opening
+                mouth.style.height = `${height}px`;
+            }, 100);
 
-    // Form submit -> email (via FormSubmit) with fallback to mailto
-    const form = document.getElementById('leadForm');
-    const formError = document.getElementById('formError');
-    const submitBtn = document.getElementById('submitBtn');
-    const subjectField = document.getElementById('subjectField');
-    const replytoField = document.getElementById('replytoField');
-
-    function validateEmail(v){
-      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(v).trim());
-    }
-
-    function buildMailtoFallback({ name, company, email, service, location, budget, website, message }){
-      const subject = `Free audit request — ${service} in ${location}`;
-      const lines = [
-        `Name: ${name}`,
-        company ? `Business: ${company}` : null,
-        `Email: ${email}`,
-        `Service: ${service}`,
-        `Location: ${location}`,
-        budget ? `Ad spend: ${budget}` : null,
-        website ? `Website: ${website}` : null,
-        '',
-        'Goals / notes:',
-        message
-      ].filter(Boolean);
-
-      const body = lines.join('\n');
-      return `mailto:${encodeURIComponent(EMAIL)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    }
-
-    form?.addEventListener('submit', async (ev) => {
-      ev.preventDefault();
-      formError.classList.add('hidden');
-      formError.textContent = '';
-
-      const payload = {
-        name: document.getElementById('name').value.trim(),
-        company: document.getElementById('company').value.trim(),
-        email: document.getElementById('email').value.trim(),
-        service: document.getElementById('service').value.trim(),
-        location: document.getElementById('location').value.trim(),
-        budget: document.getElementById('budget').value.trim(),
-        website: document.getElementById('website').value.trim(),
-        message: document.getElementById('message').value.trim(),
-      };
-
-      const missing = [];
-      if (!payload.name) missing.push('Name');
-      if (!payload.email) missing.push('Email');
-      if (payload.email && !validateEmail(payload.email)) missing.push('Valid email');
-      if (!payload.service) missing.push('Service');
-      if (!payload.location) missing.push('Location');
-      if (!payload.message) missing.push('Message');
-
-      if (missing.length){
-        formError.textContent = 'Please provide: ' + missing.join(', ') + '.';
-        formError.classList.remove('hidden');
-        return;
-      }
-
-      // Configure hidden fields for email delivery
-      subjectField.value = `Free audit request — ${payload.service} in ${payload.location}`;
-      replytoField.value = payload.email;
-
-      const fallbackUrl = buildMailtoFallback(payload);
-
-      // Send via FormSubmit (AJAX)
-      const fd = new FormData(form);
-
-      try{
-        submitBtn.disabled = true;
-        submitBtn.textContent = 'Sending…';
-        toast('Sending your enquiry…');
-
-        const res = await fetch(form.action, {
-          method: 'POST',
-          body: fd,
-          headers: { 'Accept': 'application/json' }
+            // Reset after 5 seconds
+            setTimeout(() => {
+                clearInterval(animationInterval);
+                mouth.style.height = '4px';
+                playBtn.style.opacity = '1';
+                isPlaying = false;
+            }, 5000);
         });
 
-        if (!res.ok){
-          let extra = '';
-          try{
-            const data = await res.json();
-            if (data && data.message) extra = ` (${data.message})`;
-          } catch (e){}
-          throw new Error('Send failed' + extra);
-        }
-
-        toast('Sent! We’ll reply shortly.');
-        form.reset();
-      } catch (err){
-        // Fallback to mailto
-        formError.textContent = 'We could not send your enquiry automatically. Opening a pre-filled email instead…';
-        formError.classList.remove('hidden');
-        window.location.href = fallbackUrl;
-      } finally {
-        submitBtn.disabled = false;
-        submitBtn.textContent = 'Send audit request';
-      }
-    });
-
-    // Improve details UX: only one open at a time (FAQ)
-    const faqDetails = Array.from(document.querySelectorAll('#faq details'));
-    faqDetails.forEach(d => d.addEventListener('toggle', () => {
-      if (d.open){
-        faqDetails.forEach(other => { if (other !== d) other.open = false; });
-      }
-    }));
-
-    // Lightweight smooth scroll for Safari older behaviors
-    document.querySelectorAll('a[href^="#"]').forEach(a => {
-      a.addEventListener('click', (e) => {
-        const id = a.getAttribute('href');
-        if (!id || id === '#') return;
-        const el = document.querySelector(id);
-        if (!el) return;
-        e.preventDefault();
-        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        history.pushState(null, '', id);
-      });
-    });
-  </script>
+        // Add scroll reveal effect
+        document.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('shadow-lg');
+            } else {
+                nav.classList.remove('shadow-lg');
+            }
+        });
+    </script>
 </body>
 </html>
+
 
 
 
