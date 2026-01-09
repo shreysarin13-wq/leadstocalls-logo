@@ -1,442 +1,1040 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LeadsToCalls | AI Avatar Clones</title>
+    <title>leadstocalls | AI-Powered Websites & Lead System for Garden Room Builders</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+        
+        .font-space { font-family: 'Space Grotesk', sans-serif; }
+        .font-inter { font-family: 'Inter', sans-serif; }
+        
+        :root {
+            --primary: #6366f1;
+            --primary-light: #818cf8;
+            --accent: #22c55e;
+        }
+        
         body {
-            font-family: 'Inter', sans-serif;
+            background: #05050a;
         }
-        h1, h2, h3, .brand-font {
-            font-family: 'Space Grotesk', sans-serif;
-        }
+        
         .gradient-text {
-            background: linear-gradient(to right, #a78bfa, #2dd4bf);
+            background: linear-gradient(135deg, #6366f1 0%, #22c55e 50%, #06b6d4 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
-        .hero-glow {
-            box-shadow: 0 0 100px 20px rgba(139, 92, 246, 0.3);
+        
+        .gradient-text-alt {
+            background: linear-gradient(135deg, #f97316 0%, #eab308 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
-        .grid-bg {
-            background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px);
-            background-size: 40px 40px;
+        
+        .hero-gradient {
+            background: 
+                radial-gradient(ellipse 100% 80% at 50% -30%, rgba(99, 102, 241, 0.15) 0%, transparent 60%),
+                radial-gradient(ellipse 60% 50% at 80% 50%, rgba(34, 197, 94, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse 60% 50% at 20% 80%, rgba(6, 182, 212, 0.08) 0%, transparent 50%);
         }
-        /* Custom animation for the "scanning" effect */
-        @keyframes scan {
-            0% { top: 0%; opacity: 0; }
-            10% { opacity: 1; }
-            90% { opacity: 1; }
-            100% { top: 100%; opacity: 0; }
+        
+        .card-dark {
+            background: linear-gradient(135deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%);
+            border: 1px solid rgba(255,255,255,0.06);
+            backdrop-filter: blur(10px);
         }
-        .scanner-line {
-            animation: scan 3s ease-in-out infinite;
+        
+        .card-dark:hover {
+            border-color: rgba(99, 102, 241, 0.3);
+            background: linear-gradient(135deg, rgba(99,102,241,0.05) 0%, rgba(255,255,255,0.02) 100%);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+            box-shadow: 0 0 30px rgba(99, 102, 241, 0.4), inset 0 1px 0 rgba(255,255,255,0.1);
+        }
+        .btn-primary:hover {
+            box-shadow: 0 0 50px rgba(99, 102, 241, 0.6), inset 0 1px 0 rgba(255,255,255,0.1);
+            transform: translateY(-2px);
+        }
+        
+        .btn-accent {
+            background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+            box-shadow: 0 0 30px rgba(34, 197, 94, 0.4);
+        }
+        .btn-accent:hover {
+            box-shadow: 0 0 50px rgba(34, 197, 94, 0.6);
+            transform: translateY(-2px);
+        }
+        
+        .glow-border {
+            position: relative;
+        }
+        .glow-border::before {
+            content: '';
+            position: absolute;
+            inset: -1px;
+            background: linear-gradient(135deg, #6366f1, #22c55e, #06b6d4);
+            border-radius: inherit;
+            z-index: -1;
+            opacity: 0.5;
+            filter: blur(10px);
+        }
+        
+        .system-flow {
+            background: linear-gradient(90deg, rgba(99,102,241,0.1) 0%, rgba(34,197,94,0.1) 50%, rgba(6,182,212,0.1) 100%);
+        }
+        
+        .feature-icon {
+            background: linear-gradient(135deg, rgba(99,102,241,0.2) 0%, rgba(99,102,241,0.05) 100%);
+        }
+        
+        .ai-pulse {
+            animation: aiPulse 3s ease-in-out infinite;
+        }
+        @keyframes aiPulse {
+            0%, 100% { box-shadow: 0 0 20px rgba(34, 197, 94, 0.3); }
+            50% { box-shadow: 0 0 40px rgba(34, 197, 94, 0.6); }
+        }
+        
+        .float-slow {
+            animation: floatSlow 8s ease-in-out infinite;
+        }
+        @keyframes floatSlow {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(1deg); }
+        }
+        
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .typing-cursor::after {
+            content: '|';
+            animation: blink 1s infinite;
+        }
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+        
+        .chat-bubble {
+            animation: slideIn 0.5s ease-out forwards;
+            opacity: 0;
+        }
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .streak {
+            background: linear-gradient(90deg, transparent, rgba(99,102,241,0.3), transparent);
+            height: 1px;
+        }
+        
+        .noise {
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+            opacity: 0.03;
         }
     </style>
 </head>
-<body class="bg-slate-950 text-white overflow-x-hidden selection:bg-teal-500 selection:text-white">
-
+<body class="font-inter text-gray-300 antialiased overflow-x-hidden">
+    <!-- Noise overlay -->
+    <div class="fixed inset-0 noise pointer-events-none z-50"></div>
+    
     <!-- Navigation -->
-    <nav class="fixed w-full z-50 bg-slate-950/80 backdrop-blur-md border-b border-slate-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-20">
-                <div class="flex items-center">
-                    <div class="flex-shrink-0 cursor-pointer" onclick="window.scrollTo(0,0)">
-                        <span class="brand-font text-2xl font-bold tracking-tighter text-white">LeadsTo<span class="text-teal-400">Calls</span></span>
+    <nav class="fixed w-full z-40 py-4">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="card-dark rounded-2xl px-6 py-3 flex items-center justify-between">
+                <a href="#" class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-gradient-to-br from-indigo-500 to-green-500 rounded-xl flex items-center justify-center">
+                        <i class="fas fa-bolt text-white text-sm"></i>
                     </div>
-                    <div class="hidden md:block">
-                        <div class="ml-10 flex items-baseline space-x-4">
-                            <a href="#features" class="hover:text-teal-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">Features</a>
-                            <a href="#how-it-works" class="hover:text-teal-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">How it Works</a>
-                            <a href="#showcase" class="hover:text-teal-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">Showcase</a>
-                        </div>
-                    </div>
+                    <span class="font-space text-xl font-bold text-white">leadstocalls</span>
+                </a>
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="#system" class="text-gray-400 hover:text-white transition text-sm">The System</a>
+                    <a href="#features" class="text-gray-400 hover:text-white transition text-sm">Features</a>
+                    <a href="#demo" class="text-gray-400 hover:text-white transition text-sm">See It Work</a>
+                    <a href="#results" class="text-gray-400 hover:text-white transition text-sm">Results</a>
                 </div>
-                <div>
-                    <a href="#get-started" class="bg-teal-500 hover:bg-teal-400 text-slate-900 px-5 py-2.5 rounded-full font-bold text-sm transition-all transform hover:scale-105 shadow-[0_0_15px_rgba(45,212,191,0.5)]">
-                        Clone Yourself
-                    </a>
-                </div>
+                <a href="#cta" class="hidden md:flex btn-primary text-white px-5 py-2.5 rounded-full font-medium text-sm transition-all duration-300">
+                    Book Demo <i class="fas fa-arrow-right ml-2 text-xs"></i>
+                </a>
+                <button id="mobile-toggle" class="md:hidden text-white text-xl">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden mx-6 mt-2">
+            <div class="card-dark rounded-2xl p-6">
+                <a href="#system" class="block py-3 text-gray-300 hover:text-white">The System</a>
+                <a href="#features" class="block py-3 text-gray-300 hover:text-white">Features</a>
+                <a href="#demo" class="block py-3 text-gray-300 hover:text-white">See It Work</a>
+                <a href="#results" class="block py-3 text-gray-300 hover:text-white">Results</a>
+                <a href="#cta" class="btn-primary block text-center text-white px-5 py-3 rounded-full font-medium mt-4">Book Demo</a>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <div class="relative pt-32 pb-20 sm:pt-40 sm:pb-24 grid-bg">
-        <div class="absolute inset-0 overflow-hidden pointer-events-none">
-            <div class="absolute -top-[20%] left-[20%] w-[500px] h-[500px] bg-purple-600/20 rounded-full blur-3xl"></div>
-            <div class="absolute top-[10%] right-[10%] w-[400px] h-[400px] bg-teal-500/20 rounded-full blur-3xl"></div>
-        </div>
-
-        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <div class="inline-flex items-center px-3 py-1 rounded-full border border-slate-700 bg-slate-900/50 backdrop-blur-sm mb-6">
-                <span class="flex h-2 w-2 rounded-full bg-teal-400 mr-2 animate-pulse"></span>
-                <span class="text-xs font-medium text-slate-300">New: Voice Cloning V2.0 Available</span>
-            </div>
-            
-            <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight mb-6">
-                Scale Your Presence with <br />
-                <span class="gradient-text">AI Digital Twins</span>
-            </h1>
-            
-            <p class="mt-4 max-w-2xl mx-auto text-xl text-slate-400">
-                Create a photorealistic AI avatar that looks and sounds exactly like you. Generate thousands of personalized sales videos in minutes, not months.
-            </p>
-
-            <div class="mt-10 flex justify-center gap-4">
-                <a href="#get-started" class="px-8 py-4 bg-white text-slate-900 rounded-lg font-bold hover:bg-slate-200 transition-colors">
-                    Start Creating Free
-                </a>
-                <a href="#how-it-works" class="px-8 py-4 border border-slate-700 bg-slate-900/50 text-white rounded-lg font-medium hover:border-slate-500 transition-colors backdrop-blur-sm">
-                    View Demo
-                </a>
-            </div>
-
-            <!-- Fake Video Player Interface -->
-            <div class="mt-16 relative mx-auto max-w-4xl rounded-xl border border-slate-800 bg-slate-900/80 shadow-2xl hero-glow overflow-hidden group">
-                <div class="aspect-video relative bg-slate-800 flex items-center justify-center overflow-hidden">
-                    <!-- Placeholder "Video" Content -->
-                    <div class="absolute inset-0 bg-gradient-to-br from-slate-900 to-slate-800">
-                        <!-- Abstract Avatar Representation -->
-                        <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-64 h-80 bg-slate-700 rounded-t-full opacity-50 blur-sm"></div>
-                        <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-60 h-72 bg-gradient-to-b from-slate-600 to-slate-800 rounded-t-full flex flex-col items-center pt-10">
-                            <!-- Face -->
-                            <div class="w-32 h-40 bg-[#d1a893] rounded-3xl relative overflow-hidden shadow-lg">
-                                <!-- Eyes -->
-                                <div class="absolute top-14 left-6 w-6 h-2 bg-slate-800/20 rounded-full"></div>
-                                <div class="absolute top-14 right-6 w-6 h-2 bg-slate-800/20 rounded-full"></div>
-                                <!-- Mouth -->
-                                <div class="absolute bottom-8 left-1/2 -translate-x-1/2 w-10 h-1 bg-red-400/50 rounded-full transition-all duration-100" id="avatar-mouth"></div>
-                                
-                                <!-- Scanning Effect Overlay -->
-                                <div class="absolute inset-0 w-full h-[2px] bg-teal-400/80 shadow-[0_0_10px_#2dd4bf] scanner-line"></div>
-                            </div>
-                            <!-- Shoulders -->
-                            <div class="mt-2 w-52 h-20 bg-slate-900 rounded-t-3xl"></div>
-                        </div>
+    <section class="relative min-h-screen flex items-center hero-gradient">
+        <div class="max-w-6xl mx-auto px-6 pt-32 pb-20">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="fade-up">
+                    <div class="inline-flex items-center gap-2 bg-indigo-500/10 border border-indigo-500/20 rounded-full px-4 py-2 mb-6">
+                        <i class="fas fa-microchip text-indigo-400 text-xs"></i>
+                        <span class="text-sm text-indigo-300">AI-Powered Lead Generation</span>
                     </div>
-
-                    <!-- Overlay UI -->
-                    <div class="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/10 transition-all cursor-pointer" id="play-button-overlay">
-                        <div class="w-20 h-20 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center border border-white/20 hover:scale-110 transition-transform">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8 text-white ml-1">
-                                <path fill-rule="evenodd" d="M4.5 5.653c0-1.426 1.529-2.33 2.779-1.643l11.54 6.348c1.295.712 1.295 2.573 0 3.285L7.28 19.991c-1.25.687-2.779-.217-2.779-1.643V5.653z" clip-rule="evenodd" />
-                            </svg>
-                        </div>
-                    </div>
-
-                    <!-- Floating Elements -->
-                    <div class="absolute top-6 right-6 bg-black/60 backdrop-blur-md px-3 py-1 rounded-md border border-white/10 text-xs text-teal-400 font-mono">
-                        AI CONFIDENCE: 99.8%
-                    </div>
-                    <div class="absolute bottom-6 left-6 bg-black/60 backdrop-blur-md px-4 py-2 rounded-lg border border-white/10 flex items-center gap-3">
-                        <div class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></div>
-                        <div class="text-sm font-medium">Processing Audio Input...</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Logos Section -->
-    <div class="py-10 border-y border-slate-800 bg-slate-900/50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <p class="text-center text-sm font-medium text-slate-500 uppercase tracking-widest mb-6">Trusted by innovative teams</p>
-            <div class="flex flex-wrap justify-center gap-8 md:gap-16 opacity-50 grayscale hover:grayscale-0 transition-all duration-500">
-                <!-- Simple Text Placeholders for Logos -->
-                <h3 class="text-xl font-bold text-white">TECHFLOW</h3>
-                <h3 class="text-xl font-bold text-white">NEXUS</h3>
-                <h3 class="text-xl font-bold text-white">GLOBEX</h3>
-                <h3 class="text-xl font-bold text-white">UMBRELLA</h3>
-                <h3 class="text-xl font-bold text-white">CYBERDYNE</h3>
-            </div>
-        </div>
-    </div>
-
-    <!-- Features Section -->
-    <section id="features" class="py-24 relative">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-5xl font-bold mb-4">Why choose LeadsToCalls?</h2>
-                <p class="text-slate-400 max-w-2xl mx-auto">Our proprietary engine renders frames 10x faster than competitors with indistinguishable human likeness.</p>
-            </div>
-
-            <div class="grid md:grid-cols-3 gap-8">
-                <!-- Feature 1 -->
-                <div class="bg-slate-900 border border-slate-800 p-8 rounded-2xl hover:border-teal-500/50 transition-colors group">
-                    <div class="w-12 h-12 bg-slate-800 rounded-lg flex items-center justify-center mb-6 group-hover:bg-teal-500/20 group-hover:text-teal-400 transition-colors">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Hyper-Realism</h3>
-                    <p class="text-slate-400">Our avatars capture micro-expressions, blinks, and subtle movements that make them pass the Turing test visually.</p>
-                </div>
-
-                <!-- Feature 2 -->
-                <div class="bg-slate-900 border border-slate-800 p-8 rounded-2xl hover:border-purple-500/50 transition-colors group">
-                    <div class="w-12 h-12 bg-slate-800 rounded-lg flex items-center justify-center mb-6 group-hover:bg-purple-500/20 group-hover:text-purple-400 transition-colors">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 21l5.25-11.25L21 21m-9-3h7.5M3 5.621a48.474 48.474 0 016-.371m0 0c1.12 0 2.233.038 3.334.114M9 5.25V3m3.334 2.364C11.176 10.658 7.69 15.08 3 17.502m9.334-12.138c.896.061 1.785.147 2.666.257m-4.589 8.495a18.023 18.023 0 01-3.827-5.802" />
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">120+ Languages</h3>
-                    <p class="text-slate-400">Speak to your global audience in their native tongue. Our AI automatically dubs and lip-syncs your avatar perfectly.</p>
-                </div>
-
-                <!-- Feature 3 -->
-                <div class="bg-slate-900 border border-slate-800 p-8 rounded-2xl hover:border-blue-500/50 transition-colors group">
-                    <div class="w-12 h-12 bg-slate-800 rounded-lg flex items-center justify-center mb-6 group-hover:bg-blue-500/20 group-hover:text-blue-400 transition-colors">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Instant Rendering</h3>
-                    <p class="text-slate-400">Generate a 5-minute video in under 30 seconds. Scale your content production without scaling your team.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- How It Works -->
-    <section id="how-it-works" class="py-24 bg-slate-900 border-y border-slate-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid md:grid-cols-2 gap-16 items-center">
-                <div>
-                    <h2 class="text-3xl md:text-5xl font-bold mb-6">Clone yourself in <br /><span class="text-teal-400">3 simple steps</span></h2>
-                    <p class="text-slate-400 text-lg mb-8">No studio, no green screen, no expensive equipment required. Just you and your webcam.</p>
                     
-                    <div class="space-y-8">
-                        <div class="flex gap-4">
-                            <div class="flex-shrink-0 w-8 h-8 rounded-full bg-teal-500/10 text-teal-400 flex items-center justify-center font-bold border border-teal-500/20">1</div>
-                            <div>
-                                <h4 class="text-xl font-bold text-white mb-2">Record 2 minutes of video</h4>
-                                <p class="text-slate-400 text-sm">Read our calibration script so our AI can learn your voice and facial movements.</p>
-                            </div>
+                    <h1 class="font-space text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
+                        Websites That Sell.
+                        <span class="gradient-text">AI That Converts.</span>
+                    </h1>
+                    
+                    <p class="text-lg text-gray-400 mb-8 leading-relaxed">
+                        The complete system for garden room builders: a stunning website, AI-powered lead generation, and automated follow-ups that turn visitors into paying customers — on autopilot.
+                    </p>
+                    
+                    <div class="flex flex-wrap gap-4 mb-10">
+                        <a href="#demo" class="btn-primary text-white px-8 py-4 rounded-full font-semibold text-lg flex items-center gap-2 transition-all duration-300">
+                            <span>Watch Demo</span>
+                            <i class="fas fa-play text-sm"></i>
+                        </a>
+                        <a href="#system" class="bg-white/5 border border-white/10 text-white px-8 py-4 rounded-full font-semibold hover:bg-white/10 transition">
+                            How It Works
+                        </a>
+                    </div>
+                    
+                    <!-- Mini stats -->
+                    <div class="flex flex-wrap gap-8 pt-8 border-t border-white/10">
+                        <div>
+                            <div class="font-space text-2xl font-bold text-white">3x</div>
+                            <div class="text-gray-500 text-sm">More Leads</div>
                         </div>
-                        <div class="flex gap-4">
-                            <div class="flex-shrink-0 w-8 h-8 rounded-full bg-purple-500/10 text-purple-400 flex items-center justify-center font-bold border border-purple-500/20">2</div>
-                            <div>
-                                <h4 class="text-xl font-bold text-white mb-2">AI Training</h4>
-                                <p class="text-slate-400 text-sm">Our engines process your data securely. In 24 hours, your digital twin is ready.</p>
-                            </div>
+                        <div>
+                            <div class="font-space text-2xl font-bold text-white">24/7</div>
+                            <div class="text-gray-500 text-sm">AI Working</div>
                         </div>
-                        <div class="flex gap-4">
-                            <div class="flex-shrink-0 w-8 h-8 rounded-full bg-blue-500/10 text-blue-400 flex items-center justify-center font-bold border border-blue-500/20">3</div>
-                            <div>
-                                <h4 class="text-xl font-bold text-white mb-2">Type text, get video</h4>
-                                <p class="text-slate-400 text-sm">Simply type your script, choose your avatar, and click generate. It's magic.</p>
-                            </div>
+                        <div>
+                            <div class="font-space text-2xl font-bold text-white">85%</div>
+                            <div class="text-gray-500 text-sm">Response Rate</div>
                         </div>
                     </div>
                 </div>
                 
-                <div class="relative">
-                    <div class="absolute inset-0 bg-gradient-to-r from-teal-500 to-purple-600 rounded-2xl blur-lg opacity-30 transform rotate-3"></div>
-                    <div class="relative bg-slate-950 border border-slate-800 rounded-2xl p-6 shadow-xl">
-                        <!-- Interface Mockup -->
-                        <div class="flex items-center gap-2 mb-4 border-b border-slate-800 pb-4">
-                            <div class="w-3 h-3 rounded-full bg-red-500"></div>
-                            <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
-                            <div class="w-3 h-3 rounded-full bg-green-500"></div>
-                            <div class="ml-auto text-xs text-slate-500">LeadsToCalls Studio</div>
+                <!-- Hero Visual - System Diagram -->
+                <div class="relative fade-up float-slow">
+                    <div class="card-dark rounded-3xl p-6 border border-white/10">
+                        <!-- Website mockup at top -->
+                        <div class="bg-gray-900 rounded-xl p-2 mb-4">
+                            <div class="flex gap-1.5 mb-2">
+                                <div class="w-2 h-2 rounded-full bg-red-500"></div>
+                                <div class="w-2 h-2 rounded-full bg-yellow-500"></div>
+                                <div class="w-2 h-2 rounded-full bg-green-500"></div>
+                            </div>
+                            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80" alt="Website" class="rounded-lg w-full h-32 object-cover">
                         </div>
-                        <div class="space-y-4">
-                            <div class="h-40 bg-slate-900 rounded-lg border border-slate-800 flex items-center justify-center relative overflow-hidden">
-                                <span class="text-slate-600 text-sm">Avatar Preview Area</span>
-                                <div class="absolute bottom-4 right-4 w-24 h-32 bg-slate-800 rounded-lg opacity-50"></div>
+                        
+                        <!-- Flow arrows -->
+                        <div class="flex justify-center my-3">
+                            <div class="flex flex-col items-center">
+                                <i class="fas fa-arrow-down text-indigo-500"></i>
+                                <span class="text-xs text-gray-500 mt-1">Visitor arrives</span>
                             </div>
-                            <div class="space-y-2">
-                                <label class="text-xs font-bold text-slate-400 uppercase">Script Input</label>
-                                <textarea class="w-full bg-slate-900 border border-slate-800 rounded-lg p-3 text-sm text-slate-300 h-24 focus:outline-none focus:border-teal-500 transition-colors" placeholder="Hello everyone, I'm excited to announce..."></textarea>
+                        </div>
+                        
+                        <!-- AI Lead Capture -->
+                        <div class="bg-gradient-to-r from-indigo-500/10 to-green-500/10 rounded-xl p-4 border border-indigo-500/20 mb-3">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 bg-indigo-500/20 rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-robot text-indigo-400"></i>
+                                </div>
+                                <div class="flex-1">
+                                    <div class="text-white text-sm font-medium">AI Lead Capture</div>
+                                    <div class="text-gray-500 text-xs">Smart forms + Chat widget</div>
+                                </div>
+                                <div class="ai-pulse w-3 h-3 bg-green-500 rounded-full"></div>
                             </div>
-                            <button class="w-full bg-teal-600 hover:bg-teal-500 text-white font-bold py-3 rounded-lg transition-colors flex items-center justify-center gap-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z" />
-                                </svg>
-                                Generate Video
+                        </div>
+                        
+                        <!-- Flow arrows -->
+                        <div class="flex justify-center my-3">
+                            <div class="flex flex-col items-center">
+                                <i class="fas fa-arrow-down text-green-500"></i>
+                                <span class="text-xs text-gray-500 mt-1">Lead captured</span>
+                            </div>
+                        </div>
+                        
+                        <!-- AI Follow-up -->
+                        <div class="bg-gradient-to-r from-green-500/10 to-cyan-500/10 rounded-xl p-4 border border-green-500/20">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 bg-green-500/20 rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-paper-plane text-green-400"></i>
+                                </div>
+                                <div class="flex-1">
+                                    <div class="text-white text-sm font-medium">AI Follow-Up</div>
+                                    <div class="text-gray-500 text-xs">SMS + Email sequences</div>
+                                </div>
+                                <div class="ai-pulse w-3 h-3 bg-green-500 rounded-full"></div>
+                            </div>
+                        </div>
+                        
+                        <!-- Result -->
+                        <div class="mt-4 text-center">
+                            <div class="inline-flex items-center gap-2 bg-green-500/20 px-4 py-2 rounded-full">
+                                <i class="fas fa-check-circle text-green-500"></i>
+                                <span class="text-green-400 text-sm font-medium">Booked Appointment</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trusted By -->
+    <section class="py-12 border-y border-white/5">
+        <div class="max-w-6xl mx-auto px-6">
+            <p class="text-center text-gray-600 text-sm mb-6">POWERING GROWTH FOR GARDEN ROOM COMPANIES</p>
+            <div class="flex flex-wrap justify-center items-center gap-x-12 gap-y-4 opacity-40">
+                <div class="font-space text-lg text-white font-bold">GardenSpace Pro</div>
+                <div class="font-space text-lg text-white font-bold">ModernPods UK</div>
+                <div class="font-space text-lg text-white font-bold">RoomOutside</div>
+                <div class="font-space text-lg text-white font-bold">Premium Gardens</div>
+                <div class="font-space text-lg text-white font-bold">BuildPod Co</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The System -->
+    <section id="system" class="py-24">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16 fade-up">
+                <span class="text-indigo-400 font-medium text-sm uppercase tracking-wider">The Complete System</span>
+                <h2 class="font-space text-3xl md:text-5xl font-bold text-white mt-4 mb-4">Three Parts. One Powerful Engine.</h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">Stop juggling multiple tools. Get everything you need to dominate your local market in one integrated system.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Part 1: Website -->
+                <div class="card-dark rounded-2xl p-8 transition-all duration-300 fade-up group">
+                    <div class="w-14 h-14 bg-gradient-to-br from-indigo-500/20 to-indigo-500/5 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-globe text-2xl text-indigo-400"></i>
+                    </div>
+                    <div class="text-indigo-400 text-sm font-medium mb-2">Part 1</div>
+                    <h3 class="font-space text-xl font-bold text-white mb-3">High-Converting Website</h3>
+                    <p class="text-gray-400 mb-6">Stunning, mobile-first design that showcases your work and turns visitors into enquiries. Built specifically for garden room builders.</p>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-indigo-400"></i> Custom design</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-indigo-400"></i> Mobile optimized</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-indigo-400"></i> SEO ready</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-indigo-400"></i> 48hr delivery</li>
+                    </ul>
+                </div>
+                
+                <!-- Part 2: AI Lead Gen -->
+                <div class="card-dark rounded-2xl p-8 transition-all duration-300 fade-up group relative overflow-hidden">
+                    <div class="absolute top-4 right-4">
+                        <span class="bg-green-500/20 text-green-400 text-xs px-2 py-1 rounded-full">AI Powered</span>
+                    </div>
+                    <div class="w-14 h-14 bg-gradient-to-br from-green-500/20 to-green-500/5 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-magnet text-2xl text-green-400"></i>
+                    </div>
+                    <div class="text-green-400 text-sm font-medium mb-2">Part 2</div>
+                    <h3 class="font-space text-xl font-bold text-white mb-3">AI Lead Generation</h3>
+                    <p class="text-gray-400 mb-6">Smart chat widgets and forms that engage visitors 24/7, qualify leads automatically, and capture contact details effortlessly.</p>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-green-400"></i> AI chat widget</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-green-400"></i> Smart lead forms</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-green-400"></i> Visitor tracking</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-green-400"></i> Lead scoring</li>
+                    </ul>
+                </div>
+                
+                <!-- Part 3: AI Follow-up -->
+                <div class="card-dark rounded-2xl p-8 transition-all duration-300 fade-up group relative overflow-hidden">
+                    <div class="absolute top-4 right-4">
+                        <span class="bg-cyan-500/20 text-cyan-400 text-xs px-2 py-1 rounded-full">AI Powered</span>
+                    </div>
+                    <div class="w-14 h-14 bg-gradient-to-br from-cyan-500/20 to-cyan-500/5 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-robot text-2xl text-cyan-400"></i>
+                    </div>
+                    <div class="text-cyan-400 text-sm font-medium mb-2">Part 3</div>
+                    <h3 class="font-space text-xl font-bold text-white mb-3">AI Follow-Up System</h3>
+                    <p class="text-gray-400 mb-6">Automated SMS and email sequences that nurture leads, book appointments, and follow up persistently until they convert.</p>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-cyan-400"></i> SMS automation</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-cyan-400"></i> Email sequences</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-cyan-400"></i> Calendar booking</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-cyan-400"></i> Never miss a lead</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- System flow -->
+            <div class="mt-16 fade-up">
+                <div class="system-flow rounded-2xl p-8 border border-white/5">
+                    <div class="flex flex-col md:flex-row items-center justify-between gap-8">
+                        <div class="text-center">
+                            <div class="w-16 h-16 bg-indigo-500/20 rounded-full flex items-center justify-center mx-auto mb-3">
+                                <i class="fas fa-user text-indigo-400 text-xl"></i>
+                            </div>
+                            <div class="text-white font-medium">Visitor</div>
+                            <div class="text-gray-500 text-sm">Finds your site</div>
+                        </div>
+                        <i class="fas fa-arrow-right text-gray-600 hidden md:block"></i>
+                        <i class="fas fa-arrow-down text-gray-600 md:hidden"></i>
+                        <div class="text-center">
+                            <div class="w-16 h-16 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-3">
+                                <i class="fas fa-comments text-green-400 text-xl"></i>
+                            </div>
+                            <div class="text-white font-medium">AI Engages</div>
+                            <div class="text-gray-500 text-sm">Captures details</div>
+                        </div>
+                        <i class="fas fa-arrow-right text-gray-600 hidden md:block"></i>
+                        <i class="fas fa-arrow-down text-gray-600 md:hidden"></i>
+                        <div class="text-center">
+                            <div class="w-16 h-16 bg-cyan-500/20 rounded-full flex items-center justify-center mx-auto mb-3">
+                                <i class="fas fa-envelope text-cyan-400 text-xl"></i>
+                            </div>
+                            <div class="text-white font-medium">AI Follows Up</div>
+                            <div class="text-gray-500 text-sm">SMS + Email</div>
+                        </div>
+                        <i class="fas fa-arrow-right text-gray-600 hidden md:block"></i>
+                        <i class="fas fa-arrow-down text-gray-600 md:hidden"></i>
+                        <div class="text-center">
+                            <div class="w-16 h-16 bg-amber-500/20 rounded-full flex items-center justify-center mx-auto mb-3">
+                                <i class="fas fa-calendar-check text-amber-400 text-xl"></i>
+                            </div>
+                            <div class="text-white font-medium">Appointment</div>
+                            <div class="text-gray-500 text-sm">Booked automatically</div>
+                        </div>
+                        <i class="fas fa-arrow-right text-gray-600 hidden md:block"></i>
+                        <i class="fas fa-arrow-down text-gray-600 md:hidden"></i>
+                        <div class="text-center">
+                            <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-3">
+                                <i class="fas fa-pound-sign text-white text-xl"></i>
+                            </div>
+                            <div class="text-white font-medium">You Close</div>
+                            <div class="text-gray-500 text-sm">The deal</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem / Solution -->
+    <section class="py-24 relative">
+        <div class="absolute inset-0 bg-gradient-to-b from-red-500/5 via-transparent to-green-500/5 pointer-events-none"></div>
+        <div class="max-w-6xl mx-auto px-6 relative">
+            <div class="grid lg:grid-cols-2 gap-16">
+                <!-- Problem -->
+                <div class="fade-up">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-10 h-10 bg-red-500/20 rounded-xl flex items-center justify-center">
+                            <i class="fas fa-times text-red-500"></i>
+                        </div>
+                        <span class="text-red-400 font-medium uppercase tracking-wider text-sm">The Problem</span>
+                    </div>
+                    <h3 class="font-space text-2xl md:text-3xl font-bold text-white mb-6">You're Losing Leads Every Single Day</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-4 p-4 bg-red-500/5 rounded-xl border border-red-500/10">
+                            <i class="fas fa-times-circle text-red-500 mt-1"></i>
+                            <p class="text-gray-400">Your website looks outdated and doesn't generate enquiries</p>
+                        </div>
+                        <div class="flex items-start gap-4 p-4 bg-red-500/5 rounded-xl border border-red-500/10">
+                            <i class="fas fa-times-circle text-red-500 mt-1"></i>
+                            <p class="text-gray-400">Visitors leave without a trace — no way to follow up</p>
+                        </div>
+                        <div class="flex items-start gap-4 p-4 bg-red-500/5 rounded-xl border border-red-500/10">
+                            <i class="fas fa-times-circle text-red-500 mt-1"></i>
+                            <p class="text-gray-400">Leads go cold because you're too busy to respond fast</p>
+                        </div>
+                        <div class="flex items-start gap-4 p-4 bg-red-500/5 rounded-xl border border-red-500/10">
+                            <i class="fas fa-times-circle text-red-500 mt-1"></i>
+                            <p class="text-gray-400">Competitors with better systems are stealing your customers</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Solution -->
+                <div class="fade-up">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-10 h-10 bg-green-500/20 rounded-xl flex items-center justify-center">
+                            <i class="fas fa-check text-green-500"></i>
+                        </div>
+                        <span class="text-green-400 font-medium uppercase tracking-wider text-sm">The Solution</span>
+                    </div>
+                    <h3 class="font-space text-2xl md:text-3xl font-bold text-white mb-6">An AI System That Works 24/7</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-4 p-4 bg-green-500/5 rounded-xl border border-green-500/10">
+                            <i class="fas fa-check-circle text-green-500 mt-1"></i>
+                            <p class="text-gray-400">Premium website that matches the quality of your builds</p>
+                        </div>
+                        <div class="flex items-start gap-4 p-4 bg-green-500/5 rounded-xl border border-green-500/10">
+                            <i class="fas fa-check-circle text-green-500 mt-1"></i>
+                            <p class="text-gray-400">AI captures every lead — even at 2am on a Sunday</p>
+                        </div>
+                        <div class="flex items-start gap-4 p-4 bg-green-500/5 rounded-xl border border-green-500/10">
+                            <i class="fas fa-check-circle text-green-500 mt-1"></i>
+                            <p class="text-gray-400">Instant follow-up via SMS & email — no lead goes cold</p>
+                        </div>
+                        <div class="flex items-start gap-4 p-4 bg-green-500/5 rounded-xl border border-green-500/10">
+                            <i class="fas fa-check-circle text-green-500 mt-1"></i>
+                            <p class="text-gray-400">Appointments booked automatically while you focus on building</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Deep Dive -->
+    <section id="features" class="py-24">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16 fade-up">
+                <span class="text-indigo-400 font-medium text-sm uppercase tracking-wider">Features</span>
+                <h2 class="font-space text-3xl md:text-5xl font-bold text-white mt-4">Everything You Need to Win</h2>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="card-dark rounded-2xl p-6 fade-up">
+                    <div class="w-12 h-12 feature-icon rounded-xl flex items-center justify-center mb-4">
+                        <i class="fas fa-paint-brush text-indigo-400"></i>
+                    </div>
+                    <h4 class="text-white font-semibold mb-2">Custom Website Design</h4>
+                    <p class="text-gray-500 text-sm">Bespoke design tailored to your brand. Not a template — a unique site that stands out.</p>
+                </div>
+                
+                <div class="card-dark rounded-2xl p-6 fade-up">
+                    <div class="w-12 h-12 feature-icon rounded-xl flex items-center justify-center mb-4">
+                        <i class="fas fa-comment-dots text-indigo-400"></i>
+                    </div>
+                    <h4 class="text-white font-semibold mb-2">AI Chat Widget</h4>
+                    <p class="text-gray-500 text-sm">Intelligent chatbot that answers questions, qualifies leads, and collects contact info 24/7.</p>
+                </div>
+                
+                <div class="card-dark rounded-2xl p-6 fade-up">
+                    <div class="w-12 h-12 feature-icon rounded-xl flex items-center justify-center mb-4">
+                        <i class="fas fa-sms text-indigo-400"></i>
+                    </div>
+                    <h4 class="text-white font-semibold mb-2">SMS Automation</h4>
+                    <p class="text-gray-500 text-sm">Instant text messages to new leads. 98% open rate means your message gets seen.</p>
+                </div>
+                
+                <div class="card-dark rounded-2xl p-6 fade-up">
+                    <div class="w-12 h-12 feature-icon rounded-xl flex items-center justify-center mb-4">
+                        <i class="fas fa-envelope-open-text text-indigo-400"></i>
+                    </div>
+                    <h4 class="text-white font-semibold mb-2">Email Sequences</h4>
+                    <p class="text-gray-500 text-sm">Multi-step email campaigns that nurture leads over time until they're ready to buy.</p>
+                </div>
+                
+                <div class="card-dark rounded-2xl p-6 fade-up">
+                    <div class="w-12 h-12 feature-icon rounded-xl flex items-center justify-center mb-4">
+                        <i class="fas fa-calendar-alt text-indigo-400"></i>
+                    </div>
+                    <h4 class="text-white font-semibold mb-2">Auto Booking</h4>
+                    <p class="text-gray-500 text-sm">Leads can book site visits directly in your calendar. No back-and-forth needed.</p>
+                </div>
+                
+                <div class="card-dark rounded-2xl p-6 fade-up">
+                    <div class="w-12 h-12 feature-icon rounded-xl flex items-center justify-center mb-4">
+                        <i class="fas fa-chart-line text-indigo-400"></i>
+                    </div>
+                    <h4 class="text-white font-semibold mb-2">Lead Dashboard</h4>
+                    <p class="text-gray-500 text-sm">See all your leads, their status, and conversation history in one simple dashboard.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Section -->
+    <section id="demo" class="py-24 relative">
+        <div class="absolute inset-0 bg-gradient-to-b from-indigo-500/5 to-transparent pointer-events-none"></div>
+        <div class="max-w-6xl mx-auto px-6 relative">
+            <div class="text-center mb-16 fade-up">
+                <span class="text-indigo-400 font-medium text-sm uppercase tracking-wider">See It In Action</span>
+                <h2 class="font-space text-3xl md:text-5xl font-bold text-white mt-4">Watch the AI Work</h2>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <!-- Chat Demo -->
+                <div class="fade-up">
+                    <div class="card-dark rounded-2xl p-6 border border-white/10">
+                        <div class="flex items-center gap-3 mb-6 pb-4 border-b border-white/10">
+                            <div class="w-10 h-10 bg-gradient-to-br from-indigo-500 to-green-500 rounded-full flex items-center justify-center">
+                                <i class="fas fa-robot text-white text-sm"></i>
+                            </div>
+                            <div>
+                                <div class="text-white font-medium">leadstocalls AI</div>
+                                <div class="text-green-400 text-xs flex items-center gap-1">
+                                    <span class="w-2 h-2 bg-green-500 rounded-full"></span> Online
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="space-y-4" id="chat-demo">
+                            <div class="chat-bubble flex gap-3">
+                                <div class="w-8 h-8 bg-indigo-500/20 rounded-full flex items-center justify-center shrink-0">
+                                    <i class="fas fa-robot text-indigo-400 text-xs"></i>
+                                </div>
+                                <div class="bg-white/5 rounded-2xl rounded-tl-none px-4 py-3">
+                                    <p class="text-gray-300 text-sm">Hi! 👋 Interested in a garden room? I can help you get a free quote. What would you use it for?</p>
+                                </div>
+                            </div>
+                            
+                            <div class="chat-bubble flex gap-3 justify-end">
+                                <div class="bg-indigo-500/20 rounded-2xl rounded-tr-none px-4 py-3">
+                                    <p class="text-gray-300 text-sm">Home office, need about 4x3 meters</p>
+                                </div>
+                            </div>
+                            
+                            <div class="chat-bubble flex gap-3">
+                                <div class="w-8 h-8 bg-indigo-500/20 rounded-full flex items-center justify-center shrink-0">
+                                    <i class="fas fa-robot text-indigo-400 text-xs"></i>
+                                </div>
+                                <div class="bg-white/5 rounded-2xl rounded-tl-none px-4 py-3">
+                                    <p class="text-gray-300 text-sm">Perfect! A 4x3m home office is one of our most popular sizes. To send you some designs and pricing, can I grab your email?</p>
+                                </div>
+                            </div>
+                            
+                            <div class="chat-bubble flex gap-3 justify-end">
+                                <div class="bg-indigo-500/20 rounded-2xl rounded-tr-none px-4 py-3">
+                                    <p class="text-gray-300 text-sm">john@email.com</p>
+                                </div>
+                            </div>
+                            
+                            <div class="chat-bubble flex gap-3">
+                                <div class="w-8 h-8 bg-indigo-500/20 rounded-full flex items-center justify-center shrink-0">
+                                    <i class="fas fa-robot text-indigo-400 text-xs"></i>
+                                </div>
+                                <div class="bg-white/5 rounded-2xl rounded-tl-none px-4 py-3">
+                                    <p class="text-gray-300 text-sm">Thanks John! 📧 I'll send that right over. Would you like to book a free site survey?</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-6 flex gap-2">
+                            <input type="text" placeholder="Type a message..." class="flex-1 bg-white/5 border border-white/10 rounded-full px-4 py-2 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-indigo-500">
+                            <button class="w-10 h-10 bg-indigo-500 rounded-full flex items-center justify-center">
+                                <i class="fas fa-paper-plane text-white text-sm"></i>
                             </button>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Showcase/Use Cases -->
-    <section id="showcase" class="py-24">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl md:text-5xl font-bold mb-12 text-center">Infinite Possibilities</h2>
-            
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <!-- Card 1 -->
-                <div class="group relative overflow-hidden rounded-2xl h-80 cursor-pointer">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black via-slate-900/50 to-transparent z-10"></div>
-                    <div class="absolute inset-0 bg-slate-800 group-hover:scale-110 transition-transform duration-700">
-                        <!-- Abstract placeholder -->
-                        <div class="w-full h-full bg-[url('https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')] bg-cover bg-center opacity-60"></div>
+                
+                <!-- SMS Demo -->
+                <div class="fade-up">
+                    <h3 class="font-space text-2xl font-bold text-white mb-6">Instant Follow-Up</h3>
+                    <p class="text-gray-400 mb-8">The moment a lead comes in, our AI fires off personalized follow-up messages — no delay, no leads forgotten.</p>
+                    
+                    <!-- SMS mockup -->
+                    <div class="bg-gray-900 rounded-3xl p-4 border border-white/10 max-w-sm">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="text-gray-400 text-xs">9:41 AM</div>
+                            <div class="flex gap-1">
+                                <i class="fas fa-signal text-gray-400 text-xs"></i>
+                                <i class="fas fa-wifi text-gray-400 text-xs"></i>
+                                <i class="fas fa-battery-full text-gray-400 text-xs"></i>
+                            </div>
+                        </div>
+                        <div class="text-center mb-4">
+                            <div class="text-white text-sm font-medium">Messages</div>
+                            <div class="text-gray-500 text-xs">GardenPro Rooms</div>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="bg-green-500 rounded-2xl rounded-bl-none px-4 py-3 max-w-[80%]">
+                                <p class="text-white text-sm">Hey John! Thanks for your enquiry about a 4x3m home office. I'm Tom from GardenPro. I'd love to pop round for a quick site visit. Would this week work? - Tom 🏡</p>
+                                <p class="text-green-200 text-xs mt-1">Delivered 9:41 AM</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="absolute bottom-0 left-0 p-6 z-20">
-                        <span class="text-teal-400 text-xs font-bold uppercase tracking-wider mb-2 block">Sales</span>
-                        <h3 class="text-xl font-bold text-white">Cold Outreach</h3>
-                        <p class="text-slate-300 text-sm mt-2 opacity-0 group-hover:opacity-100 transition-opacity transform translate-y-4 group-hover:translate-y-0">Personalize thousands of videos for every prospect.</p>
-                    </div>
-                </div>
-
-                <!-- Card 2 -->
-                <div class="group relative overflow-hidden rounded-2xl h-80 cursor-pointer">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black via-slate-900/50 to-transparent z-10"></div>
-                    <div class="absolute inset-0 bg-slate-800 group-hover:scale-110 transition-transform duration-700">
-                         <div class="w-full h-full bg-[url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')] bg-cover bg-center opacity-60"></div>
-                    </div>
-                    <div class="absolute bottom-0 left-0 p-6 z-20">
-                        <span class="text-purple-400 text-xs font-bold uppercase tracking-wider mb-2 block">L&D</span>
-                        <h3 class="text-xl font-bold text-white">Training Modules</h3>
-                        <p class="text-slate-300 text-sm mt-2 opacity-0 group-hover:opacity-100 transition-opacity transform translate-y-4 group-hover:translate-y-0">Update course content just by editing the text.</p>
-                    </div>
-                </div>
-
-                <!-- Card 3 -->
-                <div class="group relative overflow-hidden rounded-2xl h-80 cursor-pointer">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black via-slate-900/50 to-transparent z-10"></div>
-                    <div class="absolute inset-0 bg-slate-800 group-hover:scale-110 transition-transform duration-700">
-                         <div class="w-full h-full bg-[url('https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')] bg-cover bg-center opacity-60"></div>
-                    </div>
-                    <div class="absolute bottom-0 left-0 p-6 z-20">
-                        <span class="text-blue-400 text-xs font-bold uppercase tracking-wider mb-2 block">Marketing</span>
-                        <h3 class="text-xl font-bold text-white">Social Content</h3>
-                        <p class="text-slate-300 text-sm mt-2 opacity-0 group-hover:opacity-100 transition-opacity transform translate-y-4 group-hover:translate-y-0">Be everywhere at once on TikTok, Shorts, and Reels.</p>
-                    </div>
-                </div>
-
-                 <!-- Card 4 -->
-                 <div class="group relative overflow-hidden rounded-2xl h-80 cursor-pointer">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black via-slate-900/50 to-transparent z-10"></div>
-                    <div class="absolute inset-0 bg-slate-800 group-hover:scale-110 transition-transform duration-700">
-                         <div class="w-full h-full bg-[url('https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')] bg-cover bg-center opacity-60"></div>
-                    </div>
-                    <div class="absolute bottom-0 left-0 p-6 z-20">
-                        <span class="text-teal-400 text-xs font-bold uppercase tracking-wider mb-2 block">Support</span>
-                        <h3 class="text-xl font-bold text-white">Help Articles</h3>
-                        <p class="text-slate-300 text-sm mt-2 opacity-0 group-hover:opacity-100 transition-opacity transform translate-y-4 group-hover:translate-y-0">Turn boring FAQs into engaging video answers.</p>
+                    
+                    <div class="mt-8 space-y-4">
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 bg-green-500/20 rounded-full flex items-center justify-center">
+                                <i class="fas fa-bolt text-green-400 text-sm"></i>
+                            </div>
+                            <span class="text-gray-300">Sent within 60 seconds</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 bg-green-500/20 rounded-full flex items-center justify-center">
+                                <i class="fas fa-user text-green-400 text-sm"></i>
+                            </div>
+                            <span class="text-gray-300">Personalized with their details</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 bg-green-500/20 rounded-full flex items-center justify-center">
+                                <i class="fas fa-redo text-green-400 text-sm"></i>
+                            </div>
+                            <span class="text-gray-300">Auto follow-up if no reply</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA Section -->
-    <section id="get-started" class="relative py-24 overflow-hidden">
-        <div class="absolute inset-0 bg-gradient-to-r from-teal-900/50 to-purple-900/50"></div>
-        <div class="relative max-w-4xl mx-auto px-4 text-center">
-            <h2 class="text-4xl md:text-6xl font-bold mb-6">Ready to scale yourself?</h2>
-            <p class="text-xl text-slate-300 mb-10">Join 10,000+ creators and businesses revolutionizing their video strategy with LeadsToCalls.</p>
+    <!-- Testimonials -->
+    <section class="py-24">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16 fade-up">
+                <span class="text-indigo-400 font-medium text-sm uppercase tracking-wider">Results</span>
+                <h2 class="font-space text-3xl md:text-5xl font-bold text-white mt-4">What Our Clients Say</h2>
+            </div>
             
-            <form class="max-w-md mx-auto space-y-4" onsubmit="event.preventDefault(); alert('Thanks for joining the waitlist!');">
-                <div class="flex flex-col sm:flex-row gap-3">
-                    <input type="email" placeholder="Enter your work email" class="flex-1 px-5 py-4 bg-white/10 border border-white/20 rounded-lg text-white placeholder:text-slate-400 focus:outline-none focus:bg-white/20 transition-colors" required>
-                    <button type="submit" class="px-8 py-4 bg-white text-slate-900 font-bold rounded-lg hover:bg-teal-50 transition-colors shadow-lg">
-                        Get Early Access
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="card-dark rounded-2xl p-6 border border-white/10 fade-up">
+                    <div class="flex text-amber-400 mb-4 text-sm">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-300 mb-6">"The AI follow-up is a game changer. I was losing so many leads by not responding fast enough. Now they get a text within a minute. Booked 8 jobs last month from leads that came in after hours."</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-gradient-to-br from-indigo-500 to-purple-500 rounded-full flex items-center justify-center text-white font-bold text-sm">JT</div>
+                        <div>
+                            <div class="text-white font-medium text-sm">James Turner</div>
+                            <div class="text-gray-500 text-xs">Turner Garden Rooms, Essex</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card-dark rounded-2xl p-6 border border-white/10 fade-up">
+                    <div class="flex text-amber-400 mb-4 text-sm">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-300 mb-6">"Went from maybe 5 enquiries a month to over 30. The website looks incredible and the AI chat thing actually works — people use it all the time. Best investment I've made in the business."</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-gradient-to-br from-green-500 to-cyan-500 rounded-full flex items-center justify-center text-white font-bold text-sm">SK</div>
+                        <div>
+                            <div class="text-white font-medium text-sm">Steve Knight</div>
+                            <div class="text-gray-500 text-xs">Knight Pods, Yorkshire</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card-dark rounded-2xl p-6 border border-white/10 fade-up">
+                    <div class="flex text-amber-400 mb-4 text-sm">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-300 mb-6">"I was skeptical about the AI stuff but it just works. Had a lead come in at 11pm, got an instant response, and they booked a survey through the system. Woke up to a qualified appointment. Magic."</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-gradient-to-br from-amber-500 to-orange-500 rounded-full flex items-center justify-center text-white font-bold text-sm">RB</div>
+                        <div>
+                            <div class="text-white font-medium text-sm">Rachel Brooks</div>
+                            <div class="text-gray-500 text-xs">Brooks Garden Studios, Kent</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results / Why Choose Us -->
+    <section id="results" class="py-24 relative">
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-indigo-500/5 to-transparent pointer-events-none"></div>
+        <div class="max-w-6xl mx-auto px-6 relative">
+            <div class="text-center mb-16 fade-up">
+                <span class="text-indigo-400 font-medium text-sm uppercase tracking-wider">Real Results</span>
+                <h2 class="font-space text-3xl md:text-5xl font-bold text-white mt-4">Numbers That Speak for Themselves</h2>
+                <p class="text-gray-400 mt-4 max-w-2xl mx-auto">Our clients don't just get a website — they get a complete system that delivers measurable growth.</p>
+            </div>
+            
+            <!-- Big Stats -->
+            <div class="grid md:grid-cols-4 gap-6 mb-16">
+                <div class="card-dark rounded-2xl p-8 text-center fade-up border border-white/10">
+                    <div class="font-space text-5xl font-bold gradient-text mb-2">312%</div>
+                    <div class="text-gray-400 text-sm">Avg. Increase in Leads</div>
+                </div>
+                <div class="card-dark rounded-2xl p-8 text-center fade-up border border-white/10">
+                    <div class="font-space text-5xl font-bold gradient-text mb-2">< 60s</div>
+                    <div class="text-gray-400 text-sm">Average Response Time</div>
+                </div>
+                <div class="card-dark rounded-2xl p-8 text-center fade-up border border-white/10">
+                    <div class="font-space text-5xl font-bold gradient-text mb-2">85%</div>
+                    <div class="text-gray-400 text-sm">Lead Response Rate</div>
+                </div>
+                <div class="card-dark rounded-2xl p-8 text-center fade-up border border-white/10">
+                    <div class="font-space text-5xl font-bold gradient-text mb-2">24/7</div>
+                    <div class="text-gray-400 text-sm">AI Never Sleeps</div>
+                </div>
+            </div>
+            
+            <!-- Why Choose Us Grid -->
+            <div class="grid lg:grid-cols-2 gap-8">
+                <div class="card-dark rounded-3xl p-8 border border-white/10 fade-up">
+                    <div class="flex items-start gap-4 mb-6">
+                        <div class="w-14 h-14 bg-gradient-to-br from-indigo-500/20 to-indigo-500/5 rounded-2xl flex items-center justify-center shrink-0">
+                            <i class="fas fa-bullseye text-2xl text-indigo-400"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-space text-xl font-bold text-white mb-2">Built for Garden Room Builders</h3>
+                            <p class="text-gray-400">We don't do generic. Every website, every AI script, every follow-up sequence is crafted specifically for your industry. We know what your customers ask and what makes them buy.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card-dark rounded-3xl p-8 border border-white/10 fade-up">
+                    <div class="flex items-start gap-4 mb-6">
+                        <div class="w-14 h-14 bg-gradient-to-br from-green-500/20 to-green-500/5 rounded-2xl flex items-center justify-center shrink-0">
+                            <i class="fas fa-handshake text-2xl text-green-400"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-space text-xl font-bold text-white mb-2">Done-For-You Setup</h3>
+                            <p class="text-gray-400">No tech headaches. We handle everything — design, build, integration, testing. You just approve the final result and start getting leads. Live in 7 days or less.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card-dark rounded-3xl p-8 border border-white/10 fade-up">
+                    <div class="flex items-start gap-4 mb-6">
+                        <div class="w-14 h-14 bg-gradient-to-br from-cyan-500/20 to-cyan-500/5 rounded-2xl flex items-center justify-center shrink-0">
+                            <i class="fas fa-chart-line text-2xl text-cyan-400"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-space text-xl font-bold text-white mb-2">Ongoing Optimization</h3>
+                            <p class="text-gray-400">We don't just set it and forget it. We continuously monitor performance, tweak the AI responses, and optimize conversions to keep your results climbing.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card-dark rounded-3xl p-8 border border-white/10 fade-up">
+                    <div class="flex items-start gap-4 mb-6">
+                        <div class="w-14 h-14 bg-gradient-to-br from-amber-500/20 to-amber-500/5 rounded-2xl flex items-center justify-center shrink-0">
+                            <i class="fas fa-pound-sign text-2xl text-amber-400"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-space text-xl font-bold text-white mb-2">Custom Pricing for Your Business</h3>
+                            <p class="text-gray-400">Every business is different. Book a call and we'll put together a package that fits your goals and budget. No cookie-cutter pricing — just what you need.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12 fade-up">
+                <a href="#cta" class="btn-primary inline-flex items-center gap-2 text-white px-10 py-4 rounded-full font-semibold text-lg transition-all duration-300">
+                    <span>Get Your Custom Quote</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+                <p class="text-gray-500 text-sm mt-4">
+                    <i class="fas fa-clock text-indigo-400 mr-2"></i>
+                    Free 15-minute strategy call. No obligation.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="py-24">
+        <div class="max-w-3xl mx-auto px-6">
+            <div class="text-center mb-16 fade-up">
+                <span class="text-indigo-400 font-medium text-sm uppercase tracking-wider">FAQ</span>
+                <h2 class="font-space text-3xl md:text-5xl font-bold text-white mt-4">Got Questions?</h2>
+            </div>
+            
+            <div class="space-y-4 fade-up">
+                <div class="faq-item card-dark rounded-2xl overflow-hidden">
+                    <button class="faq-toggle w-full px-6 py-5 flex items-center justify-between text-left">
+                        <span class="text-white font-medium">How quickly can you get everything set up?</span>
+                        <i class="fas fa-plus text-indigo-400 transition-transform"></i>
                     </button>
+                    <div class="faq-content hidden px-6 pb-5">
+                        <p class="text-gray-400">Most clients are fully live within 7 days. The website takes 2-3 days, and we spend the remaining time setting up and testing the AI systems to make sure everything works perfectly.</p>
+                    </div>
                 </div>
-                <p class="text-sm text-slate-500">No credit card required. Free trial included.</p>
-            </form>
+                
+                <div class="faq-item card-dark rounded-2xl overflow-hidden">
+                    <button class="faq-toggle w-full px-6 py-5 flex items-center justify-between text-left">
+                        <span class="text-white font-medium">How does the AI chat actually work?</span>
+                        <i class="fas fa-plus text-indigo-400 transition-transform"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-5">
+                        <p class="text-gray-400">Our AI is trained specifically on garden room businesses. It knows how to answer common questions, qualify leads by asking about project size, budget, timeline, and seamlessly collects contact details. When someone's ready for a human conversation, you get notified immediately.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item card-dark rounded-2xl overflow-hidden">
+                    <button class="faq-toggle w-full px-6 py-5 flex items-center justify-between text-left">
+                        <span class="text-white font-medium">What if I already have a website?</span>
+                        <i class="fas fa-plus text-indigo-400 transition-transform"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-5">
+                        <p class="text-gray-400">We can work with your existing site if it's modern and mobile-friendly. We'd add the AI chat widget and connect the follow-up systems. However, most clients find that a fresh, conversion-optimized site delivers much better results.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item card-dark rounded-2xl overflow-hidden">
+                    <button class="faq-toggle w-full px-6 py-5 flex items-center justify-between text-left">
+                        <span class="text-white font-medium">What about GDPR and data protection?</span>
+                        <i class="fas fa-plus text-indigo-400 transition-transform"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-5">
+                        <p class="text-gray-400">Fully covered. All data is stored securely in the UK/EU, we include proper consent forms on all lead captures, and we'll help you set up a compliant privacy policy. You own all your data.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item card-dark rounded-2xl overflow-hidden">
+                    <button class="faq-toggle w-full px-6 py-5 flex items-center justify-between text-left">
+                        <span class="text-white font-medium">Can I customize the AI messages?</span>
+                        <i class="fas fa-plus text-indigo-400 transition-transform"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-5">
+                        <p class="text-gray-400">Absolutely. During setup, we work with you to capture your brand voice, and you can tweak any message in the system. Want the AI to sound more formal? More friendly? We'll dial it in exactly how you want.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section id="cta" class="py-24 relative">
+        <div class="absolute inset-0 bg-gradient-to-t from-indigo-500/10 to-transparent pointer-events-none"></div>
+        <div class="max-w-4xl mx-auto px-6 text-center relative">
+            <div class="fade-up">
+                <div class="inline-flex items-center gap-2 bg-green-500/10 border border-green-500/20 rounded-full px-4 py-2 mb-6">
+                    <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+                    <span class="text-sm text-green-400">Limited availability — 3 spots left this month</span>
+                </div>
+                
+                <h2 class="font-space text-3xl md:text-5xl font-bold text-white mb-6">Ready to Never Miss a Lead Again?</h2>
+                <p class="text-gray-400 text-lg mb-10 max-w-2xl mx-auto">Book a free 15-minute demo and see exactly how the system will work for your business.</p>
+                
+                <form id="lead-form" action="https://formsubmit.co/hello@leadstocalls.com" method="POST" class="max-w-lg mx-auto">
+                    <input type="hidden" name="_subject" value="New Demo Request from leadstocalls Website">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_template" value="table">
+                    <input type="text" name="_honey" style="display:none">
+                    <div class="grid sm:grid-cols-2 gap-3 mb-3">
+                        <input type="text" name="name" placeholder="Your name" required class="px-5 py-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:border-indigo-500 focus:outline-none transition">
+                        <input type="tel" name="phone" placeholder="Phone number" required class="px-5 py-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:border-indigo-500 focus:outline-none transition">
+                    </div>
+                    <div class="flex flex-col sm:flex-row gap-3">
+                        <input type="email" name="email" placeholder="Email address" required class="flex-1 px-5 py-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:border-indigo-500 focus:outline-none transition">
+                        <button type="submit" class="btn-accent text-white px-8 py-4 rounded-xl font-semibold whitespace-nowrap transition-all duration-300">
+                            Book Free Demo <i class="fas fa-arrow-right ml-2"></i>
+                        </button>
+                    </div>
+                    <p class="text-gray-500 text-sm mt-4">
+                        <i class="fas fa-lock mr-1"></i>
+                        No obligation. See the system in action first.
+                    </p>
+                </form>
+                
+                <div class="flex flex-wrap justify-center gap-8 mt-12 pt-8 border-t border-white/10">
+                    <div class="flex items-center gap-2">
+                        <i class="fas fa-bolt text-indigo-400"></i>
+                        <span class="text-gray-400 text-sm">Live in 7 days</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <i class="fas fa-robot text-green-400"></i>
+                        <span class="text-gray-400 text-sm">AI working 24/7</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <i class="fas fa-shield-alt text-cyan-400"></i>
+                        <span class="text-gray-400 text-sm">30-day guarantee</span>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-slate-950 border-t border-slate-800 pt-16 pb-8">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid md:grid-cols-4 gap-12 mb-12">
-                <div class="col-span-1 md:col-span-1">
-                    <span class="brand-font text-2xl font-bold tracking-tighter text-white">LeadsTo<span class="text-teal-400">Calls</span></span>
-                    <p class="mt-4 text-slate-400 text-sm">The world's most advanced AI avatar platform for enterprise and creators.</p>
+    <footer class="py-12 border-t border-white/5">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 bg-gradient-to-br from-indigo-500 to-green-500 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-bolt text-white text-xs"></i>
+                    </div>
+                    <span class="font-space text-lg font-bold text-white">leadstocalls</span>
                 </div>
-                <div>
-                    <h4 class="font-bold text-white mb-4">Product</h4>
-                    <ul class="space-y-2 text-sm text-slate-400">
-                        <li><a href="#" class="hover:text-teal-400">Avatar Studio</a></li>
-                        <li><a href="#" class="hover:text-teal-400">Voice Cloning</a></li>
-                        <li><a href="#" class="hover:text-teal-400">API Access</a></li>
-                        <li><a href="#" class="hover:text-teal-400">Pricing</a></li>
-                    </ul>
+                <div class="flex items-center gap-6 text-gray-500 text-sm">
+                    <a href="#" class="hover:text-white transition">Privacy</a>
+                    <a href="#" class="hover:text-white transition">Terms</a>
+                    <a href="mailto:hello@leadstocalls.com" class="hover:text-white transition">hello@leadstocalls.com</a>
                 </div>
-                <div>
-                    <h4 class="font-bold text-white mb-4">Resources</h4>
-                    <ul class="space-y-2 text-sm text-slate-400">
-                        <li><a href="#" class="hover:text-teal-400">Blog</a></li>
-                        <li><a href="#" class="hover:text-teal-400">Case Studies</a></li>
-                        <li><a href="#" class="hover:text-teal-400">Help Center</a></li>
-                        <li><a href="#" class="hover:text-teal-400">Community</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="font-bold text-white mb-4">Legal</h4>
-                    <ul class="space-y-2 text-sm text-slate-400">
-                        <li><a href="#" class="hover:text-teal-400">Privacy Policy</a></li>
-                        <li><a href="#" class="hover:text-teal-400">Terms of Service</a></li>
-                        <li><a href="#" class="hover:text-teal-400">Ethics Guidelines</a></li>
-                    </ul>
+                <div class="flex items-center gap-4">
+                    <a href="#" class="w-9 h-9 bg-white/5 rounded-lg flex items-center justify-center hover:bg-white/10 transition">
+                        <i class="fab fa-linkedin-in text-gray-400"></i>
+                    </a>
+                    <a href="#" class="w-9 h-9 bg-white/5 rounded-lg flex items-center justify-center hover:bg-white/10 transition">
+                        <i class="fab fa-instagram text-gray-400"></i>
+                    </a>
                 </div>
             </div>
-            <div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-                <p class="text-slate-500 text-sm">© 2023 LeadsToCalls Inc. All rights reserved.</p>
-                <div class="flex space-x-6">
-                    <!-- Social icons placeholder -->
-                    <a href="#" class="text-slate-500 hover:text-white">Twitter</a>
-                    <a href="#" class="text-slate-500 hover:text-white">LinkedIn</a>
-                    <a href="#" class="text-slate-500 hover:text-white">GitHub</a>
-                </div>
-            </div>
+            <p class="text-center text-gray-600 text-sm mt-8">© 2024 leadstocalls. AI-powered growth for garden room builders.</p>
         </div>
     </footer>
 
     <script>
-        // Simple script for the demo playback simulation
-        const playBtn = document.getElementById('play-button-overlay');
-        const mouth = document.getElementById('avatar-mouth');
-        let isPlaying = false;
-        let animationInterval;
-
-        playBtn.addEventListener('click', () => {
-            if(isPlaying) return;
-            isPlaying = true;
-            
-            // Hide play button
-            playBtn.style.opacity = '0';
-            
-            // Simulate speaking
-            animationInterval = setInterval(() => {
-                const height = Math.random() * 15 + 2; // Random mouth opening
-                mouth.style.height = `${height}px`;
-            }, 100);
-
-            // Reset after 5 seconds
-            setTimeout(() => {
-                clearInterval(animationInterval);
-                mouth.style.height = '4px';
-                playBtn.style.opacity = '1';
-                isPlaying = false;
-            }, 5000);
+        // Mobile menu
+        document.getElementById('mobile-toggle').addEventListener('click', () => {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
         });
 
-        // Add scroll reveal effect
-        document.addEventListener('scroll', () => {
-            const nav = document.querySelector('nav');
-            if (window.scrollY > 50) {
-                nav.classList.add('shadow-lg');
-            } else {
-                nav.classList.remove('shadow-lg');
-            }
+        // Fade in on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '-50px' });
+
+        document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+        // FAQ toggles
+        document.querySelectorAll('.faq-toggle').forEach(toggle => {
+            toggle.addEventListener('click', () => {
+                const content = toggle.nextElementSibling;
+                const icon = toggle.querySelector('i');
+                content.classList.toggle('hidden');
+                icon.classList.toggle('rotate-45');
+            });
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    document.getElementById('mobile-menu').classList.add('hidden');
+                }
+            });
+        });
+
+        // Form submission - show loading state
+        document.getElementById('lead-form').addEventListener('submit', function(e) {
+            const btn = this.querySelector('button[type="submit"]');
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Sending...';
+            btn.disabled = true;
+        });
+
+        // Animate chat bubbles
+        const chatBubbles = document.querySelectorAll('.chat-bubble');
+        chatBubbles.forEach((bubble, index) => {
+            bubble.style.animationDelay = `${index * 0.3}s`;
         });
     </script>
 </body>
 </html>
+
 
 
 
