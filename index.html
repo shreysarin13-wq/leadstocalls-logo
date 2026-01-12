@@ -1,470 +1,296 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LeadsToCalls - Unlock 600M Hindi Speakers | Professional English to Hindi Dubbing</title>
+    <title>LeadsToCalls | Bilingual Digital Marketing Kuwait</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        * { font-family: 'Inter', sans-serif; }
+        * { font-family: 'Poppins', 'Cairo', sans-serif; }
+        [dir="rtl"] * { font-family: 'Cairo', 'Poppins', sans-serif; }
         
         .gradient-text {
-            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #a855f7 100%);
+            background: linear-gradient(135deg, #00D4FF, #7B2FFF, #FF2DAF);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
         
-        .gradient-border {
-            position: relative;
-            background: linear-gradient(135deg, #0f172a, #1e293b);
+        .hero-gradient {
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
         }
         
-        .gradient-border::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            border-radius: inherit;
-            padding: 1px;
-            background: linear-gradient(135deg, #6366f1, #a855f7, #6366f1);
-            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            -webkit-mask-composite: xor;
-            mask-composite: exclude;
+        .glow-box {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
         }
         
-        .blob {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(80px);
-            opacity: 0.5;
-            animation: blob 8s ease-in-out infinite;
+        .glow-box:hover {
+            border-color: rgba(123, 47, 255, 0.5);
+            box-shadow: 0 0 40px rgba(123, 47, 255, 0.2);
         }
         
-        @keyframes blob {
-            0%, 100% { transform: translate(0, 0) scale(1); }
-            33% { transform: translate(30px, -30px) scale(1.1); }
-            66% { transform: translate(-20px, 20px) scale(0.9); }
+        .floating {
+            animation: floating 3s ease-in-out infinite;
         }
         
-        .card-hover {
-            transition: all 0.3s ease;
+        @keyframes floating {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
         }
         
-        .card-hover:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 25px 50px -12px rgba(99, 102, 241, 0.25);
+        .floating-slow {
+            animation: floatingSlow 5s ease-in-out infinite;
         }
         
-        .reveal {
+        @keyframes floatingSlow {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-30px) rotate(-5deg); }
+        }
+        
+        .pulse-glow {
+            animation: pulseGlow 2s ease-in-out infinite;
+        }
+        
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 0 20px rgba(0, 212, 255, 0.3); }
+            50% { box-shadow: 0 0 40px rgba(123, 47, 255, 0.6); }
+        }
+        
+        .morph-blob {
+            animation: morph 8s ease-in-out infinite;
+        }
+        
+        @keyframes morph {
+            0%, 100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+            50% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+        }
+        
+        .slide-up {
             opacity: 0;
-            transform: translateY(40px);
+            transform: translateY(50px);
             transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
         }
         
-        .reveal.active {
+        .slide-up.visible {
             opacity: 1;
             transform: translateY(0);
         }
         
-        .ticker {
-            animation: ticker 20s linear infinite;
+        .magnetic-btn {
+            transition: transform 0.3s ease;
         }
         
-        @keyframes ticker {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
+        .magnetic-btn:hover {
+            transform: scale(1.05);
         }
         
-        .video-frame {
-            background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%);
+        .line-draw {
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+            animation: draw 3s ease forwards;
         }
         
-        .pulse-ring {
-            animation: pulse-ring 2s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite;
+        @keyframes draw {
+            to { stroke-dashoffset: 0; }
         }
         
-        @keyframes pulse-ring {
-            0% { transform: scale(0.8); opacity: 1; }
-            100% { transform: scale(2); opacity: 0; }
+        .text-shadow-glow {
+            text-shadow: 0 0 40px rgba(123, 47, 255, 0.5);
+        }
+        
+        .counter {
+            font-variant-numeric: tabular-nums;
+        }
+        
+        .service-card {
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px) scale(1.02);
+        }
+        
+        .lang-toggle {
+            background: linear-gradient(135deg, rgba(123, 47, 255, 0.3), rgba(0, 212, 255, 0.3));
+        }
+        
+        .cta-gradient {
+            background: linear-gradient(135deg, #7B2FFF, #00D4FF);
+        }
+        
+        .noise {
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+            opacity: 0.03;
         }
 
-        .marquee-container {
-            overflow: hidden;
-            white-space: nowrap;
+        .scroll-indicator {
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0) translateX(-50%); }
+            40% { transform: translateY(-20px) translateX(-50%); }
+            60% { transform: translateY(-10px) translateX(-50%); }
+        }
+
+        .rotate-slow {
+            animation: rotateSlow 20s linear infinite;
+        }
+
+        @keyframes rotateSlow {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
         }
     </style>
 </head>
-<body class="bg-slate-950 text-white antialiased">
-
-    <!-- Navbar -->
-    <nav class="fixed top-0 left-0 right-0 z-50 bg-slate-950/80 backdrop-blur-xl border-b border-white/5">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="flex items-center gap-3">
-                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center font-bold text-lg">L</div>
-                <span class="text-xl font-bold">LeadsToCalls</span>
+<body class="bg-black text-white overflow-x-hidden">
+    <!-- Noise Overlay -->
+    <div class="fixed inset-0 noise pointer-events-none z-50"></div>
+    
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-40 px-6 py-4">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="text-2xl font-black tracking-tight">
+                <span class="text-white">Leads</span><span class="gradient-text">ToCalls</span>
             </div>
-            <div class="hidden md:flex items-center gap-8 text-sm">
-                <a href="#opportunity" class="text-slate-400 hover:text-white transition">The Opportunity</a>
-                <a href="#how-it-works" class="text-slate-400 hover:text-white transition">How It Works</a>
-                <a href="#results" class="text-slate-400 hover:text-white transition">Results</a>
-                <a href="#faq" class="text-slate-400 hover:text-white transition">FAQ</a>
-            </div>
-            <a href="#contact" class="bg-gradient-to-r from-indigo-500 to-purple-600 px-5 py-2.5 rounded-full text-sm font-semibold hover:shadow-lg hover:shadow-indigo-500/25 transition-all">
-                Get Free Sample
-            </a>
+            
+            <!-- Language Toggle -->
+            <button id="langToggle" class="lang-toggle px-4 py-2 rounded-full flex items-center gap-2 magnetic-btn border border-white/20">
+                <span id="langIcon">🇬🇧</span>
+                <span id="langText" class="text-sm font-medium">العربية</span>
+            </button>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="min-h-screen flex items-center pt-20 relative overflow-hidden">
-        <!-- Background effects -->
-        <div class="blob w-96 h-96 bg-indigo-600 top-20 -left-48"></div>
-        <div class="blob w-96 h-96 bg-purple-600 bottom-20 -right-48" style="animation-delay: -4s;"></div>
+    <section class="hero-gradient min-h-screen relative flex items-center justify-center overflow-hidden">
+        <!-- Animated Background Elements -->
+        <div class="absolute inset-0 overflow-hidden">
+            <div class="absolute top-20 left-10 w-72 h-72 bg-purple-500/20 rounded-full blur-3xl floating"></div>
+            <div class="absolute bottom-20 right-10 w-96 h-96 bg-cyan-500/20 rounded-full blur-3xl floating-slow"></div>
+            <div class="absolute top-1/2 left-1/2 w-64 h-64 bg-pink-500/10 rounded-full blur-3xl morph-blob"></div>
+            
+            <!-- Decorative Elements -->
+            <div class="absolute top-1/4 right-1/4 w-20 h-20 border-2 border-purple-500/30 rounded-lg rotate-45 floating"></div>
+            <div class="absolute bottom-1/3 left-1/4 w-16 h-16 border-2 border-cyan-500/30 rounded-full floating-slow"></div>
+            
+            <!-- Grid Lines -->
+            <svg class="absolute inset-0 w-full h-full opacity-10" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
+                        <path d="M 50 0 L 0 0 0 50" fill="none" stroke="white" stroke-width="0.5"/>
+                    </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#grid)"/>
+            </svg>
+        </div>
         
-        <div class="max-w-7xl mx-auto px-6 py-20 relative z-10">
-            <div class="max-w-4xl mx-auto text-center">
-                <!-- Trust badge -->
-                <div class="inline-flex items-center gap-2 bg-slate-800/50 border border-slate-700 px-4 py-2 rounded-full mb-8 reveal">
-                    <div class="flex -space-x-2">
-                        <img src="https://randomuser.me/api/portraits/men/32.jpg" class="w-6 h-6 rounded-full border-2 border-slate-950" alt="">
-                        <img src="https://randomuser.me/api/portraits/women/44.jpg" class="w-6 h-6 rounded-full border-2 border-slate-950" alt="">
-                        <img src="https://randomuser.me/api/portraits/men/86.jpg" class="w-6 h-6 rounded-full border-2 border-slate-950" alt="">
-                    </div>
-                    <span class="text-sm text-slate-300">Trusted by 500+ creators worldwide</span>
+        <div class="relative z-10 text-center px-6 max-w-5xl mx-auto">
+            <div class="mb-6">
+                <span class="inline-block px-4 py-2 rounded-full border border-purple-500/50 text-sm text-purple-300 glow-box" data-en="🚀 Digital Marketing Experts in Kuwait" data-ar="🚀 خبراء التسويق الرقمي في الكويت">
+                    🚀 Digital Marketing Experts in Kuwait
+                </span>
+            </div>
+            
+            <h1 class="text-5xl md:text-7xl lg:text-8xl font-black mb-6 leading-tight">
+                <span class="block text-shadow-glow" data-en="Transform Your" data-ar="حوّل أعمالك">Transform Your</span>
+                <span class="gradient-text block" data-en="Clicks Into Calls" data-ar="من نقرات إلى مكالمات">Clicks Into Calls</span>
+            </h1>
+            
+            <p class="text-xl md:text-2xl text-gray-400 mb-10 max-w-3xl mx-auto" data-en="Bilingual websites, SEO & Google Ads that speak to your Kuwait audience in both English and Arabic" data-ar="مواقع ثنائية اللغة، تحسين محركات البحث وإعلانات جوجل تتحدث إلى جمهورك الكويتي بالإنجليزية والعربية">
+                Bilingual websites, SEO & Google Ads that speak to your Kuwait audience in both English and Arabic
+            </p>
+            
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <a href="#contact" class="cta-gradient px-8 py-4 rounded-full font-bold text-lg magnetic-btn pulse-glow inline-flex items-center gap-2">
+                    <span data-en="Get Free Consultation" data-ar="احصل على استشارة مجانية">Get Free Consultation</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+                <a href="#services" class="px-8 py-4 rounded-full font-bold text-lg border border-white/30 hover:bg-white/10 transition-all magnetic-btn" data-en="Our Services" data-ar="خدماتنا">
+                    Our Services
+                </a>
+            </div>
+            
+            <!-- Stats -->
+            <div class="grid grid-cols-3 gap-8 mt-16 max-w-2xl mx-auto">
+                <div class="text-center">
+                    <div class="text-3xl md:text-4xl font-black gradient-text counter" data-count="150">0+</div>
+                    <div class="text-gray-500 text-sm mt-1" data-en="Projects Done" data-ar="مشروع منجز">Projects Done</div>
                 </div>
-                
-                <h1 class="text-5xl md:text-7xl font-black leading-tight mb-8 reveal">
-                    Your Content.<br>
-                    <span class="gradient-text">600 Million</span> New Viewers.
-                </h1>
-                
-                <p class="text-xl md:text-2xl text-slate-400 mb-10 leading-relaxed max-w-2xl mx-auto reveal">
-                    Professional English to Hindi dubbing that helps creators tap into India's massive audience. Real human voices. Not robotic AI.
-                </p>
-                
-                <div class="flex flex-col sm:flex-row gap-4 justify-center mb-16 reveal">
-                    <a href="#contact" class="group bg-gradient-to-r from-indigo-500 to-purple-600 px-8 py-4 rounded-2xl font-bold text-lg hover:shadow-2xl hover:shadow-indigo-500/30 transition-all flex items-center justify-center gap-3">
-                        Get Your Free Sample
-                        <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-                    </a>
-                    <a href="#how-it-works" class="bg-slate-800 border border-slate-700 px-8 py-4 rounded-2xl font-semibold hover:bg-slate-700 transition flex items-center justify-center gap-3">
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"/></svg>
-                        See How It Works
-                    </a>
+                <div class="text-center">
+                    <div class="text-3xl md:text-4xl font-black gradient-text counter" data-count="98">0%</div>
+                    <div class="text-gray-500 text-sm mt-1" data-en="Client Satisfaction" data-ar="رضا العملاء">Client Satisfaction</div>
                 </div>
-                
-                <!-- Video Preview -->
-                <div class="relative max-w-3xl mx-auto reveal">
-                    <div class="video-frame rounded-2xl p-1">
-                        <div class="bg-slate-900 rounded-xl overflow-hidden">
-                            <div class="flex items-center gap-2 px-4 py-3 border-b border-slate-800">
-                                <div class="w-3 h-3 rounded-full bg-red-500"></div>
-                                <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
-                                <div class="w-3 h-3 rounded-full bg-green-500"></div>
-                                <span class="text-xs text-slate-500 ml-2">before-after-comparison.mp4</span>
-                            </div>
-                            <div class="grid grid-cols-2 divide-x divide-slate-800">
-                                <div class="p-6 text-center">
-                                    <div class="text-xs text-slate-500 mb-3 uppercase tracking-wider">Original English</div>
-                                    <div class="bg-slate-800 rounded-lg p-4 flex items-center justify-center gap-4">
-                                        <div class="w-12 h-12 rounded-full bg-slate-700 flex items-center justify-center">
-                                            <svg class="w-5 h-5 text-slate-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"/></svg>
-                                        </div>
-                                        <div class="flex-1 flex items-center gap-0.5 h-8">
-                                            <div class="w-1 h-3 bg-slate-600 rounded"></div>
-                                            <div class="w-1 h-5 bg-slate-600 rounded"></div>
-                                            <div class="w-1 h-7 bg-slate-600 rounded"></div>
-                                            <div class="w-1 h-4 bg-slate-600 rounded"></div>
-                                            <div class="w-1 h-6 bg-slate-600 rounded"></div>
-                                            <div class="w-1 h-3 bg-slate-600 rounded"></div>
-                                            <div class="w-1 h-8 bg-slate-600 rounded"></div>
-                                            <div class="w-1 h-5 bg-slate-600 rounded"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="p-6 text-center">
-                                    <div class="text-xs text-slate-500 mb-3 uppercase tracking-wider">Dubbed Hindi</div>
-                                    <div class="bg-gradient-to-r from-indigo-500/10 to-purple-500/10 border border-indigo-500/30 rounded-lg p-4 flex items-center justify-center gap-4">
-                                        <div class="w-12 h-12 rounded-full bg-gradient-to-r from-indigo-500 to-purple-600 flex items-center justify-center relative">
-                                            <div class="absolute inset-0 rounded-full bg-indigo-500 pulse-ring"></div>
-                                            <svg class="w-5 h-5 relative z-10" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"/></svg>
-                                        </div>
-                                        <div class="flex-1 flex items-center gap-0.5 h-8">
-                                            <div class="w-1 h-4 bg-indigo-500 rounded animate-pulse"></div>
-                                            <div class="w-1 h-6 bg-purple-500 rounded animate-pulse" style="animation-delay:0.1s"></div>
-                                            <div class="w-1 h-8 bg-indigo-500 rounded animate-pulse" style="animation-delay:0.2s"></div>
-                                            <div class="w-1 h-3 bg-purple-500 rounded animate-pulse" style="animation-delay:0.3s"></div>
-                                            <div class="w-1 h-7 bg-indigo-500 rounded animate-pulse" style="animation-delay:0.4s"></div>
-                                            <div class="w-1 h-5 bg-purple-500 rounded animate-pulse" style="animation-delay:0.5s"></div>
-                                            <div class="w-1 h-6 bg-indigo-500 rounded animate-pulse" style="animation-delay:0.6s"></div>
-                                            <div class="w-1 h-4 bg-purple-500 rounded animate-pulse" style="animation-delay:0.7s"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="text-center">
+                    <div class="text-3xl md:text-4xl font-black gradient-text counter" data-count="5">0+</div>
+                    <div class="text-gray-500 text-sm mt-1" data-en="Years Experience" data-ar="سنوات خبرة">Years Experience</div>
                 </div>
+            </div>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-10 left-1/2 scroll-indicator">
+            <div class="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center pt-2">
+                <div class="w-1 h-3 bg-white rounded-full animate-pulse"></div>
             </div>
         </div>
     </section>
 
-    <!-- Logo Ticker -->
-    <section class="py-12 border-y border-slate-800/50 bg-slate-900/30">
-        <div class="marquee-container">
-            <div class="ticker inline-flex items-center gap-16">
-                <span class="text-slate-500 text-lg font-medium whitespace-nowrap">Featured on</span>
-                <span class="text-2xl font-bold text-slate-600">TechCrunch</span>
-                <span class="text-2xl font-bold text-slate-600">Forbes</span>
-                <span class="text-2xl font-bold text-slate-600">Entrepreneur</span>
-                <span class="text-2xl font-bold text-slate-600">Creator Economy</span>
-                <span class="text-2xl font-bold text-slate-600">YouTube Insider</span>
-                <span class="text-slate-500 text-lg font-medium whitespace-nowrap">Featured on</span>
-                <span class="text-2xl font-bold text-slate-600">TechCrunch</span>
-                <span class="text-2xl font-bold text-slate-600">Forbes</span>
-                <span class="text-2xl font-bold text-slate-600">Entrepreneur</span>
-                <span class="text-2xl font-bold text-slate-600">Creator Economy</span>
-                <span class="text-2xl font-bold text-slate-600">YouTube Insider</span>
+    <!-- Services Section -->
+    <section id="services" class="py-24 px-6 relative">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 slide-up">
+                <span class="text-purple-400 text-sm uppercase tracking-widest" data-en="What We Do" data-ar="ماذا نقدم">What We Do</span>
+                <h2 class="text-4xl md:text-6xl font-black mt-4" data-en="Services That Deliver" data-ar="خدمات تحقق النتائج">Services That <span class="gradient-text">Deliver</span></h2>
             </div>
-        </div>
-    </section>
-
-    <!-- The Opportunity Section -->
-    <section id="opportunity" class="py-24 relative">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="grid lg:grid-cols-2 gap-16 items-center">
-                <div class="reveal">
-                    <span class="text-indigo-400 font-semibold text-sm uppercase tracking-wider">The Opportunity</span>
-                    <h2 class="text-4xl md:text-5xl font-bold mt-4 mb-6">India is the World's Largest YouTube Market</h2>
-                    <p class="text-slate-400 text-lg mb-8 leading-relaxed">
-                        While you're fighting for views in a saturated English market, 600 million Hindi speakers are hungry for quality content. Most top creators haven't tapped into this yet.
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="service-card glow-box rounded-3xl p-8 slide-up">
+                    <div class="w-16 h-16 rounded-2xl cta-gradient flex items-center justify-center mb-6 rotate-slow">
+                        <i class="fas fa-globe text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4" data-en="Bilingual Websites" data-ar="مواقع ثنائية اللغة">Bilingual Websites</h3>
+                    <p class="text-gray-400" data-en="Stunning landing pages and websites in English & Arabic that convert visitors into customers. Perfect RTL support." data-ar="صفحات هبوط ومواقع مذهلة بالإنجليزية والعربية تحول الزوار إلى عملاء. دعم كامل للغة العربية.">
+                        Stunning landing pages and websites in English & Arabic that convert visitors into customers. Perfect RTL support.
                     </p>
-                    
-                    <div class="space-y-6">
-                        <div class="flex gap-4">
-                            <div class="w-12 h-12 rounded-2xl bg-indigo-500/10 border border-indigo-500/30 flex items-center justify-center flex-shrink-0">
-                                <svg class="w-6 h-6 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold text-lg mb-1">467M+ YouTube Users in India</h4>
-                                <p class="text-slate-400">More than the entire US population. And growing every day.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex gap-4">
-                            <div class="w-12 h-12 rounded-2xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-center flex-shrink-0">
-                                <svg class="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold text-lg mb-1">Lower Competition, Higher Engagement</h4>
-                                <p class="text-slate-400">Hindi content gets 3-5x more engagement than equivalent English content.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex gap-4">
-                            <div class="w-12 h-12 rounded-2xl bg-pink-500/10 border border-pink-500/30 flex items-center justify-center flex-shrink-0">
-                                <svg class="w-6 h-6 text-pink-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold text-lg mb-1">Untapped Sponsorship Revenue</h4>
-                                <p class="text-slate-400">Indian brands pay top dollar for access to quality Hindi channels.</p>
-                            </div>
-                        </div>
+                    <div class="mt-6 flex flex-wrap gap-2">
+                        <span class="px-3 py-1 rounded-full bg-purple-500/20 text-purple-300 text-sm">WordPress</span>
+                        <span class="px-3 py-1 rounded-full bg-cyan-500/20 text-cyan-300 text-sm">Custom Code</span>
                     </div>
                 </div>
                 
-                <div class="reveal">
-                    <div class="bg-slate-900 rounded-3xl border border-slate-800 p-8">
-                        <div class="grid grid-cols-2 gap-6">
-                            <div class="text-center p-6 bg-slate-800/50 rounded-2xl">
-                                <div class="text-4xl md:text-5xl font-black gradient-text mb-2">600M+</div>
-                                <p class="text-slate-400 text-sm">Hindi Speakers</p>
-                            </div>
-                            <div class="text-center p-6 bg-slate-800/50 rounded-2xl">
-                                <div class="text-4xl md:text-5xl font-black gradient-text mb-2">467M+</div>
-                                <p class="text-slate-400 text-sm">YT Users in India</p>
-                            </div>
-                            <div class="text-center p-6 bg-slate-800/50 rounded-2xl">
-                                <div class="text-4xl md:text-5xl font-black gradient-text mb-2">#1</div>
-                                <p class="text-slate-400 text-sm">Fastest Growing Market</p>
-                            </div>
-                            <div class="text-center p-6 bg-slate-800/50 rounded-2xl">
-                                <div class="text-4xl md:text-5xl font-black gradient-text mb-2">3-5x</div>
-                                <p class="text-slate-400 text-sm">Higher Engagement</p>
-                            </div>
-                        </div>
+                <!-- Service 2 -->
+                <div class="service-card glow-box rounded-3xl p-8 slide-up" style="transition-delay: 0.1s;">
+                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-green-500 to-emerald-500 flex items-center justify-center mb-6">
+                        <i class="fas fa-search text-2xl"></i>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Who This Is For -->
-    <section class="py-24 bg-slate-900/50">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-16 reveal">
-                <span class="text-indigo-400 font-semibold text-sm uppercase tracking-wider">Perfect For</span>
-                <h2 class="text-4xl md:text-5xl font-bold mt-4">Built for Serious Creators</h2>
-            </div>
-            
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-slate-900 border border-slate-800 rounded-3xl p-8 card-hover reveal">
-                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-3xl mb-6">🎬</div>
-                    <h3 class="text-2xl font-bold mb-4">YouTube Creators</h3>
-                    <p class="text-slate-400 mb-6">Educational content, vlogs, tutorials, reviews — anything that resonates with a global audience.</p>
-                    <ul class="space-y-3 text-sm">
-                        <li class="flex items-center gap-2 text-slate-300"><svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg> Tech reviewers</li>
-                        <li class="flex items-center gap-2 text-slate-300"><svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg> Finance channels</li>
-                        <li class="flex items-center gap-2 text-slate-300"><svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg> Educational creators</li>
-                    </ul>
-                </div>
-                
-                <div class="bg-slate-900 border border-slate-800 rounded-3xl p-8 card-hover reveal">
-                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-3xl mb-6">📚</div>
-                    <h3 class="text-2xl font-bold mb-4">Course Creators</h3>
-                    <p class="text-slate-400 mb-6">Multiply your course revenue by making it accessible to the world's 2nd largest English-learning population.</p>
-                    <ul class="space-y-3 text-sm">
-                        <li class="flex items-center gap-2 text-slate-300"><svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg> Online instructors</li>
-                        <li class="flex items-center gap-2 text-slate-300"><svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg> Coaches & consultants</li>
-                        <li class="flex items-center gap-2 text-slate-300"><svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg> E-learning platforms</li>
-                    </ul>
-                </div>
-                
-                <div class="bg-slate-900 border border-slate-800 rounded-3xl p-8 card-hover reveal">
-                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-3xl mb-6">🏢</div>
-                    <h3 class="text-2xl font-bold mb-4">Brands & Agencies</h3>
-                    <p class="text-slate-400 mb-6">Expand your video marketing reach to one of the world's largest and fastest-growing consumer markets.</p>
-                    <ul class="space-y-3 text-sm">
-                        <li class="flex items-center gap-2 text-slate-300"><svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg> Product launches</li>
-                        <li class="flex items-center gap-2 text-slate-300"><svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg> Brand videos</li>
-                        <li class="flex items-center gap-2 text-slate-300"><svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg> Marketing agencies</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- How It Works -->
-    <section id="how-it-works" class="py-24">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-16 reveal">
-                <span class="text-indigo-400 font-semibold text-sm uppercase tracking-wider">Simple Process</span>
-                <h2 class="text-4xl md:text-5xl font-bold mt-4">From English to Hindi in 72 Hours</h2>
-            </div>
-            
-            <div class="grid md:grid-cols-4 gap-8">
-                <div class="text-center reveal">
-                    <div class="w-16 h-16 rounded-full bg-gradient-to-r from-indigo-500 to-purple-600 flex items-center justify-center text-2xl font-bold mx-auto mb-6 relative">
-                        1
-                        <div class="hidden md:block absolute left-full top-1/2 w-full h-0.5 bg-gradient-to-r from-purple-600 to-transparent"></div>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Submit Your Video</h3>
-                    <p class="text-slate-400">Send us your video link. We'll review and send a quote within 2 hours.</p>
-                </div>
-                
-                <div class="text-center reveal">
-                    <div class="w-16 h-16 rounded-full bg-gradient-to-r from-indigo-500 to-purple-600 flex items-center justify-center text-2xl font-bold mx-auto mb-6 relative">
-                        2
-                        <div class="hidden md:block absolute left-full top-1/2 w-full h-0.5 bg-gradient-to-r from-purple-600 to-transparent"></div>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Voice Matching</h3>
-                    <p class="text-slate-400">We match you with a professional Hindi voice artist that fits your style.</p>
-                </div>
-                
-                <div class="text-center reveal">
-                    <div class="w-16 h-16 rounded-full bg-gradient-to-r from-indigo-500 to-purple-600 flex items-center justify-center text-2xl font-bold mx-auto mb-6 relative">
-                        3
-                        <div class="hidden md:block absolute left-full top-1/2 w-full h-0.5 bg-gradient-to-r from-purple-600 to-transparent"></div>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Pro Dubbing</h3>
-                    <p class="text-slate-400">Human translation, professional recording, perfect lip-sync timing.</p>
-                </div>
-                
-                <div class="text-center reveal">
-                    <div class="w-16 h-16 rounded-full bg-gradient-to-r from-indigo-500 to-purple-600 flex items-center justify-center text-2xl font-bold mx-auto mb-6">
-                        4
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Download & Publish</h3>
-                    <p class="text-slate-400">Get your dubbed video ready for upload. Start reaching millions.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Results Section -->
-    <section id="results" class="py-24 bg-slate-900/50">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-16 reveal">
-                <span class="text-indigo-400 font-semibold text-sm uppercase tracking-wider">Real Results</span>
-                <h2 class="text-4xl md:text-5xl font-bold mt-4">Creators Are Seeing Massive Growth</h2>
-            </div>
-            
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-slate-900 border border-slate-800 rounded-3xl p-8 reveal">
-                    <div class="flex items-center gap-4 mb-6">
-                        <img src="https://randomuser.me/api/portraits/men/75.jpg" class="w-14 h-14 rounded-full" alt="Creator">
-                        <div>
-                            <div class="font-bold">Marcus Chen</div>
-                            <div class="text-sm text-slate-400">Tech Reviewer • LA</div>
-                        </div>
-                    </div>
-                    <div class="flex items-center gap-1 text-yellow-400 mb-4">★★★★★</div>
-                    <p class="text-slate-300 mb-6">"I was skepthat dubbing would work. 6 months later, my Hindi channel has 280K subs and brings in 40% of my total revenue. Insane ROI."</p>
-                    <div class="flex items-center gap-4 pt-4 border-t border-slate-800">
-                        <div>
-                            <div class="text-2xl font-bold gradient-text">280K</div>
-                            <div class="text-xs text-slate-400">New Subscribers</div>
-                        </div>
-                        <div>
-                            <div class="text-2xl font-bold gradient-text">40%</div>
-                            <div class="text-xs text-slate-400">Revenue Increase</div>
-                        </div>
+                    <h3 class="text-2xl font-bold mb-4" data-en="SEO Optimization" data-ar="تحسين محركات البحث">SEO Optimization</h3>
+                    <p class="text-gray-400" data-en="Rank higher on Google Kuwait. Local SEO strategies tailored for the Kuwait market in both languages." data-ar="احتل مراتب أعلى في جوجل الكويت. استراتيجيات SEO محلية مصممة للسوق الكويتي بكلتا اللغتين.">
+                        Rank higher on Google Kuwait. Local SEO strategies tailored for the Kuwait market in both languages.
+                    </p>
+                    <div class="mt-6 flex flex-wrap gap-2">
+                        <span class="px-3 py-1 rounded-full bg-green-500/20 text-green-300 text-sm">Local SEO</span>
+                        <span class="px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 text-sm">Arabic SEO</span>
                     </div>
                 </div>
                 
-                <div class="bg-slate-900 border border-slate-800 rounded-3xl p-8 reveal">
-                    <div class="flex items-center gap-4 mb-6">
-                        <img src="https://randomuser.me/api/portraits/women/65.jpg" class="w-14 h-14 rounded-full" alt="Creator">
-                        <div>
-                            <div class="font-bold">Sarah Mitchell</div>
-                            <div class="text-sm text-slate-400">Course Creator • London</div>
-                        </div>
+                <!-- Service 3 -->
+                <div class="service-card glow-box rounded-3xl p-8 slide-up" style="transition-delay: 0.2s;">
+                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-orange-500 to-red-500 flex items-center justify-center mb-6">
+                        <i class="fab fa-google text-2xl"></i>
                     </div>
-                    <div class="flex items-center gap-1 text-yellow-400 mb-4">★★★★★</div>
-                    <p class="text-slate-300 mb-6">"Dubbed my entire course library. The voice quality is incredible — students can't tell it's dubbed. Course sales in India up 300%."</p>
-                    <div class="flex items-center gap-4 pt-4 border-t border-slate-800">
-                        <div>
-                            <div class="text-2xl font-bold gradient-text">300%</div>
-                            <div class="text-xs text-slate-400">Sales Increase</div>
-                        </div>
-                        <div>
-                            <div class="text-2xl font-bold gradient-text">50+</div>
-                            <div class="text-xs text-slate-400">Videos Dubbed</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="bg-slate-900 border border-slate-800 rounded-3xl p-8 reveal">
-                    <div class="flex items-center gap-4 mb-6">
-                        <img src="https://randomuser.me/api/portraits/men/32.jpg" class="w-14 h-14 rounded-full" alt="Creator">
-                        <div>
-                            <div class="font-bold">James Wright</div>
-                            <div class="text-sm text-slate-400">Finance Creator • Sydney</div>
-                        </div>
-                    </div>
-                    <div class="flex items-center gap-1 text-yellow-400 mb-4">★★★★★</div>
-                    <p class="text-slate-300 mb-6">"The turnaround time is unreal. 48 hours and the quality is better than services I've paid 5x more for. Total game changer."</p>
-                    <div class="flex items-center gap-4 pt-4 border-t border-slate-800">
-                        <div>
-                            <div class="text-2xl font-bold gradient-text">180K</div>
-                            <div class="text-xs text-slate-400">New Subscribers</div>
-                        </div>
-                        <div>
-                            <div class="text-2xl font-bold gradient-text">48hr</div>
-                            <div class="text-xs text-slate-400">Avg Delivery</div>
-                        </div>
+                    <h3 class="text-2xl font-bold mb-4" data-en="Google Ads" data-ar="إعلانات جوجل">Google Ads</h3>
+                    <p class="text-gray-400" data-en="ROI-focused PPC campaigns targeting Kuwait customers. Bilingual ad copy that converts clicks to calls." data-ar="حملات PPC مركزة على العائد تستهدف العملاء الكويتيين. نصوص إعلانية ثنائية اللغة تحول النقرات إلى مكالمات.">
+                        ROI-focused PPC campaigns targeting Kuwait customers. Bilingual ad copy that converts clicks to calls.
+                    </p>
+                    <div class="mt-6 flex flex-wrap gap-2">
+                        <span class="px-3 py-1 rounded-full bg-orange-500/20 text-orange-300 text-sm">PPC</span>
+                        <span class="px-3 py-1 rounded-full bg-red-500/20 text-red-300 text-sm">Remarketing</span>
                     </div>
                 </div>
             </div>
@@ -472,187 +298,269 @@
     </section>
 
     <!-- Why Us Section -->
-    <section class="py-24">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-16 reveal">
-                <span class="text-indigo-400 font-semibold text-sm uppercase tracking-wider">Why LeadsToCalls</span>
-                <h2 class="text-4xl md:text-5xl font-bold mt-4">Not Your Average Dubbing Service</h2>
-            </div>
-            
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="gradient-border rounded-2xl p-6 reveal">
-                    <div class="text-3xl mb-4">🎭</div>
-                    <h3 class="text-xl font-bold mb-2">100% Human Voices</h3>
-                    <p class="text-slate-400">No AI, no text-to-speech. Real voice artists who understand emotion and nuance.</p>
+    <section class="py-24 px-6 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-purple-900/10 to-transparent"></div>
+        
+        <div class="max-w-7xl mx-auto relative z-10">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="slide-up">
+                    <span class="text-cyan-400 text-sm uppercase tracking-widest" data-en="Why Choose Us" data-ar="لماذا نحن">Why Choose Us</span>
+                    <h2 class="text-4xl md:text-5xl font-black mt-4 mb-6" data-en="We Speak Your Customer's Language" data-ar="نتحدث لغة عملائك">We Speak Your <span class="gradient-text">Customer's Language</span></h2>
+                    <p class="text-gray-400 text-lg mb-8" data-en="In Kuwait's diverse market, reaching both Arabic and English-speaking audiences is crucial. We create digital experiences that resonate with everyone." data-ar="في سوق الكويت المتنوع، الوصول إلى الجماهير الناطقة بالعربية والإنجليزية أمر حاسم. نخلق تجارب رقمية تتواصل مع الجميع.">
+                        In Kuwait's diverse market, reaching both Arabic and English-speaking audiences is crucial. We create digital experiences that resonate with everyone.
+                    </p>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-purple-500/20 flex items-center justify-center">
+                                <i class="fas fa-check text-purple-400"></i>
+                            </div>
+                            <span class="text-lg" data-en="Perfect Arabic RTL Support" data-ar="دعم كامل للعربية RTL">Perfect Arabic RTL Support</span>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-cyan-500/20 flex items-center justify-center">
+                                <i class="fas fa-check text-cyan-400"></i>
+                            </div>
+                            <span class="text-lg" data-en="Kuwait Market Expertise" data-ar="خبرة في السوق الكويتي">Kuwait Market Expertise</span>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-pink-500/20 flex items-center justify-center">
+                                <i class="fas fa-check text-pink-400"></i>
+                            </div>
+                            <span class="text-lg" data-en="Any Niche, Any Business" data-ar="أي مجال، أي عمل">Any Niche, Any Business</span>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-green-500/20 flex items-center justify-center">
+                                <i class="fas fa-check text-green-400"></i>
+                            </div>
+                            <span class="text-lg" data-en="Conversion-Focused Design" data-ar="تصميم يركز على التحويل">Conversion-Focused Design</span>
+                        </div>
+                    </div>
                 </div>
                 
-                <div class="gradient-border rounded-2xl p-6 reveal">
-                    <div class="text-3xl mb-4">🎯</div>
-                    <h3 class="text-xl font-bold mb-2">Perfect Lip-Sync</h3>
-                    <p class="text-slate-400">Our editors time every word to match your original mouth movements naturally.</p>
-                </div>
-                
-                <div class="gradient-border rounded-2xl p-6 reveal">
-                    <div class="text-3xl mb-4">⚡</div>
-                    <h3 class="text-xl font-bold mb-2">48-72hr Turnaround</h3>
-                    <p class="text-slate-400">Most projects delivered in 2-3 days. Rush delivery available.</p>
-                </div>
-                
-                <div class="gradient-border rounded-2xl p-6 reveal">
-                    <div class="text-3xl mb-4">🔄</div>
-                    <h3 class="text-xl font-bold mb-2">Unlimited Revisions</h3>
-                    <p class="text-slate-400">Not happy? We'll revise until it's perfect. No extra charges.</p>
-                </div>
-                
-                <div class="gradient-border rounded-2xl p-6 reveal">
-                    <div class="text-3xl mb-4">🎤</div>
-                    <h3 class="text-xl font-bold mb-2">Voice Matching</h3>
-                    <p class="text-slate-400">We find a voice artist that matches your style, tone, and energy.</p>
-                </div>
-                
-                <div class="gradient-border rounded-2xl p-6 reveal">
-                    <div class="text-3xl mb-4">📈</div>
-                    <h3 class="text-xl font-bold mb-2">Hindi SEO Included</h3>
-                    <p class="text-slate-400">Get optimized titles, descriptions, and tags for the Indian algorithm.</p>
+                <div class="relative slide-up" style="transition-delay: 0.2s;">
+                    <!-- Creative Visual -->
+                    <div class="relative">
+                        <div class="absolute inset-0 cta-gradient rounded-3xl blur-3xl opacity-30"></div>
+                        <div class="relative glow-box rounded-3xl p-8 text-center">
+                            <div class="text-6xl mb-4">🇰🇼</div>
+                            <div class="text-4xl font-black mb-2">Kuwait</div>
+                            <div class="flex justify-center gap-4 text-2xl mb-6">
+                                <span>🇬🇧 English</span>
+                                <span>+</span>
+                                <span>العربية 🇸🇦</span>
+                            </div>
+                            <div class="grid grid-cols-3 gap-4 mt-8">
+                                <div class="glow-box rounded-xl p-4">
+                                    <i class="fas fa-store text-2xl text-purple-400 mb-2"></i>
+                                    <div class="text-xs text-gray-400" data-en="Retail" data-ar="التجزئة">Retail</div>
+                                </div>
+                                <div class="glow-box rounded-xl p-4">
+                                    <i class="fas fa-utensils text-2xl text-cyan-400 mb-2"></i>
+                                    <div class="text-xs text-gray-400" data-en="F&B" data-ar="المطاعم">F&B</div>
+                                </div>
+                                <div class="glow-box rounded-xl p-4">
+                                    <i class="fas fa-building text-2xl text-pink-400 mb-2"></i>
+                                    <div class="text-xs text-gray-400" data-en="Real Estate" data-ar="العقارات">Real Estate</div>
+                                </div>
+                                <div class="glow-box rounded-xl p-4">
+                                    <i class="fas fa-heartbeat text-2xl text-red-400 mb-2"></i>
+                                    <div class="text-xs text-gray-400" data-en="Healthcare" data-ar="الصحة">Healthcare</div>
+                                </div>
+                                <div class="glow-box rounded-xl p-4">
+                                    <i class="fas fa-graduation-cap text-2xl text-yellow-400 mb-2"></i>
+                                    <div class="text-xs text-gray-400" data-en="Education" data-ar="التعليم">Education</div>
+                                </div>
+                                <div class="glow-box rounded-xl p-4">
+                                    <i class="fas fa-ellipsis-h text-2xl text-green-400 mb-2"></i>
+                                    <div class="text-xs text-gray-400" data-en="& More" data-ar="والمزيد">& More</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- FAQ Section -->
-    <section id="faq" class="py-24 bg-slate-900/50">
-        <div class="max-w-3xl mx-auto px-6">
-            <div class="text-center mb-16 reveal">
-                <span class="text-indigo-400 font-semibold text-sm uppercase tracking-wider">FAQ</span>
-                <h2 class="text-4xl md:text-5xl font-bold mt-4">Common Questions</h2>
+    <!-- Process Section -->
+    <section class="py-24 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 slide-up">
+                <span class="text-pink-400 text-sm uppercase tracking-widest" data-en="Our Process" data-ar="منهجيتنا">Our Process</span>
+                <h2 class="text-4xl md:text-6xl font-black mt-4" data-en="Simple. Fast. Effective." data-ar="بسيط. سريع. فعّال.">Simple. Fast. <span class="gradient-text">Effective.</span></h2>
             </div>
             
-            <div class="space-y-4">
-                <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden reveal">
-                    <button class="faq-toggle w-full px-6 py-5 text-left flex justify-between items-center">
-                        <span class="font-semibold">How is this different from AI dubbing?</span>
-                        <svg class="w-5 h-5 text-slate-400 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-                    </button>
-                    <div class="faq-content hidden px-6 pb-5 text-slate-400">
-                        AI dubbing sounds robotic and misses emotional nuances. We use real professional voice artists who understand tone, emotion, and cultural context. Your audience will never know it's dubbed.
-                    </div>
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="text-center slide-up">
+                    <div class="w-20 h-20 rounded-full cta-gradient mx-auto flex items-center justify-center text-3xl font-black mb-4">1</div>
+                    <h3 class="text-xl font-bold mb-2" data-en="Discovery Call" data-ar="مكالمة استكشافية">Discovery Call</h3>
+                    <p class="text-gray-400" data-en="We learn about your business and goals" data-ar="نتعرف على عملك وأهدافك">We learn about your business and goals</p>
                 </div>
-                
-                <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden reveal">
-                    <button class="faq-toggle w-full px-6 py-5 text-left flex justify-between items-center">
-                        <span class="font-semibold">What types of content do you dub?</span>
-                        <svg class="w-5 h-5 text-slate-400 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-                    </button>
-                    <div class="faq-content hidden px-6 pb-5 text-slate-400">
-                        YouTube videos, online courses, documentaries, brand videos, explainers, tutorials, vlogs, podcasts, and more. If it has spoken English, we can dub it to Hindi.
-                    </div>
+                <div class="text-center slide-up" style="transition-delay: 0.1s;">
+                    <div class="w-20 h-20 rounded-full cta-gradient mx-auto flex items-center justify-center text-3xl font-black mb-4">2</div>
+                    <h3 class="text-xl font-bold mb-2" data-en="Strategy" data-ar="الاستراتيجية">Strategy</h3>
+                    <p class="text-gray-400" data-en="Custom plan for your Kuwait audience" data-ar="خطة مخصصة لجمهورك الكويتي">Custom plan for your Kuwait audience</p>
                 </div>
-                
-                <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden reveal">
-                    <button class="faq-toggle w-full px-6 py-5 text-left flex justify-between items-center">
-                        <span class="font-semibold">How long does the process take?</span>
-                        <svg class="w-5 h-5 text-slate-400 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-                    </button>
-                    <div class="faq-content hidden px-6 pb-5 text-slate-400">
-                        Most videos are delivered within 48-72 hours. Longer content or rush orders can be discussed. We'll give you an exact timeline before you commit.
-                    </div>
+                <div class="text-center slide-up" style="transition-delay: 0.2s;">
+                    <div class="w-20 h-20 rounded-full cta-gradient mx-auto flex items-center justify-center text-3xl font-black mb-4">3</div>
+                    <h3 class="text-xl font-bold mb-2" data-en="Execution" data-ar="التنفيذ">Execution</h3>
+                    <p class="text-gray-400" data-en="We build and launch your campaigns" data-ar="نبني وننطلق بحملاتك">We build and launch your campaigns</p>
                 </div>
-                
-                <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden reveal">
-                    <button class="faq-toggle w-full px-6 py-5 text-left flex justify-between items-center">
-                        <span class="font-semibold">What if I don't like the voice?</span>
-                        <svg class="w-5 h-5 text-slate-400 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-                    </button>
-                    <div class="faq-content hidden px-6 pb-5 text-slate-400">
-                        We offer unlimited revisions. If the voice doesn't fit, we'll match you with another artist at no extra cost. Your satisfaction is guaranteed.
-                    </div>
-                </div>
-                
-                <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden reveal">
-                    <button class="faq-toggle w-full px-6 py-5 text-left flex justify-between items-center">
-                        <span class="font-semibold">Can you match my own voice?</span>
-                        <svg class="w-5 h-5 text-slate-400 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-                    </button>
-                    <div class="faq-content hidden px-6 pb-5 text-slate-400">
-                        Yes! We offer AI-assisted voice cloning for enterprise clients. Your Hindi content will sound like YOU, just speaking Hindi fluently. Contact us for details.
-                    </div>
+                <div class="text-center slide-up" style="transition-delay: 0.3s;">
+                    <div class="w-20 h-20 rounded-full cta-gradient mx-auto flex items-center justify-center text-3xl font-black mb-4">4</div>
+                    <h3 class="text-xl font-bold mb-2" data-en="Results" data-ar="النتائج">Results</h3>
+                    <p class="text-gray-400" data-en="Watch your phone ring with leads" data-ar="شاهد هاتفك يرن بالعملاء المحتملين">Watch your phone ring with leads</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- CTA Section -->
-    <section id="contact" class="py-24">
-        <div class="max-w-4xl mx-auto px-6">
-            <div class="bg-gradient-to-br from-indigo-900/50 to-purple-900/50 rounded-3xl p-12 border border-indigo-500/30 reveal">
-                <div class="text-center mb-10">
-                    <h2 class="text-4xl md:text-5xl font-bold mb-4">Get Your Free Sample</h2>
-                    <p class="text-xl text-slate-300">Send us a 1-minute clip. We'll dub it for free. No strings attached.</p>
-                </div>
+    <section id="contact" class="py-24 px-6 relative overflow-hidden">
+        <div class="absolute inset-0">
+            <div class="absolute inset-0 cta-gradient opacity-10"></div>
+            <div class="absolute top-0 left-1/4 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-cyan-500/20 rounded-full blur-3xl"></div>
+        </div>
+        
+        <div class="max-w-4xl mx-auto text-center relative z-10 slide-up">
+            <h2 class="text-4xl md:text-6xl font-black mb-6" data-en="Ready to Grow Your Kuwait Business?" data-ar="مستعد لتنمية أعمالك في الكويت؟">Ready to Grow Your <span class="gradient-text">Kuwait Business?</span></h2>
+            <p class="text-xl text-gray-400 mb-10" data-en="Let's discuss how we can help you reach more customers in Kuwait with bilingual digital marketing." data-ar="دعنا نناقش كيف يمكننا مساعدتك في الوصول إلى المزيد من العملاء في الكويت من خلال التسويق الرقمي ثنائي اللغة.">
+                Let's discuss how we can help you reach more customers in Kuwait with bilingual digital marketing.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row gap-6 justify-center items-center mb-12">
+                <a href="mailto:hello@leadstocalls.com" class="glow-box rounded-2xl px-8 py-6 flex items-center gap-4 hover:scale-105 transition-transform w-full sm:w-auto">
+                    <div class="w-14 h-14 rounded-xl cta-gradient flex items-center justify-center">
+                        <i class="fas fa-envelope text-2xl"></i>
+                    </div>
+                    <div class="text-left">
+                        <div class="text-sm text-gray-400" data-en="Email Us" data-ar="راسلنا">Email Us</div>
+                        <div class="text-lg font-bold">hello@leadstocalls.com</div>
+                    </div>
+                </a>
                 
-                <form class="max-w-md mx-auto space-y-4" id="contactForm">
-                    <input type="text" placeholder="Your Name" required class="w-full bg-slate-900/50 border border-slate-700 rounded-xl px-6 py-4 focus:outline-none focus:border-indigo-500 transition placeholder-slate-500">
-                    <input type="email" placeholder="Your Email" required class="w-full bg-slate-900/50 border border-slate-700 rounded-xl px-6 py-4 focus:outline-none focus:border-indigo-500 transition placeholder-slate-500">
-                    <input type="url" placeholder="Video Link (YouTube, Vimeo, Drive)" class="w-full bg-slate-900/50 border border-slate-700 rounded-xl px-6 py-4 focus:outline-none focus:border-indigo-500 transition placeholder-slate-500">
-                    <textarea placeholder="Tell us about your channel/content (optional)" rows="3" class="w-full bg-slate-900/50 border border-slate-700 rounded-xl px-6 py-4 focus:outline-none focus:border-indigo-500 transition placeholder-slate-500 resize-none"></textarea>
-                    <button type="submit" class="w-full bg-gradient-to-r from-indigo-500 to-purple-600 py-4 rounded-xl font-bold text-lg hover:shadow-2xl hover:shadow-indigo-500/30 transition-all flex items-center justify-center gap-2">
-                        Get My Free Sample
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-                    </button>
-                </form>
-                
-                <p class="text-center text-sm text-slate-400 mt-6">Or email us directly at <a href="mailto:hello@leadstocalls.com" class="text-indigo-400 font-semibold hover:underline">hello@leadstocalls.com</a></p>
+                <a href="tel:+919311233930" class="glow-box rounded-2xl px-8 py-6 flex items-center gap-4 hover:scale-105 transition-transform w-full sm:w-auto">
+                    <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-green-500 to-emerald-500 flex items-center justify-center">
+                        <i class="fas fa-phone text-2xl"></i>
+                    </div>
+                    <div class="text-left">
+                        <div class="text-sm text-gray-400" data-en="Call Us" data-ar="اتصل بنا">Call Us</div>
+                        <div class="text-lg font-bold">+91 9311233930</div>
+                    </div>
+                </a>
             </div>
+            
+            <a href="https://wa.me/919311233930" target="_blank" class="inline-flex items-center gap-3 bg-green-500 hover:bg-green-600 px-8 py-4 rounded-full font-bold text-lg transition-all magnetic-btn">
+                <i class="fab fa-whatsapp text-2xl"></i>
+                <span data-en="Chat on WhatsApp" data-ar="تواصل عبر واتساب">Chat on WhatsApp</span>
+            </a>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="py-12 border-t border-slate-800">
-        <div class="max-w-7xl mx-auto px-6">
+    <footer class="py-12 px-6 border-t border-white/10">
+        <div class="max-w-7xl mx-auto">
             <div class="flex flex-col md:flex-row justify-between items-center gap-6">
-                <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center font-bold">L</div>
-                    <span class="text-xl font-bold">LeadsToCalls</span>
+                <div class="text-2xl font-black">
+                    <span class="text-white">Leads</span><span class="gradient-text">ToCalls</span>
                 </div>
-                
-                <div class="flex items-center gap-8 text-sm text-slate-400">
-                    <a href="#" class="hover:text-white transition">Privacy Policy</a>
-                    <a href="#" class="hover:text-white transition">Terms of Service</a>
-                    <a href="mailto:hello@leadstocalls.com" class="hover:text-white transition">Contact</a>
+                <div class="text-gray-400 text-center" data-en="© 2024 LeadsToCalls. Bilingual Digital Marketing for Kuwait." data-ar="© 2024 LeadsToCalls. التسويق الرقمي ثنائي اللغة للكويت.">
+                    © 2024 LeadsToCalls. Bilingual Digital Marketing for Kuwait.
                 </div>
-                
-                <div class="text-slate-500 text-sm">
-                    © 2024 LeadsToCalls. All rights reserved.
+                <div class="flex gap-4">
+                    <a href="#" class="w-10 h-10 rounded-full glow-box flex items-center justify-center hover:scale-110 transition-transform">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 rounded-full glow-box flex items-center justify-center hover:scale-110 transition-transform">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 rounded-full glow-box flex items-center justify-center hover:scale-110 transition-transform">
+                        <i class="fab fa-twitter"></i>
+                    </a>
                 </div>
             </div>
         </div>
     </footer>
 
     <script>
-        // Scroll reveal
-        const revealElements = document.querySelectorAll('.reveal');
-        const revealObserver = new IntersectionObserver((entries) => {
+        // Language Toggle
+        let isArabic = false;
+        const langToggle = document.getElementById('langToggle');
+        const langIcon = document.getElementById('langIcon');
+        const langText = document.getElementById('langText');
+        const html = document.documentElement;
+        
+        langToggle.addEventListener('click', () => {
+            isArabic = !isArabic;
+            
+            if (isArabic) {
+                html.setAttribute('lang', 'ar');
+                html.setAttribute('dir', 'rtl');
+                langIcon.textContent = '🇸🇦';
+                langText.textContent = 'English';
+                
+                document.querySelectorAll('[data-ar]').forEach(el => {
+                    el.textContent = el.getAttribute('data-ar');
+                });
+            } else {
+                html.setAttribute('lang', 'en');
+                html.setAttribute('dir', 'ltr');
+                langIcon.textContent = '🇬🇧';
+                langText.textContent = 'العربية';
+                
+                document.querySelectorAll('[data-en]').forEach(el => {
+                    el.textContent = el.getAttribute('data-en');
+                });
+            }
+        });
+        
+        // Scroll Animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
+                    entry.target.classList.add('visible');
                 }
             });
-        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+        }, observerOptions);
         
-        revealElements.forEach(el => revealObserver.observe(el));
-
-        // FAQ toggles
-        document.querySelectorAll('.faq-toggle').forEach(button => {
-            button.addEventListener('click', () => {
-                const content = button.nextElementSibling;
-                const icon = button.querySelector('svg');
-                
-                content.classList.toggle('hidden');
-                icon.style.transform = content.classList.contains('hidden') ? 'rotate(0)' : 'rotate(180deg)';
-            });
+        document.querySelectorAll('.slide-up').forEach(el => {
+            observer.observe(el);
         });
-
-        // Smooth scroll
+        
+        // Counter Animation
+        const counters = document.querySelectorAll('.counter');
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counter = entry.target;
+                    const target = parseInt(counter.getAttribute('data-count'));
+                    const suffix = counter.textContent.includes('%') ? '%' : '+';
+                    let current = 0;
+                    const increment = target / 50;
+                    const timer = setInterval(() => {
+                        current += increment;
+                        if (current >= target) {
+                            counter.textContent = target + suffix;
+                            clearInterval(timer);
+                        } else {
+                            counter.textContent = Math.floor(current) + suffix;
+                        }
+                    }, 30);
+                    counterObserver.unobserve(counter);
+                }
+            });
+        }, { threshold: 0.5 });
+        
+        counters.forEach(counter => counterObserver.observe(counter));
+        
+        // Smooth Scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
@@ -662,16 +570,24 @@
                 }
             });
         });
-
-        // Form submission
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Thanks! We\'ll send your free sample within 24 hours. Check your email!');
-            this.reset();
+        
+        // Magnetic Button Effect
+        document.querySelectorAll('.magnetic-btn').forEach(btn => {
+            btn.addEventListener('mousemove', (e) => {
+                const rect = btn.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+                btn.style.transform = `translate(${x * 0.1}px, ${y * 0.1}px) scale(1.05)`;
+            });
+            
+            btn.addEventListener('mouseleave', () => {
+                btn.style.transform = 'translate(0, 0) scale(1)';
+            });
         });
     </script>
 </body>
 </html>
+
 
 
 
